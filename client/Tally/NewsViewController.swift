@@ -1,9 +1,14 @@
 import UIKit
+import SDWebImage
 
 class NewsViewController : UITableViewController {
+    var stories = [Story]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 110
         
         refreshControl = UIRefreshControl()
         refreshControl!.addTarget(self, action: "refresh", forControlEvents: .ValueChanged)
@@ -16,23 +21,43 @@ class NewsViewController : UITableViewController {
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return stories.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("NewsCell", forIndexPath: indexPath)
+        let story = stories[indexPath.row]
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier("NewsCell", forIndexPath: indexPath) as! NewsCell
+        cell.blurb.text = story.shortDescription
+        
+        if let thumbnailUrl = story.thumbnailUrl {
+            cell.thumbnail.layer.cornerRadius = 20
+            cell.thumbnail.layer.masksToBounds = true
+            cell.thumbnail.sd_setImageWithURL(NSURL(string: thumbnailUrl))
+        }
+        
         return cell
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        p(tableView.cellForRowAtIndexPath(indexPath)!.frame.height)
     }
     
     func refresh() {
-        Requests.postTo(Endpoints.news, withBody: [:], completionHandler: { response, error in
-            guard error == nil else {
+        Requests.get(Endpoints.stories, completionHandler: { response, error in
+            self.stories.removeAll()
+            
+            if response?.statusCode == 200 {
+                if let stories = response!.body["stories"] as? [[String : AnyObject]] {
+                    for story in stories {
+                        self.stories.append(Story(data: story))
+                    }
+                }
                 return
             }
+            
+            // Else
         })
     }
 }

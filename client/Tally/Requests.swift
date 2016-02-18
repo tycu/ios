@@ -1,16 +1,30 @@
 import Foundation
 
 class Requests {
-
-    static func postTo(url: String, withBody body: [String : AnyObject], completionHandler: (Response?, NSError?) -> Void) {
+    
+    private static func buildRequestTo(url: String) -> NSMutableURLRequest {
         let wrapped: NSMutableURLRequest = NSMutableURLRequest(URL: NSURL(string: url)!)
         wrapped.addValue("Tally iOS \(NSBundle.mainBundle().infoDictionary!["CFBundleVersion"] as! String) (gzip)", forHTTPHeaderField: "User-Agent")
         wrapped.addValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
         wrapped.addValue("application/json", forHTTPHeaderField: "Accept")
         wrapped.timeoutInterval = 10
+        return wrapped
+    }
+    
+    static func get(url: String, completionHandler: (Response?, NSError?) -> Void) {
+        let wrapped = buildRequestTo(url)
         wrapped.HTTPMethod = "GET"
-//        wrapped.HTTPBody = try! NSJSONSerialization.dataWithJSONObject(body, options: [])
-        
+        makeRequest(wrapped, completionHandler: completionHandler)
+    }
+
+    static func post(url: String, withBody body: [String : AnyObject], completionHandler: (Response?, NSError?) -> Void) {
+        let wrapped = buildRequestTo(url)
+        wrapped.HTTPMethod = "POST"
+        wrapped.HTTPBody = try! NSJSONSerialization.dataWithJSONObject(body, options: [])
+        makeRequest(wrapped, completionHandler: completionHandler)
+    }
+    
+    private static func makeRequest(wrapped: NSMutableURLRequest, completionHandler: (Response?, NSError?) -> Void) {
         p("\(wrapped.HTTPMethod) \(wrapped.URL!)")
         
         NSURLSession.sharedSession().dataTaskWithRequest(wrapped, completionHandler: { data, response, error -> Void in

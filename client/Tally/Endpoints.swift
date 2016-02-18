@@ -1,5 +1,5 @@
 class Endpoints {
-    private static let debug = "https://tally-prototype.herokuapp.com"
+    private static let debug = "http://localhost:5000"
     private static let api = "https://tally-prototype.herokuapp.com"
     
     private static var host: String {
@@ -10,5 +10,5 @@ class Endpoints {
         #endif
     }
     
-    static let news = host + "/v1/news"
+    static let stories = host + "/v1/stories"
 }
