@@ -10,6 +10,11 @@ class NewsViewController : UITableViewController {
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 110
         
+        let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .Gray)
+        activityIndicator.center = tableView.center
+        activityIndicator.startAnimating()
+        tableView.backgroundView = activityIndicator
+        
         refreshControl = UIRefreshControl()
         refreshControl!.addTarget(self, action: "refresh", forControlEvents: .ValueChanged)
         
@@ -31,7 +36,7 @@ class NewsViewController : UITableViewController {
         cell.blurb.text = story.blurb
         
         if let thumbnailUrl = story.thumbnailUrl {
-            cell.thumbnail.layer.cornerRadius = 20
+            cell.thumbnail.layer.cornerRadius = 2
             cell.thumbnail.layer.masksToBounds = true
             cell.thumbnail.sd_setImageWithURL(NSURL(string: thumbnailUrl))
         }
@@ -43,6 +48,7 @@ class NewsViewController : UITableViewController {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         
         let storyViewController = storyboard!.instantiateViewControllerWithIdentifier("StoryViewController") as! StoryViewController
+        storyViewController.story = stories[indexPath.row]
         navigationController!.pushViewController(storyViewController, animated: true)
     }
     
@@ -56,10 +62,23 @@ class NewsViewController : UITableViewController {
                         self.stories.append(Story(data: story))
                     }
                 }
-                return
             }
             
-            // Else
+            self.refreshControl!.endRefreshing()
+            
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (Int64)(0.3 * Double(NSEC_PER_SEC))), dispatch_get_main_queue()) {
+                self.tableView.reloadData()
+                
+                if (self.stories.count == 0) {
+                    if response?.statusCode == 200 {
+                        // There are no stories right now
+                    } else {
+                        // Something bad happened
+                    }
+                } else {
+                    self.tableView.backgroundView = nil
+                }
+            }
         })
     }
 }

@@ -29,7 +29,9 @@ class Requests {
         
         NSURLSession.sharedSession().dataTaskWithRequest(wrapped, completionHandler: { data, response, error -> Void in
             if error != nil {
-                completionHandler(nil, error)
+                dispatch_async(dispatch_get_main_queue(), {
+                    completionHandler(nil, error)
+                })
                 return
             }
             
@@ -39,11 +41,15 @@ class Requests {
                 body = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions(rawValue: 0)) as? [String: AnyObject]
             } catch let e {
                 p(e)
-                completionHandler(nil, NSError(domain:NSBundle.mainBundle().bundleIdentifier!, code:0, userInfo:[NSLocalizedDescriptionKey: "Error processing network response"]))
+                dispatch_async(dispatch_get_main_queue(), {
+                    completionHandler(nil, NSError(domain:NSBundle.mainBundle().bundleIdentifier!, code:0, userInfo:[NSLocalizedDescriptionKey: "Error processing network response"]))
+                })
                 return
             }
             
-            completionHandler(Response(statusCode: httpResponse.statusCode, body: body!), nil)
+            dispatch_async(dispatch_get_main_queue(), {
+                completionHandler(Response(statusCode: httpResponse.statusCode, body: body!), nil)
+            })
         }).resume()
     }
     
