@@ -1,0 +1,45 @@
+import Foundation
+
+class Requests {
+
+    static func postTo(url: String, withBody body: [String : AnyObject], completionHandler: (Response?, NSError?) -> Void) {
+        let wrapped: NSMutableURLRequest = NSMutableURLRequest(URL: NSURL(string: url)!)
+        wrapped.addValue("Tally iOS \(NSBundle.mainBundle().infoDictionary!["CFBundleVersion"] as! String) (gzip)", forHTTPHeaderField: "User-Agent")
+        wrapped.addValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
+        wrapped.addValue("application/json", forHTTPHeaderField: "Accept")
+        wrapped.timeoutInterval = 10
+        wrapped.HTTPMethod = "GET"
+//        wrapped.HTTPBody = try! NSJSONSerialization.dataWithJSONObject(body, options: [])
+        
+        p("\(wrapped.HTTPMethod) \(wrapped.URL!)")
+        
+        NSURLSession.sharedSession().dataTaskWithRequest(wrapped, completionHandler: { data, response, error -> Void in
+            if error != nil {
+                completionHandler(nil, error)
+                return
+            }
+            
+            let httpResponse = response as! NSHTTPURLResponse
+            let body: [String: AnyObject]?
+            do {
+                body = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions(rawValue: 0)) as? [String: AnyObject]
+            } catch let e {
+                p(e)
+                completionHandler(nil, NSError(domain:NSBundle.mainBundle().bundleIdentifier!, code:0, userInfo:[NSLocalizedDescriptionKey: "Error processing network response"]))
+                return
+            }
+            
+            completionHandler(Response(statusCode: httpResponse.statusCode, body: body!), nil)
+        }).resume()
+    }
+    
+    class Response {
+        let statusCode: Int
+        let body: [String : AnyObject]
+        
+        init(statusCode: Int, body: [String : AnyObject]) {
+            self.statusCode = statusCode
+            self.body = body
+        }
+    }
+}

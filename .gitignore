@@ -1,0 +1,5 @@
+xcuserdata/
+xcshareddata/
+*.pbxuser
+*~.nib
+.DS_Store
