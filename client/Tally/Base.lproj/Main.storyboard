@@ -43,6 +43,25 @@
             </objects>
             <point key="canvasLocation" x="158" y="835"/>
         </scene>
+        <!--Story View Controller-->
+        <scene sceneID="zbQ-3B-Glr">
+            <objects>
+                <viewController storyboardIdentifier="StoryViewController" id="ayg-Ig-CML" customClass="StoryViewController" customModule="Tally" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="QsY-it-lhe"/>
+                        <viewControllerLayoutGuide type="bottom" id="EZG-mK-yut"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="iDJ-ng-T0U">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ear-7A-Wtj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="898" y="663"/>
+        </scene>
         <!--News-->
         <scene sceneID="MXU-DQ-Y8J">
             <objects>

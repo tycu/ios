@@ -19,6 +19,7 @@
 		607A65BF1C75880A00D1B754 /* Logging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607A65BE1C75880A00D1B754 /* Logging.swift */; };
 		607A65C11C7596C400D1B754 /* Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607A65C01C7596C400D1B754 /* Endpoints.swift */; };
 		607A65C41C75A94200D1B754 /* Story.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607A65C31C75A94200D1B754 /* Story.swift */; };
+		607A65C61C75BFA700D1B754 /* StoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607A65C51C75BFA700D1B754 /* StoryViewController.swift */; };
 		790E0482251E502E99200BD3 /* Pods_Tally.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50ACE4E9031FC990560B24EE /* Pods_Tally.framework */; };
 /* End PBXBuildFile section */
 
@@ -40,6 +41,7 @@
 		607A65BE1C75880A00D1B754 /* Logging.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logging.swift; sourceTree = "<group>"; };
 		607A65C01C7596C400D1B754 /* Endpoints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Endpoints.swift; sourceTree = "<group>"; };
 		607A65C31C75A94200D1B754 /* Story.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Story.swift; sourceTree = "<group>"; };
+		607A65C51C75BFA700D1B754 /* StoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +97,7 @@
 				607A65B21C757F5000D1B754 /* NavigationController.swift */,
 				607A65B91C75824300D1B754 /* NewsCell.swift */,
 				607A65B71C7580B000D1B754 /* NewsViewController.swift */,
+				607A65C51C75BFA700D1B754 /* StoryViewController.swift */,
 			);
 			name = Scenes;
 			sourceTree = "<group>";
@@ -255,6 +258,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				607A65C61C75BFA700D1B754 /* StoryViewController.swift in Sources */,
 				607A65B61C757FC200D1B754 /* MainViewController.swift in Sources */,
 				607A65A11C7577EF00D1B754 /* AppDelegate.swift in Sources */,
 				607A65B31C757F5000D1B754 /* NavigationController.swift in Sources */,

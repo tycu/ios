@@ -26,9 +26,9 @@ class NewsViewController : UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let story = stories[indexPath.row]
-        
         let cell = tableView.dequeueReusableCellWithIdentifier("NewsCell", forIndexPath: indexPath) as! NewsCell
-        cell.blurb.text = story.shortDescription
+        
+        cell.blurb.text = story.blurb
         
         if let thumbnailUrl = story.thumbnailUrl {
             cell.thumbnail.layer.cornerRadius = 20
@@ -41,7 +41,9 @@ class NewsViewController : UITableViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        p(tableView.cellForRowAtIndexPath(indexPath)!.frame.height)
+        
+        let storyViewController = storyboard!.instantiateViewControllerWithIdentifier("StoryViewController") as! StoryViewController
+        navigationController!.pushViewController(storyViewController, animated: true)
     }
     
     func refresh() {
