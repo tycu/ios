@@ -36,28 +36,31 @@ class Requests {
             }
             
             let httpResponse = response as! NSHTTPURLResponse
-            let body: [String: AnyObject]?
-            do {
-                body = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions(rawValue: 0)) as? [String: AnyObject]
-            } catch let e {
-                p(e)
-                dispatch_async(dispatch_get_main_queue(), {
-                    completionHandler(nil, NSError(domain:NSBundle.mainBundle().bundleIdentifier!, code:0, userInfo:[NSLocalizedDescriptionKey: "Error processing network response"]))
-                })
-                return
+            var body: [String: AnyObject]?
+            
+            if httpResponse.statusCode == 200 {
+                do {
+                    body = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions(rawValue: 0)) as? [String: AnyObject]
+                } catch let e {
+                    p(e)
+                    dispatch_async(dispatch_get_main_queue(), {
+                        completionHandler(nil, NSError(domain:NSBundle.mainBundle().bundleIdentifier!, code:0, userInfo:[NSLocalizedDescriptionKey: "Error processing network response"]))
+                    })
+                    return
+                }
             }
             
             dispatch_async(dispatch_get_main_queue(), {
-                completionHandler(Response(statusCode: httpResponse.statusCode, body: body!), nil)
+                completionHandler(Response(statusCode: httpResponse.statusCode, body: body), nil)
             })
         }).resume()
     }
     
     class Response {
         let statusCode: Int
-        let body: [String : AnyObject]
+        let body: [String : AnyObject]?
         
-        init(statusCode: Int, body: [String : AnyObject]) {
+        init(statusCode: Int, body: [String : AnyObject]?) {
             self.statusCode = statusCode
             self.body = body
         }

@@ -1,7 +1,7 @@
 import UIKit
 
-class StoryViewController: UIViewController {
-    var story: Story!
+class EventViewController: UIViewController {
+    var event: Event!
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)

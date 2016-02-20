@@ -24,7 +24,7 @@
             </objects>
             <point key="canvasLocation" x="516" y="299"/>
         </scene>
-        <!--Settings-->
+        <!--Profile-->
         <scene sceneID="O1a-Hc-jBZ">
             <objects>
                 <viewController id="yWm-Zr-rU2" sceneMemberID="viewController">
@@ -37,16 +37,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Settings" image="Settings" selectedImage="SettingsFilled" id="W6Y-RA-pOY"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="ProfileMale" selectedImage="ProfileMaleFilled" id="W6Y-RA-pOY"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zFF-l9-qHW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="158" y="835"/>
         </scene>
-        <!--Story View Controller-->
+        <!--Event View Controller-->
         <scene sceneID="zbQ-3B-Glr">
             <objects>
-                <viewController storyboardIdentifier="StoryViewController" id="ayg-Ig-CML" customClass="StoryViewController" customModule="Tally" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="StoryViewController" id="ayg-Ig-CML" customClass="EventViewController" customModule="Tally" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="QsY-it-lhe"/>
                         <viewControllerLayoutGuide type="bottom" id="EZG-mK-yut"/>
@@ -62,10 +62,10 @@
             </objects>
             <point key="canvasLocation" x="963" y="623"/>
         </scene>
-        <!--News-->
+        <!--Events-->
         <scene sceneID="MXU-DQ-Y8J">
             <objects>
-                <tableViewController id="Y56-hz-VU3" customClass="NewsViewController" customModule="Tally" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="Y56-hz-VU3" customClass="EventsViewController" customModule="Tally" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="mAW-hz-Lxd">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -76,7 +76,7 @@
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="NewsCell" id="iS0-de-XaI" customClass="NewsCell" customModule="Tally" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="EventCell" id="iS0-de-XaI" customClass="EventCell" customModule="Tally" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" tableViewCell="iS0-de-XaI" id="9gy-qj-CQ5">
@@ -124,7 +124,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="blurb" destination="vFZ-vZ-8qz" id="5Ek-Zo-efM"/>
+                                    <outlet property="summary" destination="vFZ-vZ-8qz" id="bEB-ez-la0"/>
                                     <outlet property="thumbnail" destination="Lex-r9-yNp" id="Be2-q9-lQa"/>
                                     <outlet property="time" destination="ZKZ-eN-xR3" id="A9x-0J-uGs"/>
                                 </connections>
@@ -135,7 +135,7 @@
                             <outlet property="delegate" destination="Y56-hz-VU3" id="CJp-G4-xk4"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="News" image="News" selectedImage="NewsFilled" id="oxs-uz-Ww2"/>
+                    <tabBarItem key="tabBarItem" title="Events" image="Events" selectedImage="EventsFilled" id="oxs-uz-Ww2"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R9U-Fb-rx2" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -164,11 +164,11 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Events" width="25" height="25"/>
+        <image name="EventsFilled" width="25" height="25"/>
         <image name="Leaderboard" width="25" height="25"/>
         <image name="LeaderboardFilled" width="25" height="25"/>
-        <image name="News" width="25" height="25"/>
-        <image name="NewsFilled" width="25" height="25"/>
-        <image name="Settings" width="25" height="25"/>
-        <image name="SettingsFilled" width="25" height="25"/>
+        <image name="ProfileMale" width="25" height="25"/>
+        <image name="ProfileMaleFilled" width="25" height="25"/>
     </resources>
 </document>

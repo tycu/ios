@@ -10,6 +10,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
         window!.backgroundColor = UIColor.whiteColor()
+        window!.tintColor = Colors.purple
         window!.rootViewController = navigationController
         window!.makeKeyAndVisible()
         return true

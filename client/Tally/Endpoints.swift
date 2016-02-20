@@ -10,5 +10,5 @@ class Endpoints {
         #endif
     }
     
-    static let stories = host + "/v1/stories"
+    static let events = host + "/v1/events"
 }
