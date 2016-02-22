@@ -2,22 +2,27 @@ import Foundation
 
 class Event {
     let iden: String, summary: String
-    let thumbnailUrl: String?
-    let created: NSTimeInterval, modified: NSTimeInterval
+    let created: NSDate, modified: NSDate
+    let politician: Politician?
     
     init(data: [String : AnyObject]) throws {
-        if let iden = data["iden"] as? String, summary = data["summary"] as? String, created = data["created"] as? NSTimeInterval, modified = data["modified"] as? NSTimeInterval {
+        if let iden = data["iden"] as? String, summary = data["summary"] as? String, created = data["created"] as? Double, modified = data["modified"] as? Double, politician = data["politician"] as? [String : AnyObject] {
             self.iden = iden
             self.summary = summary
-            self.created = created
-            self.modified = modified
-            thumbnailUrl = data["thumbnailUrl"] as? String
-        } else { // This is stupid but required right now
+            self.created = NSDate(timeIntervalSince1970: created)
+            self.modified = NSDate(timeIntervalSince1970: modified)
+            do {
+                self.politician = try Politician(data: politician)
+            } catch let e {
+                self.politician = nil
+                throw e
+            }
+        } else {
             self.iden = ""
             self.summary = ""
-            self.thumbnailUrl = nil
-            self.created = 0
-            self.modified = 0
+            self.created = NSDate()
+            self.modified = NSDate()
+            self.politician = nil
             throw Error.QuietError("Invalid event data")
         }
     }

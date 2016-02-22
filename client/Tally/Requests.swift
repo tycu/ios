@@ -1,6 +1,7 @@
 import Foundation
 
 class Requests {
+    private static let session: NSURLSession = NSURLSession(configuration: NSURLSessionConfiguration.ephemeralSessionConfiguration())
     
     private static func buildRequestTo(url: String) -> NSMutableURLRequest {
         let wrapped: NSMutableURLRequest = NSMutableURLRequest(URL: NSURL(string: url)!)
@@ -27,7 +28,7 @@ class Requests {
     private static func makeRequest(wrapped: NSMutableURLRequest, completionHandler: (Response?, NSError?) -> Void) {
         p("\(wrapped.HTTPMethod) \(wrapped.URL!)")
         
-        NSURLSession.sharedSession().dataTaskWithRequest(wrapped, completionHandler: { data, response, error -> Void in
+        session.dataTaskWithRequest(wrapped, completionHandler: { data, response, error -> Void in
             if error != nil {
                 dispatch_async(dispatch_get_main_queue(), {
                     completionHandler(nil, error)

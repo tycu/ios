@@ -16,7 +16,14 @@ class EventsViewController : UITableViewController {
         tableView.backgroundView = activityIndicator
         
         refreshControl = UIRefreshControl()
+        refreshControl!.tintColor = Colors.purple
         refreshControl!.addTarget(self, action: "refresh", forControlEvents: .ValueChanged)
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        tableView.contentInset = UIEdgeInsetsMake(topLayoutGuide.length, 0, tabBarController!.tabBar.frame.size.height, 0)
         
         refresh()
     }
@@ -33,10 +40,11 @@ class EventsViewController : UITableViewController {
         let event = events[indexPath.row]
         let cell = tableView.dequeueReusableCellWithIdentifier("EventCell", forIndexPath: indexPath) as! EventCell
         
-        cell.summary.text = event.summary
+        cell.summary.presentMarkdown(event.summary)
+        cell.time.text = event.created.humanReadableTimeSinceNow
         
-        if let thumbnailUrl = event.thumbnailUrl {
-            cell.thumbnail.layer.cornerRadius = 2
+        if let thumbnailUrl = event.politician?.thumbnailUrl {
+            cell.thumbnail.layer.cornerRadius = cell.thumbnail.frame.width / 2.0
             cell.thumbnail.layer.masksToBounds = true
             cell.thumbnail.sd_setImageWithURL(NSURL(string: thumbnailUrl))
         }
@@ -50,6 +58,8 @@ class EventsViewController : UITableViewController {
         let eventViewController = storyboard!.instantiateViewControllerWithIdentifier("StoryViewController") as! EventViewController
         eventViewController.event = events[indexPath.row]
         navigationController!.pushViewController(eventViewController, animated: true)
+    
+    
     }
     
     func refresh() {
@@ -70,7 +80,7 @@ class EventsViewController : UITableViewController {
             
             self.refreshControl!.endRefreshing()
             
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (Int64)(0.3 * Double(NSEC_PER_SEC))), dispatch_get_main_queue()) {
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (Int64)(0.5 * Double(NSEC_PER_SEC))), dispatch_get_main_queue()) {
                 self.tableView.reloadData()
                 
                 if (self.events.count == 0) {

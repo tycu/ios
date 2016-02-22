@@ -5,7 +5,7 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Leaderboard-->
+        <!--Scoreboard-->
         <scene sceneID="vFK-C6-kV2">
             <objects>
                 <viewController id="5SN-Fr-ZMZ" sceneMemberID="viewController">
@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Leaderboard" image="Leaderboard" selectedImage="LeaderboardFilled" id="wAc-rV-KXs"/>
+                    <tabBarItem key="tabBarItem" title="Scoreboard" image="Scoreboard" selectedImage="ScoreboardFilled" id="wAc-rV-KXs"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yW6-JZ-Lj2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -84,30 +84,30 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lex-r9-yNp">
-                                            <rect key="frame" x="15" y="10" width="48" height="48"/>
+                                            <rect key="frame" x="15" y="10" width="55" height="55"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="48" id="Qn8-4z-U0h"/>
-                                                <constraint firstAttribute="height" constant="48" id="jPp-Kb-axa"/>
+                                                <constraint firstAttribute="width" constant="55" id="Qn8-4z-U0h"/>
+                                                <constraint firstAttribute="height" constant="55" id="jPp-Kb-axa"/>
                                             </constraints>
                                         </imageView>
-                                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="hsl-7I-PGa">
-                                            <rect key="frame" x="75" y="10" width="194" height="20"/>
+                                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="hsl-7I-PGa">
+                                            <rect key="frame" x="82" y="10" width="192" height="18"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vFZ-vZ-8qz">
-                                                    <rect key="frame" x="0.0" y="0.0" width="194" height="20"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vFZ-vZ-8qz">
+                                                    <rect key="frame" x="0.0" y="0.0" width="192" height="18"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                         </stackView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="2h" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="ZKZ-eN-xR3">
-                                            <rect key="frame" x="281" y="10" width="24" height="14.5"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="99d" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="ZKZ-eN-xR3">
+                                            <rect key="frame" x="280" y="10" width="25" height="14.5"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="24" id="raM-us-H6i"/>
+                                                <constraint firstAttribute="width" constant="25" id="raM-us-H6i"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.53333333333333333" green="0.53333333333333333" blue="0.53333333333333333" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -119,7 +119,7 @@
                                         <constraint firstItem="Lex-r9-yNp" firstAttribute="left" secondItem="9gy-qj-CQ5" secondAttribute="leftMargin" id="ZUd-kI-Dgb"/>
                                         <constraint firstItem="hsl-7I-PGa" firstAttribute="top" secondItem="9gy-qj-CQ5" secondAttribute="topMargin" id="dzG-Qt-b4L"/>
                                         <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="hsl-7I-PGa" secondAttribute="bottom" id="f2v-0x-OF2"/>
-                                        <constraint firstItem="hsl-7I-PGa" firstAttribute="right" secondItem="ZKZ-eN-xR3" secondAttribute="left" constant="-12" id="lii-Jw-KWp"/>
+                                        <constraint firstItem="hsl-7I-PGa" firstAttribute="right" secondItem="ZKZ-eN-xR3" secondAttribute="left" constant="-6" id="lii-Jw-KWp"/>
                                         <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="Lex-r9-yNp" secondAttribute="bottom" id="rpb-k6-chL"/>
                                     </constraints>
                                 </tableViewCellContentView>
@@ -166,9 +166,9 @@
     <resources>
         <image name="Events" width="25" height="25"/>
         <image name="EventsFilled" width="25" height="25"/>
-        <image name="Leaderboard" width="25" height="25"/>
-        <image name="LeaderboardFilled" width="25" height="25"/>
         <image name="ProfileMale" width="25" height="25"/>
         <image name="ProfileMaleFilled" width="25" height="25"/>
+        <image name="Scoreboard" width="25" height="25"/>
+        <image name="ScoreboardFilled" width="25" height="25"/>
     </resources>
 </document>

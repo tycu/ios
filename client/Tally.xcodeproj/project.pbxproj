@@ -22,6 +22,9 @@
 		607A65C61C75BFA700D1B754 /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607A65C51C75BFA700D1B754 /* EventViewController.swift */; };
 		607A65C81C78180700D1B754 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607A65C71C78180700D1B754 /* Error.swift */; };
 		607A65CA1C781C0F00D1B754 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607A65C91C781C0F00D1B754 /* Colors.swift */; };
+		607A65CC1C783C9800D1B754 /* Politician.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607A65CB1C783C9800D1B754 /* Politician.swift */; };
+		607A65CE1C78403600D1B754 /* NSDateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607A65CD1C78403600D1B754 /* NSDateExtensions.swift */; };
+		607A65D21C785EBF00D1B754 /* UILabelExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607A65D11C785EBF00D1B754 /* UILabelExtensions.swift */; };
 		790E0482251E502E99200BD3 /* Pods_Tally.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50ACE4E9031FC990560B24EE /* Pods_Tally.framework */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +49,9 @@
 		607A65C51C75BFA700D1B754 /* EventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
 		607A65C71C78180700D1B754 /* Error.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		607A65C91C781C0F00D1B754 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		607A65CB1C783C9800D1B754 /* Politician.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Politician.swift; sourceTree = "<group>"; };
+		607A65CD1C78403600D1B754 /* NSDateExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateExtensions.swift; sourceTree = "<group>"; };
+		607A65D11C785EBF00D1B754 /* UILabelExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILabelExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,10 +115,12 @@
 		607A65BB1C75865700D1B754 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				607A65C91C781C0F00D1B754 /* Colors.swift */,
 				607A65C71C78180700D1B754 /* Error.swift */,
 				607A65BE1C75880A00D1B754 /* Logging.swift */,
+				607A65CD1C78403600D1B754 /* NSDateExtensions.swift */,
 				607A65BC1C75867400D1B754 /* Requests.swift */,
-				607A65C91C781C0F00D1B754 /* Colors.swift */,
+				607A65D11C785EBF00D1B754 /* UILabelExtensions.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -121,6 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				607A65C31C75A94200D1B754 /* Event.swift */,
+				607A65CB1C783C9800D1B754 /* Politician.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -266,13 +275,16 @@
 			files = (
 				607A65C61C75BFA700D1B754 /* EventViewController.swift in Sources */,
 				607A65CA1C781C0F00D1B754 /* Colors.swift in Sources */,
+				607A65D21C785EBF00D1B754 /* UILabelExtensions.swift in Sources */,
 				607A65B61C757FC200D1B754 /* MainViewController.swift in Sources */,
 				607A65A11C7577EF00D1B754 /* AppDelegate.swift in Sources */,
 				607A65C81C78180700D1B754 /* Error.swift in Sources */,
 				607A65B31C757F5000D1B754 /* NavigationController.swift in Sources */,
+				607A65CC1C783C9800D1B754 /* Politician.swift in Sources */,
 				607A65BF1C75880A00D1B754 /* Logging.swift in Sources */,
 				607A65BD1C75867400D1B754 /* Requests.swift in Sources */,
 				607A65B81C7580B000D1B754 /* EventsViewController.swift in Sources */,
+				607A65CE1C78403600D1B754 /* NSDateExtensions.swift in Sources */,
 				607A65C11C7596C400D1B754 /* Endpoints.swift in Sources */,
 				607A65BA1C75824300D1B754 /* EventCell.swift in Sources */,
 				607A65C41C75A94200D1B754 /* Event.swift in Sources */,
