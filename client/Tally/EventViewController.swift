@@ -5,8 +5,8 @@ class EventViewController: UIViewController {
     var event: Event!
     @IBOutlet weak var summary: MarkdownLabel!
     
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
         let backButton = UIBarButtonItem()
         backButton.title = "Back"

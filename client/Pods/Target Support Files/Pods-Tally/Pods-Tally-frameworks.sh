@@ -84,10 +84,18 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "Pods-Tally/Bolts.framework"
+  install_framework "Pods-Tally/FBSDKCoreKit.framework"
+  install_framework "Pods-Tally/FBSDKLoginKit.framework"
+  install_framework "Pods-Tally/FBSDKShareKit.framework"
   install_framework "Pods-Tally/SDWebImage.framework"
   install_framework "Pods-Tally/TTTAttributedLabel.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "Pods-Tally/Bolts.framework"
+  install_framework "Pods-Tally/FBSDKCoreKit.framework"
+  install_framework "Pods-Tally/FBSDKLoginKit.framework"
+  install_framework "Pods-Tally/FBSDKShareKit.framework"
   install_framework "Pods-Tally/SDWebImage.framework"
   install_framework "Pods-Tally/TTTAttributedLabel.framework"
 fi
