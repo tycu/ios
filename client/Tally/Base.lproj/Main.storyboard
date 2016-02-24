@@ -8,7 +8,7 @@
         <!--Scoreboard-->
         <scene sceneID="vFK-C6-kV2">
             <objects>
-                <viewController id="5SN-Fr-ZMZ" sceneMemberID="viewController">
+                <viewController title="Scoreboard" id="5SN-Fr-ZMZ" customClass="ScoreboardViewController" customModule="Tally" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="has-iz-nMS"/>
                         <viewControllerLayoutGuide type="bottom" id="nXx-3M-7hu"/>
@@ -22,12 +22,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yW6-JZ-Lj2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="516" y="299"/>
+            <point key="canvasLocation" x="1048" y="299"/>
         </scene>
         <!--Profile-->
         <scene sceneID="O1a-Hc-jBZ">
             <objects>
-                <viewController id="yWm-Zr-rU2" sceneMemberID="viewController">
+                <viewController title="Profile" id="yWm-Zr-rU2" customClass="ProfileViewController" customModule="Tally" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Lo7-LS-f2j"/>
                         <viewControllerLayoutGuide type="bottom" id="MCv-tA-gEh"/>
@@ -76,24 +76,24 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ear-7A-Wtj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="963" y="623"/>
+            <point key="canvasLocation" x="1495" y="623"/>
         </scene>
         <!--Events-->
         <scene sceneID="MXU-DQ-Y8J">
             <objects>
-                <tableViewController id="Y56-hz-VU3" customClass="EventsViewController" customModule="Tally" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="Events" id="Y56-hz-VU3" customClass="EventsViewController" customModule="Tally" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="mAW-hz-Lxd">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <view key="tableFooterView" contentMode="scaleToFill" id="aF9-qj-Vov">
-                            <rect key="frame" x="0.0" y="72" width="320" height="0.0"/>
+                            <rect key="frame" x="0.0" y="136" width="320" height="0.0"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="EventCell" id="iS0-de-XaI" customClass="EventCell" customModule="Tally" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="92" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" tableViewCell="iS0-de-XaI" id="9gy-qj-CQ5">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
@@ -151,12 +151,12 @@
                             <outlet property="delegate" destination="Y56-hz-VU3" id="CJp-G4-xk4"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Events" image="Events" selectedImage="EventsFilled" id="oxs-uz-Ww2"/>
+                    <navigationItem key="navigationItem" id="GMZ-qT-r1q"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R9U-Fb-rx2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="158" y="299"/>
+            <point key="canvasLocation" x="690" y="299"/>
         </scene>
         <!--Tally-->
         <scene sceneID="cbO-mm-cQl">
@@ -169,7 +169,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="Y56-hz-VU3" kind="relationship" relationship="viewControllers" id="6kR-Bi-Lsu"/>
+                        <segue destination="h3g-gl-lpN" kind="relationship" relationship="viewControllers" id="6kR-Bi-Lsu"/>
                         <segue destination="5SN-Fr-ZMZ" kind="relationship" relationship="viewControllers" id="a1N-ge-W4V"/>
                         <segue destination="yWm-Zr-rU2" kind="relationship" relationship="viewControllers" id="xGx-kI-WlD"/>
                     </connections>
@@ -177,6 +177,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wHH-KC-1EJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-250" y="536"/>
+        </scene>
+        <!--Events-->
+        <scene sceneID="a00-rz-aWA">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="h3g-gl-lpN" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Events" image="Events" selectedImage="EventsFilled" id="oxs-uz-Ww2"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Yx0-lk-F4A">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Y56-hz-VU3" kind="relationship" relationship="rootViewController" id="V8s-Ph-JoW"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Wiu-ye-DHw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="158" y="299"/>
         </scene>
     </scenes>
     <resources>

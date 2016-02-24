@@ -26,6 +26,8 @@
 		607A65CE1C78403600D1B754 /* NSDate+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607A65CD1C78403600D1B754 /* NSDate+Extensions.swift */; };
 		607A65DB1C7D6F5100D1B754 /* MarkdownParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607A65DA1C7D6F5100D1B754 /* MarkdownParser.swift */; };
 		607A65DD1C7D88F400D1B754 /* MarkdownLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607A65DC1C7D88F400D1B754 /* MarkdownLabel.swift */; };
+		607A65DF1C7D96ED00D1B754 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607A65DE1C7D96ED00D1B754 /* ProfileViewController.swift */; };
+		607A65E11C7D971500D1B754 /* ScoreboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607A65E01C7D971500D1B754 /* ScoreboardViewController.swift */; };
 		790E0482251E502E99200BD3 /* Pods_Tally.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50ACE4E9031FC990560B24EE /* Pods_Tally.framework */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +57,8 @@
 		607A65D91C7D66FB00D1B754 /* Tally-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tally-Bridging-Header.h"; sourceTree = "<group>"; };
 		607A65DA1C7D6F5100D1B754 /* MarkdownParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkdownParser.swift; sourceTree = "<group>"; };
 		607A65DC1C7D88F400D1B754 /* MarkdownLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkdownLabel.swift; sourceTree = "<group>"; };
+		607A65DE1C7D96ED00D1B754 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		607A65E01C7D971500D1B754 /* ScoreboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreboardViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +117,8 @@
 				607A65B51C757FC200D1B754 /* MainViewController.swift */,
 				607A65DC1C7D88F400D1B754 /* MarkdownLabel.swift */,
 				607A65B21C757F5000D1B754 /* NavigationController.swift */,
+				607A65DE1C7D96ED00D1B754 /* ProfileViewController.swift */,
+				607A65E01C7D971500D1B754 /* ScoreboardViewController.swift */,
 			);
 			name = Scenes;
 			sourceTree = "<group>";
@@ -285,8 +291,10 @@
 				607A65A11C7577EF00D1B754 /* AppDelegate.swift in Sources */,
 				607A65C81C78180700D1B754 /* Error.swift in Sources */,
 				607A65B31C757F5000D1B754 /* NavigationController.swift in Sources */,
+				607A65DF1C7D96ED00D1B754 /* ProfileViewController.swift in Sources */,
 				607A65CC1C783C9800D1B754 /* Politician.swift in Sources */,
 				607A65BF1C75880A00D1B754 /* Logging.swift in Sources */,
+				607A65E11C7D971500D1B754 /* ScoreboardViewController.swift in Sources */,
 				607A65BD1C75867400D1B754 /* Requests.swift in Sources */,
 				607A65B81C7580B000D1B754 /* EventsViewController.swift in Sources */,
 				607A65CE1C78403600D1B754 /* NSDate+Extensions.swift in Sources */,

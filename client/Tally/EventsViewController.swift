@@ -2,15 +2,20 @@ import UIKit
 import SDWebImage
 
 class EventsViewController : UITableViewController {
+    private let segmentedControl = UISegmentedControl(items: ["Recent", "Top"])
+    private let  activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .Gray)
     var events = [Event]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        segmentedControl.frame = CGRect(x: 0, y: 0, width: 180, height: segmentedControl.frame.height)
+        segmentedControl.selectedSegmentIndex = 0
+        segmentedControl.addTarget(self, action: "segmentIndexSelected:", forControlEvents: .ValueChanged)
+        
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 110
         
-        let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .Gray)
         activityIndicator.center = tableView.center
         activityIndicator.startAnimating()
         tableView.backgroundView = activityIndicator
@@ -23,8 +28,10 @@ class EventsViewController : UITableViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        tableView.contentInset = UIEdgeInsetsMake(0, 0, tabBarController!.tabBar.frame.size.height, 0)
+        navigationItem.titleView = segmentedControl
         
+//        tableView.contentInset = UIEdgeInsetsMake(UIApplication.sharedApplication().statusBarFrame.height + navigationController!.navigationBar.frame.height, 0, tabBarController!.tabBar.frame.height, 0)
+//        
         refresh()
     }
     
@@ -39,7 +46,6 @@ class EventsViewController : UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let event = events[indexPath.row]
         let cell = tableView.dequeueReusableCellWithIdentifier("EventCell", forIndexPath: indexPath) as! EventCell
-        
         
         cell.headline.presentMarkdown(event.headline)
         
@@ -60,6 +66,14 @@ class EventsViewController : UITableViewController {
         let eventViewController = storyboard!.instantiateViewControllerWithIdentifier("StoryViewController") as! EventViewController
         eventViewController.event = events[indexPath.row]
         navigationController!.pushViewController(eventViewController, animated: true)
+    }
+    
+    func segmentIndexSelected(sender: UISegmentedControl) {
+        events.removeAll()
+        tableView.reloadData()
+        tableView.backgroundView = activityIndicator
+        
+        refresh()
     }
     
     func refresh() {
