@@ -3,4 +3,5 @@ use_frameworks!
 
 target 'Tally' do
     pod 'SDWebImage', '3.7.5'
+    pod 'TTTAttributedLabel', '1.13.4'
 end

@@ -3,10 +3,15 @@ import UIKit
 
 class MarkdownParser {
     private var parsingPairs = [ExpressionPair]()
-    var strongFont = UIFont.boldSystemFontOfSize(12)
-    var emphasisFont = UIFont.italicSystemFontOfSize(12)
+    var paragraphFont: UIFont
+    var strongFont: UIFont
+    var emphasisFont: UIFont
     
-    init() {
+    init(label: MarkdownLabel) {
+        paragraphFont = UIFont.systemFontOfSize(label.font.pointSize)
+        strongFont = UIFont.boldSystemFontOfSize(label.font.pointSize)
+        emphasisFont = UIFont.italicSystemFontOfSize(label.font.pointSize)
+        
         // Links
         parsingPairs.append(ExpressionPair(regex: try! NSRegularExpression(pattern: "\\[.*?\\]\\([^\\)]*\\)", options: [.DotMatchesLineSeparators]), mutator: { match, attributedString in
             let nsString = attributedString.string as NSString
@@ -39,6 +44,8 @@ class MarkdownParser {
     
     func attributedStringFromMarkdown(markdown: String) -> NSAttributedString {
         let attributedString = NSMutableAttributedString(string: markdown)
+        
+        attributedString.addAttribute(NSFontAttributeName, value: paragraphFont, range: NSRange(location: 0, length: attributedString.length))
         
         for pair in parsingPairs {
             var done = false

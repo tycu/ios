@@ -54,9 +54,25 @@
                     <view key="view" contentMode="scaleToFill" id="iDJ-ng-T0U">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Summary" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UMe-uy-0pp" customClass="MarkdownLabel" customModule="Tally" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="20" width="320" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="UMe-uy-0pp" firstAttribute="top" secondItem="QsY-it-lhe" secondAttribute="bottom" id="MZO-bW-vu6"/>
+                            <constraint firstItem="UMe-uy-0pp" firstAttribute="left" secondItem="iDJ-ng-T0U" secondAttribute="left" id="NQL-bJ-uqK"/>
+                            <constraint firstItem="UMe-uy-0pp" firstAttribute="width" secondItem="iDJ-ng-T0U" secondAttribute="width" id="rgN-cm-xWt"/>
+                        </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="summary" destination="UMe-uy-0pp" id="qmH-Sg-0Qy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ear-7A-Wtj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -90,10 +106,10 @@
                                                 <constraint firstAttribute="height" constant="55" id="jPp-Kb-axa"/>
                                             </constraints>
                                         </imageView>
-                                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="hsl-7I-PGa">
+                                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="hsl-7I-PGa">
                                             <rect key="frame" x="82" y="10" width="192" height="18"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Faj-ly-0aT">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Faj-ly-0aT" customClass="MarkdownLabel" customModule="Tally" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="0.0" width="192" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>

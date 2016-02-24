@@ -40,10 +40,8 @@ class EventsViewController : UITableViewController {
         let event = events[indexPath.row]
         let cell = tableView.dequeueReusableCellWithIdentifier("EventCell", forIndexPath: indexPath) as! EventCell
         
-        let markdownParser = MarkdownParser()
-        markdownParser.strongFont = UIFont.boldSystemFontOfSize(cell.headline.font.pointSize)
-        markdownParser.emphasisFont = UIFont.italicSystemFontOfSize(cell.headline.font.pointSize)
-        cell.headline.attributedText = markdownParser.attributedStringFromMarkdown(event.headline)
+        
+        cell.headline.presentMarkdown(event.headline)
         
         cell.time.text = event.created.humanReadableTimeSinceNow
         
