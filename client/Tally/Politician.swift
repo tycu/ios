@@ -8,9 +8,9 @@ class Politician {
             self.name = name
             self.thumbnailUrl = data["thumbnailUrl"] as? String
         } else {
-            self.iden = ""
-            self.name = ""
-            self.thumbnailUrl = nil
+            iden = ""
+            name = ""
+            thumbnailUrl = nil
             throw Error.QuietError("Invalid politician data")
         }
     }

@@ -7,12 +7,12 @@ extension NSDate {
         if interval < oneHour {
             let minutesSinceNow = Int(interval / 60.0)
             return "\(minutesSinceNow)m"
-        } else if timeIntervalSinceNow < (24 * oneHour) {
+        } else if interval < (24 * oneHour) {
             let hoursSinceNow = Int(interval / oneHour)
             return "\(hoursSinceNow)h"
         } else {
             let daysSinceNow = Int(interval / (24 * oneHour))
-            return "\(daysSinceNow)"
+            return "\(daysSinceNow)d"
         }
     }
 }

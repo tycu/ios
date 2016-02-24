@@ -23,7 +23,7 @@ class EventsViewController : UITableViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        tableView.contentInset = UIEdgeInsetsMake(topLayoutGuide.length, 0, tabBarController!.tabBar.frame.size.height, 0)
+        tableView.contentInset = UIEdgeInsetsMake(0, 0, tabBarController!.tabBar.frame.size.height, 0)
         
         refresh()
     }
@@ -40,7 +40,11 @@ class EventsViewController : UITableViewController {
         let event = events[indexPath.row]
         let cell = tableView.dequeueReusableCellWithIdentifier("EventCell", forIndexPath: indexPath) as! EventCell
         
-        cell.summary.presentMarkdown(event.summary)
+        let markdownParser = MarkdownParser()
+        markdownParser.strongFont = UIFont.boldSystemFontOfSize(cell.headline.font.pointSize)
+        markdownParser.emphasisFont = UIFont.italicSystemFontOfSize(cell.headline.font.pointSize)
+        cell.headline.attributedText = markdownParser.attributedStringFromMarkdown(event.headline)
+        
         cell.time.text = event.created.humanReadableTimeSinceNow
         
         if let thumbnailUrl = event.politician?.thumbnailUrl {
@@ -58,29 +62,27 @@ class EventsViewController : UITableViewController {
         let eventViewController = storyboard!.instantiateViewControllerWithIdentifier("StoryViewController") as! EventViewController
         eventViewController.event = events[indexPath.row]
         navigationController!.pushViewController(eventViewController, animated: true)
-    
-    
     }
     
     func refresh() {
         Requests.get(Endpoints.events, completionHandler: { response, error in
-            self.events.removeAll()
-            
-            if response?.statusCode == 200 {
-                if let stories = response!.body!["events"] as? [[String : AnyObject]] {
-                    for story in stories {
-                        do {
-                            self.events.append(try Event(data: story))
-                        } catch _ {
-                            p("Skipping invalid event")
-                        }
-                    }
-                }
-            }
-            
             self.refreshControl!.endRefreshing()
             
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (Int64)(0.5 * Double(NSEC_PER_SEC))), dispatch_get_main_queue()) {
+                self.events.removeAll()
+                
+                if response?.statusCode == 200 {
+                    if let stories = response!.body!["events"] as? [[String : AnyObject]] {
+                        for story in stories {
+                            do {
+                                self.events.append(try Event(data: story))
+                            } catch _ {
+                                p("Skipping invalid event")
+                            }
+                        }
+                    }
+                }
+                
                 self.tableView.reloadData()
                 
                 if (self.events.count == 0) {

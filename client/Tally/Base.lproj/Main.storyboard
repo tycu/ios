@@ -93,7 +93,7 @@
                                         <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="hsl-7I-PGa">
                                             <rect key="frame" x="82" y="10" width="192" height="18"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vFZ-vZ-8qz">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Faj-ly-0aT">
                                                     <rect key="frame" x="0.0" y="0.0" width="192" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -124,7 +124,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="summary" destination="vFZ-vZ-8qz" id="bEB-ez-la0"/>
+                                    <outlet property="headline" destination="Faj-ly-0aT" id="fqC-hp-DOK"/>
                                     <outlet property="thumbnail" destination="Lex-r9-yNp" id="Be2-q9-lQa"/>
                                     <outlet property="time" destination="ZKZ-eN-xR3" id="A9x-0J-uGs"/>
                                 </connections>
