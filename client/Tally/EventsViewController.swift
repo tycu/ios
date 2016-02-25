@@ -71,8 +71,6 @@ class EventsViewController : UITableViewController {
     
     func segmentIndexSelected(sender: UISegmentedControl) {
         tableView.reloadData()
-        tableView.backgroundView = activityIndicator
-        
         refresh(self)
     }
     
@@ -80,6 +78,8 @@ class EventsViewController : UITableViewController {
         if sender is EventsViewController && events[activeSort] != nil {
             return
         }
+        
+        tableView.backgroundView = activityIndicator
         
         let sort = activeSort
         let url = Endpoints.events + "?sort=" + sort.rawValue

@@ -11,4 +11,5 @@ class Endpoints {
     }
     
     static let events = host + "/v1/events"
+    static let tokens = host + "/v1/tokens"
 }

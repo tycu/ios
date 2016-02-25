@@ -1,14 +1,47 @@
 import UIKit
+import FBSDKLoginKit
 
-class SignInViewController : UIViewController {
+class SignInViewController : UIViewController, FBSDKLoginButtonDelegate {
+    @IBOutlet weak var facebook: FBSDKLoginButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Skip", style: .Plain, target: self, action: "skip")
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Skip", style: .Plain, target: self, action: "done")
+        
+        facebook.readPermissions = ["public_profile", "email", "user_friends"]
+        facebook.delegate = self
     }
     
-    func skip() {
+    func loginButton(loginButton: FBSDKLoginButton, didCompleteWithResult result: FBSDKLoginManagerLoginResult?, error: NSError?) {
+        guard error == nil && result != nil else {
+            self.showErrorDialogWithMessage("Facebook login failed, please try again.")
+            return
+        }
+        
+        if !result!.isCancelled {
+            if result!.grantedPermissions.contains("email") {
+                let body = ["facebookAccessToken": FBSDKAccessToken.currentAccessToken().tokenString]
+                Requests.post(Endpoints.tokens, withBody: body, completionHandler: { response, error in
+                    print(response?.body, error)
+                })
+            } else {
+                FBSDKLoginManager().logOut()
+                self.showErrorDialogWithMessage("Permission to access your email address is required to sign in, please try again.")
+            }
+        }
+    }
+    
+    func loginButtonDidLogOut(loginButton: FBSDKLoginButton) {
+    }
+    
+    func done() {
         dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    private func showErrorDialogWithMessage(message: String) {
+        let alert = UIAlertController(title: "Error", message: message, preferredStyle: .Alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+        presentViewController(alert, animated: true, completion: nil)
     }
 }

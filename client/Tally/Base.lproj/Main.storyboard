@@ -189,10 +189,23 @@
                     <view key="view" contentMode="scaleToFill" id="fO2-Qa-vQ7">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AjN-kg-rtI" customClass="FBSDKLoginButton">
+                                <rect key="frame" x="137" y="225" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="AjN-kg-rtI" firstAttribute="centerY" secondItem="fO2-Qa-vQ7" secondAttribute="centerY" id="KuJ-qa-MtR"/>
+                            <constraint firstItem="AjN-kg-rtI" firstAttribute="centerX" secondItem="fO2-Qa-vQ7" secondAttribute="centerX" id="QcA-F4-lcg"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="eqW-tB-cV5"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="facebook" destination="AjN-kg-rtI" id="Ohe-J5-rAp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dOG-Ac-m99" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
