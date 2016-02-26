@@ -37,7 +37,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Profile" image="ProfileMale" selectedImage="ProfileMaleFilled" id="W6Y-RA-pOY"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="Profile" selectedImage="ProfileFilled" id="W6Y-RA-pOY"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zFF-l9-qHW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -253,8 +253,8 @@
     <resources>
         <image name="Events" width="25" height="25"/>
         <image name="EventsFilled" width="25" height="25"/>
-        <image name="ProfileMale" width="25" height="25"/>
-        <image name="ProfileMaleFilled" width="25" height="25"/>
+        <image name="Profile" width="25" height="25"/>
+        <image name="ProfileFilled" width="25" height="25"/>
         <image name="Scoreboard" width="25" height="25"/>
         <image name="ScoreboardFilled" width="25" height="25"/>
     </resources>
