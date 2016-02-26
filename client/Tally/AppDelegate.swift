@@ -12,13 +12,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window!.makeKeyAndVisible()
         
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
-        
+        checkLastVersion()
         return true
     }
     
     func applicationDidBecomeActive(application: UIApplication) {
         FBSDKAppEvents.activateApp()
-        checkLastVersion()
+    }
+    
+    func application(application: UIApplication, didRegisterUserNotificationSettings notificationSettings: UIUserNotificationSettings) {
+        application.registerForRemoteNotifications()
+    }
+    
+    func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
+        p(deviceToken)
     }
     
     func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
@@ -26,15 +33,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     private func checkLastVersion() {
-        let lastVersion = NSUserDefaults.standardUserDefaults().objectForKey("lastVersion") as? String
-        let version = NSBundle.mainBundle().infoDictionary!["CFBundleVersion"] as! String
-        if (version != lastVersion) {
-            NSUserDefaults.standardUserDefaults().setValue(version, forKey: "lastVersion")
-            NSUserDefaults.standardUserDefaults().synchronize()
-            if (lastVersion == nil) {
+//        let lastVersion = NSUserDefaults.standardUserDefaults().objectForKey("lastVersion") as? String
+//        let version = NSBundle.mainBundle().infoDictionary!["CFBundleVersion"] as! String
+//        if (version != lastVersion) {
+//            NSUserDefaults.standardUserDefaults().setValue(version, forKey: "lastVersion")
+//            NSUserDefaults.standardUserDefaults().synchronize()
+//            
+//            if (lastVersion == nil) {
                 let signInViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("SignInNavigationController")
                 window!.rootViewController!.presentViewController(signInViewController, animated: true, completion: nil)
-            }
-        }
+//                return
+//            }
+//        }
+//        
+//        let notificationSettings = UIUserNotificationSettings(forTypes: [.Alert, .Sound, .Badge], categories: nil)
+//        UIApplication.sharedApplication().registerUserNotificationSettings(notificationSettings)
     }
 }

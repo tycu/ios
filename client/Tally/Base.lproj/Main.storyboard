@@ -161,7 +161,7 @@
         <!--Tally-->
         <scene sceneID="cbO-mm-cQl">
             <objects>
-                <tabBarController storyboardIdentifier="MainViewController" title="Tally" id="9Ew-f6-jCQ" customClass="MainViewController" customModule="Tally" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="MainViewController" title="Tally" id="9Ew-f6-jCQ" sceneMemberID="viewController">
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="SEg-dV-jHo">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>

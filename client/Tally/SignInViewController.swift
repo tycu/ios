@@ -36,7 +36,10 @@ class SignInViewController : UIViewController, FBSDKLoginButtonDelegate {
     }
     
     func done() {
-        dismissViewControllerAnimated(true, completion: nil)
+        dismissViewControllerAnimated(true, completion: {
+            let notificationSettings = UIUserNotificationSettings(forTypes: [.Alert, .Sound, .Badge], categories: nil)
+            UIApplication.sharedApplication().registerUserNotificationSettings(notificationSettings)
+        })
     }
     
     private func showErrorDialogWithMessage(message: String) {

@@ -11,7 +11,6 @@
 		607A65A61C7577EF00D1B754 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607A65A41C7577EF00D1B754 /* Main.storyboard */; };
 		607A65A81C7577EF00D1B754 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607A65A71C7577EF00D1B754 /* Assets.xcassets */; };
 		607A65AB1C7577EF00D1B754 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607A65A91C7577EF00D1B754 /* LaunchScreen.storyboard */; };
-		607A65B61C757FC200D1B754 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607A65B51C757FC200D1B754 /* MainViewController.swift */; };
 		607A65B81C7580B000D1B754 /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607A65B71C7580B000D1B754 /* EventsViewController.swift */; };
 		607A65BA1C75824300D1B754 /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607A65B91C75824300D1B754 /* EventCell.swift */; };
 		607A65BD1C75867400D1B754 /* Requests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607A65BC1C75867400D1B754 /* Requests.swift */; };
@@ -40,7 +39,6 @@
 		607A65A71C7577EF00D1B754 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		607A65AA1C7577EF00D1B754 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		607A65AC1C7577EF00D1B754 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		607A65B51C757FC200D1B754 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		607A65B71C7580B000D1B754 /* EventsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
 		607A65B91C75824300D1B754 /* EventCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
 		607A65BC1C75867400D1B754 /* Requests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Requests.swift; sourceTree = "<group>"; };
@@ -112,7 +110,6 @@
 				607A65C51C75BFA700D1B754 /* EventViewController.swift */,
 				607A65A91C7577EF00D1B754 /* LaunchScreen.storyboard */,
 				607A65A41C7577EF00D1B754 /* Main.storyboard */,
-				607A65B51C757FC200D1B754 /* MainViewController.swift */,
 				607A65DC1C7D88F400D1B754 /* MarkdownLabel.swift */,
 				607A65DE1C7D96ED00D1B754 /* ProfileViewController.swift */,
 				607A65E01C7D971500D1B754 /* ScoreboardViewController.swift */,
@@ -284,7 +281,6 @@
 				607A65C61C75BFA700D1B754 /* EventViewController.swift in Sources */,
 				607A65DD1C7D88F400D1B754 /* MarkdownLabel.swift in Sources */,
 				607A65CA1C781C0F00D1B754 /* Colors.swift in Sources */,
-				607A65B61C757FC200D1B754 /* MainViewController.swift in Sources */,
 				607A65A11C7577EF00D1B754 /* AppDelegate.swift in Sources */,
 				607A65C81C78180700D1B754 /* Error.swift in Sources */,
 				607A65DF1C7D96ED00D1B754 /* ProfileViewController.swift in Sources */,
