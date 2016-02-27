@@ -15,4 +15,12 @@ extension NSDate {
             return "\(daysSinceNow)d"
         }
     }
+    
+    var isToday: Bool {
+        let calendar = NSCalendar.currentCalendar()
+        let flags = NSCalendarUnit.Day.union(.Month).union(.Year)
+        let todayComponents: NSDateComponents = calendar.components(flags, fromDate: NSDate())
+        let dateComponents: NSDateComponents = calendar.components(flags, fromDate: self)
+        return (todayComponents.day == dateComponents.day && todayComponents.month == dateComponents.month && todayComponents.year == dateComponents.year)
+    }
 }

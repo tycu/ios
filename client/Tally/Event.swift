@@ -2,6 +2,7 @@ import Foundation
 
 class Event {
     let iden: String, headline:String, summary: String
+    let imageUrl: String?
     let created: NSDate, modified: NSDate
     let politician: Politician?
     
@@ -10,6 +11,7 @@ class Event {
             self.iden = iden
             self.headline = headline
             self.summary = summary
+            self.imageUrl = data["imageUrl"] as? String
             self.created = NSDate(timeIntervalSince1970: created)
             self.modified = NSDate(timeIntervalSince1970: modified)
             do {
@@ -22,6 +24,7 @@ class Event {
             iden = ""
             headline = ""
             summary = ""
+            imageUrl = nil
             created = NSDate()
             modified = NSDate()
             politician = nil

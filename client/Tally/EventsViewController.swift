@@ -53,9 +53,10 @@ class EventsViewController : UITableViewController {
         cell.time.text = event.created.humanReadableTimeSinceNow
         
         if let thumbnailUrl = event.politician?.thumbnailUrl {
+            let imgixConfig = "?dpr=\(UIScreen.mainScreen().scale)&h=\(Int(cell.thumbnail.frame.height))&w=\(Int(cell.thumbnail.frame.width))&fit=crop&crop=faces"
             cell.thumbnail.layer.cornerRadius = cell.thumbnail.frame.width / 2.0
             cell.thumbnail.layer.masksToBounds = true
-            cell.thumbnail.sd_setImageWithURL(NSURL(string: thumbnailUrl))
+            cell.thumbnail.sd_setImageWithURL(NSURL(string: thumbnailUrl + imgixConfig))
         }
         
         return cell
@@ -64,9 +65,14 @@ class EventsViewController : UITableViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         
-        let eventViewController = storyboard!.instantiateViewControllerWithIdentifier("StoryViewController") as! EventViewController
-        eventViewController.event = events[activeSort]![indexPath.row]
-        navigationController!.pushViewController(eventViewController, animated: true)
+        performSegueWithIdentifier("EventSegue", sender: events[activeSort]![indexPath.row])
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "EventSegue" {
+            let eventViewController = segue.destinationViewController as! EventViewController
+            eventViewController.event = sender as! Event
+        }
     }
     
     func segmentIndexSelected(sender: UISegmentedControl) {

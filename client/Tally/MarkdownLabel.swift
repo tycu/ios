@@ -49,14 +49,14 @@ private class MarkdownParser {
             }
         }))
         
-        // Strong
+        // Bold
         parsingPairs.append(ExpressionPair(regex: try! NSRegularExpression(pattern: "(\\*\\*|__)(.+?)(\\1)", options: []), mutator: { match, attributedString in
             attributedString.deleteCharactersInRange(match.rangeAtIndex(3))
             attributedString.addAttributes([NSFontAttributeName: self.strongFont], range: match.rangeAtIndex(2))
             attributedString.deleteCharactersInRange(match.rangeAtIndex(1))
         }))
         
-        // Emphasis
+        // Italic
         parsingPairs.append(ExpressionPair(regex: try! NSRegularExpression(pattern: "(\\*|_)(.+?)(\\1)", options: []), mutator: { match, attributedString in
             attributedString.deleteCharactersInRange(match.rangeAtIndex(3))
             attributedString.addAttributes([NSFontAttributeName: self.emphasisFont], range: match.rangeAtIndex(2))
