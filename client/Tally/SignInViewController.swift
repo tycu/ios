@@ -23,11 +23,16 @@ class SignInViewController : UIViewController, FBSDKLoginButtonDelegate {
             if result!.grantedPermissions.contains("email") {
                 let body = ["facebookAccessToken": FBSDKAccessToken.currentAccessToken().tokenString]
                 Requests.post(Endpoints.tokens, withBody: body, completionHandler: { response, error in
-                    print(response?.body, error)
+                    if response?.statusCode == 200 {
+                        self.done()
+                    } else {
+                        FBSDKLoginManager().logOut()
+                        self.showErrorDialogWithMessage("Login failed, please try again.")
+                    }
                 })
             } else {
                 FBSDKLoginManager().logOut()
-                self.showErrorDialogWithMessage("Permission to access your email address is required to sign in, please try again.")
+                showErrorDialogWithMessage("Permission to access your email address is required to sign in, please try again.")
             }
         }
     }
@@ -36,10 +41,14 @@ class SignInViewController : UIViewController, FBSDKLoginButtonDelegate {
     }
     
     func done() {
-        dismissViewControllerAnimated(true, completion: {
-            let notificationSettings = UIUserNotificationSettings(forTypes: [.Alert, .Sound, .Badge], categories: nil)
-            UIApplication.sharedApplication().registerUserNotificationSettings(notificationSettings)
-        })
+        if let parentViewController = parentViewController as? ProfileViewController {
+            parentViewController.swapContainerViewControllerTo(storyboard!.instantiateViewControllerWithIdentifier("SignedInViewController"))
+        } else {
+            dismissViewControllerAnimated(true, completion: {
+                let notificationSettings = UIUserNotificationSettings(forTypes: [.Alert, .Sound, .Badge], categories: nil)
+                UIApplication.sharedApplication().registerUserNotificationSettings(notificationSettings)
+            })
+        }
     }
     
     private func showErrorDialogWithMessage(message: String) {

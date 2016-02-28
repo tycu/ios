@@ -34,6 +34,34 @@ class EventViewController: UIViewController {
         headlineHolder.layer.shadowRadius = 1.5;
         
         headline.presentMarkdown(event.headline)
-        summary.presentMarkdown(event.summary)
+        
+        // Increase the line height of the headline
+        let headlineAttributedString = NSMutableAttributedString(attributedString: headline.attributedText!)
+        let headlineParagraphStyle = NSMutableParagraphStyle()
+        headlineParagraphStyle.lineSpacing = 2
+        headlineParagraphStyle.lineHeightMultiple = 1.1
+        headlineAttributedString.addAttribute(NSParagraphStyleAttributeName, value: headlineParagraphStyle, range: NSMakeRange(0, headlineAttributedString.length))
+        
+        headline.attributedText = headlineAttributedString
+        
+        // Use serif font for the event summary
+        let paragraphFont = UIFont(name: "Times New Roman", size: summary.font!.pointSize)!
+        let strongFont = UIFont(name: "TimesNewRomanPS-BoldMT", size: summary.font!.pointSize)!
+        let emphasisFont = UIFont(name: "TimesNewRomanPS-ItalicMT", size: summary.font!.pointSize)!
+        summary.presentMarkdown(event.summary, paragraphFont: paragraphFont, strongFont: strongFont, emphasisFont: emphasisFont)
+        
+        // Increase the line height of each paragraph (this doensn't apply to the blank lines between paragraphs)
+        let summaryAttributedString = NSMutableAttributedString(attributedString: summary.attributedText!)
+        let nsString = summaryAttributedString.string as NSString
+        let paragraphs = nsString.componentsSeparatedByString("\n")
+        for paragraph in paragraphs {
+            if !paragraph.isEmpty {
+                let range = nsString.rangeOfString(paragraph)
+                let paragraphStyle = NSMutableParagraphStyle()
+                paragraphStyle.lineSpacing = 6
+                summaryAttributedString.addAttribute(NSParagraphStyleAttributeName, value: paragraphStyle, range: range)
+            }
+        }
+        summary.attributedText = summaryAttributedString
     }
 }

@@ -2,6 +2,13 @@ import UIKit
 
 class Colors {
     static let purple = UIColor(hex: "#663399")
+    
+    static let lightPurple = UIColor(hex: "#AA77CC")
+    
+    static let red = UIColor(hex: "#CC3333")
+    static let blue = UIColor(hex: "#3333CC")
+    static let green = UIColor(hex: "#33AA33")
+    static let orange = UIColor(hex: "#F57200")
 }
 
 extension UIColor {
