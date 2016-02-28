@@ -5,12 +5,16 @@ class EventsViewController : UITableViewController {
     private let segmentedControl = UISegmentedControl(items: ["Recent", "Top"])
     private let  activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .Gray)
     private var events = [Sort : [Event]]()
+    var politician: Politician?
+    
     private var activeSort: Sort {
         return segmentedControl.selectedSegmentIndex == 0 ? .Recent : .Top
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationItem.backBarButtonItem = simpleBackButton()
         
         segmentedControl.frame = CGRect(x: 0, y: 0, width: 180, height: segmentedControl.frame.height)
         segmentedControl.selectedSegmentIndex = 0
@@ -31,7 +35,11 @@ class EventsViewController : UITableViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        navigationItem.titleView = segmentedControl
+        if politician == nil {
+            navigationItem.titleView = segmentedControl
+        } else {
+            navigationItem.title = politician!.name
+        }
         
         refresh(self)
     }
@@ -47,18 +55,9 @@ class EventsViewController : UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let event = events[activeSort]![indexPath.row]
         let cell = tableView.dequeueReusableCellWithIdentifier("EventCell", forIndexPath: indexPath) as! EventCell
-        
+        event.politician?.setThumbnail(cell.thumbnail)
         cell.headline.presentMarkdown(event.headline)
-        
         cell.time.text = event.created.humanReadableTimeSinceNow
-        
-        if let thumbnailUrl = event.politician?.thumbnailUrl {
-            let imgixConfig = "?dpr=\(UIScreen.mainScreen().scale)&h=\(Int(cell.thumbnail.frame.height))&w=\(Int(cell.thumbnail.frame.width))&fit=crop&crop=faces"
-            cell.thumbnail.layer.cornerRadius = cell.thumbnail.frame.width / 2.0
-            cell.thumbnail.layer.masksToBounds = true
-            cell.thumbnail.sd_setImageWithURL(NSURL(string: thumbnailUrl + imgixConfig))
-        }
-        
         return cell
     }
     
@@ -72,6 +71,7 @@ class EventsViewController : UITableViewController {
         if segue.identifier == "EventSegue" {
             let eventViewController = segue.destinationViewController as! EventViewController
             eventViewController.event = sender as! Event
+            eventViewController.hidePolitician = politician != nil
         }
     }
     
@@ -88,8 +88,8 @@ class EventsViewController : UITableViewController {
         tableView.backgroundView = activityIndicator
         
         let sort = activeSort
-        let url = Endpoints.events + "?sort=" + sort.rawValue
-        Requests.get(url, completionHandler: { response, error in
+        let url = politician != nil ? (Endpoints.politicians + "/" + politician!.iden + "/events") : Endpoints.events
+        Requests.get(url + "?sort=" + sort.rawValue, completionHandler: { response, error in
             self.refreshControl!.endRefreshing()
             
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (Int64)(0.5 * Double(NSEC_PER_SEC))), dispatch_get_main_queue()) {

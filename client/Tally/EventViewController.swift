@@ -2,14 +2,24 @@ import UIKit
 import TTTAttributedLabel
 
 class EventViewController: UIViewController {
+    @IBOutlet weak var politicianHolder: UIView!
+    @IBOutlet weak var politicianHolderHeight: NSLayoutConstraint!
+    @IBOutlet weak var politicianThumbnail: UIImageView!
+    @IBOutlet weak var politicianName: UILabel!
+    @IBOutlet weak var politicianTitle: UILabel!
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var headlineHolder: UIView!
     @IBOutlet weak var headline: MarkdownLabel!
+    @IBOutlet weak var oppose: UIButton!
+    @IBOutlet weak var support: UIButton!
     @IBOutlet weak var summary: MarkdownLabel!
     var event: Event!
+    var hidePolitician = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationItem.backBarButtonItem = simpleBackButton()
         
         if event.created.isToday {
             title = "Today"
@@ -17,6 +27,17 @@ class EventViewController: UIViewController {
             let formatter = NSDateFormatter()
             formatter.dateStyle = .MediumStyle
             title = formatter.stringFromDate(event.created)
+        }
+        
+        if event.politician != nil {
+            politicianHolder.addGestureRecognizer(UITapGestureRecognizer(target: self, action: "goToPolitician:"))
+            event.politician!.setThumbnail(politicianThumbnail)
+            politicianName.text = event.politician!.name
+            politicianTitle.text = event.politician!.title
+        }
+        
+        if hidePolitician {
+            politicianHolderHeight.constant = 0
         }
         
         if event.imageUrl != nil && image.sd_imageURL() == nil {
@@ -44,6 +65,12 @@ class EventViewController: UIViewController {
         
         headline.attributedText = headlineAttributedString
         
+        oppose.titleLabel!.font = UIFont.boldSystemFontOfSize(oppose.titleLabel!.font.pointSize)
+        support.titleLabel!.font = UIFont.boldSystemFontOfSize(support.titleLabel!.font.pointSize)
+        
+        oppose.tintColor = Colors.orange
+        support.tintColor = Colors.green
+        
         // Use serif font for the event summary
         let paragraphFont = UIFont(name: "Times New Roman", size: summary.font!.pointSize)!
         let strongFont = UIFont(name: "TimesNewRomanPS-BoldMT", size: summary.font!.pointSize)!
@@ -63,5 +90,16 @@ class EventViewController: UIViewController {
             }
         }
         summary.attributedText = summaryAttributedString
+    }
+    
+    func goToPolitician(sender: AnyObject) {
+        performSegueWithIdentifier("PoliticianSegue", sender: nil)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "PoliticianSegue" {
+            let eventsViewController = segue.destinationViewController as! EventsViewController
+            eventsViewController.politician = event.politician!
+        }
     }
 }

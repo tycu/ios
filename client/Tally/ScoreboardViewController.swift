@@ -1,6 +1,6 @@
 import UIKit
 
-class ScoreboardViewController : UIViewController {
+class ScoreboardViewController : UITableViewController {
     private let segmentedControl = UISegmentedControl(items: ["Weekly", "Monthly", "All Time"])
     private let scoreboards: [Scoreboard] = [.Weekly, .Monthly, .AllTime]
     private var activeScoreboard: Scoreboard {

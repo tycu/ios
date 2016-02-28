@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		604D52021C82BEE200A117CE /* SignedInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604D52011C82BEE200A117CE /* SignedInViewController.swift */; };
+		604D52041C82CEAD00A117CE /* TouchStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604D52031C82CEAD00A117CE /* TouchStateView.swift */; };
+		604D52081C83868A00A117CE /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604D52071C83868A00A117CE /* UIViewController+Extensions.swift */; };
 		607A65A11C7577EF00D1B754 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607A65A01C7577EF00D1B754 /* AppDelegate.swift */; };
 		607A65A61C7577EF00D1B754 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607A65A41C7577EF00D1B754 /* Main.storyboard */; };
 		607A65A81C7577EF00D1B754 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607A65A71C7577EF00D1B754 /* Assets.xcassets */; };
@@ -36,6 +38,8 @@
 		50ACE4E9031FC990560B24EE /* Pods_Tally.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tally.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		538D1DE3D3CD52C12BF0BCA5 /* Pods-Tally.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tally.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tally/Pods-Tally.debug.xcconfig"; sourceTree = "<group>"; };
 		604D52011C82BEE200A117CE /* SignedInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignedInViewController.swift; sourceTree = "<group>"; };
+		604D52031C82CEAD00A117CE /* TouchStateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TouchStateView.swift; sourceTree = "<group>"; };
+		604D52071C83868A00A117CE /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		607A659D1C7577EF00D1B754 /* Tally.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tally.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607A65A01C7577EF00D1B754 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		607A65A51C7577EF00D1B754 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -120,6 +124,7 @@
 				607A65E21C7DA8A400D1B754 /* SignInViewController.swift */,
 				604D52011C82BEE200A117CE /* SignedInViewController.swift */,
 				607A65E41C82890C00D1B754 /* SupportOpposeView.swift */,
+				604D52031C82CEAD00A117CE /* TouchStateView.swift */,
 			);
 			name = Scenes;
 			sourceTree = "<group>";
@@ -132,6 +137,7 @@
 				607A65BE1C75880A00D1B754 /* Logging.swift */,
 				607A65CD1C78403600D1B754 /* NSDate+Extensions.swift */,
 				607A65BC1C75867400D1B754 /* Requests.swift */,
+				604D52071C83868A00A117CE /* UIViewController+Extensions.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -291,10 +297,12 @@
 				607A65C81C78180700D1B754 /* Error.swift in Sources */,
 				607A65DF1C7D96ED00D1B754 /* ProfileViewController.swift in Sources */,
 				607A65CC1C783C9800D1B754 /* Politician.swift in Sources */,
+				604D52041C82CEAD00A117CE /* TouchStateView.swift in Sources */,
 				604D52021C82BEE200A117CE /* SignedInViewController.swift in Sources */,
 				607A65E31C7DA8A400D1B754 /* SignInViewController.swift in Sources */,
 				607A65BF1C75880A00D1B754 /* Logging.swift in Sources */,
 				607A65E51C82890C00D1B754 /* SupportOpposeView.swift in Sources */,
+				604D52081C83868A00A117CE /* UIViewController+Extensions.swift in Sources */,
 				607A65E11C7D971500D1B754 /* ScoreboardViewController.swift in Sources */,
 				607A65BD1C75867400D1B754 /* Requests.swift in Sources */,
 				607A65B81C7580B000D1B754 /* EventsViewController.swift in Sources */,
