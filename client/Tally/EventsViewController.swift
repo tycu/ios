@@ -22,6 +22,7 @@ class EventsViewController : UITableViewController {
         
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 110
+        tableView.registerNib(UINib(nibName: "EventCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: "EventCell")
         
         activityIndicator.center = tableView.center
         activityIndicator.startAnimating()

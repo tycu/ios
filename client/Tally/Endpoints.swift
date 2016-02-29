@@ -14,4 +14,5 @@ class Endpoints {
     static let politicians = host + "/v1/politicians"
     static let scoreboards = host + "/v1/scoreboards"
     static let tokens = host + "/v1/tokens"
+    static let users = host + "/v1/users"
 }
