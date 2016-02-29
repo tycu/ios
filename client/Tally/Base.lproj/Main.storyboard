@@ -277,14 +277,14 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="KSb-3k-i7c">
+                                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="KSb-3k-i7c">
                                             <rect key="frame" x="15" y="10" width="290" height="100"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iCU-d3-7tZ">
+                                                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iCU-d3-7tZ">
                                                     <rect key="frame" x="0.0" y="0.0" width="290" height="50"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Contribution" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qap-GU-YZ8">
-                                                            <rect key="frame" x="65" y="0.0" width="160" height="15"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Contribution" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qap-GU-YZ8">
+                                                            <rect key="frame" x="65" y="-4" width="160" height="15"/>
                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -298,18 +298,18 @@
                                                         <constraint firstAttribute="right" secondItem="Qap-GU-YZ8" secondAttribute="right" constant="65" id="qnz-AY-iqc"/>
                                                     </constraints>
                                                 </view>
-                                                <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7nY-Bl-STI">
+                                                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7nY-Bl-STI">
                                                     <rect key="frame" x="0.0" y="50" width="290" height="50"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lex-r9-yNp">
-                                                            <rect key="frame" x="0.0" y="0.0" width="55" height="55"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="54" height="54"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" constant="55" id="Qn8-4z-U0h"/>
-                                                                <constraint firstAttribute="height" constant="55" id="jPp-Kb-axa"/>
+                                                                <constraint firstAttribute="width" constant="54" id="Qn8-4z-U0h"/>
+                                                                <constraint firstAttribute="height" constant="54" id="jPp-Kb-axa"/>
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Headline" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Faj-ly-0aT" customClass="MarkdownLabel" customModule="Tally" customModuleProvider="target">
-                                                            <rect key="frame" x="65" y="0.0" width="195" height="18"/>
+                                                            <rect key="frame" x="64" y="0.0" width="199" height="18"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -354,7 +354,7 @@
                                                         <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="EdX-cl-gkv" secondAttribute="bottom" id="bTs-tF-9GL"/>
                                                         <constraint firstAttribute="trailing" secondItem="EdX-cl-gkv" secondAttribute="trailing" constant="65" id="cze-m1-TAW"/>
                                                         <constraint firstItem="EdX-cl-gkv" firstAttribute="leading" secondItem="7nY-Bl-STI" secondAttribute="leading" constant="65" id="n3K-2L-PDH"/>
-                                                        <constraint firstItem="Faj-ly-0aT" firstAttribute="right" secondItem="ZKZ-eN-xR3" secondAttribute="left" constant="-5" id="p6Z-Ev-QqL"/>
+                                                        <constraint firstItem="Faj-ly-0aT" firstAttribute="right" secondItem="ZKZ-eN-xR3" secondAttribute="left" constant="-2" id="p6Z-Ev-QqL"/>
                                                         <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Lex-r9-yNp" secondAttribute="bottom" id="s5m-NK-BsE"/>
                                                         <constraint firstItem="Lex-r9-yNp" firstAttribute="top" secondItem="7nY-Bl-STI" secondAttribute="top" id="xTB-vf-kpO"/>
                                                         <constraint firstItem="Faj-ly-0aT" firstAttribute="top" secondItem="7nY-Bl-STI" secondAttribute="top" id="yNJ-cW-Vgd"/>
