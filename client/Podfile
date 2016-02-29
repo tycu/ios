@@ -2,10 +2,11 @@ platform :ios, '9.0'
 use_frameworks!
 
 target 'Tally' do
-    pod 'SDWebImage', '3.7.5'
-    pod 'TTTAttributedLabel', '1.13.4'
-    pod 'FBSDKCoreKit', '4.10.0'
-    pod 'FBSDKLoginKit', '4.10.0'
-    pod 'FBSDKShareKit', '4.10.0'
-    pod 'Google/CloudMessaging', '1.2.0'
+    pod 'SDWebImage'
+    pod 'TTTAttributedLabel'
+    pod 'FBSDKCoreKit'
+    pod 'FBSDKLoginKit'
+    pod 'FBSDKShareKit'
+    pod 'Google/CloudMessaging'
+    pod 'SSKeychain'
 end

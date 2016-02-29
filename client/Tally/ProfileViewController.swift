@@ -6,10 +6,13 @@ class ProfileViewController : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.title = "My Tally"
+        navigationController!.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
+        navigationController!.navigationBar.shadowImage = UIImage()
         
-        let signInViewController = storyboard!.instantiateViewControllerWithIdentifier("SignInViewController")
-        swapContainerViewControllerTo(signInViewController)
+        if Keychain.getPassword() == nil {
+            let signInViewController = storyboard!.instantiateViewControllerWithIdentifier("SignInViewController")
+            swapContainerViewControllerTo(signInViewController)
+        }
     }
     
     func swapContainerViewControllerTo(newViewController: UIViewController) {

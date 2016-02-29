@@ -6,7 +6,7 @@ class EventViewController: UIViewController {
     @IBOutlet weak var politicianHolderHeight: NSLayoutConstraint!
     @IBOutlet weak var politicianThumbnail: UIImageView!
     @IBOutlet weak var politicianName: UILabel!
-    @IBOutlet weak var politicianTitle: UILabel!
+    @IBOutlet weak var politicianJobTitle: UILabel!
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var headlineHolder: UIView!
     @IBOutlet weak var headline: MarkdownLabel!
@@ -33,7 +33,7 @@ class EventViewController: UIViewController {
             politicianHolder.addGestureRecognizer(UITapGestureRecognizer(target: self, action: "goToPolitician:"))
             event.politician!.setThumbnail(politicianThumbnail)
             politicianName.text = event.politician!.name
-            politicianTitle.text = event.politician!.title
+            politicianJobTitle.text = event.politician!.jobTitle
         }
         
         if hidePolitician {

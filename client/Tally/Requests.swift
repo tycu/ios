@@ -8,6 +8,9 @@ class Requests {
         wrapped.addValue("Tally iOS \(NSBundle.mainBundle().infoDictionary!["CFBundleVersion"] as! String) (gzip)", forHTTPHeaderField: "User-Agent")
         wrapped.addValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
         wrapped.addValue("application/json", forHTTPHeaderField: "Accept")
+        if let token = Keychain.getPassword() {
+            wrapped.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        }
         wrapped.timeoutInterval = 10
         return wrapped
     }
@@ -49,6 +52,8 @@ class Requests {
                     })
                     return
                 }
+            } else if httpResponse.statusCode == 401 {
+                Keychain.clear()
             }
             
             dispatch_async(dispatch_get_main_queue(), {

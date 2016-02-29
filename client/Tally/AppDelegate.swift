@@ -1,4 +1,5 @@
 import UIKit
+import SSKeychain
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -36,6 +37,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let lastVersion = NSUserDefaults.standardUserDefaults().objectForKey("lastVersion") as? String
         let version = NSBundle.mainBundle().infoDictionary!["CFBundleVersion"] as! String
         if (version != lastVersion) {
+            Keychain.clear()
+            
             NSUserDefaults.standardUserDefaults().setValue(version, forKey: "lastVersion")
             NSUserDefaults.standardUserDefaults().synchronize()
             

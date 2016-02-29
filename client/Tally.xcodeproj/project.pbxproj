@@ -10,6 +10,7 @@
 		604D52021C82BEE200A117CE /* SignedInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604D52011C82BEE200A117CE /* SignedInViewController.swift */; };
 		604D52041C82CEAD00A117CE /* TouchStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604D52031C82CEAD00A117CE /* TouchStateView.swift */; };
 		604D52081C83868A00A117CE /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604D52071C83868A00A117CE /* UIViewController+Extensions.swift */; };
+		604D520A1C83C9E200A117CE /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604D52091C83C9E200A117CE /* Keychain.swift */; };
 		607A65A11C7577EF00D1B754 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607A65A01C7577EF00D1B754 /* AppDelegate.swift */; };
 		607A65A61C7577EF00D1B754 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607A65A41C7577EF00D1B754 /* Main.storyboard */; };
 		607A65A81C7577EF00D1B754 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607A65A71C7577EF00D1B754 /* Assets.xcassets */; };
@@ -40,6 +41,7 @@
 		604D52011C82BEE200A117CE /* SignedInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignedInViewController.swift; sourceTree = "<group>"; };
 		604D52031C82CEAD00A117CE /* TouchStateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TouchStateView.swift; sourceTree = "<group>"; };
 		604D52071C83868A00A117CE /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
+		604D52091C83C9E200A117CE /* Keychain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
 		607A659D1C7577EF00D1B754 /* Tally.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tally.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607A65A01C7577EF00D1B754 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		607A65A51C7577EF00D1B754 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 			children = (
 				607A65C91C781C0F00D1B754 /* Colors.swift */,
 				607A65C71C78180700D1B754 /* Error.swift */,
+				604D52091C83C9E200A117CE /* Keychain.swift */,
 				607A65BE1C75880A00D1B754 /* Logging.swift */,
 				607A65CD1C78403600D1B754 /* NSDate+Extensions.swift */,
 				607A65BC1C75867400D1B754 /* Requests.swift */,
@@ -310,6 +313,7 @@
 				607A65C11C7596C400D1B754 /* Endpoints.swift in Sources */,
 				607A65BA1C75824300D1B754 /* EventCell.swift in Sources */,
 				607A65C41C75A94200D1B754 /* Event.swift in Sources */,
+				604D520A1C83C9E200A117CE /* Keychain.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

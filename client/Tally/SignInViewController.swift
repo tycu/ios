@@ -1,5 +1,6 @@
 import UIKit
 import FBSDKLoginKit
+import SSKeychain
 
 class SignInViewController : UIViewController, FBSDKLoginButtonDelegate {
     @IBOutlet weak var facebook: FBSDKLoginButton!
@@ -24,11 +25,14 @@ class SignInViewController : UIViewController, FBSDKLoginButtonDelegate {
                 let body = ["facebookAccessToken": FBSDKAccessToken.currentAccessToken().tokenString]
                 Requests.post(Endpoints.tokens, withBody: body, completionHandler: { response, error in
                     if response?.statusCode == 200 {
-                        self.done()
-                    } else {
-                        FBSDKLoginManager().logOut()
-                        self.showErrorDialogWithMessage("Login failed, please try again.")
+                        if let token = response!.body?["token"] as? String {
+                            Keychain.setPassword(token)
+                            self.done()
+                        }
                     }
+                    
+                    FBSDKLoginManager().logOut()
+                    self.showErrorDialogWithMessage("Login failed, please try again.")
                 })
             } else {
                 FBSDKLoginManager().logOut()

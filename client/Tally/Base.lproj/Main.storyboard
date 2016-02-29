@@ -244,9 +244,9 @@
                         <outlet property="oppose" destination="QDd-kp-O0A" id="PhN-a4-4dp"/>
                         <outlet property="politicianHolder" destination="Fwt-iz-jIj" id="k11-kM-VfX"/>
                         <outlet property="politicianHolderHeight" destination="N1m-hB-nTl" id="Csj-1i-CsM"/>
+                        <outlet property="politicianJobTitle" destination="Z3d-uL-Yr9" id="VVH-pr-Mfn"/>
                         <outlet property="politicianName" destination="5bl-Af-n75" id="KbS-At-Lfx"/>
                         <outlet property="politicianThumbnail" destination="yy3-SD-oKb" id="iH8-7Z-8fE"/>
-                        <outlet property="politicianTitle" destination="Z3d-uL-Yr9" id="zFK-Cj-okS"/>
                         <outlet property="summary" destination="zlX-sI-Jcv" id="iav-lD-DLv"/>
                         <outlet property="support" destination="1RR-6c-D6n" id="buP-PD-5c5"/>
                         <segue destination="Y56-hz-VU3" kind="show" identifier="PoliticianSegue" id="6cl-jd-Lgb"/>
