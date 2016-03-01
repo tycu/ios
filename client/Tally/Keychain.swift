@@ -4,12 +4,12 @@ class Keychain {
     private static let service = "Tally"
     private static let account = NSBundle.mainBundle().bundleIdentifier!
     
-    class func setPassword(password: String) {
+    class func setToken(token: String) {
         SSKeychain.setAccessibilityType(kSecAttrAccessibleAfterFirstUnlock)
-        SSKeychain.setPassword(password, forService: service, account: account)
+        SSKeychain.setPassword(token, forService: service, account: account)
     }
     
-    class func getPassword() -> String? {
+    class func getToken() -> String? {
         return SSKeychain.passwordForService(service, account: account)
     }
     

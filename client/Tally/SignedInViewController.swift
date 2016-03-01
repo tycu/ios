@@ -26,11 +26,12 @@ class SignedInViewController : UITableViewController {
         super.viewWillAppear(animated)
         
         if profileHolder.hidden {
-            Requests.post(Endpoints.getUserData, withBody: nil, completionHandler: { response, error in
+            Requests.post(Endpoints.getProfie, withBody: nil, completionHandler: { response, error in
+                print(response?.body, error)
                 if response?.statusCode == 200 {
-                    let user = User(data: response!.body!)
-                    user.setThumbnail(self.profilePicture)
-                    self.name.text = user.name
+                    let profile = Profile(data: response!.body!)
+                    profile.setThumbnail(self.profilePicture)
+                    self.name.text = profile.name
                     self.occupation.text = "Software Engineer @ Hipmunk"
                     self.address.text = "508 Octavia St #6\nSan Francisco, CA 94102"
                     

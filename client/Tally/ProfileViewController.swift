@@ -9,7 +9,7 @@ class ProfileViewController : UIViewController {
         navigationController!.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
         navigationController!.navigationBar.shadowImage = UIImage()
         
-        if Keychain.getPassword() == nil {
+        if Keychain.getToken() == nil {
             let signInViewController = storyboard!.instantiateViewControllerWithIdentifier("SignInViewController")
             swapContainerViewControllerTo(signInViewController)
         }

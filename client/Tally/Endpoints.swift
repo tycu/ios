@@ -11,7 +11,7 @@ class Endpoints {
     }
     
     static let authenticate = host + "/v1/authenticate"
-    static let getUserData = host + "/v1/get-user-data"
+    static let getProfie = host + "/v1/get-profile"
     
     static let recentEvents = "https://generated.tally.us/v1/events/recent.json"
     static let topEvents = "https://generated.tally.us/v1/events/top.json"

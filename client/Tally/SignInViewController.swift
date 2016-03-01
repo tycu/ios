@@ -26,7 +26,7 @@ class SignInViewController : UIViewController, FBSDKLoginButtonDelegate {
                 Requests.post(Endpoints.authenticate, withBody: body, completionHandler: { response, error in
                     if response?.statusCode == 200 {
                         if let token = response!.body?["token"] as? String {
-                            Keychain.setPassword(token)
+                            Keychain.setToken(token)
                             self.done()
                             return
                         }

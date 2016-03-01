@@ -11,7 +11,7 @@
 		604D52041C82CEAD00A117CE /* TouchStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604D52031C82CEAD00A117CE /* TouchStateView.swift */; };
 		604D52081C83868A00A117CE /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604D52071C83868A00A117CE /* UIViewController+Extensions.swift */; };
 		604D520A1C83C9E200A117CE /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604D52091C83C9E200A117CE /* Keychain.swift */; };
-		60534F051C84182300609CD7 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60534F041C84182300609CD7 /* User.swift */; };
+		60534F051C84182300609CD7 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60534F041C84182300609CD7 /* Profile.swift */; };
 		60534F091C842F2300609CD7 /* EventCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60534F081C842F2300609CD7 /* EventCell.xib */; };
 		607A65A11C7577EF00D1B754 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607A65A01C7577EF00D1B754 /* AppDelegate.swift */; };
 		607A65A61C7577EF00D1B754 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607A65A41C7577EF00D1B754 /* Main.storyboard */; };
@@ -44,7 +44,7 @@
 		604D52031C82CEAD00A117CE /* TouchStateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TouchStateView.swift; sourceTree = "<group>"; };
 		604D52071C83868A00A117CE /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		604D52091C83C9E200A117CE /* Keychain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
-		60534F041C84182300609CD7 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		60534F041C84182300609CD7 /* Profile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		60534F081C842F2300609CD7 /* EventCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventCell.xib; sourceTree = "<group>"; };
 		607A659D1C7577EF00D1B754 /* Tally.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tally.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607A65A01C7577EF00D1B754 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -155,7 +155,7 @@
 			children = (
 				607A65C31C75A94200D1B754 /* Event.swift */,
 				607A65CB1C783C9800D1B754 /* Politician.swift */,
-				60534F041C84182300609CD7 /* User.swift */,
+				60534F041C84182300609CD7 /* Profile.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -310,7 +310,7 @@
 				604D52041C82CEAD00A117CE /* TouchStateView.swift in Sources */,
 				604D52021C82BEE200A117CE /* SignedInViewController.swift in Sources */,
 				607A65E31C7DA8A400D1B754 /* SignInViewController.swift in Sources */,
-				60534F051C84182300609CD7 /* User.swift in Sources */,
+				60534F051C84182300609CD7 /* Profile.swift in Sources */,
 				607A65BF1C75880A00D1B754 /* Logging.swift in Sources */,
 				607A65E51C82890C00D1B754 /* SupportOpposeView.swift in Sources */,
 				604D52081C83868A00A117CE /* UIViewController+Extensions.swift in Sources */,

@@ -1,4 +1,4 @@
-class User {
+class Profile {
     let iden: String, facebookId: String
     let name: String?, occupation: String?, employer: String?, address: String?
     
