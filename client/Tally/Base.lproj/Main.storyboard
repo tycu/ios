@@ -213,7 +213,7 @@
                                 <rect key="frame" x="0.0" y="-44" width="320" height="573"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yee-my-JD1">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="388.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="405"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fwt-iz-jIj" customClass="TouchStateView" customModule="Tally" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
@@ -268,7 +268,7 @@
                                                 </constraints>
                                             </imageView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kLb-gJ-vMQ" userLabel="Headline Holder">
-                                                <rect key="frame" x="20" y="210" width="280" height="118.5"/>
+                                                <rect key="frame" x="20" y="210" width="280" height="135"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Headline" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d3f-Jt-42g" customClass="MarkdownLabel" customModule="Tally" customModuleProvider="target">
                                                         <rect key="frame" x="10" y="10" width="260" height="21.5"/>
@@ -276,21 +276,21 @@
                                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kEg-Tf-V4L" customClass="SupportOpposeView" customModule="Tally" customModuleProvider="target">
-                                                        <rect key="frame" x="10" y="49.5" width="260" height="24"/>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u8C-ji-fXr">
+                                                        <rect key="frame" x="0.0" y="93.5" width="280" height="1"/>
+                                                        <color key="backgroundColor" red="0.8666666666666667" green="0.8666666666666667" blue="0.8666666666666667" alpha="1" colorSpace="calibratedRGB"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="24" id="XLu-uM-mRA"/>
+                                                            <constraint firstAttribute="height" constant="1" id="bM2-sM-Lfj"/>
                                                         </constraints>
                                                     </view>
                                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sQH-2z-616">
-                                                        <rect key="frame" x="0.0" y="79" width="280" height="40"/>
+                                                        <rect key="frame" x="0.0" y="95" width="280" height="40"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4KU-aU-iAt">
-                                                                <rect key="frame" x="0.0" y="0.0" width="140" height="40"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="139.5" height="40"/>
                                                                 <subviews>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QDd-kp-O0A">
-                                                                        <rect key="frame" x="0.0" y="5" width="140" height="30"/>
+                                                                        <rect key="frame" x="0.0" y="5" width="139" height="30"/>
                                                                         <state key="normal" title="Oppose"/>
                                                                     </button>
                                                                 </subviews>
@@ -302,11 +302,18 @@
                                                                     <constraint firstItem="QDd-kp-O0A" firstAttribute="width" secondItem="4KU-aU-iAt" secondAttribute="width" id="uF7-hE-7ag"/>
                                                                 </constraints>
                                                             </view>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xTH-vu-xCU">
+                                                                <rect key="frame" x="139.5" y="0.0" width="1" height="40"/>
+                                                                <color key="backgroundColor" red="0.8666666666666667" green="0.8666666666666667" blue="0.8666666666666667" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="1" id="v14-ml-cX2"/>
+                                                                </constraints>
+                                                            </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Grs-B6-5t7">
-                                                                <rect key="frame" x="140" y="0.0" width="140" height="40"/>
+                                                                <rect key="frame" x="140.5" y="0.0" width="139.5" height="40"/>
                                                                 <subviews>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1RR-6c-D6n">
-                                                                        <rect key="frame" x="0.0" y="5" width="140" height="30"/>
+                                                                        <rect key="frame" x="0.0" y="5" width="139" height="30"/>
                                                                         <state key="normal" title="Support"/>
                                                                     </button>
                                                                 </subviews>
@@ -323,25 +330,36 @@
                                                             <constraint firstItem="4KU-aU-iAt" firstAttribute="left" secondItem="sQH-2z-616" secondAttribute="left" id="a7H-BL-DI1"/>
                                                             <constraint firstAttribute="right" secondItem="Grs-B6-5t7" secondAttribute="right" id="hIv-n2-hca"/>
                                                             <constraint firstItem="Grs-B6-5t7" firstAttribute="width" secondItem="4KU-aU-iAt" secondAttribute="width" id="p4b-Tb-rDG"/>
+                                                            <constraint firstItem="xTH-vu-xCU" firstAttribute="height" secondItem="sQH-2z-616" secondAttribute="height" id="zDB-rW-a0R"/>
                                                         </constraints>
                                                     </stackView>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kEg-Tf-V4L" customClass="SupportOpposeView" customModule="Tally" customModuleProvider="target">
+                                                        <rect key="frame" x="10" y="49.5" width="260" height="24"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="24" id="XLu-uM-mRA"/>
+                                                        </constraints>
+                                                    </view>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstItem="kEg-Tf-V4L" firstAttribute="leading" secondItem="kLb-gJ-vMQ" secondAttribute="leading" constant="10" id="858-eF-lUb"/>
+                                                    <constraint firstItem="u8C-ji-fXr" firstAttribute="top" secondItem="kEg-Tf-V4L" secondAttribute="bottom" constant="20" id="8ve-Hx-U2W"/>
                                                     <constraint firstItem="kEg-Tf-V4L" firstAttribute="top" secondItem="d3f-Jt-42g" secondAttribute="bottom" constant="18" id="Bj1-LN-4ga"/>
+                                                    <constraint firstItem="sQH-2z-616" firstAttribute="top" secondItem="u8C-ji-fXr" secondAttribute="bottom" id="FTB-8i-9cu"/>
+                                                    <constraint firstAttribute="trailing" secondItem="u8C-ji-fXr" secondAttribute="trailing" id="FXZ-RZ-jlY"/>
                                                     <constraint firstAttribute="trailing" secondItem="sQH-2z-616" secondAttribute="trailing" id="Hxr-ns-i6g"/>
                                                     <constraint firstItem="d3f-Jt-42g" firstAttribute="left" secondItem="kLb-gJ-vMQ" secondAttribute="left" constant="10" id="LeQ-8s-Ac3"/>
+                                                    <constraint firstItem="u8C-ji-fXr" firstAttribute="leading" secondItem="kLb-gJ-vMQ" secondAttribute="leading" id="NJj-5j-iag"/>
                                                     <constraint firstAttribute="right" secondItem="d3f-Jt-42g" secondAttribute="right" constant="10" id="VpF-e2-VrK"/>
                                                     <constraint firstAttribute="trailing" secondItem="kEg-Tf-V4L" secondAttribute="trailing" constant="10" id="azx-tX-8Ji"/>
                                                     <constraint firstItem="d3f-Jt-42g" firstAttribute="top" secondItem="kLb-gJ-vMQ" secondAttribute="top" constant="10" id="b8B-3n-acF"/>
                                                     <constraint firstItem="sQH-2z-616" firstAttribute="leading" secondItem="kLb-gJ-vMQ" secondAttribute="leading" id="fp6-Bp-Ymb"/>
                                                     <constraint firstAttribute="bottom" secondItem="sQH-2z-616" secondAttribute="bottom" id="hXO-lj-IBk"/>
-                                                    <constraint firstItem="sQH-2z-616" firstAttribute="top" secondItem="kEg-Tf-V4L" secondAttribute="bottom" constant="5" id="wut-wP-eYc"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gYS-w9-u5v" userLabel="Summary Holder">
-                                                <rect key="frame" x="0.0" y="328" width="320" height="60.5"/>
+                                                <rect key="frame" x="0.0" y="344.5" width="320" height="60.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Summary" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zlX-sI-Jcv" customClass="MarkdownLabel" customModule="Tally" customModuleProvider="target">
                                                         <rect key="frame" x="20" y="20" width="280" height="20.5"/>

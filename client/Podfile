@@ -9,4 +9,5 @@ target 'Tally' do
     pod 'FBSDKShareKit'
     pod 'Google/CloudMessaging'
     pod 'SSKeychain'
+    pod 'Stripe'
 end

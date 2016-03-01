@@ -1,4 +1,5 @@
 import SSKeychain
+import FBSDKLoginKit
 
 class Keychain {
     private static let service = "Tally"
@@ -15,5 +16,6 @@ class Keychain {
     
     class func clear() {
         SSKeychain.deletePasswordForService(service, account: account)
+        FBSDKLoginManager().logOut()
     }
 }

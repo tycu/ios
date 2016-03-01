@@ -8,18 +8,15 @@ class SupportOpposeView : UIView {
         let oppose = 1 - support
         
         let halfWidth = bounds.width / 2
-        let thirdHeight = bounds.height / 3
-        let winningExtraHeight = bounds.height / 6
+        let halfHeight = bounds.height / 2
         
         let barWidth = halfWidth * weight
         
         let supportWidth = barWidth * support
-        let supportHeight = thirdHeight + (support > oppose ? winningExtraHeight : 0)
         let opposeWidth = barWidth * oppose
-        let opposeHeight = thirdHeight + (oppose > support ? winningExtraHeight : 0)
         
-        let opposeBar = CGRect(origin: CGPoint(x: halfWidth - supportWidth, y: (bounds.height - supportHeight) / 2), size: CGSize(width: supportWidth, height: supportHeight))
-        let supportBar = CGRect(origin: CGPoint(x: halfWidth, y: (bounds.height - opposeHeight) / 2), size: CGSize(width: opposeWidth, height: opposeHeight))
+        let opposeBar = CGRect(origin: CGPoint(x: halfWidth - supportWidth, y: (bounds.height - halfHeight) / 2), size: CGSize(width: supportWidth, height: halfHeight))
+        let supportBar = CGRect(origin: CGPoint(x: halfWidth, y: (bounds.height - halfHeight) / 2), size: CGSize(width: opposeWidth, height: halfHeight))
         
         let context = UIGraphicsGetCurrentContext();
         
