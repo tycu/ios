@@ -2,17 +2,22 @@ import TTTAttributedLabel
 
 class MarkdownLabel: TTTAttributedLabel, TTTAttributedLabelDelegate {
     
-    func presentMarkdown(markdown: String) {
+    func presentMarkdown(markdown: String?) {
         presentMarkdown(markdown, paragraphFont: UIFont.systemFontOfSize(font.pointSize), strongFont: UIFont.boldSystemFontOfSize(font.pointSize), emphasisFont: UIFont.italicSystemFontOfSize(font.pointSize))
     }
     
-    func presentMarkdown(markdown: String, paragraphFont: UIFont, strongFont: UIFont, emphasisFont: UIFont) {
+    func presentMarkdown(markdown: String?, paragraphFont: UIFont, strongFont: UIFont, emphasisFont: UIFont) {
+        if markdown == nil {
+            attributedText = NSMutableAttributedString(string: "")
+            return
+        }
+        
         delegate = self
         linkAttributes = [NSForegroundColorAttributeName: textColor, NSUnderlineStyleAttributeName: NSNumber(bool:true)]
         activeLinkAttributes = [NSForegroundColorAttributeName: textColor, NSUnderlineStyleAttributeName: NSNumber(bool:false)]
         
         let parser = MarkdownParser(paragraphFont: paragraphFont, strongFont: strongFont, emphasisFont: emphasisFont)
-        attributedText = parser.attributedStringFromMarkdown(markdown)
+        attributedText = parser.attributedStringFromMarkdown(markdown!)
         attributedText.enumerateAttributesInRange(NSRange(location:0, length: attributedText.length), options: [], usingBlock: { attributes, range, stop in
             if let url = attributes[NSLinkAttributeName] as? NSURL {
                 self.addLinkToURL(url, withRange: range)

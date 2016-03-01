@@ -10,7 +10,7 @@ class SignInViewController : UIViewController, FBSDKLoginButtonDelegate {
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Skip", style: .Plain, target: self, action: "done")
         
-        facebook.readPermissions = ["public_profile", "email", "user_friends"] // user_work_history
+        facebook.readPermissions = ["public_profile", "email", "user_friends"]
         facebook.delegate = self
     }
     
@@ -22,8 +22,8 @@ class SignInViewController : UIViewController, FBSDKLoginButtonDelegate {
         
         if !result!.isCancelled {
             if result!.grantedPermissions.contains("email") {
-                let body = ["facebookAccessToken": FBSDKAccessToken.currentAccessToken().tokenString]
-                Requests.post(Endpoints.tokens, withBody: body, completionHandler: { response, error in
+                let body = ["accessToken": FBSDKAccessToken.currentAccessToken().tokenString]
+                Requests.post(Endpoints.authenticate, withBody: body, completionHandler: { response, error in
                     if response?.statusCode == 200 {
                         if let token = response!.body?["token"] as? String {
                             Keychain.setPassword(token)

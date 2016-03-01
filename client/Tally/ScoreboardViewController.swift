@@ -28,11 +28,6 @@ class ScoreboardViewController : UITableViewController {
     }
     
     func refresh(sender: AnyObject) {
-        let scoreboard = activeScoreboard
-        let url = Endpoints.scoreboards + "/" + scoreboard.rawValue
-        Requests.get(url, completionHandler: { response, error in
-            print(response?.body, error)
-        })
     }
     
     enum Scoreboard : String {

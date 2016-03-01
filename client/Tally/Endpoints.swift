@@ -10,9 +10,9 @@ class Endpoints {
         #endif
     }
     
-    static let events = host + "/v1/events"
-    static let politicians = host + "/v1/politicians"
-    static let scoreboards = host + "/v1/scoreboards"
-    static let tokens = host + "/v1/tokens"
-    static let users = host + "/v1/users"
+    static let authenticate = host + "/v1/authenticate"
+    static let getUserData = host + "/v1/get-user-data"
+    
+    static let recentEvents = "https://generated.tally.us/v1/events/recent.json"
+    static let topEvents = "https://generated.tally.us/v1/events/top.json"
 }

@@ -26,7 +26,7 @@ class SignedInViewController : UITableViewController {
         super.viewWillAppear(animated)
         
         if profileHolder.hidden {
-            Requests.get(Endpoints.users + "/me", completionHandler: { response, error in
+            Requests.post(Endpoints.getUserData, withBody: nil, completionHandler: { response, error in
                 if response?.statusCode == 200 {
                     let user = User(data: response!.body!)
                     user.setThumbnail(self.profilePicture)

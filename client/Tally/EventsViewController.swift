@@ -102,8 +102,8 @@ class EventsViewController : UITableViewController {
         tableView.backgroundView = activityIndicator
         
         let sort = activeSort
-        let url = politician != nil ? (Endpoints.politicians + "/" + politician!.iden + "/events") : Endpoints.events
-        Requests.get(url + "?sort=" + sort.rawValue, completionHandler: { response, error in
+        let url = sort == .Top ? Endpoints.topEvents : Endpoints.recentEvents
+        Requests.get(url, completionHandler: { response, error in
             self.refreshControl!.endRefreshing()
             
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (Int64)(0.5 * Double(NSEC_PER_SEC))), dispatch_get_main_queue()) {

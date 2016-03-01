@@ -8,9 +8,6 @@ class Requests {
         wrapped.addValue("Tally iOS \(NSBundle.mainBundle().infoDictionary!["CFBundleVersion"] as! String) (gzip)", forHTTPHeaderField: "User-Agent")
         wrapped.addValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
         wrapped.addValue("application/json", forHTTPHeaderField: "Accept")
-        if let token = Keychain.getPassword() {
-            wrapped.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
-        }
         wrapped.timeoutInterval = 10
         return wrapped
     }
@@ -18,13 +15,22 @@ class Requests {
     static func get(url: String, completionHandler: (Response?, NSError?) -> Void) {
         let wrapped = buildRequestTo(url)
         wrapped.HTTPMethod = "GET"
+        
         makeRequest(wrapped, completionHandler: completionHandler)
     }
 
-    static func post(url: String, withBody body: [String : AnyObject], completionHandler: (Response?, NSError?) -> Void) {
+    static func post(url: String, withBody body: [String : AnyObject]?, completionHandler: (Response?, NSError?) -> Void) {
         let wrapped = buildRequestTo(url)
         wrapped.HTTPMethod = "POST"
-        wrapped.HTTPBody = try! NSJSONSerialization.dataWithJSONObject(body, options: [])
+        
+        if body != nil {
+            wrapped.HTTPBody = try! NSJSONSerialization.dataWithJSONObject(body!, options: [])
+        }
+        
+        if let token = Keychain.getPassword() {
+            wrapped.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        }
+        
         makeRequest(wrapped, completionHandler: completionHandler)
     }
     
@@ -42,13 +48,14 @@ class Requests {
             let httpResponse = response as! NSHTTPURLResponse
             var body: [String: AnyObject]?
             
+            
             if httpResponse.statusCode == 200 {
                 do {
                     body = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions(rawValue: 0)) as? [String: AnyObject]
                 } catch let e {
                     p(e)
                     dispatch_async(dispatch_get_main_queue(), {
-                        completionHandler(nil, NSError(domain:NSBundle.mainBundle().bundleIdentifier!, code:0, userInfo:[NSLocalizedDescriptionKey: "Error processing network response"]))
+                        completionHandler(nil, NSError(domain:NSBundle.mainBundle().bundleIdentifier!, code:0, userInfo:[NSLocalizedDescriptionKey: "Error parsing json"]))
                     })
                     return
                 }
