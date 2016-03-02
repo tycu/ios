@@ -13,6 +13,8 @@
 		604D520A1C83C9E200A117CE /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604D52091C83C9E200A117CE /* Keychain.swift */; };
 		60534F051C84182300609CD7 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60534F041C84182300609CD7 /* Profile.swift */; };
 		60534F091C842F2300609CD7 /* EventCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60534F081C842F2300609CD7 /* EventCell.xib */; };
+		60534F0B1C865E5E00609CD7 /* EventTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60534F0A1C865E5E00609CD7 /* EventTableViewController.swift */; };
+		60534F0D1C866BFF00609CD7 /* AddCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60534F0C1C866BFF00609CD7 /* AddCardViewController.swift */; };
 		607A65A11C7577EF00D1B754 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607A65A01C7577EF00D1B754 /* AppDelegate.swift */; };
 		607A65A61C7577EF00D1B754 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607A65A41C7577EF00D1B754 /* Main.storyboard */; };
 		607A65A81C7577EF00D1B754 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607A65A71C7577EF00D1B754 /* Assets.xcassets */; };
@@ -46,6 +48,8 @@
 		604D52091C83C9E200A117CE /* Keychain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
 		60534F041C84182300609CD7 /* Profile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		60534F081C842F2300609CD7 /* EventCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventCell.xib; sourceTree = "<group>"; };
+		60534F0A1C865E5E00609CD7 /* EventTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTableViewController.swift; sourceTree = "<group>"; };
+		60534F0C1C866BFF00609CD7 /* AddCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCardViewController.swift; sourceTree = "<group>"; };
 		607A659D1C7577EF00D1B754 /* Tally.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tally.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607A65A01C7577EF00D1B754 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		607A65A51C7577EF00D1B754 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -119,8 +123,10 @@
 		607A65B41C757F5900D1B754 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				60534F0C1C866BFF00609CD7 /* AddCardViewController.swift */,
 				607A65B91C75824300D1B754 /* EventCell.swift */,
 				60534F081C842F2300609CD7 /* EventCell.xib */,
+				60534F0A1C865E5E00609CD7 /* EventTableViewController.swift */,
 				607A65B71C7580B000D1B754 /* EventsViewController.swift */,
 				607A65C51C75BFA700D1B754 /* EventViewController.swift */,
 				607A65A91C7577EF00D1B754 /* LaunchScreen.storyboard */,
@@ -301,12 +307,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				607A65C61C75BFA700D1B754 /* EventViewController.swift in Sources */,
+				60534F0B1C865E5E00609CD7 /* EventTableViewController.swift in Sources */,
 				607A65DD1C7D88F400D1B754 /* MarkdownLabel.swift in Sources */,
 				607A65CA1C781C0F00D1B754 /* Colors.swift in Sources */,
 				607A65A11C7577EF00D1B754 /* AppDelegate.swift in Sources */,
 				607A65C81C78180700D1B754 /* Error.swift in Sources */,
 				607A65DF1C7D96ED00D1B754 /* ProfileViewController.swift in Sources */,
 				607A65CC1C783C9800D1B754 /* Politician.swift in Sources */,
+				60534F0D1C866BFF00609CD7 /* AddCardViewController.swift in Sources */,
 				604D52041C82CEAD00A117CE /* TouchStateView.swift in Sources */,
 				604D52021C82BEE200A117CE /* SignedInViewController.swift in Sources */,
 				607A65E31C7DA8A400D1B754 /* SignInViewController.swift in Sources */,

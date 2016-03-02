@@ -1,9 +1,9 @@
 import UIKit
 import SDWebImage
 
-class EventsViewController : UITableViewController {
+class EventsViewController : EventTableViewController {
     private let segmentedControl = UISegmentedControl(items: ["Recent", "Top"])
-    private let  activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .Gray)
+    private let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .Gray)
     private var events = [Sort : [Event]]()
     var politician: Politician?
     
@@ -19,11 +19,7 @@ class EventsViewController : UITableViewController {
         segmentedControl.frame = CGRect(x: 0, y: 0, width: 180, height: segmentedControl.frame.height)
         segmentedControl.selectedSegmentIndex = 0
         segmentedControl.addTarget(self, action: "segmentIndexSelected:", forControlEvents: .ValueChanged)
-        
-        tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = 110
-        tableView.registerNib(UINib(nibName: "EventCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: "EventCell")
-        
+                
         activityIndicator.center = tableView.center
         activityIndicator.startAnimating()
         tableView.backgroundView = activityIndicator
@@ -56,22 +52,7 @@ class EventsViewController : UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let event = events[activeSort]![indexPath.row]
         let cell = tableView.dequeueReusableCellWithIdentifier("EventCell", forIndexPath: indexPath) as! EventCell
-        
-        if (CGFloat(Float(arc4random()) /  Float(UInt32.max)) > 0.75) {
-            if (CGFloat(Float(arc4random()) /  Float(UInt32.max)) > 0.5) {
-                cell.contribution.textColor = Colors.green
-                cell.contribution.text = "Supported ($5)"
-            } else {
-                cell.contribution.textColor = Colors.orange
-                cell.contribution.text = "Opposed ($5)"
-            }
-        } else {
-            cell.contribution.text = nil
-        }
-        
-        event.politician?.setThumbnail(cell.thumbnail)
-        cell.headline.presentMarkdown(event.headline)
-        cell.time.text = event.created.humanReadableTimeSinceNow
+        prepareCell(cell, forEvent: event)
         return cell
     }
     

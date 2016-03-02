@@ -12,18 +12,18 @@ class SupportOpposeView : UIView {
         
         let barWidth = halfWidth * weight
         
-        let supportWidth = barWidth * support
-        let opposeWidth = barWidth * oppose
+        let supportWidth = max(barWidth * support, halfWidth * 0.1)
+        let opposeWidth = max(barWidth * oppose, halfWidth * 0.1)
         
         let opposeBar = CGRect(origin: CGPoint(x: halfWidth - supportWidth, y: (bounds.height - halfHeight) / 2), size: CGSize(width: supportWidth, height: halfHeight))
         let supportBar = CGRect(origin: CGPoint(x: halfWidth, y: (bounds.height - halfHeight) / 2), size: CGSize(width: opposeWidth, height: halfHeight))
         
         let context = UIGraphicsGetCurrentContext();
         
-        CGContextSetFillColorWithColor(context, Colors.orange.CGColor)
+        CGContextSetFillColorWithColor(context, Colors.oppose.CGColor)
         CGContextFillRect(context, opposeBar)
         
-        CGContextSetFillColorWithColor(context, Colors.green.CGColor)
+        CGContextSetFillColorWithColor(context, Colors.support.CGColor)
         CGContextFillRect(context, supportBar)
         
         let divider = CGRect(origin: CGPoint(x: halfWidth - 1, y: 0), size: CGSize(width: 2, height: bounds.height))

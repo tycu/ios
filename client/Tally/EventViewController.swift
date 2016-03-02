@@ -10,8 +10,10 @@ class EventViewController: UIViewController {
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var headlineHolder: UIView!
     @IBOutlet weak var headline: MarkdownLabel!
+    @IBOutlet weak var buttonsHolder: UIStackView!
     @IBOutlet weak var oppose: UIButton!
     @IBOutlet weak var support: UIButton!
+    @IBOutlet weak var contribution: UILabel!
     @IBOutlet weak var summary: MarkdownLabel!
     var event: Event!
     var hidePolitician = false
@@ -65,11 +67,12 @@ class EventViewController: UIViewController {
         
         headline.attributedText = headlineAttributedString
         
-        oppose.titleLabel!.font = UIFont.boldSystemFontOfSize(oppose.titleLabel!.font.pointSize)
-        support.titleLabel!.font = UIFont.boldSystemFontOfSize(support.titleLabel!.font.pointSize)
+        oppose.tintColor = Colors.support
+        support.tintColor = Colors.support
         
-        oppose.tintColor = Colors.orange
-        support.tintColor = Colors.green
+//        buttonsHolder.hidden = true
+//        
+//        contribution.text = "Supported ($5)"
         
         // Use serif font for the event summary
         let paragraphFont = UIFont(name: "Times New Roman", size: summary.font!.pointSize)!

@@ -3,41 +3,60 @@ import FBSDKLoginKit
 import SSKeychain
 
 class SignInViewController : UIViewController, FBSDKLoginButtonDelegate {
+    @IBOutlet weak var card: UIView!
+    @IBOutlet weak var tagline: UILabel!
     @IBOutlet weak var facebook: FBSDKLoginButton!
+    @IBOutlet weak var long: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Skip", style: .Plain, target: self, action: "done")
+        Keychain.clear()
+        
+        tagline.font = UIFont(name: "Times New Roman", size: tagline.font!.pointSize)!
+        
+        card.layer.masksToBounds = false;
+        card.layer.shadowColor = UIColor.blackColor().CGColor
+        card.layer.shadowOffset = CGSizeMake(0, 1);
+        card.layer.shadowOpacity = 0.4;
+        card.layer.shadowRadius = 1.5;
         
         facebook.readPermissions = ["public_profile", "email", "user_friends"]
         facebook.delegate = self
+        
+        long.font = UIFont(name: "Times New Roman", size: long.font!.pointSize)!
+        
+        let attributedLong = NSMutableAttributedString(string: long.text!)
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineSpacing = 6
+        attributedLong.addAttribute(NSParagraphStyleAttributeName, value: paragraphStyle, range: NSMakeRange(0, long.text!.characters.count))
+        long.attributedText = attributedLong
     }
     
     func loginButton(loginButton: FBSDKLoginButton, didCompleteWithResult result: FBSDKLoginManagerLoginResult?, error: NSError?) {
         guard error == nil && result != nil else {
-            self.showErrorDialogWithMessage("Facebook login failed, please try again.")
+            showErrorDialogWithMessage("Facebook login failed, please try again.", inViewController: self)
             return
         }
         
         if !result!.isCancelled {
             if result!.grantedPermissions.contains("email") {
-                let body = ["accessToken": FBSDKAccessToken.currentAccessToken().tokenString]
+                let body = ["facebookToken": FBSDKAccessToken.currentAccessToken().tokenString]
                 Requests.post(Endpoints.authenticate, withBody: body, completionHandler: { response, error in
                     if response?.statusCode == 200 {
-                        if let token = response!.body?["token"] as? String {
-                            Keychain.setToken(token)
-                            self.done()
+                        if let token = response!.body?["accessToken"] as? String {
+                            Keychain.setAccessToken(token)
+                            self.dismiss()
                             return
                         }
                     }
                     
-                    FBSDKLoginManager().logOut()
-                    self.showErrorDialogWithMessage("Login failed, please try again.")
+                    Keychain.clear()
+                    showErrorDialogWithMessage("Login failed, please try again.", inViewController: self)
                 })
             } else {
-                FBSDKLoginManager().logOut()
-                showErrorDialogWithMessage("Permission to access your email address is required to sign in, please try again.")
+                Keychain.clear()
+                showErrorDialogWithMessage("Permission to access your email address is required to sign in, please try again.", inViewController: self)
             }
         }
     }
@@ -45,7 +64,7 @@ class SignInViewController : UIViewController, FBSDKLoginButtonDelegate {
     func loginButtonDidLogOut(loginButton: FBSDKLoginButton) {
     }
     
-    func done() {
+    func dismiss() {
         if let parentViewController = parentViewController as? ProfileViewController {
             parentViewController.swapContainerViewControllerTo(storyboard!.instantiateViewControllerWithIdentifier("SignedInViewController"))
         } else {
@@ -54,11 +73,5 @@ class SignInViewController : UIViewController, FBSDKLoginButtonDelegate {
                 UIApplication.sharedApplication().registerUserNotificationSettings(notificationSettings)
             })
         }
-    }
-    
-    private func showErrorDialogWithMessage(message: String) {
-        let alert = UIAlertController(title: "Error", message: message, preferredStyle: .Alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
-        presentViewController(alert, animated: true, completion: nil)
     }
 }

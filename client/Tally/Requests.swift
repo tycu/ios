@@ -27,8 +27,9 @@ class Requests {
             wrapped.HTTPBody = try! NSJSONSerialization.dataWithJSONObject(body!, options: [])
         }
         
-        if let token = Keychain.getToken() {
-            wrapped.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        if let accessToken = Keychain.getAccessToken() {
+            print(accessToken)
+            wrapped.addValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
         }
         
         makeRequest(wrapped, completionHandler: completionHandler)
