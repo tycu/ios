@@ -1,32 +1,14 @@
 class EditProfileViewController : UIViewController {
     @IBOutlet var profileHolder: UIView!
-    @IBOutlet var profilePictureHolder: UIView!
-    @IBOutlet var profilePicture: UIImageView!
     @IBOutlet var name: UITextField!
     @IBOutlet var occupation: UITextField!
     @IBOutlet var employer: UITextField!
     
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
-        navigationController!.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
-        navigationController!.navigationBar.shadowImage = UIImage()
-        navigationController!.navigationBar.barStyle = .Black
-        
-        let doneButton = UIBarButtonItem(title: "Done", style: .Done, target: self, action: "done")
-        doneButton.tintColor = UIColor.whiteColor()
-        navigationItem.rightBarButtonItem = doneButton
-        
-        let cancelButton = UIBarButtonItem(title: "Cancel", style: .Plain, target: self, action: "cancel")
-        cancelButton.tintColor = UIColor.whiteColor()
-        navigationItem.leftBarButtonItem = cancelButton
-        
-        profilePictureHolder.layer.borderColor = UIColor.whiteColor().CGColor
-        profilePictureHolder.layer.borderWidth = 2
-        profilePictureHolder.layer.cornerRadius = profilePictureHolder.bounds.width / 2
-        profilePictureHolder.layer.masksToBounds = true
-        
-        profilePicture.sd_setImageWithURL(NSURL(string: "https://graph.facebook.com/1682662308683021/picture?type=large")!)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .Done, target: self, action: "done")
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .Plain, target: self, action: "cancel")
     }
     
     private func lockUI() {
