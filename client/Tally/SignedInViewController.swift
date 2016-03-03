@@ -118,6 +118,7 @@ class SignedInViewController : EventTableViewController {
     }
     
     func editProfile() {
+        performSegueWithIdentifier("EditProfileSegue", sender: nil)
     }
     
     func editCard() {

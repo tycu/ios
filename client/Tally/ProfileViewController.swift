@@ -18,14 +18,7 @@ class ProfileViewController : UIViewController {
         navigationController!.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
         navigationController!.navigationBar.shadowImage = UIImage()
     }
-    
-    override func viewWillDisappear(animated: Bool) {
-        super.viewWillDisappear(animated)
         
-        navigationController!.navigationBar.setBackgroundImage(nil, forBarMetrics: .Default)
-        navigationController!.navigationBar.shadowImage = nil
-    }
-    
     func swapContainerViewControllerTo(newViewController: UIViewController) {
         let currentViewController = childViewControllers.first!
         

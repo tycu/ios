@@ -2,6 +2,12 @@ class DonateViewController : UIViewController {
     var event: Event!
     var pac: Pac!
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        navigationItem.title = "Contribute"
+    }
+    
     func cancel() {
         dismiss()
     }
