@@ -1,8 +1,10 @@
 class EditProfileViewController : UIViewController {
-    @IBOutlet var profileHolder: UIView!
-    @IBOutlet var name: UITextField!
-    @IBOutlet var occupation: UITextField!
-    @IBOutlet var employer: UITextField!
+    @IBOutlet weak var profileHolder: UIView!
+    @IBOutlet weak var name: UITextField!
+    @IBOutlet weak var occupation: UITextField!
+    @IBOutlet weak var employer: UITextField!
+    @IBOutlet weak var streetAddress: UITextField!
+    @IBOutlet weak var cityStateZip: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +32,8 @@ class EditProfileViewController : UIViewController {
         body["name"] = name.text
         body["occupation"] = occupation.text
         body["employer"] = employer.text
+        body["streetAddress"] = streetAddress.text
+        body["cityStateZip"] = cityStateZip.text
         
         Requests.post(Endpoints.updateProfile, withBody: body, completionHandler: { response, error in
             if response?.statusCode == 200 {

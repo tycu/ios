@@ -1,3 +1,3 @@
 class PacCell : UITableViewCell {
-    @IBOutlet var name: UILabel!
+    @IBOutlet weak var name: UILabel!
 }

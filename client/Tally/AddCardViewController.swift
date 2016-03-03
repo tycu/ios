@@ -2,7 +2,7 @@ import Stripe
 
 class AddCardViewController : UIViewController, STPPaymentCardTextFieldDelegate {
     @IBOutlet weak var cardField: STPPaymentCardTextField!
-    @IBOutlet var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()

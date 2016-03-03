@@ -1,6 +1,6 @@
 class Profile {
     let iden: String, facebookId: String
-    let name: String?, occupation: String?, employer: String?, address: String?
+    let name: String?, occupation: String?, employer: String?, streetAddress: String?, cityStateZip: String?
     
     init(data: [String : AnyObject]) {
         iden = data["iden"] as! String
@@ -8,7 +8,8 @@ class Profile {
         name = data["name"] as? String
         occupation = data["occupation"] as? String
         employer = data["employer"] as? String
-        address = data["address"] as? String
+        streetAddress = data["streetAddress"] as? String
+        cityStateZip = data["cityStateZip"] as? String
     }
     
     func setThumbnail(imageView: UIImageView) {
