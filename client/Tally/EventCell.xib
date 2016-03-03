@@ -43,7 +43,7 @@
                                     </constraints>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Headline" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Faj-ly-0aT" customClass="MarkdownLabel" customModule="Tally" customModuleProvider="target">
-                                    <rect key="frame" x="64" y="0.0" width="493" height="18"/>
+                                    <rect key="frame" x="64" y="0.0" width="485" height="18"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
@@ -54,7 +54,7 @@
                                         <constraint firstAttribute="width" constant="25" id="raM-us-H6i"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                    <color key="textColor" red="0.53333333333333333" green="0.53333333333333333" blue="0.53333333333333333" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="textColor" red="0.62352941176470589" green="0.62352941176470589" blue="0.62352941176470589" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EdX-cl-gkv">
@@ -87,7 +87,7 @@
                                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="EdX-cl-gkv" secondAttribute="bottom" id="bTs-tF-9GL"/>
                                 <constraint firstAttribute="trailing" secondItem="EdX-cl-gkv" secondAttribute="trailing" constant="65" id="cze-m1-TAW"/>
                                 <constraint firstItem="EdX-cl-gkv" firstAttribute="leading" secondItem="7nY-Bl-STI" secondAttribute="leading" constant="65" id="n3K-2L-PDH"/>
-                                <constraint firstItem="Faj-ly-0aT" firstAttribute="right" secondItem="ZKZ-eN-xR3" secondAttribute="left" constant="-2" id="p6Z-Ev-QqL"/>
+                                <constraint firstItem="Faj-ly-0aT" firstAttribute="right" secondItem="ZKZ-eN-xR3" secondAttribute="left" constant="-10" id="p6Z-Ev-QqL"/>
                                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Lex-r9-yNp" secondAttribute="bottom" id="s5m-NK-BsE"/>
                                 <constraint firstItem="Lex-r9-yNp" firstAttribute="top" secondItem="7nY-Bl-STI" secondAttribute="top" id="xTB-vf-kpO"/>
                                 <constraint firstItem="Faj-ly-0aT" firstAttribute="top" secondItem="7nY-Bl-STI" secondAttribute="top" id="yNJ-cW-Vgd"/>

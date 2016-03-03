@@ -92,10 +92,13 @@ class EventsViewController : EventTableViewController {
                 
                 if response?.statusCode == 200 {
                     self.events[sort] = [Event]()
-                    if let stories = response!.body!["events"] as? [[String : AnyObject]] {
-                        for story in stories {
+                    if let events = response!.body!["events"] as? [[String : AnyObject]] {
+                        for event in events {
                             do {
-                                self.events[sort]!.append(try Event(data: story))
+                                let event = try Event(data: event)
+                                if self.politician == nil || self.politician!.iden == event.politician?.iden {
+                                    self.events[sort]!.append(event)
+                                }
                             } catch _ {
                                 p("Skipping invalid event")
                             }

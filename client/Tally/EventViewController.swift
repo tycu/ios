@@ -43,7 +43,7 @@ class EventViewController: UIViewController {
         }
         
         if event.imageUrl != nil && image.sd_imageURL() == nil {
-            let imgixConfig = "?dpr=\(min(UIScreen.mainScreen().scale, 2))&h=\(Int(image.frame.height))&w=\(view.frame.width)&fit=crop&crop=entropy"
+            let imgixConfig = "?dpr=\(min(UIScreen.mainScreen().scale, 2))&h=\(Int(image.frame.height))&w=\(view.frame.width)&fit=crop"
             let imageUrl = event.imageUrl! + imgixConfig
             if let parsedUrl = NSURL(string:imageUrl) {
                 image.sd_setImageWithURL(parsedUrl)
@@ -69,6 +69,9 @@ class EventViewController: UIViewController {
         
         oppose.tintColor = Colors.support
         support.tintColor = Colors.support
+        
+        oppose.addGestureRecognizer(UITapGestureRecognizer(target: self, action: "oppose:"))
+        support.addGestureRecognizer(UITapGestureRecognizer(target: self, action: "support:"))
         
 //        buttonsHolder.hidden = true
 //        
@@ -99,10 +102,51 @@ class EventViewController: UIViewController {
         performSegueWithIdentifier("PoliticianSegue", sender: nil)
     }
     
+    func oppose(sender: AnyObject) {
+        performSegueWithIdentifier("DonationSegue", sender: sender)
+    }
+    
+    func support(sender: AnyObject) {
+        performSegueWithIdentifier("DonationSegue", sender: sender)
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "PoliticianSegue" {
             let eventsViewController = segue.destinationViewController as! EventsViewController
             eventsViewController.politician = event.politician!
+        } else if segue.identifier == "DonationSegue" {
+            let donationNavigationController = segue.destinationViewController as! DonationNavigationController
+            
+            if Keychain.getAccessToken() == nil {
+                let signInViewController = storyboard!.instantiateViewControllerWithIdentifier("SignInViewController")
+                signInViewController.navigationItem.title = "Log In"
+                signInViewController.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .Plain, target: signInViewController, action: "cancel")
+                donationNavigationController.queue.append(signInViewController)
+            }
+            
+//            let addCardViewController = storyboard!.instantiateViewControllerWithIdentifier("AddCardViewController")
+//            addCardViewController.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .Plain, target: addCardViewController, action: "cancel")
+//            addCardViewController.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next", style: .Done, target: addCardViewController, action: "done")
+//            addCardViewController.navigationItem.rightBarButtonItem!.enabled = false
+//            donationNavigationController.queue.append(addCardViewController)
+            
+            let pacs = sender as? UIButton == support ? event.supportPacs : event.opposePacs
+//            if pacs.count == 1 {
+//                let donateViewController = storyboard!.instantiateViewControllerWithIdentifier("DonateViewController") as! DonateViewController
+//                donateViewController.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .Plain, target: donateViewController, action: "cancel")
+//                donateViewController.event = event
+//                donateViewController.pac = pacs[0]
+//                donationNavigationController.queue.append(donateViewController)
+//            } else {
+                let pacsViewController = storyboard!.instantiateViewControllerWithIdentifier("PacsViewController") as! PacsViewController
+                pacsViewController.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .Plain, target: pacsViewController, action: "cancel")
+                pacsViewController.navigationItem.title = "Contribution Options"
+                pacsViewController.event = event
+                pacsViewController.options = pacs
+                donationNavigationController.queue.append(pacsViewController)
+//            }
+        
+            donationNavigationController.viewControllers.append(donationNavigationController.queue.removeFirst())
         }
     }
 }

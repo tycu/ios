@@ -7,11 +7,6 @@ class AddCardViewController : UIViewController, STPPaymentCardTextFieldDelegate 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .Plain, target: self, action: "dismiss")
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .Done, target: self, action: "done")
-        
-        navigationItem.rightBarButtonItem!.enabled = false
-        
         cardField.delegate = self
     }
     
@@ -22,12 +17,12 @@ class AddCardViewController : UIViewController, STPPaymentCardTextFieldDelegate 
     }
     
     func paymentCardTextFieldDidChange(textField: STPPaymentCardTextField) {
-        navigationItem.rightBarButtonItem!.enabled = cardField.valid
+        navigationItem.rightBarButtonItem?.enabled = cardField.valid
     }
     
     private func lockUI() {
-        navigationItem.leftBarButtonItem!.enabled = false
-        navigationItem.rightBarButtonItem!.enabled = false
+        navigationItem.leftBarButtonItem?.enabled = false
+        navigationItem.rightBarButtonItem?.enabled = false
         cardField.enabled = false
         cardField.hidden = true
         activityIndicator.hidden = false
@@ -36,8 +31,8 @@ class AddCardViewController : UIViewController, STPPaymentCardTextFieldDelegate 
     }
     
     private func unlockUI() {
-        navigationItem.leftBarButtonItem!.enabled = true
-        navigationItem.rightBarButtonItem!.enabled = true
+        navigationItem.leftBarButtonItem?.enabled = true
+        navigationItem.rightBarButtonItem?.enabled = true
         cardField.enabled = true
         cardField.hidden = false
         activityIndicator.hidden = true
@@ -56,7 +51,7 @@ class AddCardViewController : UIViewController, STPPaymentCardTextFieldDelegate 
             if let token = token {
                 Requests.post(Endpoints.setCard, withBody: ["cardToken": token.tokenId], completionHandler: { response, error in
                     if response?.statusCode == 200 {
-                        self.dismiss()
+                        self.next()
                     } else {
                         showErrorDialogWithMessage("Unable to add card, please try again.", inViewController: self)
                         self.unlockUI()
@@ -66,7 +61,19 @@ class AddCardViewController : UIViewController, STPPaymentCardTextFieldDelegate 
         })
     }
     
-    func dismiss() {
-        dismissViewControllerAnimated(true, completion: nil)
+    func next() {
+        if let parentViewController = parentViewController as? DonationNavigationController {
+            parentViewController.next()
+        } else {
+            dismiss()
+        }
+    }
+    
+    func cancel() {
+        dismiss()
+    }
+    
+    private func dismiss() {
+        navigationController!.dismissViewControllerAnimated(true, completion: nil)
     }
 }

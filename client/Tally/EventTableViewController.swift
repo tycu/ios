@@ -12,7 +12,7 @@ class EventTableViewController : UITableViewController {
     }
     
     func prepareCell(cell: EventCell, forEvent event: Event) {
-//        if (CGFloat(Float(arc4random()) /  Float(UInt32.max)) > 0.75) {
+        if (CGFloat(Float(arc4random()) /  Float(UInt32.max)) > 0.75) {
             if (CGFloat(Float(arc4random()) /  Float(UInt32.max)) > 0.5) {
                 cell.contribution.textColor = Colors.support
                 cell.contribution.text = "Supported ($5)"
@@ -20,9 +20,9 @@ class EventTableViewController : UITableViewController {
                 cell.contribution.textColor = Colors.oppose
                 cell.contribution.text = "Opposed ($5)"
             }
-//        } else {
-//            cell.contribution.text = nil
-//        }
+        } else {
+            cell.contribution.text = nil
+        }
         
         event.politician?.setThumbnail(cell.thumbnail)
         cell.headline.presentMarkdown(event.headline)

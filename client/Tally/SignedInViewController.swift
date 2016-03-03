@@ -106,7 +106,11 @@ class SignedInViewController : EventTableViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "AddCardSegue" {
-//            let addCardViewController = segue.destinationViewController as! AddCardViewController
+            let navigationController = segue.destinationViewController as! UINavigationController
+            let addCardViewController = navigationController.childViewControllers[0]
+            addCardViewController.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .Plain, target: addCardViewController, action: "cancel")
+            addCardViewController.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .Done, target: addCardViewController, action: "done")
+            addCardViewController.navigationItem.rightBarButtonItem!.enabled = false
         } else if segue.identifier == "EventSegue" {
             let eventViewController = segue.destinationViewController as! EventViewController
             eventViewController.event = sender as! Event

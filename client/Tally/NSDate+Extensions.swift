@@ -3,6 +3,7 @@ import Foundation
 extension NSDate {
     var humanReadableTimeSinceNow: String {
         let oneHour = 60.0 * 60.0
+        let oneDay = 24 * oneHour
         let interval = abs(timeIntervalSinceNow)
         if interval < oneHour {
             let minutesSinceNow = Int(interval / 60.0)
@@ -10,9 +11,12 @@ extension NSDate {
         } else if interval < (24 * oneHour) {
             let hoursSinceNow = Int(interval / oneHour)
             return "\(hoursSinceNow)h"
-        } else {
+        } else if interval < (14 * oneDay) {
             let daysSinceNow = Int(interval / (24 * oneHour))
             return "\(daysSinceNow)d"
+        } else {
+            let weeksSinceNow = Int(interval / (7 * oneDay))
+            return "\(weeksSinceNow)w"
         }
     }
     

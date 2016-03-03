@@ -28,7 +28,6 @@ class Requests {
         }
         
         if let accessToken = Keychain.getAccessToken() {
-            print(accessToken)
             wrapped.addValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
         }
         
@@ -49,7 +48,6 @@ class Requests {
             let httpResponse = response as! NSHTTPURLResponse
             var body: [String: AnyObject]?
             
-            
             if httpResponse.statusCode == 200 {
                 do {
                     body = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions(rawValue: 0)) as? [String: AnyObject]
@@ -61,7 +59,10 @@ class Requests {
                     return
                 }
             } else if httpResponse.statusCode == 401 {
-                Keychain.clear()
+                dispatch_async(dispatch_get_main_queue(), {
+                    Keychain.clear()
+                    (UIApplication.sharedApplication().delegate as! AppDelegate).window!.rootViewController = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateInitialViewController()
+                })
             }
             
             dispatch_async(dispatch_get_main_queue(), {

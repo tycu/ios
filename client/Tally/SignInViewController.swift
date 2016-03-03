@@ -46,7 +46,7 @@ class SignInViewController : UIViewController, FBSDKLoginButtonDelegate {
                     if response?.statusCode == 200 {
                         if let token = response!.body?["accessToken"] as? String {
                             Keychain.setAccessToken(token)
-                            self.dismiss()
+                            self.next()
                             return
                         }
                     }
@@ -64,14 +64,24 @@ class SignInViewController : UIViewController, FBSDKLoginButtonDelegate {
     func loginButtonDidLogOut(loginButton: FBSDKLoginButton) {
     }
     
-    func dismiss() {
+    func next() {
         if let parentViewController = parentViewController as? ProfileViewController {
             parentViewController.swapContainerViewControllerTo(storyboard!.instantiateViewControllerWithIdentifier("SignedInViewController"))
+        } else if let parentViewController = parentViewController as? DonationNavigationController {
+            parentViewController.next()
         } else {
-            dismissViewControllerAnimated(true, completion: {
-                let notificationSettings = UIUserNotificationSettings(forTypes: [.Alert, .Sound, .Badge], categories: nil)
-                UIApplication.sharedApplication().registerUserNotificationSettings(notificationSettings)
-            })
+            dismiss()
         }
+    }
+    
+    func cancel() {
+        dismiss()
+    }
+    
+    private func dismiss() {
+        navigationController!.dismissViewControllerAnimated(true, completion: {
+            let notificationSettings = UIUserNotificationSettings(forTypes: [.Alert, .Sound, .Badge], categories: nil)
+            UIApplication.sharedApplication().registerUserNotificationSettings(notificationSettings)
+        })
     }
 }

@@ -13,7 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
         window!.backgroundColor = UIColor.whiteColor()
         window!.tintColor = Colors.purple
-        window!.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("MainViewController")
+        window!.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController()
         window!.makeKeyAndVisible()
         
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
@@ -51,7 +51,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 signInNavigationController.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
                 signInNavigationController.navigationBar.shadowImage = UIImage()
                 let signInViewController = signInNavigationController.childViewControllers[0]
-                let skip = UIBarButtonItem(title: "Skip", style: .Done, target: signInViewController, action: "dismiss")
+                let skip = UIBarButtonItem(title: "Skip", style: .Done, target: signInViewController, action: "cancel")
                 skip.tintColor = UIColor.whiteColor()
                 signInViewController.navigationItem.rightBarButtonItem = skip
                 window!.rootViewController!.presentViewController(signInNavigationController, animated: true, completion: nil)
