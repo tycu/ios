@@ -104,6 +104,7 @@
             </constraints>
             <connections>
                 <outlet property="contribution" destination="Qap-GU-YZ8" id="hES-ki-08b"/>
+                <outlet property="graph" destination="diF-ka-fF7" id="kPx-xE-hlB"/>
                 <outlet property="headline" destination="Faj-ly-0aT" id="pjl-IY-zyp"/>
                 <outlet property="thumbnail" destination="Lex-r9-yNp" id="iM1-jN-GM9"/>
                 <outlet property="time" destination="ZKZ-eN-xR3" id="gAW-yn-1QG"/>

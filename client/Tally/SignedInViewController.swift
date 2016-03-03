@@ -36,6 +36,10 @@ class SignedInViewController : EventTableViewController {
         
         navigationController?.navigationBar.barStyle = .Black
         
+        EventBus.register(self, forEvent: "user_data_changed", withHandler: { data in
+            self.tableView.reloadData()
+        })
+        
         update()
     }
     
@@ -43,6 +47,8 @@ class SignedInViewController : EventTableViewController {
         super.viewWillAppear(animated)
         
         navigationController!.navigationBar.barStyle = .Default
+        
+        EventBus.unregister(self)
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -50,21 +56,21 @@ class SignedInViewController : EventTableViewController {
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return UserData.instance?.donations.count ?? 0
     }
     
-//    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-//        let event = events[indexPath.row]
-//        let cell = tableView.dequeueReusableCellWithIdentifier("EventCell", forIndexPath: indexPath) as! EventCell
-//        prepareCell(cell, forEvent: event)
-//        return cell
-//    }
-//    
-//    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-//        tableView.deselectRowAtIndexPath(indexPath, animated: true)
-//        
-//        performSegueWithIdentifier("EventSegue", sender: events[indexPath.row])
-//    }
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let event = UserData.instance!.donations[indexPath.row].event
+        let cell = tableView.dequeueReusableCellWithIdentifier("EventCell", forIndexPath: indexPath) as! EventCell
+        prepareCell(cell, forEvent: event)
+        return cell
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        
+        performSegueWithIdentifier("EventSegue", sender: UserData.instance!.donations[indexPath.row].event)
+    }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "AddCardSegue" {
@@ -112,6 +118,8 @@ class SignedInViewController : EventTableViewController {
             optionsHolder.hidden = true
             indicator.hidden = false
         }
+        
+        tableView.reloadData()
     }
     
     func editProfile() {

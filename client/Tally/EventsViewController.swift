@@ -50,6 +50,18 @@ class EventsViewController : EventTableViewController {
         }
         
         lastAppeared = NSDate()
+        
+        EventBus.register(self, forEvent: "user_data_changed", withHandler: { data in
+            self.tableView.reloadData()
+        })
+        
+        tableView.reloadData()
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        EventBus.unregister(self)
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {

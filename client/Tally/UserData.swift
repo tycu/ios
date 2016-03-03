@@ -3,11 +3,22 @@ class UserData {
     
     let profile: Profile!
     let chargeable: Bool
+    var donations = [Donation]()
+    var eventIdenToDonation = [String : Donation]()
     
     private init(data: [String : AnyObject]) throws {
-        if let profile = data["profile"] as? [String : AnyObject] {
+        if let profile = data["profile"] as? [String : AnyObject], let donations = data["donations"] as? [[String : AnyObject]] {
             self.profile = Profile(data: profile)
             chargeable = data["chargeable"] as? Bool ?? false
+            for donation in donations {
+                do {
+                    let donation = try Donation(data: donation)
+                    self.donations.append(donation)
+                    self.eventIdenToDonation[donation.event.iden] = donation
+                } catch _ {
+                    p("Skipping invalid donation")
+                }
+            }
         } else {
             profile = nil
             chargeable = false
@@ -27,6 +38,7 @@ class UserData {
                 do {
                     UserData.instance = try UserData(data: response!.body!)
                     completionHandler?(true)
+                    EventBus.post("user_data_changed")
                 } catch _ {
                     p("Ignoring invalid user data")
                 }

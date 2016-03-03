@@ -1,7 +1,21 @@
 class SupportOpposeView : UIView {
+    private var _event: Event?
+    var event: Event? {
+        get {
+            return _event
+        }
+        set {
+            _event = newValue
+            setNeedsDisplay()
+        }
+    }
     
     override func drawRect(rect: CGRect) {
         super.drawRect(rect)
+        
+        guard _event != nil else {
+            return
+        }
         
         let weight = CGFloat(Float(arc4random()) /  Float(UInt32.max))
         let support = CGFloat(Float(arc4random()) /  Float(UInt32.max))

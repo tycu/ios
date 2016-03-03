@@ -12,7 +12,7 @@ class EventTableViewController : UITableViewController {
     }
     
     func prepareCell(cell: EventCell, forEvent event: Event) {
-        if (CGFloat(Float(arc4random()) /  Float(UInt32.max)) > 0.75) {
+        if let donation = UserData.instance?.eventIdenToDonation[event.iden] {
             if (CGFloat(Float(arc4random()) /  Float(UInt32.max)) > 0.5) {
                 cell.contribution.textColor = Colors.support
                 cell.contribution.text = "Supported ($5)"
@@ -24,8 +24,9 @@ class EventTableViewController : UITableViewController {
             cell.contribution.text = nil
         }
         
-        event.politician?.setThumbnail(cell.thumbnail)
+        event.politician.setThumbnail(cell.thumbnail)
         cell.headline.presentMarkdown(event.headline)
+        cell.graph.event = event
         cell.time.text = event.created.humanReadableTimeSinceNow
     }
 }

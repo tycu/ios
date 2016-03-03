@@ -766,6 +766,7 @@
                     <connections>
                         <outlet property="buttonsHolder" destination="sQH-2z-616" id="yUh-OV-3pP"/>
                         <outlet property="contribution" destination="dQ4-EV-61H" id="osy-6h-u6g"/>
+                        <outlet property="graph" destination="kEg-Tf-V4L" id="sWZ-WS-H36"/>
                         <outlet property="headline" destination="d3f-Jt-42g" id="ek5-u5-kCa"/>
                         <outlet property="headlineHolder" destination="kLb-gJ-vMQ" id="rMF-h8-KDD"/>
                         <outlet property="image" destination="DNS-5z-Xmo" id="8zT-A5-0OC"/>

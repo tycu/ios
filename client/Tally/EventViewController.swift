@@ -10,6 +10,7 @@ class EventViewController: UIViewController {
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var headlineHolder: UIView!
     @IBOutlet weak var headline: MarkdownLabel!
+    @IBOutlet weak var graph: SupportOpposeView!
     @IBOutlet weak var buttonsHolder: UIStackView!
     @IBOutlet weak var oppose: UIButton!
     @IBOutlet weak var support: UIButton!
@@ -64,6 +65,8 @@ class EventViewController: UIViewController {
         headlineAttributedString.addAttribute(NSParagraphStyleAttributeName, value: headlineParagraphStyle, range: NSMakeRange(0, headlineAttributedString.length))
         
         headline.attributedText = headlineAttributedString
+        
+        graph.event = event
         
         oppose.tintColor = Colors.support
         support.tintColor = Colors.support
