@@ -53,6 +53,9 @@
                             <rect key="frame" x="0.0" y="0.0" width="320" height="400"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
+                                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="v8T-iO-CSz">
+                                    <rect key="frame" x="150" y="190" width="20" height="20"/>
+                                </activityIndicatorView>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="gj7-V3-uMQ">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="256"/>
                                     <subviews>
@@ -232,10 +235,12 @@
                             <constraints>
                                 <constraint firstAttribute="bottom" secondItem="QpT-5m-57e" secondAttribute="bottom" id="4OV-we-qmc"/>
                                 <constraint firstAttribute="trailing" secondItem="gj7-V3-uMQ" secondAttribute="trailing" id="BPD-kc-hUh"/>
+                                <constraint firstItem="v8T-iO-CSz" firstAttribute="centerY" secondItem="tgb-uM-IP4" secondAttribute="centerY" id="MP4-Z2-vzg"/>
                                 <constraint firstItem="gj7-V3-uMQ" firstAttribute="leading" secondItem="tgb-uM-IP4" secondAttribute="leading" id="Ted-Zg-uxv"/>
                                 <constraint firstItem="gj7-V3-uMQ" firstAttribute="top" secondItem="tgb-uM-IP4" secondAttribute="top" id="U2b-h0-BQA"/>
                                 <constraint firstAttribute="trailing" secondItem="QpT-5m-57e" secondAttribute="trailing" id="jpu-j0-7yg"/>
                                 <constraint firstItem="QpT-5m-57e" firstAttribute="leading" secondItem="tgb-uM-IP4" secondAttribute="leading" id="juk-QC-Ufw"/>
+                                <constraint firstItem="v8T-iO-CSz" firstAttribute="centerX" secondItem="tgb-uM-IP4" secondAttribute="centerX" id="lzI-PW-b36"/>
                                 <constraint firstItem="QpT-5m-57e" firstAttribute="top" secondItem="gj7-V3-uMQ" secondAttribute="bottom" constant="20" id="qn7-4m-z9o"/>
                             </constraints>
                         </view>
@@ -255,9 +260,11 @@
                         <outlet property="cardHolder" destination="2Qx-yr-4py" id="JCf-vn-OAK"/>
                         <outlet property="cardImage" destination="bDz-6E-3wt" id="yEk-BP-X3Q"/>
                         <outlet property="cardLabel" destination="jyF-Xw-ciG" id="dJk-rg-pFA"/>
+                        <outlet property="indicator" destination="v8T-iO-CSz" id="mSc-5J-RG5"/>
                         <outlet property="name" destination="uNw-aA-j9C" id="ge5-fU-Sjp"/>
                         <outlet property="occupation" destination="kSl-CA-jWL" id="as0-Dt-61z"/>
                         <outlet property="occupationImage" destination="wxT-R3-a0v" id="jq1-X7-aA3"/>
+                        <outlet property="optionsHolder" destination="QpT-5m-57e" id="yNo-Oh-HPO"/>
                         <outlet property="profileHolder" destination="gj7-V3-uMQ" id="XXl-lq-AMA"/>
                         <outlet property="profilePicture" destination="cOa-Vw-XWH" id="KwB-uo-nIR"/>
                         <outlet property="profilePictureHolder" destination="a2u-6f-QX6" id="nPA-xZ-EPo"/>
@@ -313,7 +320,7 @@
                                                         <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Full name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vvQ-KG-IJc">
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Full name" textAlignment="natural" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="vvQ-KG-IJc">
                                                         <rect key="frame" x="110" y="0.0" width="195" height="40"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="40" id="RJy-7s-Fz4"/>
@@ -342,7 +349,7 @@
                                                         <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Job title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jGf-Fx-pce">
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Job title" textAlignment="natural" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="jGf-Fx-pce">
                                                         <rect key="frame" x="110" y="0.0" width="195" height="40"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="40" id="I3p-ko-kCu"/>
@@ -371,7 +378,7 @@
                                                         <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Company" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="B9V-hz-2eP">
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Company" textAlignment="natural" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="B9V-hz-2eP">
                                                         <rect key="frame" x="110" y="0.0" width="195" height="40"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="40" id="IcO-mY-9dj"/>
@@ -422,7 +429,7 @@
                                                         <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="City, State ZIP" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TPh-lN-XuA">
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="City, State ZIP" textAlignment="natural" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="TPh-lN-XuA">
                                                         <rect key="frame" x="110" y="0.0" width="195" height="20"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="20" id="Qh4-xv-gxF"/>

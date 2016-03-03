@@ -6,6 +6,7 @@ class EventsViewController : EventTableViewController {
     private let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .Gray)
     private var events = [Sort : [Event]]()
     var politician: Politician?
+    private var lastAppeared: NSDate?
     
     private var activeSort: Sort {
         return segmentedControl.selectedSegmentIndex == 0 ? .Recent : .Top
@@ -27,6 +28,8 @@ class EventsViewController : EventTableViewController {
         activityIndicator.center = tableView.center
         activityIndicator.startAnimating()
         tableView.backgroundView = activityIndicator
+        
+        UserData.update(nil)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -38,7 +41,15 @@ class EventsViewController : EventTableViewController {
             navigationItem.title = politician!.name
         }
         
-        refresh(self)
+        if let lastAppeared = lastAppeared {
+            if abs(Int(lastAppeared.timeIntervalSinceNow)) > 60 {
+                refresh(refreshControl!)
+            }
+        } else {
+            refresh(self)
+        }
+        
+        lastAppeared = NSDate()
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -71,6 +82,7 @@ class EventsViewController : EventTableViewController {
     }
     
     func segmentIndexSelected(sender: UISegmentedControl) {
+        tableView.backgroundView = nil
         tableView.reloadData()
         refresh(self)
     }
@@ -78,6 +90,10 @@ class EventsViewController : EventTableViewController {
     func refresh(sender: AnyObject) {
         if sender is EventsViewController && events[activeSort] != nil {
             return
+        }
+        
+        if UserData.instance == nil {
+            UserData.update(nil)
         }
         
         tableView.backgroundView = activityIndicator
@@ -88,6 +104,8 @@ class EventsViewController : EventTableViewController {
             self.refreshControl!.endRefreshing()
             
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (Int64)(0.5 * Double(NSEC_PER_SEC))), dispatch_get_main_queue()) {
+                self.tableView.backgroundView = nil
+                
                 self.events[sort]?.removeAll()
                 
                 if response?.statusCode == 200 {
@@ -105,9 +123,11 @@ class EventsViewController : EventTableViewController {
                         }
                     }
                     
-                    self.tableView.backgroundView = nil
+                    if self.events[sort]!.count == 0 {
+                        // Set empty state
+                    }
                 } else {
-                    // Something bad happened
+                    // Something bad happened, set error empty state
                 }
                 
                 self.tableView.reloadData()

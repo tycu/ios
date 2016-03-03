@@ -11,6 +11,16 @@ class EditProfileViewController : UIViewController {
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .Done, target: self, action: "done")
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .Plain, target: self, action: "cancel")
+        
+        if let userData = UserData.instance {
+            name.text = userData.profile.name
+            occupation.text = userData.profile.occupation
+            employer.text = userData.profile.employer
+            streetAddress.text = userData.profile.streetAddress
+            cityStateZip.text = userData.profile.cityStateZip
+        } else {
+            dismiss()
+        }
     }
     
     private func lockUI() {
@@ -37,7 +47,9 @@ class EditProfileViewController : UIViewController {
         
         Requests.post(Endpoints.updateProfile, withBody: body, completionHandler: { response, error in
             if response?.statusCode == 200 {
-                self.next()
+                UserData.update({ succeeded in
+                    self.next()
+                })
             } else {
                 showErrorDialogWithMessage("Error updating profile, please try again.", inViewController: self)
                 self.unlockUI()

@@ -46,7 +46,9 @@ class SignInViewController : UIViewController, FBSDKLoginButtonDelegate {
                     if response?.statusCode == 200 {
                         if let token = response!.body?["accessToken"] as? String {
                             Keychain.setAccessToken(token)
-                            self.next()
+                            UserData.update({ succeeded in
+                                self.next()
+                            })
                             return
                         }
                     }
@@ -79,7 +81,7 @@ class SignInViewController : UIViewController, FBSDKLoginButtonDelegate {
     }
     
     private func dismiss() {
-        navigationController!.dismissViewControllerAnimated(true, completion: {
+        dismissViewControllerAnimated(true, completion: {
             let notificationSettings = UIUserNotificationSettings(forTypes: [.Alert, .Sound, .Badge], categories: nil)
             UIApplication.sharedApplication().registerUserNotificationSettings(notificationSettings)
         })

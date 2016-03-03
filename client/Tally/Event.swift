@@ -4,7 +4,7 @@ class Event {
     let iden: String, headline:String
     let summary: String?, imageUrl: String?
     let created: NSDate, modified: NSDate
-    let politician: Politician?
+    let politician: Politician!
     var supportPacs = [Pac]()
     var opposePacs = [Pac]()
     

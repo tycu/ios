@@ -51,7 +51,9 @@ class AddCardViewController : UIViewController, STPPaymentCardTextFieldDelegate 
             if let token = token {
                 Requests.post(Endpoints.setCard, withBody: ["cardToken": token.tokenId], completionHandler: { response, error in
                     if response?.statusCode == 200 {
-                        self.next()
+                        UserData.update({ succeeded in
+                            self.next()
+                        })
                     } else {
                         showErrorDialogWithMessage("Unable to add card, please try again.", inViewController: self)
                         self.unlockUI()

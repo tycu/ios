@@ -31,12 +31,10 @@ class EventViewController: UIViewController {
             title = formatter.stringFromDate(event.created)
         }
         
-        if event.politician != nil {
-            politicianHolder.addGestureRecognizer(UITapGestureRecognizer(target: self, action: "goToPolitician:"))
-            event.politician!.setThumbnail(politicianThumbnail)
-            politicianName.text = event.politician!.name
-            politicianJobTitle.text = event.politician!.jobTitle
-        }
+        politicianHolder.addGestureRecognizer(UITapGestureRecognizer(target: self, action: "goToPolitician:"))
+        event.politician!.setThumbnail(politicianThumbnail)
+        politicianName.text = event.politician!.name
+        politicianJobTitle.text = event.politician!.jobTitle
         
         if hidePolitician {
             politicianHolderHeight.constant = 0
