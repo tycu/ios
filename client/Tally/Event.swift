@@ -9,7 +9,7 @@ class Event {
     var opposePacs = [Pac]()
     
     init(data: [String : AnyObject]) throws {
-        if let iden = data["iden"] as? String, headline = data["headline"] as? String, created = data["created"] as? Double, modified = data["modified"] as? Double, politician = data["politician"] as? [String : AnyObject], supportPacs = data["supportPacs"] as? [[String : AnyObject]], opposePacs = data["opposePacs"] as? [[String : AnyObject]] {
+        if let iden = data["iden"] as? String, headline = data["headline"] as? String, created = data["created"] as? Double, modified = data["modified"] as? Double, politician = data["politician"] as? [String : AnyObject] {
             self.iden = iden
             self.headline = headline
             self.summary = data["summary"] as? String
@@ -22,14 +22,15 @@ class Event {
                 self.politician = nil
                 throw e
             }
-            for pac in supportPacs {
-                self.supportPacs.append(try Pac(data: pac))
+            if let supportPacs = data["supportPacs"] as? [[String : AnyObject]] {
+                for pac in supportPacs {
+                    self.supportPacs.append(try Pac(data: pac))
+                }
             }
-            for pac in opposePacs {
-                self.opposePacs.append(try Pac(data: pac))
-            }
-            if supportPacs.count == 0 || opposePacs.count == 0 {
-                throw Error.QuietError("Invalid event, does not have at least one support and oppose pac")
+            if let opposePacs = data["opposePacs"] as? [[String : AnyObject]] {
+                for pac in opposePacs {
+                    self.opposePacs.append(try Pac(data: pac))
+                }
             }
         } else {
             iden = ""

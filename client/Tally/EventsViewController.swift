@@ -28,8 +28,6 @@ class EventsViewController : EventTableViewController {
         activityIndicator.center = tableView.center
         activityIndicator.startAnimating()
         tableView.backgroundView = activityIndicator
-        
-        UserData.update(nil)
     }
     
     override func viewWillAppear(animated: Bool) {

@@ -626,7 +626,7 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FfK-SX-mc1">
                                                         <rect key="frame" x="0.0" y="84" width="280" height="40"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dQ4-EV-61H">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dQ4-EV-61H">
                                                                 <rect key="frame" x="120" y="11.5" width="40" height="18"/>
                                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -857,9 +857,22 @@
                     <view key="view" contentMode="scaleToFill" id="co2-YG-UB6">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o50-dH-EsZ">
+                                <rect key="frame" x="137" y="225" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="o50-dH-EsZ" firstAttribute="centerY" secondItem="co2-YG-UB6" secondAttribute="centerY" id="YyF-re-E8O"/>
+                            <constraint firstItem="o50-dH-EsZ" firstAttribute="centerX" secondItem="co2-YG-UB6" secondAttribute="centerX" id="rSf-Vx-8FS"/>
+                        </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="donate" destination="o50-dH-EsZ" id="xy7-Jl-DXg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jq1-dO-xSp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

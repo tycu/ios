@@ -74,10 +74,6 @@ class EventViewController: UIViewController {
         oppose.addGestureRecognizer(UITapGestureRecognizer(target: self, action: "oppose:"))
         support.addGestureRecognizer(UITapGestureRecognizer(target: self, action: "support:"))
         
-//        buttonsHolder.hidden = true
-//        
-//        contribution.text = "Supported ($5)"
-        
         // Use serif font for the event summary
         let paragraphFont = UIFont(name: "Times New Roman", size: summary.font!.pointSize)!
         let strongFont = UIFont(name: "TimesNewRomanPS-BoldMT", size: summary.font!.pointSize)!
@@ -97,6 +93,19 @@ class EventViewController: UIViewController {
             }
         }
         summary.attributedText = summaryAttributedString
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if event.supportPacs.count == 0 && event.opposePacs.count == 0 {
+            buttonsHolder.hidden = true
+        }
+    
+        if let donation = UserData.instance?.eventIdenToDonation[event.iden] {
+            buttonsHolder.hidden = true
+            donation.setLabel(contribution)
+        }
     }
     
     func goToPolitician(sender: AnyObject) {
@@ -131,7 +140,8 @@ class EventViewController: UIViewController {
 //            addCardViewController.navigationItem.rightBarButtonItem!.enabled = false
 //            donationNavigationController.queue.append(addCardViewController)
             
-            let pacs = sender as? UIButton == support ? event.supportPacs : event.opposePacs
+            let inSupport = (sender as! UITapGestureRecognizer).view == support
+            let pacs = inSupport ? event.supportPacs : event.opposePacs
             if pacs.count == 1 {
                 let donateViewController = storyboard!.instantiateViewControllerWithIdentifier("DonateViewController") as! DonateViewController
                 donateViewController.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .Plain, target: donateViewController, action: "cancel")

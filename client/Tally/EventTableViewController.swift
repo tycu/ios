@@ -13,13 +13,7 @@ class EventTableViewController : UITableViewController {
     
     func prepareCell(cell: EventCell, forEvent event: Event) {
         if let donation = UserData.instance?.eventIdenToDonation[event.iden] {
-            if (CGFloat(Float(arc4random()) /  Float(UInt32.max)) > 0.5) {
-                cell.contribution.textColor = Colors.support
-                cell.contribution.text = "Supported ($5)"
-            } else {
-                cell.contribution.textColor = Colors.oppose
-                cell.contribution.text = "Opposed ($5)"
-            }
+            donation.setLabel(cell.contribution)
         } else {
             cell.contribution.text = nil
         }
