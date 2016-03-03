@@ -16,17 +16,17 @@ class EventsViewController : EventTableViewController {
         
         navigationItem.backBarButtonItem = simpleBackButton()
         
-        segmentedControl.frame = CGRect(x: 0, y: 0, width: 180, height: segmentedControl.frame.height)
-        segmentedControl.selectedSegmentIndex = 0
-        segmentedControl.addTarget(self, action: "segmentIndexSelected:", forControlEvents: .ValueChanged)
-                
-        activityIndicator.center = tableView.center
-        activityIndicator.startAnimating()
-        tableView.backgroundView = activityIndicator
-        
         refreshControl = UIRefreshControl()
         refreshControl!.tintColor = Colors.purple
         refreshControl!.addTarget(self, action: "refresh:", forControlEvents: .ValueChanged)
+        
+        segmentedControl.frame = CGRect(x: 0, y: 0, width: 180, height: segmentedControl.frame.height)
+        segmentedControl.selectedSegmentIndex = 0
+        segmentedControl.addTarget(self, action: "segmentIndexSelected:", forControlEvents: .ValueChanged)
+        
+        activityIndicator.center = tableView.center
+        activityIndicator.startAnimating()
+        tableView.backgroundView = activityIndicator
     }
     
     override func viewWillAppear(animated: Bool) {

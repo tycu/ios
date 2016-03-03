@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6011816C1C88129000FC2791 /* EventBus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6011816B1C88129000FC2791 /* EventBus.swift */; };
 		604D52021C82BEE200A117CE /* SignedInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604D52011C82BEE200A117CE /* SignedInViewController.swift */; };
 		604D52041C82CEAD00A117CE /* TouchStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604D52031C82CEAD00A117CE /* TouchStateView.swift */; };
 		604D52081C83868A00A117CE /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604D52071C83868A00A117CE /* UIViewController+Extensions.swift */; };
@@ -48,6 +49,7 @@
 		18A49E0FBD72629063FB3632 /* Pods-Tally.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tally.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tally/Pods-Tally.release.xcconfig"; sourceTree = "<group>"; };
 		50ACE4E9031FC990560B24EE /* Pods_Tally.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tally.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		538D1DE3D3CD52C12BF0BCA5 /* Pods-Tally.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tally.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tally/Pods-Tally.debug.xcconfig"; sourceTree = "<group>"; };
+		6011816B1C88129000FC2791 /* EventBus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventBus.swift; sourceTree = "<group>"; };
 		604D52011C82BEE200A117CE /* SignedInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignedInViewController.swift; sourceTree = "<group>"; };
 		604D52031C82CEAD00A117CE /* TouchStateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TouchStateView.swift; sourceTree = "<group>"; };
 		604D52071C83868A00A117CE /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 			children = (
 				607A65C91C781C0F00D1B754 /* Colors.swift */,
 				607A65C71C78180700D1B754 /* Error.swift */,
+				6011816B1C88129000FC2791 /* EventBus.swift */,
 				604D52091C83C9E200A117CE /* Keychain.swift */,
 				607A65BE1C75880A00D1B754 /* Logging.swift */,
 				607A65CD1C78403600D1B754 /* NSDate+Extensions.swift */,
@@ -331,6 +334,7 @@
 				607A65DD1C7D88F400D1B754 /* MarkdownLabel.swift in Sources */,
 				607A65CA1C781C0F00D1B754 /* Colors.swift in Sources */,
 				607A65A11C7577EF00D1B754 /* AppDelegate.swift in Sources */,
+				6011816C1C88129000FC2791 /* EventBus.swift in Sources */,
 				607A65C81C78180700D1B754 /* Error.swift in Sources */,
 				6066EDB51C87D5BC00B71B86 /* EditProfileViewController.swift in Sources */,
 				607A65DF1C7D96ED00D1B754 /* ProfileViewController.swift in Sources */,
