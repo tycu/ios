@@ -3,11 +3,11 @@ class Endpoints {
     private static let api = "https://api.tally.us"
     
     private static var host: String {
-        #if DEBUG
-            return debug
-        #else
+//        #if DEBUG
+//            return debug
+//        #else
             return api
-        #endif
+//        #endif
     }
     
     static let authenticate = host + "/v1/authenticate"

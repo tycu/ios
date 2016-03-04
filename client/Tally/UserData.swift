@@ -39,6 +39,7 @@ class UserData {
                     UserData.instance = try UserData(data: response!.body!)
                     completionHandler?(true)
                     EventBus.post("user_data_changed")
+                    return
                 } catch _ {
                     p("Ignoring invalid user data")
                 }

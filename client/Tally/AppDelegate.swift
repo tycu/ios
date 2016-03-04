@@ -38,15 +38,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     private func checkLastVersion() {
-        let lastVersion = NSUserDefaults.standardUserDefaults().objectForKey("lastVersion") as? String
-        let version = NSBundle.mainBundle().infoDictionary!["CFBundleVersion"] as! String
-        if (version != lastVersion) {
-            Keychain.clear()
-            
-            NSUserDefaults.standardUserDefaults().setValue(version, forKey: "lastVersion")
-            NSUserDefaults.standardUserDefaults().synchronize()
-            
-            if (lastVersion == nil) {
+//        let lastVersion = NSUserDefaults.standardUserDefaults().objectForKey("lastVersion") as? String
+//        let version = NSBundle.mainBundle().infoDictionary!["CFBundleVersion"] as! String
+//        if (version != lastVersion) {
+//            Keychain.clear()
+//            
+//            NSUserDefaults.standardUserDefaults().setValue(version, forKey: "lastVersion")
+//            NSUserDefaults.standardUserDefaults().synchronize()
+//            
+//            if (lastVersion == nil) {
                 let signInNavigationController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("SignInNavigationController") as! UINavigationController
                 signInNavigationController.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
                 signInNavigationController.navigationBar.shadowImage = UIImage()
@@ -55,11 +55,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 skip.tintColor = UIColor.whiteColor()
                 signInViewController.navigationItem.rightBarButtonItem = skip
                 window!.rootViewController!.presentViewController(signInNavigationController, animated: true, completion: nil)
-                return
-            }
-        }
-        
-        let notificationSettings = UIUserNotificationSettings(forTypes: [.Alert, .Sound, .Badge], categories: nil)
-        UIApplication.sharedApplication().registerUserNotificationSettings(notificationSettings)
+//                return
+//            }
+//        }
+//        
+//        let notificationSettings = UIUserNotificationSettings(forTypes: [.Alert, .Sound, .Badge], categories: nil)
+//        UIApplication.sharedApplication().registerUserNotificationSettings(notificationSettings)
     }
 }

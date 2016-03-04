@@ -133,29 +133,31 @@ class EventViewController: UIViewController {
                 signInViewController.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .Plain, target: signInViewController, action: "cancel")
                 donationNavigationController.queue.append(signInViewController)
             }
-            
-//            let addCardViewController = storyboard!.instantiateViewControllerWithIdentifier("AddCardViewController")
-//            addCardViewController.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .Plain, target: addCardViewController, action: "cancel")
-//            addCardViewController.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next", style: .Done, target: addCardViewController, action: "done")
-//            addCardViewController.navigationItem.rightBarButtonItem!.enabled = false
-//            donationNavigationController.queue.append(addCardViewController)
+
+//            if !UserData.instance!.chargeable {
+                let addCardViewController = storyboard!.instantiateViewControllerWithIdentifier("AddCardViewController")
+                addCardViewController.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .Plain, target: addCardViewController, action: "cancel")
+                addCardViewController.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next", style: .Done, target: addCardViewController, action: "done")
+                addCardViewController.navigationItem.rightBarButtonItem!.enabled = false
+                donationNavigationController.queue.append(addCardViewController)
+//            }
             
             let inSupport = (sender as! UITapGestureRecognizer).view == support
             let pacs = inSupport ? event.supportPacs : event.opposePacs
-            if pacs.count == 1 {
-                let donateViewController = storyboard!.instantiateViewControllerWithIdentifier("DonateViewController") as! DonateViewController
-                donateViewController.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .Plain, target: donateViewController, action: "cancel")
-                donateViewController.event = event
-                donateViewController.pac = pacs[0]
-                donationNavigationController.queue.append(donateViewController)
-            } else {
+//            if pacs.count == 1 {
+//                let donateViewController = storyboard!.instantiateViewControllerWithIdentifier("DonateViewController") as! DonateViewController
+//                donateViewController.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .Plain, target: donateViewController, action: "cancel")
+//                donateViewController.event = event
+//                donateViewController.pac = pacs[0]
+//                donationNavigationController.queue.append(donateViewController)
+//            } else {
                 let pacsViewController = storyboard!.instantiateViewControllerWithIdentifier("PacsViewController") as! PacsViewController
                 pacsViewController.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .Plain, target: pacsViewController, action: "cancel")
                 pacsViewController.navigationItem.title = "Contribution Options"
                 pacsViewController.event = event
                 pacsViewController.options = pacs
                 donationNavigationController.queue.append(pacsViewController)
-            }
+//            }
         
             donationNavigationController.viewControllers.append(donationNavigationController.queue.removeFirst())
         }

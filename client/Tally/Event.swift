@@ -7,15 +7,18 @@ class Event {
     let politician: Politician!
     var supportPacs = [Pac]()
     var opposePacs = [Pac]()
+    let supportTotal: Int, opposeTotal: Int
     
     init(data: [String : AnyObject]) throws {
-        if let iden = data["iden"] as? String, headline = data["headline"] as? String, created = data["created"] as? Double, modified = data["modified"] as? Double, politician = data["politician"] as? [String : AnyObject] {
+        if let iden = data["iden"] as? String, headline = data["headline"] as? String, created = data["created"] as? Double, modified = data["modified"] as? Double, politician = data["politician"] as? [String : AnyObject], supportTotal = data["supportTotal"] as? Int, opposeTotal = data["opposeTotal"] as? Int {
             self.iden = iden
             self.headline = headline
             self.summary = data["summary"] as? String
             self.imageUrl = data["imageUrl"] as? String
             self.created = NSDate(timeIntervalSince1970: created)
             self.modified = NSDate(timeIntervalSince1970: modified)
+            self.supportTotal = supportTotal
+            self.opposeTotal = opposeTotal
             do {
                 self.politician = try Politician(data: politician)
             } catch let e {
@@ -40,6 +43,8 @@ class Event {
             created = NSDate()
             modified = NSDate()
             politician = nil
+            supportTotal = 0
+            opposeTotal = 0
             throw Error.QuietError("Invalid event data")
         }
     }
