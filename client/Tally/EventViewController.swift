@@ -63,7 +63,6 @@ class EventViewController: UIViewController {
         headlineParagraphStyle.lineSpacing = 2
         headlineParagraphStyle.lineHeightMultiple = 1.1
         headlineAttributedString.addAttribute(NSParagraphStyleAttributeName, value: headlineParagraphStyle, range: NSMakeRange(0, headlineAttributedString.length))
-        
         headline.attributedText = headlineAttributedString
         
         graph.supportTotal = event.supportTotal

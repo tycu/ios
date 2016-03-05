@@ -20,6 +20,14 @@ class EventTableViewController : UITableViewController {
         
         event.politician.setThumbnail(cell.thumbnail)
         cell.headline.presentMarkdown(event.headline)
+        
+        // Increase the line height of the headline
+        let headlineAttributedString = NSMutableAttributedString(attributedString: cell.headline.attributedText!)
+        let headlineParagraphStyle = NSMutableParagraphStyle()
+        headlineParagraphStyle.lineSpacing = 2
+        headlineAttributedString.addAttribute(NSParagraphStyleAttributeName, value: headlineParagraphStyle, range: NSMakeRange(0, headlineAttributedString.length))
+        cell.headline.attributedText = headlineAttributedString
+        
         cell.graph.supportTotal = event.supportTotal
         cell.graph.opposeTotal = event.opposeTotal
         cell.time.text = event.created.humanReadableTimeSinceNow

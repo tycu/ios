@@ -27,16 +27,31 @@ class SupportOpposeView : UIView {
         let support = CGFloat(Float(arc4random()) /  Float(UInt32.max))
         let oppose = 1 - support
         
+        let amount = 1000 * weight
+        supportTotal = Int(amount * support)
+        opposeTotal = Int(amount * oppose)
+        
         let halfWidth = bounds.width / 2
-        let halfHeight = bounds.height / 2
+        let barHeight = bounds.height * 2 / 3
+        let nonBarheight = bounds.height / 6
         
-        let barWidth = halfWidth * weight
+        let font = UIFont.boldSystemFontOfSize(bounds.height / 2)
+        let textAttributes = [NSFontAttributeName: font, NSForegroundColorAttributeName: UIColor.whiteColor()]
+        let textPadding = CGFloat(6)
         
-        let supportWidth = max(barWidth * support, halfWidth * 0.1)
-        let opposeWidth = max(barWidth * oppose, halfWidth * 0.1)
+        let opposeText = (opposeTotal == 0 ? "0" : "-$\(opposeTotal)") as NSString
+        let supportText = (supportTotal == 0 ? "0" : "+$\(supportTotal)") as NSString
         
-        let opposeBar = CGRect(origin: CGPoint(x: halfWidth - supportWidth, y: (bounds.height - halfHeight) / 2), size: CGSize(width: supportWidth, height: halfHeight))
-        let supportBar = CGRect(origin: CGPoint(x: halfWidth, y: (bounds.height - halfHeight) / 2), size: CGSize(width: opposeWidth, height: halfHeight))
+        let opposeTextSize = opposeText.sizeWithAttributes(textAttributes)
+        let supportTextSize = supportText.sizeWithAttributes(textAttributes)
+        
+        let barWidth = bounds.width * 2 / 3 * weight
+        
+        let opposeWidth = max(max(min(barWidth * oppose, halfWidth), halfWidth * 0.1), opposeTextSize.width + (2 * textPadding))
+        let supportWidth = max(max(min(barWidth * support, halfWidth), halfWidth * 0.1), supportTextSize.width + (2 * textPadding))
+        
+        let opposeBar = CGRect(origin: CGPoint(x: halfWidth - opposeWidth, y: nonBarheight), size: CGSize(width: opposeWidth, height: barHeight))
+        let supportBar = CGRect(origin: CGPoint(x: halfWidth, y: nonBarheight), size: CGSize(width: supportWidth, height: barHeight))
         
         let context = UIGraphicsGetCurrentContext();
         
@@ -49,5 +64,8 @@ class SupportOpposeView : UIView {
         let divider = CGRect(origin: CGPoint(x: halfWidth - 1, y: 0), size: CGSize(width: 2, height: bounds.height))
         CGContextSetFillColorWithColor(context, UIColor(colorLiteralRed: 0.35, green: 0.35, blue: 0.35, alpha: 1).CGColor)
         CGContextFillRect(context, divider)
+        
+        opposeText.drawInRect(CGRect(origin: CGPoint(x: (halfWidth - opposeWidth) + textPadding, y: nonBarheight + ((barHeight - opposeTextSize.height) / 2)), size: opposeTextSize), withAttributes: textAttributes)
+        supportText.drawInRect(CGRect(origin: CGPoint(x: halfWidth + (supportWidth - supportTextSize.width) - textPadding, y: nonBarheight + ((barHeight - supportTextSize.height) / 2)), size: supportTextSize), withAttributes: textAttributes)
     }
 }

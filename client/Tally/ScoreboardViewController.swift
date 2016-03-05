@@ -22,7 +22,7 @@ class ScoreboardViewController : UITableViewController {
         super.viewWillAppear(animated)
         
         if let lastAppeared = lastAppeared {
-            if abs(Int(lastAppeared.timeIntervalSinceNow)) > 60 {
+            if abs(Int(lastAppeared.timeIntervalSinceNow)) > 120 {
                 refresh(refreshControl!)
             }
         } else {
