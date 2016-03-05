@@ -47,6 +47,7 @@ class SignInViewController : UIViewController, FBSDKLoginButtonDelegate {
                         if let token = response!.body?["accessToken"] as? String {
                             Keychain.setAccessToken(token)
                             UserData.update({ succeeded in
+                                print("nnnnNNN")
                                 self.next()
                             })
                             return

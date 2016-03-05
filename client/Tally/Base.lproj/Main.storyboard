@@ -838,9 +838,6 @@
                         </connections>
                     </tableView>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
-                    <connections>
-                        <segue destination="Q5B-xs-yaw" kind="show" identifier="DonateSegue" id="ma7-mq-oIR"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="di1-8C-huc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

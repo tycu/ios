@@ -1,6 +1,5 @@
 class PacsViewController : UITableViewController {
-    var event: Event!
-    var options: [Pac]!
+    var pacs: [Pac]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -13,11 +12,11 @@ class PacsViewController : UITableViewController {
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return options.count
+        return pacs.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let pac = options[indexPath.row]
+        let pac = pacs[indexPath.row]
         let cell = tableView.dequeueReusableCellWithIdentifier("PacCell", forIndexPath: indexPath) as! PacCell
         cell.name.text = pac.name
         return cell
@@ -26,15 +25,7 @@ class PacsViewController : UITableViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         
-        performSegueWithIdentifier("DonateSegue", sender: options[indexPath.row])
-    }
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "DonateSegue" {
-            let donateViewController = segue.destinationViewController as! DonateViewController
-            donateViewController.event = event
-            donateViewController.pac = sender as! Pac
-        }
+        
     }
     
     func cancel() {
