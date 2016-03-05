@@ -20,6 +20,7 @@ class Keychain {
     class func clear() {
         assert(NSThread.currentThread().isMainThread)
         
+        UserData.instance = nil
         SSKeychain.deletePasswordForService(service, account: account)
         FBSDKLoginManager().logOut()
         FBSDKProfile.setCurrentProfile(nil)

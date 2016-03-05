@@ -18,4 +18,5 @@ class Endpoints {
     
     static let recentEvents = "https://generated.tally.us/v1/events/recent.json"
     static let topEvents = "https://generated.tally.us/v1/events/top.json"
+    static let allTimeScoreboard = "https://generated.tally.us/v1/scoreboards/all-time.json"
 }

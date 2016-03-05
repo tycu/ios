@@ -19,6 +19,22 @@ class DonationNavigationController : UINavigationController {
             return
         }
         
+        if selectedPac == nil {
+            let pacs = inSupport == true ? event.supportPacs : event.opposePacs
+//            if pacs.count == 1 {
+//                selectedPac = pacs[0]
+//                next()
+//            } else {
+                let pacsViewController = storyboard!.instantiateViewControllerWithIdentifier("PacsViewController") as! PacsViewController
+                pacsViewController.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .Plain, target: pacsViewController, action: "cancel")
+                pacsViewController.navigationItem.title = "Contribution Options"
+                pacsViewController.pacs = pacs
+                pacsViewController.inSupport = inSupport
+                setViewControllers([pacsViewController], animated: true)
+//            }
+            return
+        }
+        
         if UserData.instance == nil {
             UserData.update({ succeeded in
                 if succeeded {
@@ -26,8 +42,8 @@ class DonationNavigationController : UINavigationController {
                 } else {
                     showErrorDialogWithMessage("Unable to get account information, please try again.", inViewController: self)
                 }
-                return
             })
+            return
         }
         
         if !UserData.instance!.chargeable {
@@ -36,21 +52,6 @@ class DonationNavigationController : UINavigationController {
             addCardViewController.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next", style: .Done, target: addCardViewController, action: "done")
             addCardViewController.navigationItem.rightBarButtonItem!.enabled = false
             setViewControllers([addCardViewController], animated: true)
-            return
-        }
-        
-        if selectedPac == nil {
-            let pacs = inSupport == true ? event.supportPacs : event.opposePacs
-            if pacs.count == 1 {
-                selectedPac = pacs[0]
-                next()
-            } else {
-                let pacsViewController = storyboard!.instantiateViewControllerWithIdentifier("PacsViewController") as! PacsViewController
-                pacsViewController.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .Plain, target: pacsViewController, action: "cancel")
-                pacsViewController.navigationItem.title = "Contribution Options"
-                pacsViewController.pacs = pacs
-                setViewControllers([pacsViewController], animated: true)
-            }
             return
         }
         

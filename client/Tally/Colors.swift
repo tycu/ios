@@ -2,8 +2,12 @@ import UIKit
 
 class Colors {
     static let purple = UIColor(hex: "#663399")
+    
     static let support = UIColor.darkTextColor() // UIColor(hex: "#33AA33")
     static let oppose = UIColor(hex: "#9F9F9F") // UIColor(hex: "#F57200")
+    
+    static let democrat = UIColor(hex: "#0049A3")
+    static let republican = UIColor(hex: "#BE2600")
 }
 
 extension UIColor {

@@ -20,7 +20,8 @@ class EventTableViewController : UITableViewController {
         
         event.politician.setThumbnail(cell.thumbnail)
         cell.headline.presentMarkdown(event.headline)
-        cell.graph.event = event
+        cell.graph.supportTotal = event.supportTotal
+        cell.graph.opposeTotal = event.opposeTotal
         cell.time.text = event.created.humanReadableTimeSinceNow
     }
 }

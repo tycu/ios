@@ -1,5 +1,5 @@
 class UserData {
-    private(set) static var instance: UserData?
+    static var instance: UserData?
     
     let profile: Profile!
     let chargeable: Bool

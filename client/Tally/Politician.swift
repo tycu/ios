@@ -1,20 +1,24 @@
 import UIKit
 
 class Politician {
-    let iden: String, name: String
+    let iden: String, name: String, supportTotal: Int, opposeTotal: Int
     let jobTitle: String?, thumbnailUrl: String?
     
     init(data: [String : AnyObject]) throws {
         if let iden = data["iden"] as? String, name = data["name"] as? String {
             self.iden = iden
             self.name = name
-            self.jobTitle = data["jobTitle"] as? String
-            self.thumbnailUrl = data["thumbnailUrl"] as? String
+            jobTitle = data["jobTitle"] as? String
+            thumbnailUrl = data["thumbnailUrl"] as? String
+            supportTotal = data["supportTotal"] as? Int ?? 0
+            opposeTotal = data["opposeTotal"] as? Int ?? 0
         } else {
             iden = ""
             name = ""
             jobTitle = nil
             thumbnailUrl = nil
+            supportTotal = 0
+            opposeTotal = 0
             throw Error.QuietError("Invalid politician data")
         }
     }

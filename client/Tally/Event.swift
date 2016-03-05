@@ -13,8 +13,8 @@ class Event {
         if let iden = data["iden"] as? String, headline = data["headline"] as? String, created = data["created"] as? Double, modified = data["modified"] as? Double, politician = data["politician"] as? [String : AnyObject], supportTotal = data["supportTotal"] as? Int, opposeTotal = data["opposeTotal"] as? Int {
             self.iden = iden
             self.headline = headline
-            self.summary = data["summary"] as? String
-            self.imageUrl = data["imageUrl"] as? String
+            summary = data["summary"] as? String
+            imageUrl = data["imageUrl"] as? String
             self.created = NSDate(timeIntervalSince1970: created)
             self.modified = NSDate(timeIntervalSince1970: modified)
             self.supportTotal = supportTotal

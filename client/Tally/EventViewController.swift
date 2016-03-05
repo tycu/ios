@@ -66,7 +66,8 @@ class EventViewController: UIViewController {
         
         headline.attributedText = headlineAttributedString
         
-        graph.event = event
+        graph.supportTotal = event.supportTotal
+        graph.opposeTotal = event.opposeTotal
         
         oppose.tintColor = Colors.support
         support.tintColor = Colors.support
