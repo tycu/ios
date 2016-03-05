@@ -37,6 +37,7 @@ class SignedInViewController : EventTableViewController {
         navigationController?.navigationBar.barStyle = .Black
         
         EventBus.register(self, forEvent: "user_data_changed", withHandler: { data in
+            self.update()
             self.tableView.reloadData()
         })
         
@@ -96,13 +97,24 @@ class SignedInViewController : EventTableViewController {
             
             occupation.text = ""
             if let job = userData.profile.occupation {
+                occupation.layer.opacity = 1
                 occupation.text! += "\(job) "
+            } else {
+                occupation.layer.opacity = 0.6
+                occupation.text = "Occupation"
             }
+            
             if let employer = userData.profile.employer {
                 occupation.text! += "@ \(employer)"
             }
             
-            address.text = [userData.profile.streetAddress ?? "", userData.profile.cityStateZip ?? ""].joinWithSeparator("\n")
+            if userData.profile.streetAddress != nil || userData.profile.cityStateZip != nil {
+                occupation.layer.opacity = 1
+                address.text = [userData.profile.streetAddress ?? "", userData.profile.cityStateZip ?? ""].joinWithSeparator("\n")
+            } else {
+                address.layer.opacity = 0.6
+                address.text = "Address"
+            }
             
             if userData.chargeable {
                 cardLabel.text = "Update card"
