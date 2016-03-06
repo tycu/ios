@@ -1,4 +1,5 @@
 import ActionSheetPicker_3_0
+import LocalAuthentication
 
 class DonateViewController : UIViewController {
     @IBOutlet weak var eventThumbnail: UIImageView!
@@ -12,8 +13,8 @@ class DonateViewController : UIViewController {
     var event: Event!
     var pac: Pac!
     var inSupport: Bool!
-    
-    private var amounts = [3, 10, 25, 50, 100]
+    private let amounts = [3, 10, 25, 50, 100]
+    private var amountIndex = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,26 +56,49 @@ class DonateViewController : UIViewController {
         }
         
         ActionSheetStringPicker.showPickerWithTitle("Select Amount", rows: amountStrings, initialSelection: 0, doneBlock: { picker, index, value in
-            
-            print("\(self.amounts[index])")
-            
+            self.amountIndex = index
         }, cancelBlock: nil, origin: sender.view)
     }
     
     func donate(sender: AnyObject) {
+        let authContext = LAContext()
+        var authError: NSError?
+        if authContext.canEvaluatePolicy(LAPolicy.DeviceOwnerAuthenticationWithBiometrics, error: &authError) {
+            authContext.evaluatePolicy(LAPolicy.DeviceOwnerAuthenticationWithBiometrics, localizedReason: "Confirm contribution", reply: { success, error in
+                if success {
+                    dispatch_async(dispatch_get_main_queue(), {
+                        self.makeDonation()
+                    })
+                } else {
+                    if let error = error as? LAError {
+                        if error == LAError.UserCancel || error == LAError.SystemCancel {
+                            return
+                        }
+                    }
+                    showErrorDialogWithMessage("Authentication failed, please try again.", inViewController: self)
+                }
+            })
+        } else {
+            makeDonation()
+        }
+    }
+    
+    private func makeDonation() {
+        print("make donation")
+        
         lockUI()
         
-        var body = [String : AnyObject]()
-        body["eventIden"] = event.iden
-        body["pacIden"] = pac.iden
-        body["amount"] = 5
-        
-        Requests.post(Endpoints.createDonation, withBody: body, completionHandler: { response, error in
-            UserData.update({ succeeded in
-                self.indicator.hidden = true
-                self.dismiss()
-            })
-        })
+//        var body = [String : AnyObject]()
+//        body["eventIden"] = event.iden
+//        body["pacIden"] = pac.iden
+//        body["amount"] = amounts[amountIndex]
+//        
+//        Requests.post(Endpoints.createDonation, withBody: body, completionHandler: { response, error in
+//            UserData.update({ succeeded in
+//                self.indicator.hidden = true
+//                self.dismiss()
+//            })
+//        })
     }
     
     private func lockUI() {

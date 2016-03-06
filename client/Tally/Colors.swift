@@ -1,7 +1,7 @@
 import UIKit
 
 class Colors {
-    static let primary = UIColor(hex: "#008AB8")
+    static let primary = UIColor(hex: "#009DD1")
     
     static let support: UIColor = {
         let rawComponents = CGColorGetComponents(primary.CGColor)
