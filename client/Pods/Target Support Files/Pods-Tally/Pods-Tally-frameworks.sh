@@ -84,6 +84,7 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "Pods-Tally/ActionSheetPicker_3_0.framework"
   install_framework "Pods-Tally/Bolts.framework"
   install_framework "Pods-Tally/FBSDKCoreKit.framework"
   install_framework "Pods-Tally/FBSDKLoginKit.framework"
@@ -94,6 +95,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-Tally/TTTAttributedLabel.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "Pods-Tally/ActionSheetPicker_3_0.framework"
   install_framework "Pods-Tally/Bolts.framework"
   install_framework "Pods-Tally/FBSDKCoreKit.framework"
   install_framework "Pods-Tally/FBSDKLoginKit.framework"

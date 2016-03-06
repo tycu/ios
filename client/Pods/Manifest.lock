@@ -1,4 +1,5 @@
 PODS:
+  - ActionSheetPicker-3.0 (2.0.5)
   - Bolts (1.6.0):
     - Bolts/AppLinks (= 1.6.0)
     - Bolts/Tasks (= 1.6.0)
@@ -45,6 +46,7 @@ PODS:
   - TTTAttributedLabel (1.13.4)
 
 DEPENDENCIES:
+  - ActionSheetPicker-3.0
   - FBSDKCoreKit
   - FBSDKLoginKit
   - FBSDKShareKit
@@ -55,6 +57,7 @@ DEPENDENCIES:
   - TTTAttributedLabel
 
 SPEC CHECKSUMS:
+  ActionSheetPicker-3.0: 8312778b6815578e6a86d630fbcf31dc94c534e7
   Bolts: f52a250053bb517ca874523c3913776359ab3def
   FBSDKCoreKit: 13bec8373fb3af94d44daf2aa1e0958687897fbd
   FBSDKLoginKit: d3d4a2e9d31954deb00bfea964167a05ca1ea976
