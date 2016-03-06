@@ -18,7 +18,7 @@ class EventsViewController : EventTableViewController {
         navigationItem.backBarButtonItem = simpleBackButton()
         
         refreshControl = UIRefreshControl()
-        refreshControl!.tintColor = Colors.purple
+        refreshControl!.tintColor = Colors.primary
         refreshControl!.addTarget(self, action: "refresh:", forControlEvents: .ValueChanged)
         
         segmentedControl.frame = CGRect(x: 0, y: 0, width: 180, height: segmentedControl.frame.height)

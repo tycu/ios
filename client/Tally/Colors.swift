@@ -1,10 +1,19 @@
 import UIKit
 
 class Colors {
-    static let purple = UIColor(hex: "#663399")
+    static let primary = UIColor(hex: "#008AB8")
     
-    static let support = UIColor.darkTextColor() // UIColor(hex: "#33AA33")
-    static let oppose = UIColor(hex: "#9F9F9F") // UIColor(hex: "#F57200")
+    static let support: UIColor = {
+        let rawComponents = CGColorGetComponents(primary.CGColor)
+        let components = [Float(rawComponents[0]), Float(rawComponents[1]), Float(rawComponents[2])]
+        return UIColor(colorLiteralRed: components[0], green: components[1], blue: components[2], alpha: 0.85)
+    }()
+    
+    static let oppose: UIColor = {
+        let rawComponents = CGColorGetComponents(primary.CGColor)
+        let components = [Float(rawComponents[0]), Float(rawComponents[1]), Float(rawComponents[2])]
+        return UIColor(colorLiteralRed: components[0], green: components[1], blue: components[2], alpha: 0.5)
+    }()
     
     static let democrat = UIColor(hex: "#0049A3")
     static let republican = UIColor(hex: "#BE2600")

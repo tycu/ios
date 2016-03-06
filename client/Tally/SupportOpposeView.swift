@@ -32,10 +32,8 @@ class SupportOpposeView : UIView {
         opposeTotal = Int(amount * oppose)
         
         let halfWidth = bounds.width / 2
-        let barHeight = bounds.height * 2 / 3
-        let nonBarheight = bounds.height / 6
         
-        let font = UIFont.boldSystemFontOfSize(bounds.height / 2)
+        let font = UIFont.boldSystemFontOfSize(max(bounds.height - 6, 11))
         let textAttributes = [NSFontAttributeName: font, NSForegroundColorAttributeName: UIColor.whiteColor()]
         let textPadding = CGFloat(6)
         
@@ -50,8 +48,8 @@ class SupportOpposeView : UIView {
         let opposeWidth = max(max(min(barWidth * oppose, halfWidth), halfWidth * 0.1), opposeTextSize.width + (2 * textPadding))
         let supportWidth = max(max(min(barWidth * support, halfWidth), halfWidth * 0.1), supportTextSize.width + (2 * textPadding))
         
-        let opposeBar = CGRect(origin: CGPoint(x: halfWidth - opposeWidth, y: nonBarheight), size: CGSize(width: opposeWidth, height: barHeight))
-        let supportBar = CGRect(origin: CGPoint(x: halfWidth, y: nonBarheight), size: CGSize(width: supportWidth, height: barHeight))
+        let opposeBar = CGRect(origin: CGPoint(x: halfWidth - opposeWidth, y: 0), size: CGSize(width: opposeWidth, height: bounds.height))
+        let supportBar = CGRect(origin: CGPoint(x: halfWidth, y: 0), size: CGSize(width: supportWidth, height: bounds.height))
         
         let context = UIGraphicsGetCurrentContext();
         
@@ -62,10 +60,10 @@ class SupportOpposeView : UIView {
         CGContextFillRect(context, supportBar)
         
         let divider = CGRect(origin: CGPoint(x: halfWidth - 1, y: 0), size: CGSize(width: 2, height: bounds.height))
-        CGContextSetFillColorWithColor(context, UIColor(colorLiteralRed: 0.35, green: 0.35, blue: 0.35, alpha: 1).CGColor)
+        CGContextSetFillColorWithColor(context, Colors.primary.CGColor)
         CGContextFillRect(context, divider)
         
-        opposeText.drawInRect(CGRect(origin: CGPoint(x: (halfWidth - opposeWidth) + textPadding, y: nonBarheight + ((barHeight - opposeTextSize.height) / 2)), size: opposeTextSize), withAttributes: textAttributes)
-        supportText.drawInRect(CGRect(origin: CGPoint(x: halfWidth + (supportWidth - supportTextSize.width) - textPadding, y: nonBarheight + ((barHeight - supportTextSize.height) / 2)), size: supportTextSize), withAttributes: textAttributes)
+        opposeText.drawInRect(CGRect(origin: CGPoint(x: (halfWidth - opposeWidth) + textPadding, y: 0 + ((bounds.height - opposeTextSize.height) / 2)), size: opposeTextSize), withAttributes: textAttributes)
+        supportText.drawInRect(CGRect(origin: CGPoint(x: halfWidth + (supportWidth - supportTextSize.width) - textPadding, y: 0 + ((bounds.height - supportTextSize.height) / 2)), size: supportTextSize), withAttributes: textAttributes)
     }
 }

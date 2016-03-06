@@ -30,7 +30,7 @@ class PacsViewController : UITableViewController {
         let pac = pacs[indexPath.row]
         let cell = tableView.dequeueReusableCellWithIdentifier("PacCell", forIndexPath: indexPath) as! PacCell
         cell.name.text = pac.name
-        cell.summary.text = "" + pac.summary! + pac.summary!
+        cell.summary.text = pac.summary
         
         cell.color.layer.cornerRadius = cell.color.bounds.width / 2
         cell.color.layer.masksToBounds = true

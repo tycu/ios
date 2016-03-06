@@ -10,7 +10,7 @@ class ScoreboardViewController : UITableViewController {
         navigationItem.backBarButtonItem = simpleBackButton()
         
         refreshControl = UIRefreshControl()
-        refreshControl!.tintColor = Colors.purple
+        refreshControl!.tintColor = Colors.primary
         refreshControl!.addTarget(self, action: "refresh:", forControlEvents: .ValueChanged)
         
         activityIndicator.center = tableView.center

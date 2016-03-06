@@ -1,6 +1,7 @@
 import UIKit
 import SSKeychain
 import Stripe
+import Social
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -12,7 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
         window!.backgroundColor = UIColor.whiteColor()
-        window!.tintColor = Colors.purple
+        window!.tintColor = Colors.primary
         window!.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController()
         window!.makeKeyAndVisible()
         

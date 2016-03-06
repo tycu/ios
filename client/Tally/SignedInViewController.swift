@@ -1,4 +1,5 @@
 class SignedInViewController : EventTableViewController {
+    @IBOutlet weak var header: UIView!
     @IBOutlet weak var indicator: UIActivityIndicatorView!
     @IBOutlet weak var profileHolder: UIStackView!
     @IBOutlet weak var profilePictureHolder: UIView!
@@ -16,8 +17,10 @@ class SignedInViewController : EventTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        header.backgroundColor = Colors.primary
+        
         profilePictureHolder.layer.borderColor = UIColor.whiteColor().CGColor
-        profilePictureHolder.layer.borderWidth = 2
+        profilePictureHolder.layer.borderWidth = 3
         profilePictureHolder.layer.cornerRadius = profilePictureHolder.bounds.width / 2
         profilePictureHolder.layer.masksToBounds = true
         
