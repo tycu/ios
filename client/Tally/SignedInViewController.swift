@@ -66,7 +66,7 @@ class SignedInViewController : EventTableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let event = UserData.instance!.donations[indexPath.row].event
         let cell = tableView.dequeueReusableCellWithIdentifier("EventCell", forIndexPath: indexPath) as! EventCell
-        prepareCell(cell, forEvent: event)
+        prepareCell(cell, withEvent: event)
         return cell
     }
     

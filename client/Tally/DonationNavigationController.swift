@@ -59,6 +59,7 @@ class DonationNavigationController : UINavigationController {
         donateViewController.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .Plain, target: donateViewController, action: "cancel")
         donateViewController.event = event
         donateViewController.pac = selectedPac
+        donateViewController.inSupport = inSupport
         setViewControllers([donateViewController], animated: true)
     }
 }

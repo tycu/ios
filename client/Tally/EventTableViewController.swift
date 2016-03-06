@@ -11,7 +11,7 @@ class EventTableViewController : UITableViewController {
         tableView.registerNib(UINib(nibName: "EventCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: "EventCell")
     }
     
-    func prepareCell(cell: EventCell, forEvent event: Event) {
+    func prepareCell(cell: EventCell, withEvent event: Event) {
         if let donation = UserData.instance?.eventIdenToDonation[event.iden] {
             donation.setLabel(cell.contribution)
         } else {

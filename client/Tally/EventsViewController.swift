@@ -73,7 +73,7 @@ class EventsViewController : EventTableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let event = events[activeSort]![indexPath.row]
         let cell = tableView.dequeueReusableCellWithIdentifier("EventCell", forIndexPath: indexPath) as! EventCell
-        prepareCell(cell, forEvent: event)
+        prepareCell(cell, withEvent: event)
         return cell
     }
     

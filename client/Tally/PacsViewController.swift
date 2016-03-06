@@ -6,16 +6,15 @@ class PacsViewController : UITableViewController {
         super.viewDidLoad()
         
         navigationItem.backBarButtonItem = simpleBackButton()
+        
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 86
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        if inSupport == true {
-            navigationItem.title = "Support"
-        } else {
-            navigationItem.title = "Oppose"
-        }
+        title = inSupport == true ? "Support" : "Oppose"
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {

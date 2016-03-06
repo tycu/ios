@@ -9,6 +9,9 @@ class ScoreboardViewController : UITableViewController {
         navigationItem.title = "All Time"
         navigationItem.backBarButtonItem = simpleBackButton()
         
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 86
+        
         refreshControl = UIRefreshControl()
         refreshControl!.tintColor = Colors.primary
         refreshControl!.addTarget(self, action: "refresh:", forControlEvents: .ValueChanged)
