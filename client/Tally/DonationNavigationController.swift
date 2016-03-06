@@ -2,6 +2,7 @@ class DonationNavigationController : UINavigationController {
     var event: Event!
     var inSupport: Bool!
     var selectedPac: Pac?
+    var amount: Int?
     
     func prepareForEvent(event: Event, inSupport: Bool) {
         self.event = event
@@ -55,11 +56,18 @@ class DonationNavigationController : UINavigationController {
             return
         }
         
-        let donateViewController = storyboard!.instantiateViewControllerWithIdentifier("DonateViewController") as! DonateViewController
-        donateViewController.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .Plain, target: donateViewController, action: "cancel")
-        donateViewController.event = event
-        donateViewController.pac = selectedPac
-        donateViewController.inSupport = inSupport
-        setViewControllers([donateViewController], animated: true)
+        if amount == nil {
+            let donateViewController = storyboard!.instantiateViewControllerWithIdentifier("DonateViewController") as! DonateViewController
+            donateViewController.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .Plain, target: donateViewController, action: "cancel")
+            donateViewController.event = event
+            donateViewController.pac = selectedPac
+            donateViewController.inSupport = inSupport
+            setViewControllers([donateViewController], animated: true)
+            return
+        }
+        
+        let postDonateViewController = storyboard!.instantiateViewControllerWithIdentifier("PostDonateViewController") as! PostDonateViewController
+        postDonateViewController.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .Done, target: postDonateViewController, action: "done")
+        setViewControllers([postDonateViewController], animated: true)
     }
 }

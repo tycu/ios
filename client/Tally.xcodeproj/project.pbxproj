@@ -26,6 +26,7 @@
 		6066EDB51C87D5BC00B71B86 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6066EDB41C87D5BC00B71B86 /* EditProfileViewController.swift */; };
 		606D917F1C8A8B87005ECCC3 /* ScoreboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606D917E1C8A8B87005ECCC3 /* ScoreboardViewController.swift */; };
 		606D91811C8A8CA5005ECCC3 /* ScoreboardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606D91801C8A8CA5005ECCC3 /* ScoreboardCell.swift */; };
+		606D91831C8C1E68005ECCC3 /* PostDonateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606D91821C8C1E68005ECCC3 /* PostDonateViewController.swift */; };
 		607A65A11C7577EF00D1B754 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607A65A01C7577EF00D1B754 /* AppDelegate.swift */; };
 		607A65A61C7577EF00D1B754 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607A65A41C7577EF00D1B754 /* Main.storyboard */; };
 		607A65A81C7577EF00D1B754 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607A65A71C7577EF00D1B754 /* Assets.xcassets */; };
@@ -71,6 +72,7 @@
 		6066EDB41C87D5BC00B71B86 /* EditProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		606D917E1C8A8B87005ECCC3 /* ScoreboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreboardViewController.swift; sourceTree = "<group>"; };
 		606D91801C8A8CA5005ECCC3 /* ScoreboardCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreboardCell.swift; sourceTree = "<group>"; };
+		606D91821C8C1E68005ECCC3 /* PostDonateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostDonateViewController.swift; sourceTree = "<group>"; };
 		607A659D1C7577EF00D1B754 /* Tally.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tally.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607A65A01C7577EF00D1B754 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		607A65A51C7577EF00D1B754 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 				607A65DC1C7D88F400D1B754 /* MarkdownLabel.swift */,
 				6066EDB21C87D0B600B71B86 /* PacCell.swift */,
 				6066EDB01C87AB2000B71B86 /* PacsViewController.swift */,
+				606D91821C8C1E68005ECCC3 /* PostDonateViewController.swift */,
 				607A65DE1C7D96ED00D1B754 /* ProfileViewController.swift */,
 				606D91801C8A8CA5005ECCC3 /* ScoreboardCell.swift */,
 				606D917E1C8A8B87005ECCC3 /* ScoreboardViewController.swift */,
@@ -371,6 +374,7 @@
 				6066EDB31C87D0B600B71B86 /* PacCell.swift in Sources */,
 				607A65C41C75A94200D1B754 /* Event.swift in Sources */,
 				604D520A1C83C9E200A117CE /* Keychain.swift in Sources */,
+				606D91831C8C1E68005ECCC3 /* PostDonateViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

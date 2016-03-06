@@ -84,7 +84,9 @@ class DonateViewController : UIViewController {
     }
     
     private func makeDonation() {
-        print("make donation")
+        let amount = amounts[amountIndex]
+        
+        print("make donation \(amount)")
         
         lockUI()
         
@@ -96,7 +98,10 @@ class DonateViewController : UIViewController {
 //        Requests.post(Endpoints.createDonation, withBody: body, completionHandler: { response, error in
 //            UserData.update({ succeeded in
 //                self.indicator.hidden = true
-//                self.dismiss()
+//                
+//                let donationNavigationController = self.parentViewController as! DonationNavigationController
+//                donationNavigationController.amount = amount
+//                donationNavigationController.next()
 //            })
 //        })
     }

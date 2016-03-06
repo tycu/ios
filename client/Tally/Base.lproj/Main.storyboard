@@ -1140,6 +1140,25 @@
             </objects>
             <point key="canvasLocation" x="1932" y="299"/>
         </scene>
+        <!--Post Donate View Controller-->
+        <scene sceneID="d5f-aF-oUS">
+            <objects>
+                <viewController storyboardIdentifier="PostDonateViewController" id="eEJ-XI-CCf" customClass="PostDonateViewController" customModule="Tally" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="qBz-mQ-vva"/>
+                        <viewControllerLayoutGuide type="bottom" id="brV-Dh-Ns8"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="5xf-MS-JdV">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="frN-99-z8a" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2283" y="299"/>
+        </scene>
         <!--Events View Controller-->
         <scene sceneID="MXU-DQ-Y8J">
             <objects>
