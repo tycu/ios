@@ -117,8 +117,6 @@ class EventsViewController : EventTableViewController {
                 
                 self.events[sort]?.removeAll()
                 
-                print(response?.statusCode, response?.body, error)
-                
                 if response?.statusCode == 200 {
                     self.events[sort] = [Event]()
                     if let events = response!.body!["events"] as? [[String : AnyObject]] {
