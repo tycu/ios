@@ -52,8 +52,6 @@ class EventsViewController : EventTableViewController {
         EventBus.register(self, forEvent: "user_data_changed", withHandler: { data in
             self.tableView.reloadData()
         })
-        
-        tableView.reloadData()
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -118,6 +116,8 @@ class EventsViewController : EventTableViewController {
                 self.tableView.backgroundView = nil
                 
                 self.events[sort]?.removeAll()
+                
+                print(response?.statusCode, response?.body, error)
                 
                 if response?.statusCode == 200 {
                     self.events[sort] = [Event]()

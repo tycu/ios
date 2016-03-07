@@ -33,8 +33,6 @@ class ScoreboardViewController : UITableViewController {
         }
         
         lastAppeared = NSDate()
-        
-        tableView.reloadData()
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {

@@ -7,15 +7,14 @@ class DonateViewController : UIViewController {
     @IBOutlet weak var eventGraph: SupportOpposeView!
     @IBOutlet weak var eventTime: UILabel!
     @IBOutlet weak var pacName: UILabel!
-    @IBOutlet weak var amount: UILabel!
-    @IBOutlet weak var donate: UIButton!
-    @IBOutlet weak var indicator: UIActivityIndicatorView!
     var event: Event!
     var pac: Pac!
     var inSupport: Bool!
     private let amounts = [3, 10, 25, 50, 100]
     private var amountIndex = 0
     
+    @IBOutlet weak var amountBorder: UIView!
+    @IBOutlet weak var amount: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -36,9 +35,13 @@ class DonateViewController : UIViewController {
         
         pacName.text = pac.name
         
-        amount.addGestureRecognizer(UITapGestureRecognizer(target: self, action: "changeAmount:"))
+        amountBorder.layer.borderWidth = 1
+        amountBorder.layer.borderColor = UIColor(hex: "#9F9F9F").CGColor
+        amountBorder.layer.cornerRadius = 4
+        amountBorder.clipsToBounds = true
+        amountBorder.addGestureRecognizer(UITapGestureRecognizer(target: self, action: "changeAmount:"))
         
-        donate.addGestureRecognizer(UITapGestureRecognizer(target: self, action: "donate:"))
+//        donate.addGestureRecognizer(UITapGestureRecognizer(target: self, action: "donate:"))
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -46,7 +49,7 @@ class DonateViewController : UIViewController {
         
         title = inSupport == true ? "Support" : "Oppose"
         
-        donate.setTitle(title, forState: .Normal)
+//        donate.setTitle(title, forState: .Normal)
     }
     
     func changeAmount(sender: UITapGestureRecognizer) {
@@ -109,15 +112,15 @@ class DonateViewController : UIViewController {
     private func lockUI() {
         navigationItem.leftBarButtonItem?.enabled = false
         navigationItem.rightBarButtonItem?.enabled = false
-        donate.hidden = true
-        indicator.hidden = false
+//        donate.hidden = true
+//        indicator.hidden = false
     }
     
     private func unlockUI() {
         navigationItem.leftBarButtonItem?.enabled = true
         navigationItem.rightBarButtonItem?.enabled = true
-        donate.hidden = false
-        indicator.hidden = true
+//        donate.hidden = false
+//        indicator.hidden = true
     }
     
     func cancel() {
