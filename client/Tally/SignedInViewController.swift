@@ -18,6 +18,10 @@ class SignedInViewController : EventTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        refreshControl = UIRefreshControl()
+        refreshControl!.tintColor = Colors.primary
+        refreshControl!.addTarget(self, action: "refresh:", forControlEvents: .ValueChanged)
+        
         header.backgroundColor = Colors.primary
         
         profilePictureHolder.layer.borderColor = UIColor.whiteColor().CGColor
@@ -88,6 +92,12 @@ class SignedInViewController : EventTableViewController {
             let eventViewController = segue.destinationViewController as! EventViewController
             eventViewController.event = sender as! Event
         }
+    }
+    
+    func refresh(sender: AnyObject) {
+        UserData.update({ succeeded in
+            self.refreshControl!.endRefreshing()
+        })
     }
     
     private func update() {
