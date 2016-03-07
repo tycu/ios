@@ -1,21 +1,21 @@
 class SupportOpposeView : UIView {
-    private var _supportTotal = 0
-    var supportTotal: Int {
+    private var _event: Event?
+    var event: Event? {
         get {
-            return _supportTotal
+            return _event
         }
         set {
-            _supportTotal = newValue
+            _event = newValue
             setNeedsDisplay()
         }
     }
-    private var _opposeTotal = 0
-    var opposeTotal: Int {
+    private var _politician: Politician?
+    var politician: Politician? {
         get {
-            return _opposeTotal
+            return _politician
         }
         set {
-            _opposeTotal = newValue
+            _politician = newValue
             setNeedsDisplay()
         }
     }
@@ -23,13 +23,23 @@ class SupportOpposeView : UIView {
     override func drawRect(rect: CGRect) {
         super.drawRect(rect)
         
-        let weight = CGFloat(Float(arc4random()) /  Float(UInt32.max))
-        let support = CGFloat(Float(arc4random()) /  Float(UInt32.max))
-        let oppose = 1 - support
-        
-        let amount = 1000 * weight
-        supportTotal = Int(amount * support)
-        opposeTotal = Int(amount * oppose)
+        let supportTotal: Int, opposeTotal: Int, barWeight: Double
+        if let event = event {
+            if let donation = UserData.instance?.eventIdenToDonation[event.iden] {
+                supportTotal = donation.event.supportTotal
+                opposeTotal = donation.event.opposeTotal
+            } else {
+                supportTotal = event.supportTotal
+                opposeTotal = event.opposeTotal
+            }
+            barWeight = event.barWeight
+        } else if let politician = politician {
+            supportTotal = politician.supportTotal
+            opposeTotal = politician.opposeTotal
+            barWeight = politician.barWeight
+        } else {
+            return
+        }
         
         let halfWidth = bounds.width / 2
         
@@ -37,13 +47,17 @@ class SupportOpposeView : UIView {
         let textAttributes = [NSFontAttributeName: font, NSForegroundColorAttributeName: UIColor.whiteColor()]
         let textPadding = CGFloat(6)
         
-        let opposeText = (opposeTotal == 0 ? "" : "-$\(opposeTotal)") as NSString
-        let supportText = (supportTotal == 0 ? "" : "+$\(supportTotal)") as NSString
+        let opposeText = (opposeTotal == 0 ? "" : "-$\(opposeTotal.localizedString)") as NSString
+        let supportText = (supportTotal == 0 ? "" : "+$\(supportTotal.localizedString)") as NSString
         
         let opposeTextSize = opposeText.sizeWithAttributes(textAttributes)
         let supportTextSize = supportText.sizeWithAttributes(textAttributes)
         
-        let barWidth = bounds.width * 2 / 3 * weight
+        let barWidth = bounds.width * (2 / 3) * CGFloat(barWeight)
+        
+        let total = CGFloat(supportTotal + opposeTotal)
+        let oppose = total > 0 ? CGFloat(opposeTotal) / total : 0
+        let support = total > 0 ? CGFloat(supportTotal) / total : 0
         
         let opposeWidth = max(max(min(barWidth * oppose, halfWidth), halfWidth * 0.1), opposeTextSize.width + (2 * textPadding))
         let supportWidth = max(max(min(barWidth * support, halfWidth), halfWidth * 0.1), supportTextSize.width + (2 * textPadding))

@@ -55,8 +55,7 @@ class ScoreboardViewController : UITableViewController {
         
         cell.position.text = "\(indexPath.row + 1)"
         
-        cell.graph.supportTotal = politician.supportTotal
-        cell.graph.opposeTotal = politician.opposeTotal
+        cell.graph.politician = politician
         
         return cell
     }

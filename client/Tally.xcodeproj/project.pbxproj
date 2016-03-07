@@ -27,6 +27,9 @@
 		606D917F1C8A8B87005ECCC3 /* ScoreboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606D917E1C8A8B87005ECCC3 /* ScoreboardViewController.swift */; };
 		606D91811C8A8CA5005ECCC3 /* ScoreboardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606D91801C8A8CA5005ECCC3 /* ScoreboardCell.swift */; };
 		606D91831C8C1E68005ECCC3 /* PostDonateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606D91821C8C1E68005ECCC3 /* PostDonateViewController.swift */; };
+		606D91851C8CD649005ECCC3 /* EmptyStateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 606D91841C8CD649005ECCC3 /* EmptyStateView.xib */; };
+		606D91871C8CD65A005ECCC3 /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606D91861C8CD65A005ECCC3 /* EmptyStateView.swift */; };
+		606D91891C8D028C005ECCC3 /* Int+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606D91881C8D028C005ECCC3 /* Int+Extensions.swift */; };
 		607A65A11C7577EF00D1B754 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607A65A01C7577EF00D1B754 /* AppDelegate.swift */; };
 		607A65A61C7577EF00D1B754 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607A65A41C7577EF00D1B754 /* Main.storyboard */; };
 		607A65A81C7577EF00D1B754 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607A65A71C7577EF00D1B754 /* Assets.xcassets */; };
@@ -73,6 +76,9 @@
 		606D917E1C8A8B87005ECCC3 /* ScoreboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreboardViewController.swift; sourceTree = "<group>"; };
 		606D91801C8A8CA5005ECCC3 /* ScoreboardCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreboardCell.swift; sourceTree = "<group>"; };
 		606D91821C8C1E68005ECCC3 /* PostDonateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostDonateViewController.swift; sourceTree = "<group>"; };
+		606D91841C8CD649005ECCC3 /* EmptyStateView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EmptyStateView.xib; sourceTree = "<group>"; };
+		606D91861C8CD65A005ECCC3 /* EmptyStateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyStateView.swift; sourceTree = "<group>"; };
+		606D91881C8D028C005ECCC3 /* Int+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Int+Extensions.swift"; sourceTree = "<group>"; };
 		607A659D1C7577EF00D1B754 /* Tally.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tally.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607A65A01C7577EF00D1B754 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		607A65A51C7577EF00D1B754 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -150,6 +156,8 @@
 				6066EDAC1C87A16500B71B86 /* DonationNavigationController.swift */,
 				6066EDAE1C87A6C400B71B86 /* DonateViewController.swift */,
 				6066EDB41C87D5BC00B71B86 /* EditProfileViewController.swift */,
+				606D91861C8CD65A005ECCC3 /* EmptyStateView.swift */,
+				606D91841C8CD649005ECCC3 /* EmptyStateView.xib */,
 				607A65B91C75824300D1B754 /* EventCell.swift */,
 				60534F081C842F2300609CD7 /* EventCell.xib */,
 				60534F0A1C865E5E00609CD7 /* EventTableViewController.swift */,
@@ -183,6 +191,7 @@
 				607A65CD1C78403600D1B754 /* NSDate+Extensions.swift */,
 				607A65BC1C75867400D1B754 /* Requests.swift */,
 				604D52071C83868A00A117CE /* UIViewController+Extensions.swift */,
+				606D91881C8D028C005ECCC3 /* Int+Extensions.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -279,6 +288,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				60534F091C842F2300609CD7 /* EventCell.xib in Resources */,
+				606D91851C8CD649005ECCC3 /* EmptyStateView.xib in Resources */,
 				607A65AB1C7577EF00D1B754 /* LaunchScreen.storyboard in Resources */,
 				607A65A81C7577EF00D1B754 /* Assets.xcassets in Resources */,
 				607A65A61C7577EF00D1B754 /* Main.storyboard in Resources */,
@@ -346,6 +356,7 @@
 				6066EDAF1C87A6C400B71B86 /* DonateViewController.swift in Sources */,
 				60534F0B1C865E5E00609CD7 /* EventTableViewController.swift in Sources */,
 				607A65DD1C7D88F400D1B754 /* MarkdownLabel.swift in Sources */,
+				606D91891C8D028C005ECCC3 /* Int+Extensions.swift in Sources */,
 				601181721C8824AD00FC2791 /* Donation.swift in Sources */,
 				607A65CA1C781C0F00D1B754 /* Colors.swift in Sources */,
 				607A65A11C7577EF00D1B754 /* AppDelegate.swift in Sources */,
@@ -358,6 +369,7 @@
 				604D52041C82CEAD00A117CE /* TouchStateView.swift in Sources */,
 				6066EDAB1C879DA900B71B86 /* Pac.swift in Sources */,
 				604D52021C82BEE200A117CE /* SignedInViewController.swift in Sources */,
+				606D91871C8CD65A005ECCC3 /* EmptyStateView.swift in Sources */,
 				607A65E31C7DA8A400D1B754 /* SignInViewController.swift in Sources */,
 				606D917F1C8A8B87005ECCC3 /* ScoreboardViewController.swift in Sources */,
 				60534F051C84182300609CD7 /* Profile.swift in Sources */,

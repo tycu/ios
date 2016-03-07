@@ -6,6 +6,7 @@ import Social
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
+    private var lastActive: NSDate?
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         SSKeychain.setAccessibilityType(kSecAttrAccessibleAfterFirstUnlock)
@@ -24,6 +25,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func applicationDidBecomeActive(application: UIApplication) {
         FBSDKAppEvents.activateApp()
+        
+        if let lastActive = lastActive {
+            if abs(Int(lastActive.timeIntervalSinceNow)) > 120 {
+                UserData.update(nil)
+            }
+        }
+        
+        lastActive = NSDate()
     }
     
     func application(application: UIApplication, didRegisterUserNotificationSettings notificationSettings: UIUserNotificationSettings) {

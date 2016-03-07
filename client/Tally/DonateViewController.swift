@@ -30,8 +30,8 @@ class DonateViewController : UIViewController {
         headlineAttributedString.addAttribute(NSParagraphStyleAttributeName, value: headlineParagraphStyle, range: NSMakeRange(0, headlineAttributedString.length))
         eventHeadline.attributedText = headlineAttributedString
         
-        eventGraph.supportTotal = event.supportTotal
-        eventGraph.opposeTotal = event.opposeTotal
+        eventGraph.event = event
+        
         eventTime.text = event.created.humanReadableTimeSinceNow
         
         pacName.text = pac.name

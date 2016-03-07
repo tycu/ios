@@ -14,7 +14,7 @@ class PacsViewController : UITableViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        title = inSupport == true ? "Support" : "Oppose"
+        title = inSupport == true ? "Support Options" : "Opposition Options"
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {

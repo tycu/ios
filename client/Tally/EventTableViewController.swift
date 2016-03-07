@@ -12,12 +12,6 @@ class EventTableViewController : UITableViewController {
     }
     
     func prepareCell(cell: EventCell, withEvent event: Event) {
-        if let donation = UserData.instance?.eventIdenToDonation[event.iden] {
-            donation.setLabel(cell.contribution)
-        } else {
-            cell.contribution.text = nil
-        }
-        
         event.politician.setThumbnail(cell.thumbnail)
         cell.headline.presentMarkdown(event.headline)
         
@@ -28,8 +22,14 @@ class EventTableViewController : UITableViewController {
         headlineAttributedString.addAttribute(NSParagraphStyleAttributeName, value: headlineParagraphStyle, range: NSMakeRange(0, headlineAttributedString.length))
         cell.headline.attributedText = headlineAttributedString
         
-        cell.graph.supportTotal = event.supportTotal
-        cell.graph.opposeTotal = event.opposeTotal
         cell.time.text = event.created.humanReadableTimeSinceNow
+        
+        cell.graph.event = event
+        
+        if let donation = UserData.instance?.eventIdenToDonation[event.iden] {
+            donation.setLabel(cell.contribution)
+        } else {
+            cell.contribution.text = nil
+        }
     }
 }

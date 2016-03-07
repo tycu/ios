@@ -134,7 +134,7 @@ class EventsViewController : EventTableViewController {
                     }
                     
                     if self.events[sort]!.count == 0 {
-                        // Set empty state
+                        self.tableView.backgroundView = NSBundle.mainBundle().loadNibNamed("EmptyStateView", owner: self, options: nil)[0] as! EmptyStateView
                     }
                 } else {
                     // Something bad happened, set error empty state

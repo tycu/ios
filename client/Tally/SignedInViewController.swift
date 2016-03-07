@@ -13,6 +13,7 @@ class SignedInViewController : EventTableViewController {
     @IBOutlet weak var cardHolder: TouchStateView!
     @IBOutlet weak var cardImage: UIImageView!
     @IBOutlet weak var cardLabel: UILabel!
+    @IBOutlet weak var contributions: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -124,6 +125,8 @@ class SignedInViewController : EventTableViewController {
             } else {
                 cardLabel.text = "Add card"
             }
+            
+            contributions.text = userData.donations.count == 0 ? "Contributions (none yet)" : "Contributions"
             
             profileHolder.hidden = false
             optionsHolder.hidden = false

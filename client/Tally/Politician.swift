@@ -1,8 +1,10 @@
 import UIKit
 
 class Politician {
-    let iden: String, name: String, supportTotal: Int, opposeTotal: Int
+    let iden: String, name: String
     let jobTitle: String?, thumbnailUrl: String?
+    let supportTotal: Int, opposeTotal: Int
+    let barWeight: Double
     
     init(data: [String : AnyObject]) throws {
         if let iden = data["iden"] as? String, name = data["name"] as? String {
@@ -12,6 +14,7 @@ class Politician {
             thumbnailUrl = data["thumbnailUrl"] as? String
             supportTotal = data["supportTotal"] as? Int ?? 0
             opposeTotal = data["opposeTotal"] as? Int ?? 0
+            barWeight = data["barWeight"] as? Double ?? 0
         } else {
             iden = ""
             name = ""
@@ -19,6 +22,7 @@ class Politician {
             thumbnailUrl = nil
             supportTotal = 0
             opposeTotal = 0
+            barWeight = 0
             throw Error.QuietError("Invalid politician data")
         }
     }

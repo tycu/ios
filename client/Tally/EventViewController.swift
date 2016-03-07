@@ -65,8 +65,7 @@ class EventViewController: UIViewController {
         headlineAttributedString.addAttribute(NSParagraphStyleAttributeName, value: headlineParagraphStyle, range: NSMakeRange(0, headlineAttributedString.length))
         headline.attributedText = headlineAttributedString
         
-        graph.supportTotal = event.supportTotal
-        graph.opposeTotal = event.opposeTotal
+        graph.event = event
         
         oppose.tintColor = Colors.support
         support.tintColor = Colors.support
