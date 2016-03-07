@@ -75,6 +75,7 @@ class ScoreboardViewController : UITableViewController {
     
     func refresh(sender: AnyObject) {
         if sender is EventsViewController && politicians.count > 0 {
+            tableView.reloadData()
             return
         }
         
@@ -100,10 +101,12 @@ class ScoreboardViewController : UITableViewController {
                     }
                     
                     if self.politicians.count == 0 {
-                        // Set empty state
+                        self.tableView.backgroundView = NSBundle.mainBundle().loadNibNamed("EmptyStateView", owner: self, options: nil)[0] as! EmptyStateView
                     }
                 } else {
-                    // Something bad happened, set error empty state
+                    let emptyStateView = NSBundle.mainBundle().loadNibNamed("EmptyStateView", owner: self, options: nil)[0] as! EmptyStateView
+                    emptyStateView.label.text = "Something bad happened"
+                    self.tableView.backgroundView = emptyStateView
                 }
                 
                 self.tableView.reloadData()

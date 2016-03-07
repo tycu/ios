@@ -99,6 +99,7 @@ class EventsViewController : EventTableViewController {
     
     func refresh(sender: AnyObject) {
         if sender is EventsViewController && events[activeSort] != nil {
+            tableView.reloadData()
             return
         }
         
@@ -137,7 +138,9 @@ class EventsViewController : EventTableViewController {
                         self.tableView.backgroundView = NSBundle.mainBundle().loadNibNamed("EmptyStateView", owner: self, options: nil)[0] as! EmptyStateView
                     }
                 } else {
-                    // Something bad happened, set error empty state
+                    let emptyStateView = NSBundle.mainBundle().loadNibNamed("EmptyStateView", owner: self, options: nil)[0] as! EmptyStateView
+                    emptyStateView.label.text = "Something bad happened"
+                    self.tableView.backgroundView = emptyStateView
                 }
                 
                 self.tableView.reloadData()

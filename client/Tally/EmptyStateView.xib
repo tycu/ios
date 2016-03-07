@@ -22,6 +22,9 @@
                 <constraint firstItem="PUK-7V-F4Y" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="rqq-Ny-auK"/>
                 <constraint firstItem="PUK-7V-F4Y" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="x1M-WL-FQ8"/>
             </constraints>
+            <connections>
+                <outlet property="label" destination="PUK-7V-F4Y" id="Fk1-qB-Ymk"/>
+            </connections>
         </view>
     </objects>
 </document>
