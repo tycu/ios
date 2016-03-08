@@ -110,9 +110,11 @@ class EventsViewController : EventTableViewController {
         let sort = activeSort
         let url = sort == .Top ? Endpoints.topEvents : Endpoints.recentEvents
         Requests.get(url, completionHandler: { response, error in
+            let delay = self.refreshControl!.refreshing ? 0.5 : 0
+            
             self.refreshControl!.endRefreshing()
             
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (Int64)(0.5 * Double(NSEC_PER_SEC))), dispatch_get_main_queue()) {
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (Int64)(delay * Double(NSEC_PER_SEC))), dispatch_get_main_queue()) {
                 self.tableView.backgroundView = nil
                 
                 self.events[sort]?.removeAll()

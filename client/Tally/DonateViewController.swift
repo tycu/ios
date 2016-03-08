@@ -76,8 +76,19 @@ class DonateViewController : UIViewController {
         
         ActionSheetStringPicker.showPickerWithTitle("Select Amount", rows: amountStrings, initialSelection: 0, doneBlock: { picker, index, value in
             self.amountIndex = index
-            self.amount.text = "$\(self.amounts[self.amountIndex]).00"
-            self.total.text = "$\(Double(self.amounts[self.amountIndex]) + 0.99)"
+            
+            let amount = self.amounts[self.amountIndex]
+            let fee = Double(amount) * 0.1
+            
+            self.amount.text = "$\(amount).00"
+            
+            if amount <= 10 {
+                self.fee.text = "$0.99"
+                self.total.text = "$\(amount).99"
+            } else {
+                self.fee.text = "$\(fee)0"
+                self.total.text = "$\(Double(amount) + fee)0"
+            }
         }, cancelBlock: nil, origin: sender.view)
     }
     
@@ -106,7 +117,12 @@ class DonateViewController : UIViewController {
                 }
             })
         } else {
-            makeDonation()
+            let alert = UIAlertController(title: "Confirmation", message: "You will be charged " + total.text!, preferredStyle: .Alert)
+            alert.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
+            alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: { action in
+                self.makeDonation()
+            }))
+            presentViewController(alert, animated: true, completion: nil)
         }
     }
     
