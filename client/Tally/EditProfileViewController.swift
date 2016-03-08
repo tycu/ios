@@ -5,12 +5,20 @@ class EditProfileViewController : UIViewController {
     @IBOutlet weak var employer: UITextField!
     @IBOutlet weak var streetAddress: UITextField!
     @IBOutlet weak var cityStateZip: UITextField!
+    @IBOutlet weak var federalLaw: UIView!
+    var required = false
+    
+    var inputIsValid: Bool {
+        if required {
+            if name.text == nil || name.text!.isEmpty || occupation.text == nil || occupation.text!.isEmpty || employer.text == nil || employer.text!.isEmpty || streetAddress.text == nil || streetAddress.text!.isEmpty || cityStateZip.text == nil || cityStateZip.text!.isEmpty {
+                return false
+            }
+        }
+        return true
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .Done, target: self, action: "done")
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .Plain, target: self, action: "cancel")
         
         if let userData = UserData.instance {
             name.text = userData.profile.name
@@ -19,8 +27,28 @@ class EditProfileViewController : UIViewController {
             streetAddress.text = userData.profile.streetAddress
             cityStateZip.text = userData.profile.cityStateZip
         } else {
-            dismiss()
+            cancel()
         }
+        
+        name.addTarget(self, action: "textChanged:", forControlEvents: .EditingChanged)
+        occupation.addTarget(self, action: "textChanged:", forControlEvents: .EditingChanged)
+        employer.addTarget(self, action: "textChanged:", forControlEvents: .EditingChanged)
+        streetAddress.addTarget(self, action: "textChanged:", forControlEvents: .EditingChanged)
+        cityStateZip.addTarget(self, action: "textChanged:", forControlEvents: .EditingChanged)
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if !required {
+            federalLaw.hidden = true
+        }
+        
+        textChanged(self)
+    }
+    
+    func textChanged(sender: AnyObject) {
+        navigationItem.rightBarButtonItem?.enabled = inputIsValid
     }
     
     private func lockUI() {
@@ -36,6 +64,10 @@ class EditProfileViewController : UIViewController {
     }
     
     func done() {
+        if !inputIsValid {
+            return
+        }
+        
         lockUI()
         
         var body = [String : AnyObject]()
@@ -58,7 +90,11 @@ class EditProfileViewController : UIViewController {
     }
     
     func next() {
-        dismiss()
+        if let parentViewController = parentViewController as? DonationNavigationController {
+            parentViewController.next()
+        } else {
+            dismiss()
+        }
     }
     
     func cancel() {

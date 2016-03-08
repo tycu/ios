@@ -88,6 +88,11 @@ class SignedInViewController : EventTableViewController {
             addCardViewController.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .Plain, target: addCardViewController, action: "cancel")
             addCardViewController.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .Done, target: addCardViewController, action: "done")
             addCardViewController.navigationItem.rightBarButtonItem!.enabled = false
+        } else if segue.identifier == "EditProfileSegue" {
+            let navigationController = segue.destinationViewController as! UINavigationController
+            let editProfileViewController = navigationController.childViewControllers[0]
+            editProfileViewController.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .Done, target: editProfileViewController, action: "done")
+            editProfileViewController.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .Plain, target: editProfileViewController, action: "cancel")
         } else if segue.identifier == "EventSegue" {
             let eventViewController = segue.destinationViewController as! EventViewController
             eventViewController.event = sender as! Event
