@@ -73,11 +73,7 @@ class EventViewController: UIViewController {
         oppose.addGestureRecognizer(UITapGestureRecognizer(target: self, action: "oppose:"))
         support.addGestureRecognizer(UITapGestureRecognizer(target: self, action: "support:"))
         
-        // Use serif font for the event summary
-        let paragraphFont = UIFont(name: "Times New Roman", size: summary.font!.pointSize)!
-        let strongFont = UIFont(name: "TimesNewRomanPS-BoldMT", size: summary.font!.pointSize)!
-        let emphasisFont = UIFont(name: "TimesNewRomanPS-ItalicMT", size: summary.font!.pointSize)!
-        summary.presentMarkdown(event.summary, paragraphFont: paragraphFont, strongFont: strongFont, emphasisFont: emphasisFont)
+        summary.presentMarkdown(event.summary)
         
         // Increase the line height of each paragraph (this doensn't apply to the blank lines between paragraphs)
         let summaryAttributedString = NSMutableAttributedString(attributedString: summary.attributedText!)

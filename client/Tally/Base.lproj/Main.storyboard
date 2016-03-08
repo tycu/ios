@@ -548,7 +548,7 @@
                                 <rect key="frame" x="0.0" y="-64" width="320" height="593"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yee-my-JD1">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="402.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="400.5"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fwt-iz-jIj" customClass="TouchStateView" customModule="Tally" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
@@ -644,7 +644,7 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="139.5" height="40"/>
                                                                 <subviews>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QDd-kp-O0A">
-                                                                        <rect key="frame" x="0.0" y="5" width="139" height="30"/>
+                                                                        <rect key="frame" x="-0.5" y="5" width="139.5" height="30"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                                         <state key="normal" title="Oppose"/>
                                                                     </button>
@@ -668,7 +668,7 @@
                                                                 <rect key="frame" x="140.5" y="0.0" width="139.5" height="40"/>
                                                                 <subviews>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1RR-6c-D6n">
-                                                                        <rect key="frame" x="-0.5" y="5" width="139" height="30"/>
+                                                                        <rect key="frame" x="0.0" y="5" width="139.5" height="30"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                                         <state key="normal" title="Support"/>
                                                                     </button>
@@ -718,11 +718,11 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gYS-w9-u5v" userLabel="Summary Holder">
-                                                <rect key="frame" x="0.0" y="331" width="320" height="71.5"/>
+                                                <rect key="frame" x="0.0" y="331" width="320" height="69.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Summary" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zlX-sI-Jcv" customClass="MarkdownLabel" customModule="Tally" customModuleProvider="target">
-                                                        <rect key="frame" x="20" y="30" width="280" height="21.5"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                        <rect key="frame" x="20" y="30" width="280" height="19.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -1297,6 +1297,7 @@
                     <connections>
                         <outlet property="amount" destination="ZiG-d9-K3r" id="Pif-Zp-dDS"/>
                         <outlet property="amountBorder" destination="Qjp-Pq-bZn" id="kgk-Sj-YRE"/>
+                        <outlet property="disclosure" destination="asc-9e-BYI" id="4Bu-k5-qP6"/>
                         <outlet property="donate" destination="rti-7B-lFi" id="Gaq-mO-DaZ"/>
                         <outlet property="eventGraph" destination="zIv-Gz-5hL" id="URT-Bi-7T1"/>
                         <outlet property="eventHeadline" destination="9U2-aU-SG6" id="DHQ-MJ-JBb"/>

@@ -53,7 +53,7 @@ class SupportOpposeView : UIView {
         let opposeTextSize = opposeText.sizeWithAttributes(textAttributes)
         let supportTextSize = supportText.sizeWithAttributes(textAttributes)
         
-        let barWidth = bounds.width * CGFloat(barWeight)
+        let barWidth = bounds.width * 0.9 * CGFloat(barWeight)
         
         let total = CGFloat(supportTotal + opposeTotal)
         let oppose = total > 0 ? CGFloat(opposeTotal) / total : 0

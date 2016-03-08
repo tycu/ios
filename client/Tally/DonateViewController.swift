@@ -10,6 +10,7 @@ class DonateViewController : UIViewController {
     @IBOutlet weak var amountBorder: UIView!
     @IBOutlet weak var amount: UILabel!
     @IBOutlet weak var fee: UILabel!
+    @IBOutlet weak var disclosure: UIButton!
     @IBOutlet weak var total: UILabel!
     @IBOutlet weak var donate: UIView!
     @IBOutlet weak var indicator: UIActivityIndicatorView!
@@ -45,6 +46,8 @@ class DonateViewController : UIViewController {
         amountBorder.clipsToBounds = true
         amountBorder.addGestureRecognizer(UITapGestureRecognizer(target: self, action: "changeAmount:"))
         
+        disclosure.addTarget(self, action: "showFeeDisclosure", forControlEvents: .TouchUpInside)
+        
         amount.text = "$\(amounts[amountIndex]).00"
         fee.text = "$0.99"
         total.text = "$\(Double(amounts[amountIndex]) + 0.99)"
@@ -76,6 +79,12 @@ class DonateViewController : UIViewController {
             self.amount.text = "$\(self.amounts[self.amountIndex]).00"
             self.total.text = "$\(Double(self.amounts[self.amountIndex]) + 0.99)"
         }, cancelBlock: nil, origin: sender.view)
+    }
+    
+    func showFeeDisclosure() {
+        let alert = UIAlertController(title: "Fee Details", message: "To ensure your entire contribution goes where you selected, Tally charges a transparent fee to cover transaction and operating costs.", preferredStyle: .Alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+        presentViewController(alert, animated: true, completion: nil)
     }
     
     func donate(sender: AnyObject) {
