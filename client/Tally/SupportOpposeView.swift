@@ -45,15 +45,15 @@ class SupportOpposeView : UIView {
         
         let font = UIFont.boldSystemFontOfSize(max(bounds.height - 6, 11))
         let textAttributes = [NSFontAttributeName: font, NSForegroundColorAttributeName: UIColor.whiteColor()]
-        let textPadding = CGFloat(6)
+        let textPadding = CGFloat(4)
         
-        let opposeText = (opposeTotal == 0 ? "" : "-$\(opposeTotal.localizedString)") as NSString
-        let supportText = (supportTotal == 0 ? "" : "+$\(supportTotal.localizedString)") as NSString
+        let opposeText = (opposeTotal == 0 ? "" : "▼$\(opposeTotal.localizedString)") as NSString
+        let supportText = (supportTotal == 0 ? "" : "▲$\(supportTotal.localizedString)") as NSString
         
         let opposeTextSize = opposeText.sizeWithAttributes(textAttributes)
         let supportTextSize = supportText.sizeWithAttributes(textAttributes)
         
-        let barWidth = bounds.width * (2 / 3) * CGFloat(barWeight)
+        let barWidth = bounds.width * CGFloat(barWeight)
         
         let total = CGFloat(supportTotal + opposeTotal)
         let oppose = total > 0 ? CGFloat(opposeTotal) / total : 0
@@ -72,11 +72,7 @@ class SupportOpposeView : UIView {
         
         CGContextSetFillColorWithColor(context, Colors.support.CGColor)
         CGContextFillRect(context, supportBar)
-        
-        let divider = CGRect(origin: CGPoint(x: halfWidth - 1, y: 0), size: CGSize(width: 2, height: bounds.height))
-        CGContextSetFillColorWithColor(context, Colors.primary.CGColor)
-        CGContextFillRect(context, divider)
-        
+                
         opposeText.drawInRect(CGRect(origin: CGPoint(x: (halfWidth - opposeWidth) + textPadding, y: 0 + ((bounds.height - opposeTextSize.height) / 2)), size: opposeTextSize), withAttributes: textAttributes)
         supportText.drawInRect(CGRect(origin: CGPoint(x: halfWidth + (supportWidth - supportTextSize.width) - textPadding, y: 0 + ((bounds.height - supportTextSize.height) / 2)), size: supportTextSize), withAttributes: textAttributes)
     }

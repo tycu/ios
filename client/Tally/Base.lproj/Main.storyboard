@@ -972,10 +972,10 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zIv-Gz-5hL" customClass="SupportOpposeView" customModule="Tally" customModuleProvider="target">
-                                                                <rect key="frame" x="85" y="27" width="150" height="14"/>
+                                                                <rect key="frame" x="85" y="27" width="150" height="16"/>
                                                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="height" constant="14" id="maf-PZ-2Mg"/>
+                                                                    <constraint firstAttribute="height" constant="16" id="maf-PZ-2Mg"/>
                                                                 </constraints>
                                                             </view>
                                                         </subviews>
@@ -1582,10 +1582,10 @@ We dare not forget today that we are the heirs of that first revolution. Let the
                                             </subviews>
                                         </stackView>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XXZ-k2-Meo" customClass="SupportOpposeView" customModule="Tally" customModuleProvider="target">
-                                            <rect key="frame" x="80" y="57" width="160" height="14"/>
+                                            <rect key="frame" x="80" y="57" width="160" height="16"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="14" id="Hee-ly-dDQ"/>
+                                                <constraint firstAttribute="height" constant="16" id="Hee-ly-dDQ"/>
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="999" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hfU-Nb-M3F">
