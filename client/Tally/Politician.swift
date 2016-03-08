@@ -2,7 +2,7 @@ import UIKit
 
 class Politician {
     let iden: String, name: String
-    let jobTitle: String?, thumbnailUrl: String?
+    let jobTitle: String?, thumbnailUrl: String?, twitterUsername: String?
     let supportTotal: Int, opposeTotal: Int
     let barWeight: Double
     
@@ -12,6 +12,7 @@ class Politician {
             self.name = name
             jobTitle = data["jobTitle"] as? String
             thumbnailUrl = data["thumbnailUrl"] as? String
+            twitterUsername = data["twitterUsername"] as? String
             supportTotal = data["supportTotal"] as? Int ?? 0
             opposeTotal = data["opposeTotal"] as? Int ?? 0
             barWeight = data["barWeight"] as? Double ?? 0
@@ -20,6 +21,7 @@ class Politician {
             name = ""
             jobTitle = nil
             thumbnailUrl = nil
+            twitterUsername = nil
             supportTotal = 0
             opposeTotal = 0
             barWeight = 0
