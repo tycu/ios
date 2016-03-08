@@ -295,10 +295,10 @@
                                 <rect key="frame" x="0.0" y="44" width="320" height="436"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bj7-a5-vQe">
-                                        <rect key="frame" x="0.0" y="30" width="320" height="259"/>
+                                        <rect key="frame" x="0.0" y="30" width="320" height="269"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mqC-z6-b6E">
-                                                <rect key="frame" x="160" y="129.5" width="0.0" height="0.0"/>
+                                                <rect key="frame" x="160" y="134.5" width="0.0" height="0.0"/>
                                                 <subviews>
                                                     <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="LvZ-KN-0Bi">
                                                         <rect key="frame" x="-10" y="-10" width="20" height="20"/>
@@ -311,10 +311,10 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lBD-zc-VQ2">
-                                                <rect key="frame" x="0.0" y="0.0" width="320" height="259"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="269"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="T7J-pw-eWj">
-                                                        <rect key="frame" x="15" y="10" width="305" height="239"/>
+                                                        <rect key="frame" x="15" y="15" width="305" height="239"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FED-XQ-XpQ">
                                                                 <rect key="frame" x="0.0" y="0.0" width="305" height="56"/>
@@ -328,7 +328,7 @@
                                                                 </subviews>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="bottom" secondItem="Zea-2n-BIq" secondAttribute="bottom" constant="20" symbolic="YES" id="0Hg-BV-RKo"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="Zea-2n-BIq" secondAttribute="bottom" constant="20" id="0Hg-BV-RKo"/>
                                                                     <constraint firstItem="Zea-2n-BIq" firstAttribute="leading" secondItem="FED-XQ-XpQ" secondAttribute="leading" id="4LL-F4-Ura"/>
                                                                     <constraint firstAttribute="trailing" secondItem="Zea-2n-BIq" secondAttribute="trailing" id="ZQc-X8-jta"/>
                                                                     <constraint firstItem="Zea-2n-BIq" firstAttribute="top" secondItem="FED-XQ-XpQ" secondAttribute="top" id="juO-5u-A1i"/>
@@ -470,10 +470,10 @@
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstItem="T7J-pw-eWj" firstAttribute="top" secondItem="lBD-zc-VQ2" secondAttribute="top" constant="10" id="Acw-vi-PbV"/>
+                                                    <constraint firstItem="T7J-pw-eWj" firstAttribute="top" secondItem="lBD-zc-VQ2" secondAttribute="top" constant="15" id="Acw-vi-PbV"/>
                                                     <constraint firstItem="T7J-pw-eWj" firstAttribute="left" secondItem="lBD-zc-VQ2" secondAttribute="left" constant="15" id="FBK-Z4-95C"/>
                                                     <constraint firstAttribute="right" secondItem="T7J-pw-eWj" secondAttribute="right" id="bwL-ZB-f1T"/>
-                                                    <constraint firstAttribute="bottom" secondItem="T7J-pw-eWj" secondAttribute="bottom" constant="10" id="nkg-xE-Xoc"/>
+                                                    <constraint firstAttribute="bottom" secondItem="T7J-pw-eWj" secondAttribute="bottom" constant="15" id="nkg-xE-Xoc"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
