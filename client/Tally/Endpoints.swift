@@ -1,18 +1,18 @@
 class Endpoints {
     private static var api: String {
-        #if DEBUG
-            return "http://localhost:5000"
-        #else
+//        #if DEBUG
+//            return "http://localhost:5000"
+//        #else
             return "https://api.tally.us"
-        #endif
+//        #endif
     }
     
     private static var generated: String {
-        #if DEBUG
-            return "http://localhost:5001"
-        #else
+//        #if DEBUG
+//            return "http://localhost:5001"
+//        #else
             return "https://generated.tally.us"
-        #endif
+//        #endif
     }
     
     static let authenticate = api + "/v1/authenticate"
