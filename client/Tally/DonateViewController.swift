@@ -93,7 +93,7 @@ class DonateViewController : UIViewController {
     }
     
     func showFeeDisclosure() {
-        let alert = UIAlertController(title: "Fee Details", message: "To ensure your entire contribution goes where you selected, Tally charges a transparent fee to cover transaction and operating costs.", preferredStyle: .Alert)
+        let alert = UIAlertController(title: "Fee Details", message: "Tally charges a fee to cover transaction and operating costs.", preferredStyle: .Alert)
         alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
         presentViewController(alert, animated: true, completion: nil)
     }
