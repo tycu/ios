@@ -1,17 +1,17 @@
 class Endpoints {
     private static var api: String {
 //        #if DEBUG
-            return "http://localhost:5000"
+//            return "http://localhost:5000"
 //        #else
-//            return "https://api.tally.us"
+            return "https://api.tally.us"
 //        #endif
     }
     
     private static var generated: String {
 //        #if DEBUG
-            return "http://localhost:5001"
+//            return "http://localhost:5001"
 //        #else
-//            return "https://generated.tally.us"
+            return "https://generated.tally.us"
 //        #endif
     }
     
