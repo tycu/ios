@@ -17,7 +17,7 @@ class ContributeViewController : UIViewController {
     var event: Event!
     var pac: Pac!
     var inSupport: Bool!
-    private let amounts = [3, 10, 25, 50, 100]
+    private let amounts = [3, 10, 25, 100]
     private var amountIndex = 0
     
     override func viewDidLoad() {
@@ -69,7 +69,7 @@ class ContributeViewController : UIViewController {
             amountStrings.append("$\(amount).00")
         }
         
-        ActionSheetStringPicker.showPickerWithTitle("Select Amount", rows: amountStrings, initialSelection: 0, doneBlock: { picker, index, value in
+        ActionSheetStringPicker.showPickerWithTitle("Select Amount", rows: amountStrings, initialSelection: amountIndex, doneBlock: { picker, index, value in
             self.amountIndex = index
             
             let amount = self.amounts[self.amountIndex]
