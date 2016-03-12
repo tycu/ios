@@ -730,7 +730,7 @@
                                                         </constraints>
                                                     </stackView>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kEg-Tf-V4L" customClass="SupportOpposeView" customModule="Tally" customModuleProvider="target">
-                                                        <rect key="frame" x="15" y="44.5" width="250" height="20"/>
+                                                        <rect key="frame" x="17" y="44.5" width="246" height="20"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="20" id="XLu-uM-mRA"/>
@@ -739,7 +739,7 @@
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstItem="kEg-Tf-V4L" firstAttribute="leading" secondItem="kLb-gJ-vMQ" secondAttribute="leading" constant="15" id="858-eF-lUb"/>
+                                                    <constraint firstItem="kEg-Tf-V4L" firstAttribute="leading" secondItem="kLb-gJ-vMQ" secondAttribute="leading" constant="17" id="858-eF-lUb"/>
                                                     <constraint firstItem="u8C-ji-fXr" firstAttribute="top" secondItem="kEg-Tf-V4L" secondAttribute="bottom" constant="15" id="8ve-Hx-U2W"/>
                                                     <constraint firstItem="kEg-Tf-V4L" firstAttribute="top" secondItem="d3f-Jt-42g" secondAttribute="bottom" constant="13" id="Bj1-LN-4ga"/>
                                                     <constraint firstItem="sQH-2z-616" firstAttribute="top" secondItem="u8C-ji-fXr" secondAttribute="bottom" id="FTB-8i-9cu"/>
@@ -748,7 +748,7 @@
                                                     <constraint firstItem="d3f-Jt-42g" firstAttribute="left" secondItem="kLb-gJ-vMQ" secondAttribute="left" constant="15" id="LeQ-8s-Ac3"/>
                                                     <constraint firstItem="u8C-ji-fXr" firstAttribute="leading" secondItem="kLb-gJ-vMQ" secondAttribute="leading" id="NJj-5j-iag"/>
                                                     <constraint firstAttribute="right" secondItem="d3f-Jt-42g" secondAttribute="right" constant="15" id="VpF-e2-VrK"/>
-                                                    <constraint firstAttribute="trailing" secondItem="kEg-Tf-V4L" secondAttribute="trailing" constant="15" id="azx-tX-8Ji"/>
+                                                    <constraint firstAttribute="trailing" secondItem="kEg-Tf-V4L" secondAttribute="trailing" constant="17" id="azx-tX-8Ji"/>
                                                     <constraint firstItem="d3f-Jt-42g" firstAttribute="top" secondItem="kLb-gJ-vMQ" secondAttribute="top" constant="10" id="b8B-3n-acF"/>
                                                     <constraint firstAttribute="bottom" secondItem="FfK-SX-mc1" secondAttribute="bottom" id="cJk-td-0VI"/>
                                                     <constraint firstItem="sQH-2z-616" firstAttribute="leading" secondItem="kLb-gJ-vMQ" secondAttribute="leading" id="fp6-Bp-Ymb"/>
@@ -1012,7 +1012,7 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zIv-Gz-5hL" customClass="SupportOpposeView" customModule="Tally" customModuleProvider="target">
-                                                                <rect key="frame" x="85" y="27" width="150" height="16"/>
+                                                                <rect key="frame" x="86" y="27" width="148" height="16"/>
                                                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="16" id="maf-PZ-2Mg"/>
@@ -1023,7 +1023,7 @@
                                                         <constraints>
                                                             <constraint firstItem="64d-OF-rWz" firstAttribute="top" secondItem="MB5-Ea-Pdy" secondAttribute="top" id="0fj-kU-ibc"/>
                                                             <constraint firstItem="9U2-aU-SG6" firstAttribute="left" secondItem="xKH-3v-2Jn" secondAttribute="right" constant="10" id="6XS-gj-s3a"/>
-                                                            <constraint firstAttribute="trailing" secondItem="zIv-Gz-5hL" secondAttribute="trailing" constant="85" id="DwF-pO-Gnb"/>
+                                                            <constraint firstAttribute="trailing" secondItem="zIv-Gz-5hL" secondAttribute="trailing" constant="86" id="DwF-pO-Gnb"/>
                                                             <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="zIv-Gz-5hL" secondAttribute="bottom" id="Dwh-sF-Ark"/>
                                                             <constraint firstItem="xKH-3v-2Jn" firstAttribute="leading" secondItem="MB5-Ea-Pdy" secondAttribute="leading" constant="20" id="DyN-u1-dAp"/>
                                                             <constraint firstItem="xKH-3v-2Jn" firstAttribute="top" secondItem="MB5-Ea-Pdy" secondAttribute="top" id="GxB-Jy-xrz"/>
@@ -1032,7 +1032,7 @@
                                                             <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="xKH-3v-2Jn" secondAttribute="bottom" id="hml-b7-ZNc"/>
                                                             <constraint firstItem="9U2-aU-SG6" firstAttribute="right" secondItem="64d-OF-rWz" secondAttribute="left" id="nP6-La-O4c"/>
                                                             <constraint firstAttribute="right" secondItem="64d-OF-rWz" secondAttribute="right" constant="20" id="wM6-NH-tGq"/>
-                                                            <constraint firstItem="zIv-Gz-5hL" firstAttribute="leading" secondItem="MB5-Ea-Pdy" secondAttribute="leading" constant="85" id="zyE-tO-Qxf"/>
+                                                            <constraint firstItem="zIv-Gz-5hL" firstAttribute="leading" secondItem="MB5-Ea-Pdy" secondAttribute="leading" constant="86" id="zyE-tO-Qxf"/>
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kJ7-Op-5Ao" userLabel="Divider">
@@ -1367,7 +1367,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <view key="tableFooterView" contentMode="scaleToFill" id="aF9-qj-Vov">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="0.0"/>
+                            <rect key="frame" x="0.0" y="64" width="320" height="0.0"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </view>
@@ -1562,7 +1562,7 @@
                                             </subviews>
                                         </stackView>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XXZ-k2-Meo" customClass="SupportOpposeView" customModule="Tally" customModuleProvider="target">
-                                            <rect key="frame" x="80" y="57" width="160" height="16"/>
+                                            <rect key="frame" x="81" y="57" width="158" height="16"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="16" id="Hee-ly-dDQ"/>
@@ -1581,12 +1581,12 @@
                                     <constraints>
                                         <constraint firstItem="hfU-Nb-M3F" firstAttribute="top" secondItem="TJN-1d-Xwg" secondAttribute="topMargin" id="5JQ-a5-rdY"/>
                                         <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="wU5-FI-Jap" secondAttribute="bottom" id="E3y-H4-8E6"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="XXZ-k2-Meo" secondAttribute="trailing" constant="65" id="Glb-Jy-09i"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="XXZ-k2-Meo" secondAttribute="trailing" constant="66" id="Glb-Jy-09i"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="hfU-Nb-M3F" secondAttribute="trailing" id="X6z-sz-tfO"/>
                                         <constraint firstItem="wU5-FI-Jap" firstAttribute="left" secondItem="TJN-1d-Xwg" secondAttribute="leftMargin" id="ZH5-sW-Bhc"/>
                                         <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="XXZ-k2-Meo" secondAttribute="bottom" id="cRT-0q-S2Y"/>
                                         <constraint firstItem="wU5-FI-Jap" firstAttribute="top" secondItem="TJN-1d-Xwg" secondAttribute="topMargin" id="ej8-iP-YtS"/>
-                                        <constraint firstItem="XXZ-k2-Meo" firstAttribute="leading" secondItem="TJN-1d-Xwg" secondAttribute="leadingMargin" constant="65" id="ikW-bG-WDB"/>
+                                        <constraint firstItem="XXZ-k2-Meo" firstAttribute="leading" secondItem="TJN-1d-Xwg" secondAttribute="leadingMargin" constant="66" id="ikW-bG-WDB"/>
                                         <constraint firstItem="myY-EY-4Ng" firstAttribute="left" secondItem="wU5-FI-Jap" secondAttribute="right" constant="10" id="ldV-wC-ODm"/>
                                         <constraint firstItem="myY-EY-4Ng" firstAttribute="right" secondItem="hfU-Nb-M3F" secondAttribute="left" constant="-10" id="mLg-YY-jxx"/>
                                         <constraint firstItem="XXZ-k2-Meo" firstAttribute="top" secondItem="myY-EY-4Ng" secondAttribute="bottom" constant="8" id="uMF-LK-vXs"/>
@@ -1667,6 +1667,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="dh4-JK-IEL"/>
-        <segue reference="6cl-jd-Lgb"/>
+        <segue reference="ypC-V6-Asf"/>
     </inferredMetricsTieBreakers>
 </document>

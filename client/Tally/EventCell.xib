@@ -49,10 +49,10 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EdX-cl-gkv">
-                                    <rect key="frame" x="65" y="19.5" width="454" height="24"/>
+                                    <rect key="frame" x="66" y="19.5" width="452" height="24"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="diF-ka-fF7" customClass="SupportOpposeView" customModule="Tally" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="8" width="454" height="16"/>
+                                            <rect key="frame" x="0.0" y="8" width="452" height="16"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="16" id="ujy-1Y-oqV"/>
@@ -85,8 +85,8 @@
                                 <constraint firstItem="ZKZ-eN-xR3" firstAttribute="top" secondItem="7nY-Bl-STI" secondAttribute="top" id="PXb-Hb-6ah"/>
                                 <constraint firstItem="EdX-cl-gkv" firstAttribute="top" secondItem="Faj-ly-0aT" secondAttribute="bottom" id="X4D-5y-3c3"/>
                                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="EdX-cl-gkv" secondAttribute="bottom" id="bTs-tF-9GL"/>
-                                <constraint firstAttribute="trailing" secondItem="EdX-cl-gkv" secondAttribute="trailing" constant="65" id="cze-m1-TAW"/>
-                                <constraint firstItem="EdX-cl-gkv" firstAttribute="leading" secondItem="7nY-Bl-STI" secondAttribute="leading" constant="65" id="n3K-2L-PDH"/>
+                                <constraint firstAttribute="trailing" secondItem="EdX-cl-gkv" secondAttribute="trailing" constant="66" id="cze-m1-TAW"/>
+                                <constraint firstItem="EdX-cl-gkv" firstAttribute="leading" secondItem="7nY-Bl-STI" secondAttribute="leading" constant="66" id="n3K-2L-PDH"/>
                                 <constraint firstItem="Faj-ly-0aT" firstAttribute="right" secondItem="ZKZ-eN-xR3" secondAttribute="left" constant="-10" id="p6Z-Ev-QqL"/>
                                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Lex-r9-yNp" secondAttribute="bottom" id="s5m-NK-BsE"/>
                                 <constraint firstItem="Lex-r9-yNp" firstAttribute="top" secondItem="7nY-Bl-STI" secondAttribute="top" id="xTB-vf-kpO"/>
