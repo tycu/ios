@@ -25,7 +25,7 @@ class SupportOpposeView : UIView {
         
         let supportTotal: Int, opposeTotal: Int, barWeight: Double
         if let event = event {
-            if let donation = UserData.instance?.eventIdenToDonation[event.iden] {
+            if let donation = UserData.instance?.eventIdenToContribution[event.iden] {
                 supportTotal = donation.event.supportTotal
                 opposeTotal = donation.event.opposeTotal
             } else {

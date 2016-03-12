@@ -67,7 +67,6 @@
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cOa-Vw-XWH">
                                                             <rect key="frame" x="3" y="3" width="100" height="100"/>
-                                                            <color key="backgroundColor" red="0.40000000000000002" green="0.20000000000000001" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="100" id="6YM-on-P0a"/>
                                                                 <constraint firstAttribute="width" constant="100" id="Ub8-yn-XzJ"/>
@@ -829,17 +828,17 @@
                         <outlet property="summary" destination="zlX-sI-Jcv" id="iav-lD-DLv"/>
                         <outlet property="support" destination="1RR-6c-D6n" id="buP-PD-5c5"/>
                         <segue destination="Y56-hz-VU3" kind="show" identifier="PoliticianSegue" id="6cl-jd-Lgb"/>
-                        <segue destination="odK-Vx-2lU" kind="presentation" identifier="DonationSegue" id="fGD-6a-zgB"/>
+                        <segue destination="odK-Vx-2lU" kind="presentation" identifier="ContributionSegue" id="fGD-6a-zgB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ear-7A-Wtj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="863" y="299"/>
         </scene>
-        <!--Donation Navigation Controller-->
+        <!--Contribution Navigation Controller-->
         <scene sceneID="2x1-kI-YLC">
             <objects>
-                <navigationController id="odK-Vx-2lU" customClass="DonationNavigationController" customModule="Tally" sceneMemberID="viewController">
+                <navigationController id="odK-Vx-2lU" customClass="ContributionNavigationController" customModule="Tally" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Eui-pa-VB3">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -947,10 +946,10 @@
             </objects>
             <point key="canvasLocation" x="1580" y="299"/>
         </scene>
-        <!--Donate View Controller-->
+        <!--Contribute View Controller-->
         <scene sceneID="dXZ-a0-Q0S">
             <objects>
-                <viewController storyboardIdentifier="DonateViewController" automaticallyAdjustsScrollViewInsets="NO" id="Q5B-xs-yaw" customClass="DonateViewController" customModule="Tally" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ContributeViewController" automaticallyAdjustsScrollViewInsets="NO" id="Q5B-xs-yaw" customClass="ContributeViewController" customModule="Tally" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="KkS-Tb-Q0E"/>
                         <viewControllerLayoutGuide type="bottom" id="228-Rv-kXn"/>
@@ -963,10 +962,10 @@
                                 <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kyk-Lv-gNQ">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="374"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="366"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="9g3-Go-AOV">
-                                                <rect key="frame" x="0.0" y="0.0" width="320" height="374"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="366"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jup-eE-dcm" userLabel="Divider">
                                                         <rect key="frame" x="0.0" y="0.0" width="320" height="11"/>
@@ -1257,51 +1256,37 @@
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rSi-qj-4aX" userLabel="Button">
-                                                        <rect key="frame" x="0.0" y="286" width="320" height="88"/>
+                                                        <rect key="frame" x="0.0" y="286" width="320" height="80"/>
                                                         <subviews>
                                                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="6IP-jt-GHl">
-                                                                <rect key="frame" x="150" y="54" width="20" height="20"/>
+                                                                <rect key="frame" x="150" y="50" width="20" height="20"/>
                                                             </activityIndicatorView>
-                                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rti-7B-lFi">
-                                                                <rect key="frame" x="20" y="40" width="280" height="48"/>
-                                                                <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Contribute" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cae-ob-smB">
-                                                                        <rect key="frame" x="91" y="12.5" width="98.5" height="23"/>
-                                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
-                                                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                                        <nil key="highlightedColor"/>
-                                                                    </label>
-                                                                </subviews>
-                                                                <color key="backgroundColor" red="0.0" green="0.70588235290000001" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c9c-4d-beS">
+                                                                <rect key="frame" x="40" y="40" width="240" height="40"/>
+                                                                <color key="backgroundColor" red="0.0" green="0.61568627450980395" blue="0.81960784313725488" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <constraints>
-                                                                    <constraint firstItem="Cae-ob-smB" firstAttribute="centerX" secondItem="rti-7B-lFi" secondAttribute="centerX" id="3p8-a5-goQ"/>
-                                                                    <constraint firstItem="Cae-ob-smB" firstAttribute="centerY" secondItem="rti-7B-lFi" secondAttribute="centerY" id="Z61-wR-kw2"/>
-                                                                    <constraint firstAttribute="height" constant="48" id="ozj-GK-cCo"/>
+                                                                    <constraint firstAttribute="width" constant="240" id="FEk-BQ-YZV"/>
+                                                                    <constraint firstAttribute="height" constant="40" id="ghm-8V-vlC"/>
                                                                 </constraints>
-                                                            </view>
+                                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                                                <state key="normal" title="Contribute">
+                                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                </state>
+                                                            </button>
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="bottom" secondItem="rti-7B-lFi" secondAttribute="bottom" id="3AU-dy-qqc"/>
-                                                            <constraint firstAttribute="trailing" secondItem="rti-7B-lFi" secondAttribute="trailing" id="5CC-lG-i3Q"/>
-                                                            <constraint firstItem="rti-7B-lFi" firstAttribute="top" secondItem="rSi-qj-4aX" secondAttribute="top" constant="40" id="C4e-qY-Nux"/>
-                                                            <constraint firstItem="6IP-jt-GHl" firstAttribute="centerX" secondItem="rti-7B-lFi" secondAttribute="centerX" id="VOc-Ae-ZQa"/>
-                                                            <constraint firstItem="rti-7B-lFi" firstAttribute="leading" secondItem="rSi-qj-4aX" secondAttribute="leading" id="azz-xW-yHH"/>
-                                                            <constraint firstItem="rti-7B-lFi" firstAttribute="centerX" secondItem="rSi-qj-4aX" secondAttribute="centerX" id="cJh-ja-m7o"/>
-                                                            <constraint firstItem="6IP-jt-GHl" firstAttribute="centerY" secondItem="rti-7B-lFi" secondAttribute="centerY" id="wWs-fa-gOY"/>
+                                                            <constraint firstItem="6IP-jt-GHl" firstAttribute="centerX" secondItem="c9c-4d-beS" secondAttribute="centerX" id="0r6-UY-RRv"/>
+                                                            <constraint firstItem="c9c-4d-beS" firstAttribute="top" secondItem="rSi-qj-4aX" secondAttribute="top" constant="40" id="6Wl-vB-5G2"/>
+                                                            <constraint firstItem="c9c-4d-beS" firstAttribute="centerX" secondItem="rSi-qj-4aX" secondAttribute="centerX" id="Knz-kE-NXi"/>
+                                                            <constraint firstItem="6IP-jt-GHl" firstAttribute="centerY" secondItem="c9c-4d-beS" secondAttribute="centerY" id="Uke-jE-hdw"/>
+                                                            <constraint firstAttribute="bottom" secondItem="c9c-4d-beS" secondAttribute="bottom" id="qTl-Bd-1rx"/>
                                                         </constraints>
-                                                        <variation key="default">
-                                                            <mask key="constraints">
-                                                                <exclude reference="5CC-lG-i3Q"/>
-                                                                <exclude reference="azz-xW-yHH"/>
-                                                            </mask>
-                                                        </variation>
                                                     </view>
                                                 </subviews>
                                                 <constraints>
                                                     <constraint firstAttribute="trailing" secondItem="Ht6-hk-BFJ" secondAttribute="trailing" id="0Yc-fu-HEe"/>
                                                     <constraint firstAttribute="trailing" secondItem="rSi-qj-4aX" secondAttribute="trailing" id="1lD-S8-7Mb"/>
-                                                    <constraint firstItem="rti-7B-lFi" firstAttribute="width" secondItem="B91-Ua-Zez" secondAttribute="width" id="5Sj-KQ-0v3"/>
                                                     <constraint firstAttribute="trailing" secondItem="g2A-VV-uR7" secondAttribute="trailing" id="MrE-pL-hAj"/>
                                                     <constraint firstItem="g2A-VV-uR7" firstAttribute="leading" secondItem="9g3-Go-AOV" secondAttribute="leading" id="VIp-bl-HJB"/>
                                                     <constraint firstItem="rSi-qj-4aX" firstAttribute="leading" secondItem="9g3-Go-AOV" secondAttribute="leading" id="WT3-eZ-pmf"/>
@@ -1338,8 +1323,8 @@
                     <connections>
                         <outlet property="amount" destination="ZiG-d9-K3r" id="Pif-Zp-dDS"/>
                         <outlet property="amountBorder" destination="Qjp-Pq-bZn" id="kgk-Sj-YRE"/>
+                        <outlet property="contribute" destination="c9c-4d-beS" id="F3u-gm-N4Q"/>
                         <outlet property="disclosure" destination="asc-9e-BYI" id="4Bu-k5-qP6"/>
-                        <outlet property="donate" destination="rti-7B-lFi" id="Gaq-mO-DaZ"/>
                         <outlet property="eventGraph" destination="zIv-Gz-5hL" id="URT-Bi-7T1"/>
                         <outlet property="eventHeadline" destination="9U2-aU-SG6" id="DHQ-MJ-JBb"/>
                         <outlet property="eventThumbnail" destination="xKH-3v-2Jn" id="w4t-Qt-mBC"/>
@@ -1354,10 +1339,10 @@
             </objects>
             <point key="canvasLocation" x="1932" y="299"/>
         </scene>
-        <!--Post Donate View Controller-->
+        <!--Post Contribute View Controller-->
         <scene sceneID="d5f-aF-oUS">
             <objects>
-                <viewController storyboardIdentifier="PostDonateViewController" id="eEJ-XI-CCf" customClass="PostDonateViewController" customModule="Tally" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PostContributeViewController" id="eEJ-XI-CCf" customClass="PostContributeViewController" customModule="Tally" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="qBz-mQ-vva"/>
                         <viewControllerLayoutGuide type="bottom" id="brV-Dh-Ns8"/>
@@ -1433,69 +1418,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="JFK" translatesAutoresizingMaskIntoConstraints="NO" id="BuD-Lv-oUZ">
-                                <rect key="frame" x="0.0" y="29" width="320" height="280"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="280" id="Xvk-kq-TYJ"/>
-                                </constraints>
-                            </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="18O-w9-3u5">
-                                <rect key="frame" x="20" y="279" width="280" height="119"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="UB9-1t-X07">
+                                <rect key="frame" x="105" y="140" width="46" height="30"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Democracy Revitalized" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QvL-c9-2DM">
-                                        <rect key="frame" x="0.0" y="20" width="280" height="29"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AjN-kg-rtI" customClass="FBSDKLoginButton">
-                                        <rect key="frame" x="117" y="69" width="46" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uoo-sR-IWI" customClass="FBSDKLoginButton">
+                                        <rect key="frame" x="0.0" y="0.0" width="46" height="30"/>
                                         <state key="normal" title="Button"/>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="AjN-kg-rtI" secondAttribute="bottom" constant="20" id="DSV-Cw-ehX"/>
-                                    <constraint firstItem="QvL-c9-2DM" firstAttribute="leading" secondItem="18O-w9-3u5" secondAttribute="leading" id="HCc-AZ-iTG"/>
-                                    <constraint firstItem="AjN-kg-rtI" firstAttribute="centerX" secondItem="18O-w9-3u5" secondAttribute="centerX" id="SM5-4x-M6L"/>
-                                    <constraint firstItem="AjN-kg-rtI" firstAttribute="top" secondItem="QvL-c9-2DM" secondAttribute="bottom" constant="20" id="fHS-74-NaH"/>
-                                    <constraint firstAttribute="trailing" secondItem="QvL-c9-2DM" secondAttribute="trailing" id="jG6-Kk-xy6"/>
-                                    <constraint firstItem="QvL-c9-2DM" firstAttribute="top" secondItem="18O-w9-3u5" secondAttribute="top" constant="20" id="ktp-UO-ZVl"/>
-                                </constraints>
-                            </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Fh-os-iXa">
-                                <rect key="frame" x="16" y="428" width="288" height="730.5"/>
-                                <string key="text">"We observe today not a victory of party, but a celebration of freedom -- symbolizing an end, as well as a beginning -- signifying renewal, as well as change. For I have sworn before you and Almighty God the same solemn oath our forebears prescribed nearly a century and three-quarters ago.
-
-The world is very different now. For man holds in his mortal hands the power to abolish all forms of human poverty and all forms of human life. And yet the same revolutionary beliefs for which our forebears fought are still at issue around the globe -- the belief that the rights of man come not from the generosity of the state, but from the hand of God.
-
-We dare not forget today that we are the heirs of that first revolution. Let the word go forth from this time and place, to friend and foe alike, that the torch has been passed to a new generation of Americans -- born in this century, tempered by war, disciplined by a hard and bitter peace, proud of our ancient heritage, and unwilling to witness or permit the slow undoing of those human rights to which this nation has always been committed, and to which we are committed today at home and around the world."</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.15355603448275862" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                                <string key="userLabel">We observe today not a victory of party, but a celebration of freedom -- symbolizing an end, as well as a beginning -- signifying renewal, as well as change. For I have sworn before you and Almighty God the same solemn oath our forebears prescribed nearly a century and three-quarters ago.  The world is very different now. For man holds in his mortal hands the power to abolish all forms of human poverty and all forms of human life. And yet the same revolutionary beliefs for which our forebears fought are still at issue around the globe -- the belief that the rights of man come not from the generosity of the state, but from the hand of God.  We dare not forget today that we are the heirs of that first revolution. Let the word go forth from this time and place, to friend and foe alike, that the torch has been passed to a new generation of Americans -- born in this century, tempered by war, disciplined by a hard and bitter peace, proud of our ancient heritage, and unwilling to witness or permit the slow undoing of those human rights to which this nation has always been committed, and to which we are committed today at home and around the world.</string>
-                            </label>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="BuD-Lv-oUZ" firstAttribute="leading" secondItem="fO2-Qa-vQ7" secondAttribute="leading" id="BPr-DW-ZhC"/>
-                            <constraint firstItem="9Fh-os-iXa" firstAttribute="leading" secondItem="fO2-Qa-vQ7" secondAttribute="leadingMargin" id="Jcd-ED-IrI"/>
-                            <constraint firstItem="18O-w9-3u5" firstAttribute="top" secondItem="BuD-Lv-oUZ" secondAttribute="bottom" constant="-30" id="NAY-nL-qph"/>
-                            <constraint firstItem="18O-w9-3u5" firstAttribute="leading" secondItem="fO2-Qa-vQ7" secondAttribute="leading" constant="20" id="TSG-Ne-een"/>
-                            <constraint firstAttribute="trailing" secondItem="18O-w9-3u5" secondAttribute="trailing" constant="20" id="XMc-YX-Mnf"/>
-                            <constraint firstItem="9Fh-os-iXa" firstAttribute="top" secondItem="18O-w9-3u5" secondAttribute="bottom" constant="30" id="atX-Uw-GoU"/>
-                            <constraint firstItem="BuD-Lv-oUZ" firstAttribute="top" secondItem="PIb-oH-Oki" secondAttribute="bottom" constant="-35" id="irI-cB-Dmq"/>
-                            <constraint firstAttribute="trailing" secondItem="BuD-Lv-oUZ" secondAttribute="trailing" id="kjh-na-3Cx"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="9Fh-os-iXa" secondAttribute="trailing" id="rhH-cr-sg0"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="eqW-tB-cV5"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
-                        <outlet property="card" destination="18O-w9-3u5" id="MHJ-MH-ft6"/>
-                        <outlet property="facebook" destination="AjN-kg-rtI" id="Ohe-J5-rAp"/>
-                        <outlet property="long" destination="9Fh-os-iXa" id="oXB-ze-ix2"/>
-                        <outlet property="tagline" destination="QvL-c9-2DM" id="iVF-WH-D6z"/>
+                        <outlet property="facebook" destination="Uoo-sR-IWI" id="EDI-XQ-cHk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dOG-Ac-m99" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1721,7 +1659,6 @@ We dare not forget today that we are the heirs of that first revolution. Let the
         <image name="Disclosure" width="13" height="14"/>
         <image name="Events" width="25" height="25"/>
         <image name="EventsFilled" width="25" height="25"/>
-        <image name="JFK" width="414" height="325"/>
         <image name="Occupation" width="20" height="20"/>
         <image name="Profile" width="25" height="25"/>
         <image name="ProfileFilled" width="25" height="25"/>

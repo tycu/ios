@@ -1,4 +1,4 @@
-class DonationNavigationController : UINavigationController {
+class ContributionNavigationController : UINavigationController {
     var event: Event!
     var inSupport: Bool!
     var selectedPac: Pac?
@@ -56,7 +56,7 @@ class DonationNavigationController : UINavigationController {
             return
         }
         
-        if UserData.instance!.donations.count > 0 {
+        if UserData.instance!.contributions.count > 0 {
             if UserData.instance!.profile.occupation == nil || UserData.instance!.profile.employer == nil || UserData.instance!.profile.streetAddress == nil || UserData.instance!.profile.cityStateZip == nil {
                 let editProfileViewController = storyboard!.instantiateViewControllerWithIdentifier("EditProfileViewController") as! EditProfileViewController
                 editProfileViewController.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .Plain, target: editProfileViewController, action: "cancel")
@@ -68,7 +68,7 @@ class DonationNavigationController : UINavigationController {
         }
     
         if amount == nil {
-            let donateViewController = storyboard!.instantiateViewControllerWithIdentifier("DonateViewController") as! DonateViewController
+            let donateViewController = storyboard!.instantiateViewControllerWithIdentifier("ContributeViewController") as! ContributeViewController
             donateViewController.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .Plain, target: donateViewController, action: "cancel")
             donateViewController.event = event
             donateViewController.pac = selectedPac
@@ -77,7 +77,7 @@ class DonationNavigationController : UINavigationController {
             return
         }
         
-        let postDonateViewController = storyboard!.instantiateViewControllerWithIdentifier("PostDonateViewController") as! PostDonateViewController
+        let postDonateViewController = storyboard!.instantiateViewControllerWithIdentifier("PostContributeViewController") as! PostContributeViewController
         postDonateViewController.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .Done, target: postDonateViewController, action: "done")
         setViewControllers([postDonateViewController], animated: true)
     }

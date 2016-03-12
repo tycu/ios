@@ -65,11 +65,11 @@ class SignedInViewController : EventTableViewController {
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return UserData.instance?.donations.count ?? 0
+        return UserData.instance?.contributions.count ?? 0
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let event = UserData.instance!.donations[indexPath.row].event
+        let event = UserData.instance!.contributions[indexPath.row].event
         let cell = tableView.dequeueReusableCellWithIdentifier("EventCell", forIndexPath: indexPath) as! EventCell
         prepareCell(cell, withEvent: event)
         return cell
@@ -78,7 +78,7 @@ class SignedInViewController : EventTableViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         
-        performSegueWithIdentifier("EventSegue", sender: UserData.instance!.donations[indexPath.row].event)
+        performSegueWithIdentifier("EventSegue", sender: UserData.instance!.contributions[indexPath.row].event)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -141,7 +141,7 @@ class SignedInViewController : EventTableViewController {
                 cardLabel.text = "Add card"
             }
             
-            contributions.text = userData.donations.count == 0 ? "Contributions (none yet)" : "Contributions"
+            contributions.text = userData.contributions.count == 0 ? "Contributions (none yet)" : "Contributions"
             
             profileHolder.hidden = false
             optionsHolder.hidden = false

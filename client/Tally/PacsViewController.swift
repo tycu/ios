@@ -48,9 +48,9 @@ class PacsViewController : UITableViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         
-        let donationNavigationController = parentViewController as! DonationNavigationController
-        donationNavigationController.selectedPac = pacs[indexPath.row]
-        donationNavigationController.next()
+        let contributionNavigationController = parentViewController as! ContributionNavigationController
+        contributionNavigationController.selectedPac = pacs[indexPath.row]
+        contributionNavigationController.next()
     }
     
     func cancel() {

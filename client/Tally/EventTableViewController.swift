@@ -26,8 +26,8 @@ class EventTableViewController : UITableViewController {
         
         cell.graph.event = event
         
-        if let donation = UserData.instance?.eventIdenToDonation[event.iden] {
-            donation.setLabel(cell.contribution)
+        if let contribution = UserData.instance?.eventIdenToContribution[event.iden] {
+            contribution.setLabel(cell.contribution)
         } else {
             cell.contribution.text = nil
         }

@@ -97,9 +97,9 @@ class EventViewController: UIViewController {
             buttonsHolder.hidden = true
         }
     
-        if let donation = UserData.instance?.eventIdenToDonation[event.iden] {
+        if let contribution = UserData.instance?.eventIdenToContribution[event.iden] {
             buttonsHolder.hidden = true
-            donation.setLabel(contribution)
+            contribution.setLabel(self.contribution)
         }
     }
     
@@ -108,20 +108,20 @@ class EventViewController: UIViewController {
     }
     
     func oppose(sender: AnyObject) {
-        performSegueWithIdentifier("DonationSegue", sender: sender)
+        performSegueWithIdentifier("ContributionSegue", sender: sender)
     }
     
     func support(sender: AnyObject) {
-        performSegueWithIdentifier("DonationSegue", sender: sender)
+        performSegueWithIdentifier("ContributionSegue", sender: sender)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "PoliticianSegue" {
             let eventsViewController = segue.destinationViewController as! EventsViewController
             eventsViewController.politician = event.politician!
-        } else if segue.identifier == "DonationSegue" {
-            let donationNavigationController = segue.destinationViewController as! DonationNavigationController
-            donationNavigationController.prepareForEvent(event, inSupport: (sender as! UITapGestureRecognizer).view == support)
+        } else if segue.identifier == "ContributionSegue" {
+            let contributionNavigationController = segue.destinationViewController as! ContributionNavigationController
+            contributionNavigationController.prepareForEvent(event, inSupport: (sender as! UITapGestureRecognizer).view == support)
         }
     }
 }

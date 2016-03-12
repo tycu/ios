@@ -1,4 +1,4 @@
-class PostDonateViewController : UIViewController {
+class PostContributeViewController : UIViewController {
     
     func done() {
         dismiss()

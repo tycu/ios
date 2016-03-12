@@ -90,7 +90,7 @@ class EditProfileViewController : UIViewController {
     }
     
     func next() {
-        if let parentViewController = parentViewController as? DonationNavigationController {
+        if let parentViewController = parentViewController as? ContributionNavigationController {
             parentViewController.next()
         } else {
             dismiss()

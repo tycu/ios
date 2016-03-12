@@ -1,17 +1,17 @@
 class Endpoints {
     private static var api: String {
 //        #if DEBUG
-//            return "http://localhost:5000"
+            return "http://localhost:5000"
 //        #else
-            return "https://api.tally.us"
+//            return "https://api.tally.us"
 //        #endif
     }
     
     private static var generated: String {
 //        #if DEBUG
-//            return "http://localhost:5001"
+            return "http://localhost:5001"
 //        #else
-            return "https://generated.tally.us"
+//            return "https://generated.tally.us"
 //        #endif
     }
     
@@ -19,7 +19,7 @@ class Endpoints {
     static let getUserData = api + "/v1/get-user-data"
     static let updateProfile = api + "/v1/update-profile"
     static let setCard = api + "/v1/set-card"
-    static let createDonation = api + "/v1/create-donation"
+    static let createContribution = api + "/v1/create-contribution"
     
     static let recentEvents = generated + "/v1/events/recent.json"
     static let topEvents = generated + "/v1/events/top.json"

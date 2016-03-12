@@ -1,4 +1,4 @@
-class Donation {
+class Contribution {
     let iden: String
     let amount: Int
     let support: Bool

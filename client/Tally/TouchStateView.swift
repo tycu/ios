@@ -3,7 +3,7 @@ class TouchStateView : UIView {
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         super.touchesBegan(touches, withEvent: event)
         
-        backgroundColor = UIColor(hex: "#D9D9D9")
+        backgroundColor = Colors.touchHighlight
     }
     
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {

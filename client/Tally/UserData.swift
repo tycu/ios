@@ -3,20 +3,22 @@ class UserData {
     
     let profile: Profile!
     let chargeable: Bool
-    var donations = [Donation]()
-    var eventIdenToDonation = [String : Donation]()
+    var contributions = [Contribution]()
+    var eventIdenToContribution = [String : Contribution]()
     
     private init(data: [String : AnyObject]) throws {
-        if let profile = data["profile"] as? [String : AnyObject], let donations = data["donations"] as? [[String : AnyObject]] {
+        if let profile = data["profile"] as? [String : AnyObject] {
             self.profile = Profile(data: profile)
             chargeable = data["chargeable"] as? Bool ?? false
-            for donation in donations {
-                do {
-                    let donation = try Donation(data: donation)
-                    self.donations.append(donation)
-                    self.eventIdenToDonation[donation.event.iden] = donation
-                } catch _ {
-                    p("Skipping invalid donation")
+            if let contributions = data["contribution"] as? [[String : AnyObject]] {
+                for contribution in contributions {
+                    do {
+                        let contribution = try Contribution(data: contribution)
+                        self.contributions.append(contribution)
+                        self.eventIdenToContribution[contribution.event.iden] = contribution
+                    } catch _ {
+                        p("Skipping invalid donation")
+                    }
                 }
             }
         } else {

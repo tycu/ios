@@ -1,7 +1,7 @@
 import ActionSheetPicker_3_0
 import LocalAuthentication
 
-class DonateViewController : UIViewController {
+class ContributeViewController : UIViewController {
     @IBOutlet weak var eventThumbnail: UIImageView!
     @IBOutlet weak var eventHeadline: MarkdownLabel!
     @IBOutlet weak var eventGraph: SupportOpposeView!
@@ -12,7 +12,7 @@ class DonateViewController : UIViewController {
     @IBOutlet weak var fee: UILabel!
     @IBOutlet weak var disclosure: UIButton!
     @IBOutlet weak var total: UILabel!
-    @IBOutlet weak var donate: UIView!
+    @IBOutlet weak var contribute: UIButton!
     @IBOutlet weak var indicator: UIActivityIndicatorView!
     var event: Event!
     var pac: Pac!
@@ -52,14 +52,9 @@ class DonateViewController : UIViewController {
         fee.text = "$0.99"
         total.text = "$\(Double(amounts[amountIndex]) + 0.99)"
         
-        donate.backgroundColor = Colors.primary
-        donate.layer.cornerRadius = 4
-        donate.layer.shadowColor = UIColor.blackColor().CGColor
-        donate.layer.shadowOpacity = 0.4
-        donate.layer.shadowRadius = 3
-        donate.layer.shadowOffset = CGSizeMake(0, 1.5)
-        
-        donate.addGestureRecognizer(UITapGestureRecognizer(target: self, action: "donate:"))
+        contribute.layer.cornerRadius = 4
+        contribute.clipsToBounds = true
+        contribute.addTarget(self, action: "contribute:", forControlEvents: .TouchUpInside)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -78,16 +73,16 @@ class DonateViewController : UIViewController {
             self.amountIndex = index
             
             let amount = self.amounts[self.amountIndex]
-            let fee = Double(amount) * 0.1
+            let fee = Double(amount) * 0.15
             
             self.amount.text = "$\(amount).00"
             
-            if amount <= 10 {
+            if amount == 3 {
                 self.fee.text = "$0.99"
                 self.total.text = "$\(amount).99"
             } else {
                 self.fee.text = "$\(fee)0"
-                self.total.text = "$\(Double(amount) + fee)0"
+                self.total.text = "$\(String(format: "%.2f", Double(amount) + fee))"
             }
         }, cancelBlock: nil, origin: sender.view)
     }
@@ -98,14 +93,14 @@ class DonateViewController : UIViewController {
         presentViewController(alert, animated: true, completion: nil)
     }
     
-    func donate(sender: AnyObject) {
+    func contribute(sender: AnyObject) {
         let authContext = LAContext()
         var authError: NSError?
         if authContext.canEvaluatePolicy(LAPolicy.DeviceOwnerAuthenticationWithBiometrics, error: &authError) {
             authContext.evaluatePolicy(LAPolicy.DeviceOwnerAuthenticationWithBiometrics, localizedReason: "Confirm contribution", reply: { success, error in
                 if success {
                     dispatch_async(dispatch_get_main_queue(), {
-                        self.makeDonation()
+                        self.makeContribution()
                     })
                 } else {
                     if let error = error as? LAError {
@@ -120,25 +115,25 @@ class DonateViewController : UIViewController {
             let alert = UIAlertController(title: "Confirmation", message: "You will be charged " + total.text!, preferredStyle: .Alert)
             alert.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
             alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: { action in
-                self.makeDonation()
+                self.makeContribution()
             }))
             presentViewController(alert, animated: true, completion: nil)
         }
     }
     
-    private func makeDonation() {
+    private func makeContribution() {
         let amount = amounts[amountIndex]
         
-        print("make donation \(amount)")
+        print("make contribution \(amount)")
         
         lockUI()
         
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (Int64)(2 * Double(NSEC_PER_SEC))), dispatch_get_main_queue()) {
             self.indicator.hidden = true
             
-            let donationNavigationController = self.parentViewController as! DonationNavigationController
-            donationNavigationController.amount = amount
-            donationNavigationController.next()
+            let contributionNavigationController = self.parentViewController as! ContributionNavigationController
+            contributionNavigationController.amount = amount
+            contributionNavigationController.next()
         }
         
 //        var body = [String : AnyObject]()
@@ -146,13 +141,13 @@ class DonateViewController : UIViewController {
 //        body["pacIden"] = pac.iden
 //        body["amount"] = amounts[amountIndex]
 //        
-//        Requests.post(Endpoints.createDonation, withBody: body, completionHandler: { response, error in
+//        Requests.post(Endpoints.createContribution, withBody: body, completionHandler: { response, error in
 //            UserData.update({ succeeded in
 //                self.indicator.hidden = true
 //
-//                let donationNavigationController = self.parentViewController as! DonationNavigationController
-//                donationNavigationController.amount = amount
-//                donationNavigationController.next()
+//                let contributionNavigationController = self.parentViewController as! ContributionNavigationController
+//                contributionNavigationController = amount
+//                contributionNavigationController()
 //            })
 //        })
     }
@@ -160,14 +155,14 @@ class DonateViewController : UIViewController {
     private func lockUI() {
         navigationItem.leftBarButtonItem?.enabled = false
         navigationItem.rightBarButtonItem?.enabled = false
-        donate.hidden = true
+        contribute.hidden = true
         indicator.hidden = false
     }
     
     private func unlockUI() {
         navigationItem.leftBarButtonItem?.enabled = true
         navigationItem.rightBarButtonItem?.enabled = true
-        donate.hidden = false
+        contribute.hidden = false
         indicator.hidden = true
     }
     

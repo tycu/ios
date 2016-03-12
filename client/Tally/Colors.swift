@@ -17,6 +17,8 @@ class Colors {
     
     static let democrat = UIColor(hex: "#0049A3")
     static let republican = UIColor(hex: "#BE2600")
+    
+    static let touchHighlight = UIColor(hex: "#D9D9D9")
 }
 
 extension UIColor {
