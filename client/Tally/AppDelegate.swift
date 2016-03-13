@@ -4,7 +4,7 @@ import Stripe
 import Social
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, GGLInstanceIDDelegate {
     var window: UIWindow?
     private var lastActive: NSDate?
     
@@ -35,16 +35,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         lastActive = NSDate()
     }
     
+    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
+        return FBSDKApplicationDelegate.sharedInstance().application(application, openURL: url, sourceApplication: sourceApplication, annotation: annotation)
+    }
+    
     func application(application: UIApplication, didRegisterUserNotificationSettings notificationSettings: UIUserNotificationSettings) {
         application.registerForRemoteNotifications()
     }
     
     func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
-        p(deviceToken)
+        let sandbox: Bool
+        #if DEBUG
+            sandbox = true
+        #else
+            sandbox = false
+        #endif
+        
+        let instanceIDConfig = GGLInstanceIDConfig.defaultConfig()
+        instanceIDConfig.delegate = self
+        GGLInstanceID.sharedInstance().startWithConfig(instanceIDConfig)
+        GGLInstanceID.sharedInstance().tokenWithAuthorizedEntity("GCM_SENDER_ID", scope: kGGLInstanceIDScopeGCM, options: [kGGLInstanceIDRegisterAPNSOption: deviceToken, kGGLInstanceIDAPNSServerTypeSandboxOption: sandbox], handler: { token, error in
+            GCMPubSub.sharedInstance().subscribeWithToken(token, topic: "events", options: nil, handler: { error in
+                if error == nil || error.code == 3001 {
+                    p("Subscribed to events topic")
+                }
+            })
+        })
     }
     
-    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
-        return FBSDKApplicationDelegate.sharedInstance().application(application, openURL: url, sourceApplication: sourceApplication, annotation: annotation)
+    func onTokenRefresh() {
+        UIApplication.sharedApplication().registerForRemoteNotifications()
     }
     
     private func checkLastVersion() {
