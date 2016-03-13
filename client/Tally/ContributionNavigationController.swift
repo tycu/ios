@@ -68,12 +68,12 @@ class ContributionNavigationController : UINavigationController {
         }
     
         if amount == nil {
-            let donateViewController = storyboard!.instantiateViewControllerWithIdentifier("ContributeViewController") as! ContributeViewController
-            donateViewController.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .Plain, target: donateViewController, action: "cancel")
-            donateViewController.event = event
-            donateViewController.pac = selectedPac
-            donateViewController.inSupport = inSupport
-            setViewControllers([donateViewController], animated: true)
+            let contributeViewController = storyboard!.instantiateViewControllerWithIdentifier("ContributeViewController") as! ContributeViewController
+            contributeViewController.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .Plain, target: contributeViewController, action: "cancel")
+            contributeViewController.event = event
+            contributeViewController.pac = selectedPac
+            contributeViewController.inSupport = inSupport
+            setViewControllers([contributeViewController], animated: true)
             return
         }
         
