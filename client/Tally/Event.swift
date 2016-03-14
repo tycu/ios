@@ -2,7 +2,7 @@ import Foundation
 
 class Event {
     let iden: String, headline:String
-    let summary: String?, imageUrl: String?
+    let summary: String?, imageUrl: String?, imageAttribution: String?
     let created: NSDate, modified: NSDate
     let politician: Politician!
     var supportPacs = [Pac]()
@@ -14,6 +14,7 @@ class Event {
         if let iden = data["iden"] as? String, headline = data["headline"] as? String, created = data["created"] as? Double, modified = data["modified"] as? Double, politician = data["politician"] as? [String : AnyObject], supportTotal = data["supportTotal"] as? Int, opposeTotal = data["opposeTotal"] as? Int {
             self.iden = iden
             self.headline = headline
+            imageAttribution = data["imageAttribution"] as? String
             summary = data["summary"] as? String
             imageUrl = data["imageUrl"] as? String
             self.created = NSDate(timeIntervalSince1970: created)
@@ -41,6 +42,7 @@ class Event {
             iden = ""
             headline = ""
             summary = ""
+            imageAttribution = nil
             imageUrl = nil
             created = NSDate()
             modified = NSDate()

@@ -17,7 +17,11 @@ class MarkdownLabel: TTTAttributedLabel, TTTAttributedLabelDelegate {
         activeLinkAttributes = [NSForegroundColorAttributeName: textColor, NSUnderlineStyleAttributeName: NSNumber(bool:false)]
         
         let parser = MarkdownParser(paragraphFont: paragraphFont, strongFont: strongFont, emphasisFont: emphasisFont)
-        attributedText = parser.attributedStringFromMarkdown(markdown!)
+        let attributedString = parser.attributedStringFromMarkdown(markdown!)
+        attributedString.addAttribute(NSForegroundColorAttributeName, value: textColor, range: NSMakeRange(0, attributedString.length))
+        
+        attributedText = attributedString
+        
         attributedText.enumerateAttributesInRange(NSRange(location:0, length: attributedText.length), options: [], usingBlock: { attributes, range, stop in
             if let url = attributes[NSLinkAttributeName] as? NSURL {
                 self.addLinkToURL(url, withRange: range)
@@ -70,7 +74,7 @@ class MarkdownLabel: TTTAttributedLabel, TTTAttributedLabelDelegate {
             }))
         }
         
-        func attributedStringFromMarkdown(markdown: String) -> NSAttributedString {
+        func attributedStringFromMarkdown(markdown: String) -> NSMutableAttributedString {
             let attributedString = NSMutableAttributedString(string: markdown)
             
             attributedString.addAttribute(NSFontAttributeName, value: paragraphFont, range: NSRange(location: 0, length: attributedString.length))

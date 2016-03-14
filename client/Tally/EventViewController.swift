@@ -8,6 +8,7 @@ class EventViewController: UIViewController {
     @IBOutlet weak var politicianName: UILabel!
     @IBOutlet weak var politicianJobTitle: UILabel!
     @IBOutlet weak var image: UIImageView!
+    @IBOutlet weak var attribution: MarkdownLabel!
     @IBOutlet weak var headlineHolder: UIView!
     @IBOutlet weak var headline: MarkdownLabel!
     @IBOutlet weak var graph: SupportOpposeView!
@@ -49,11 +50,10 @@ class EventViewController: UIViewController {
             }
         }
         
-        headlineHolder.layer.masksToBounds = false;
-        headlineHolder.layer.shadowColor = UIColor.blackColor().CGColor
-        headlineHolder.layer.shadowOffset = CGSizeMake(0, 1);
-        headlineHolder.layer.shadowOpacity = 0.4;
-        headlineHolder.layer.shadowRadius = 1.5;
+        attribution.presentMarkdown(event.imageAttribution)
+    
+        headlineHolder.layer.borderWidth = 1
+        headlineHolder.layer.borderColor = UIColor(hex: "#D1D1D1").CGColor
         
         headline.presentMarkdown(event.headline)
         
