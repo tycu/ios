@@ -36,6 +36,7 @@ PODS:
   - GoogleSymbolUtilities (1.0.3)
   - GoogleUtilities (1.1.0):
     - GoogleSymbolUtilities (~> 1.0.0)
+  - JTSImageViewController (1.5.1)
   - SDWebImage (3.7.5):
     - SDWebImage/Core (= 3.7.5)
   - SDWebImage/Core (3.7.5)
@@ -51,6 +52,7 @@ DEPENDENCIES:
   - FBSDKLoginKit
   - FBSDKShareKit
   - Google/CloudMessaging
+  - JTSImageViewController (= 1.5.1)
   - SDWebImage
   - SSKeychain
   - Stripe
@@ -70,6 +72,7 @@ SPEC CHECKSUMS:
   GoogleNetworkingUtilities: 292992ab31b7b4ba32809a0e8b40e324cdfb2c0c
   GoogleSymbolUtilities: 82ad9f93d3615244b3f4ce440f5ab2515e8b4f56
   GoogleUtilities: 8ed9134debe11719097881711464752900668f10
+  JTSImageViewController: 1f8ce1cc93dab0d0af8e53badeea7528560cfec9
   SDWebImage: 69c6303e3348fba97e03f65d65d4fbc26740f461
   SSKeychain: 04c4ec40f4c3deda524e269bc76e5f30e638a174
   Stripe: 275524137e6c4cc1058f6d32ece248adf30a21f9

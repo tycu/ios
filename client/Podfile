@@ -11,4 +11,5 @@ target 'Tally' do
     pod 'SSKeychain'
     pod 'Stripe'
     pod 'ActionSheetPicker-3.0'
+    pod 'JTSImageViewController', '1.5.1'
 end

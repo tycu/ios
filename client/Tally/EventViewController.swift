@@ -1,5 +1,6 @@
 import UIKit
 import TTTAttributedLabel
+import JTSImageViewController
 
 class EventViewController: UIViewController {
     @IBOutlet weak var politicianHolder: UIView!
@@ -47,6 +48,7 @@ class EventViewController: UIViewController {
             let imageUrl = event.imageUrl! + imgixConfig
             if let parsedUrl = NSURL(string:imageUrl) {
                 image.sd_setImageWithURL(parsedUrl)
+                image.addGestureRecognizer(UITapGestureRecognizer(target: self, action: "imageTapped:"))
             }
         }
         
@@ -96,7 +98,7 @@ class EventViewController: UIViewController {
         if event.supportPacs.count == 0 && event.opposePacs.count == 0 {
             buttonsHolder.hidden = true
         }
-    
+        
         if let contribution = UserData.instance?.eventIdenToContribution[event.iden] {
             buttonsHolder.hidden = true
             contribution.setLabel(self.contribution)
@@ -105,6 +107,19 @@ class EventViewController: UIViewController {
     
     func goToPolitician(sender: AnyObject) {
         performSegueWithIdentifier("PoliticianSegue", sender: nil)
+    }
+    
+    func imageTapped(sender: AnyObject) {
+        let imgixConfig = "?dpr=\(min(UIScreen.mainScreen().scale, 2))&w=800&fit=crop"
+        let imageUrl = event.imageUrl! + imgixConfig
+        if let parsedUrl = NSURL(string:imageUrl) {
+            let info = JTSImageInfo()
+            info.imageURL = parsedUrl
+            
+            let viewer = JTSImageViewController(imageInfo: info, mode: .Image, backgroundStyle: .None)
+            viewer.modalPresentationStyle = .OverFullScreen
+            viewer.showFromViewController(self, transition: .FromOffscreen)
+        }
     }
     
     func oppose(sender: AnyObject) {
