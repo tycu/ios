@@ -22,6 +22,7 @@ class Endpoints {
     static let createContribution = api + "/v1/create-contribution"
     
     static let recentEvents = generated + "/v1/events/recent.json"
+    static let draftRecentEvents = generated + "/drafts/events/recent.json"
     static let topEvents = generated + "/v1/events/top.json"
     static let allTimeScoreboard = generated + "/v1/scoreboards/all-time.json"
 }

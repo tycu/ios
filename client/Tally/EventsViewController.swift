@@ -7,6 +7,7 @@ class EventsViewController : EventTableViewController {
     private var events = [Sort : [Event]]()
     var politician: Politician?
     private var lastAppeared: NSDate?
+    private var showDrafts = false
     
     private var activeSort: Sort {
         return segmentedControl.selectedSegmentIndex == 0 ? .Recent : .Top
@@ -28,6 +29,10 @@ class EventsViewController : EventTableViewController {
         activityIndicator.center = tableView.center
         activityIndicator.startAnimating()
         tableView.backgroundView = activityIndicator
+        
+        #if DEBUG
+            showDrafts = true
+        #endif
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -91,13 +96,26 @@ class EventsViewController : EventTableViewController {
     
     func segmentIndexSelected(sender: UISegmentedControl) {
         tableView.backgroundView = nil
-        tableView.reloadData()
+        refresh(self)
+    }
+    
+    func hideDrafts() {
+        showDrafts = false
+        navigationItem.rightBarButtonItem = nil
+        events.removeAll()
         refresh(self)
     }
     
     func refresh(sender: AnyObject) {
+        tableView.reloadData()
+        
+        if showDrafts && activeSort == .Recent {
+            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Live", style: .Plain, target: self, action: "hideDrafts")
+        } else {
+            navigationItem.rightBarButtonItem = nil
+        }
+        
         if sender is EventsViewController && events[activeSort] != nil {
-            tableView.reloadData()
             return
         }
         
@@ -108,7 +126,18 @@ class EventsViewController : EventTableViewController {
         tableView.backgroundView = activityIndicator
         
         let sort = activeSort
-        let url = sort == .Top ? Endpoints.topEvents : Endpoints.recentEvents
+        
+        let url: String
+        if sort == .Top {
+            url = Endpoints.topEvents
+        } else {
+            if showDrafts {
+                url = Endpoints.draftRecentEvents
+            } else {
+                url = Endpoints.recentEvents
+            }
+        }
+        
         Requests.get(url, completionHandler: { response, error in
             let delay = self.refreshControl!.refreshing ? 0.5 : 0
             

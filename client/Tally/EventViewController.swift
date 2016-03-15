@@ -110,7 +110,7 @@ class EventViewController: UIViewController {
     }
     
     func imageTapped(sender: AnyObject) {
-        let imgixConfig = "?dpr=\(min(UIScreen.mainScreen().scale, 2))&w=800&fit=crop"
+        let imgixConfig = "?w=1024&fit=crop"
         let imageUrl = event.imageUrl! + imgixConfig
         if let parsedUrl = NSURL(string:imageUrl) {
             let info = JTSImageInfo()
