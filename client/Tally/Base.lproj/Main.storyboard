@@ -1377,7 +1377,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <view key="tableFooterView" contentMode="scaleToFill" id="aF9-qj-Vov">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="0.0"/>
+                            <rect key="frame" x="0.0" y="64" width="320" height="0.0"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </view>
@@ -1677,6 +1677,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="dh4-JK-IEL"/>
-        <segue reference="6cl-jd-Lgb"/>
+        <segue reference="ypC-V6-Asf"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -22,17 +22,17 @@ class ContributionNavigationController : UINavigationController {
         
         if selectedPac == nil {
             let pacs = inSupport == true ? event.supportPacs : event.opposePacs
-//            if pacs.count == 1 {
-//                selectedPac = pacs[0]
-//                next()
-//            } else {
+            if pacs.count == 1 {
+                selectedPac = pacs[0]
+                next()
+            } else {
                 let pacsViewController = storyboard!.instantiateViewControllerWithIdentifier("PacsViewController") as! PacsViewController
                 pacsViewController.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .Plain, target: pacsViewController, action: "cancel")
                 pacsViewController.navigationItem.title = "Contribution Options"
                 pacsViewController.pacs = pacs
                 pacsViewController.inSupport = inSupport
                 setViewControllers([pacsViewController], animated: true)
-//            }
+            }
             return
         }
         
