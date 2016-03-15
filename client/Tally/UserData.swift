@@ -10,7 +10,7 @@ class UserData {
         if let profile = data["profile"] as? [String : AnyObject] {
             self.profile = Profile(data: profile)
             chargeable = data["chargeable"] as? Bool ?? false
-            if let contributions = data["contribution"] as? [[String : AnyObject]] {
+            if let contributions = data["contributions"] as? [[String : AnyObject]] {
                 for contribution in contributions {
                     do {
                         let contribution = try Contribution(data: contribution)

@@ -639,12 +639,6 @@
                                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="qFM-gO-ozu">
                                                 <rect key="frame" x="150" y="150" width="20" height="20"/>
                                             </activityIndicatorView>
-                                            <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DNS-5z-Xmo">
-                                                <rect key="frame" x="0.0" y="60" width="320" height="200"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="200" id="4MP-hN-tag"/>
-                                                </constraints>
-                                            </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Attribution" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Sm-Fi-LZ2" customClass="MarkdownLabel" customModule="Tally" customModuleProvider="target">
                                                 <rect key="frame" x="20" y="65" width="280" height="14.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -780,6 +774,12 @@
                                                     <constraint firstItem="zlX-sI-Jcv" firstAttribute="top" secondItem="gYS-w9-u5v" secondAttribute="top" constant="40" id="cQs-vu-ibK"/>
                                                 </constraints>
                                             </view>
+                                            <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DNS-5z-Xmo">
+                                                <rect key="frame" x="0.0" y="60" width="320" height="200"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="200" id="4MP-hN-tag"/>
+                                                </constraints>
+                                            </imageView>
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="gYS-w9-u5v" firstAttribute="top" secondItem="kLb-gJ-vMQ" secondAttribute="bottom" id="14n-g6-ydh"/>

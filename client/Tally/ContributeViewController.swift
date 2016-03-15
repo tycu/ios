@@ -146,8 +146,8 @@ class ContributeViewController : UIViewController {
 //                self.indicator.hidden = true
 //
 //                let contributionNavigationController = self.parentViewController as! ContributionNavigationController
-//                contributionNavigationController = amount
-//                contributionNavigationController()
+//                contributionNavigationController.amount = amount
+//                contributionNavigationController.next()
 //            })
 //        })
     }
@@ -155,6 +155,7 @@ class ContributeViewController : UIViewController {
     private func lockUI() {
         navigationItem.leftBarButtonItem?.enabled = false
         navigationItem.rightBarButtonItem?.enabled = false
+        amountBorder.userInteractionEnabled = false
         contribute.hidden = true
         indicator.hidden = false
     }
@@ -162,6 +163,7 @@ class ContributeViewController : UIViewController {
     private func unlockUI() {
         navigationItem.leftBarButtonItem?.enabled = true
         navigationItem.rightBarButtonItem?.enabled = true
+        amountBorder.userInteractionEnabled = true
         contribute.hidden = false
         indicator.hidden = true
     }
