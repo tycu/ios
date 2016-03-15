@@ -7,6 +7,7 @@ class ContributeViewController : UIViewController {
     @IBOutlet weak var eventGraph: SupportOpposeView!
     @IBOutlet weak var eventTime: UILabel!
     @IBOutlet weak var pacName: UILabel!
+    @IBOutlet weak var pacDescription: UILabel!
     @IBOutlet weak var amountBorder: UIView!
     @IBOutlet weak var amount: UILabel!
     @IBOutlet weak var fee: UILabel!
@@ -39,6 +40,7 @@ class ContributeViewController : UIViewController {
         eventTime.text = event.created.humanReadableTimeSinceNow
         
         pacName.text = pac.name
+        pacDescription.text = pac.summary
         
         amountBorder.layer.borderWidth = 1
         amountBorder.layer.borderColor = UIColor(hex: "#DDDDDD").CGColor
@@ -81,7 +83,7 @@ class ContributeViewController : UIViewController {
                 self.fee.text = "$0.99"
                 self.total.text = "$\(amount).99"
             } else {
-                self.fee.text = "$\(fee)0"
+                self.fee.text = "$\(String(format: "%.2f", fee))"
                 self.total.text = "$\(String(format: "%.2f", Double(amount) + fee))"
             }
         }, cancelBlock: nil, origin: sender.view)
