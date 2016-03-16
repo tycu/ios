@@ -53,4 +53,13 @@ class Event {
             throw Error.QuietError("Invalid event data")
         }
     }
+    
+    func setThumbnail(imageView: UIImageView) {
+        if politician.thumbnails.count == 0 {
+            imageView.image = nil
+        } else {
+            let index = Int(created.timeIntervalSince1970) % politician.thumbnails.count
+            politician.setThumbnail(imageView, thumbnailIndex: index)
+        }
+    }
 }

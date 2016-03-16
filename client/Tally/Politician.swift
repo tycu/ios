@@ -2,7 +2,8 @@ import UIKit
 
 class Politician {
     let iden: String, name: String
-    let jobTitle: String?, thumbnailUrl: String?, twitterUsername: String?
+    let jobTitle: String?, twitterUsername: String?
+    var thumbnails = [String]()
     let supportTotal: Int, opposeTotal: Int
     let barWeight: Double
     
@@ -11,7 +12,9 @@ class Politician {
             self.iden = iden
             self.name = name
             jobTitle = data["jobTitle"] as? String
-            thumbnailUrl = data["thumbnailUrl"] as? String
+            if let thumbnails = data["thumbnails"] as? [String] {
+                self.thumbnails.appendContentsOf(thumbnails)
+            }
             twitterUsername = data["twitterUsername"] as? String
             supportTotal = data["supportTotal"] as? Int ?? 0
             opposeTotal = data["opposeTotal"] as? Int ?? 0
@@ -20,7 +23,6 @@ class Politician {
             iden = ""
             name = ""
             jobTitle = nil
-            thumbnailUrl = nil
             twitterUsername = nil
             supportTotal = 0
             opposeTotal = 0
@@ -29,12 +31,10 @@ class Politician {
         }
     }
     
-    func setThumbnail(imageView: UIImageView) {
-        if thumbnailUrl != nil {
-            let imgixConfig = "?dpr=\(UIScreen.mainScreen().scale)&h=100&w=100&fit=crop&crop=faces"
-            imageView.layer.cornerRadius = imageView.frame.width / 2.0
-            imageView.layer.masksToBounds = true
-            imageView.sd_setImageWithURL(NSURL(string: thumbnailUrl! + imgixConfig))
-        }
+    func setThumbnail(imageView: UIImageView, thumbnailIndex: Int) {
+        let imgixConfig = "?dpr=\(UIScreen.mainScreen().scale)&h=100&w=100&fit=crop&crop=faces"
+        imageView.layer.cornerRadius = imageView.frame.width / 2.0
+        imageView.layer.masksToBounds = true
+        imageView.sd_setImageWithURL(NSURL(string: thumbnails[thumbnailIndex] + imgixConfig))
     }
 }

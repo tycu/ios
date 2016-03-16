@@ -35,7 +35,7 @@ class EventViewController: UIViewController {
         }
         
         politicianHolder.addGestureRecognizer(UITapGestureRecognizer(target: self, action: "goToPolitician:"))
-        event.politician!.setThumbnail(politicianThumbnail)
+        event.setThumbnail(politicianThumbnail)
         politicianName.text = event.politician!.name
         politicianJobTitle.text = event.politician!.jobTitle
         

@@ -24,7 +24,7 @@ class ContributeViewController : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        event.politician.setThumbnail(eventThumbnail)
+        event.setThumbnail(eventThumbnail)
         
         eventHeadline.presentMarkdown(event.headline)
         

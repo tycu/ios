@@ -12,7 +12,7 @@ class EventTableViewController : UITableViewController {
     }
     
     func prepareCell(cell: EventCell, withEvent event: Event) {
-        event.politician.setThumbnail(cell.thumbnail)
+        event.setThumbnail(cell.thumbnail)
         cell.headline.presentMarkdown(event.headline)
         
         // Increase the line height of the headline

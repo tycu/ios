@@ -47,7 +47,7 @@ class ScoreboardViewController : UITableViewController {
         let politician = politicians[indexPath.row]
         let cell = tableView.dequeueReusableCellWithIdentifier("ScoreboardCell", forIndexPath: indexPath) as! ScoreboardCell
         
-        politician.setThumbnail(cell.thumbnail)
+        politician.setThumbnail(cell.thumbnail, thumbnailIndex: politician.thumbnails.count - 1)
         cell.name.text = politician.name
         cell.jobTitle.text = politician.jobTitle
         
