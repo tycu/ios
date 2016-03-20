@@ -55,7 +55,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GGLInstanceIDDelegate {
         instanceIDConfig.delegate = self
         GGLInstanceID.sharedInstance().startWithConfig(instanceIDConfig)
         GGLInstanceID.sharedInstance().tokenWithAuthorizedEntity("GCM_SENDER_ID", scope: kGGLInstanceIDScopeGCM, options: [kGGLInstanceIDRegisterAPNSOption: deviceToken, kGGLInstanceIDAPNSServerTypeSandboxOption: sandbox], handler: { token, error in
-            GCMPubSub.sharedInstance().subscribeWithToken(token, topic: "events", options: nil, handler: { error in
+            GCMPubSub.sharedInstance().subscribeWithToken(token, topic: "broadcasts", options: nil, handler: { error in
                 if error == nil || error.code == 3001 {
                     p("Subscribed to events topic")
                 }
