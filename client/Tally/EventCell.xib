@@ -36,26 +36,26 @@
                             <rect key="frame" x="0.0" y="16" width="584" height="566"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Lex-r9-yNp">
-                                    <rect key="frame" x="0.0" y="0.0" width="54" height="54"/>
+                                    <rect key="frame" x="0.0" y="2" width="55" height="55"/>
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="54" id="Qn8-4z-U0h"/>
-                                        <constraint firstAttribute="height" constant="54" id="jPp-Kb-axa"/>
+                                        <constraint firstAttribute="width" constant="55" id="Qn8-4z-U0h"/>
+                                        <constraint firstAttribute="height" constant="55" id="jPp-Kb-axa"/>
                                     </constraints>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Headline" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Faj-ly-0aT" customClass="MarkdownLabel" customModule="Tally" customModuleProvider="target">
-                                    <rect key="frame" x="64" y="0.0" width="488" height="19.5"/>
+                                    <rect key="frame" x="65" y="0.0" width="487" height="19.5"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EdX-cl-gkv">
-                                    <rect key="frame" x="65" y="207.5" width="454" height="16"/>
+                                    <rect key="frame" x="66" y="207.5" width="452" height="18"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="diF-ka-fF7" customClass="SupportOpposeView" customModule="Tally" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="0.0" width="454" height="16"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="452" height="18"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="16" id="ujy-1Y-oqV"/>
+                                                <constraint firstAttribute="height" constant="18" id="ujy-1Y-oqV"/>
                                             </constraints>
                                         </view>
                                     </subviews>
@@ -77,7 +77,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="c7l-gF-jJD">
-                                    <rect key="frame" x="65" y="31.5" width="519" height="160"/>
+                                    <rect key="frame" x="66" y="31.5" width="518" height="160"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="160" id="xxf-QB-Lgu"/>
                                     </constraints>
@@ -91,14 +91,14 @@
                                 <constraint firstItem="ZKZ-eN-xR3" firstAttribute="top" secondItem="7nY-Bl-STI" secondAttribute="top" id="PXb-Hb-6ah"/>
                                 <constraint firstAttribute="right" secondItem="c7l-gF-jJD" secondAttribute="right" id="a5W-Qb-iji"/>
                                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="EdX-cl-gkv" secondAttribute="bottom" constant="4" id="bTs-tF-9GL"/>
-                                <constraint firstAttribute="trailing" secondItem="EdX-cl-gkv" secondAttribute="trailing" constant="65" id="cze-m1-TAW"/>
+                                <constraint firstAttribute="trailing" secondItem="EdX-cl-gkv" secondAttribute="trailing" constant="66" id="cze-m1-TAW"/>
                                 <constraint firstItem="EdX-cl-gkv" firstAttribute="top" secondItem="c7l-gF-jJD" secondAttribute="bottom" constant="16" id="eJb-g1-B03"/>
-                                <constraint firstItem="c7l-gF-jJD" firstAttribute="left" secondItem="7nY-Bl-STI" secondAttribute="left" constant="65" id="fwF-Hp-sd7"/>
+                                <constraint firstItem="c7l-gF-jJD" firstAttribute="left" secondItem="7nY-Bl-STI" secondAttribute="left" constant="66" id="fwF-Hp-sd7"/>
                                 <constraint firstItem="c7l-gF-jJD" firstAttribute="top" secondItem="Faj-ly-0aT" secondAttribute="bottom" constant="12" id="mid-eh-ISD"/>
-                                <constraint firstItem="EdX-cl-gkv" firstAttribute="leading" secondItem="7nY-Bl-STI" secondAttribute="leading" constant="65" id="n3K-2L-PDH"/>
+                                <constraint firstItem="EdX-cl-gkv" firstAttribute="leading" secondItem="7nY-Bl-STI" secondAttribute="leading" constant="66" id="n3K-2L-PDH"/>
                                 <constraint firstItem="Faj-ly-0aT" firstAttribute="right" secondItem="ZKZ-eN-xR3" secondAttribute="left" constant="-6" id="p6Z-Ev-QqL"/>
                                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Lex-r9-yNp" secondAttribute="bottom" id="s5m-NK-BsE"/>
-                                <constraint firstItem="Lex-r9-yNp" firstAttribute="top" secondItem="7nY-Bl-STI" secondAttribute="top" id="xTB-vf-kpO"/>
+                                <constraint firstItem="Lex-r9-yNp" firstAttribute="top" secondItem="7nY-Bl-STI" secondAttribute="top" constant="2" id="xTB-vf-kpO"/>
                                 <constraint firstItem="Faj-ly-0aT" firstAttribute="top" secondItem="7nY-Bl-STI" secondAttribute="top" id="yNJ-cW-Vgd"/>
                             </constraints>
                         </view>

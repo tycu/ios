@@ -17,12 +17,14 @@ class ContributionNavigationController : UINavigationController {
             let cancel = UIBarButtonItem(title: "Cancel", style: .Plain, target: signInViewController, action: #selector(SignInViewController.cancel))
             cancel.tintColor = UIColor.whiteColor()
             signInViewController.navigationItem.leftBarButtonItem = cancel
+            navigationBar.translucent = true
             navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
             navigationBar.shadowImage = UIImage()
             setViewControllers([signInViewController], animated: true)
             return
         }
         
+        navigationBar.translucent = false
         navigationBar.setBackgroundImage(nil, forBarMetrics: .Default)
         navigationBar.shadowImage = nil
         

@@ -114,17 +114,12 @@ class SignedInViewController : EventTableViewController {
             userData.profile.setThumbnail(profilePicture)
             name.text = userData.profile.name
             
-            occupation.text = ""
-            if let job = userData.profile.occupation {
+            if userData.profile.occupation != nil || userData.profile.cityStateZip != nil {
                 occupation.layer.opacity = 1
-                occupation.text! += "\(job) "
+                occupation.text! = [userData.profile.occupation ?? "", userData.profile.employer ?? ""].joinWithSeparator(" @ ")
             } else {
                 occupation.layer.opacity = 0.6
                 occupation.text = "Occupation"
-            }
-            
-            if let employer = userData.profile.employer {
-                occupation.text! += "@ \(employer)"
             }
             
             if userData.profile.streetAddress != nil || userData.profile.cityStateZip != nil {

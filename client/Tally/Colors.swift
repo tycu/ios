@@ -2,15 +2,16 @@ import UIKit
 
 class Colors {
     static let primary = UIColor(hex: "#45AAF2")
+    static let secondary = UIColor(hex: "#EC2153")
     
     static let support: UIColor = {
-        let rawComponents = CGColorGetComponents(primary.CGColor)
+        let rawComponents = CGColorGetComponents(secondary.CGColor)
         let components = [Float(rawComponents[0]), Float(rawComponents[1]), Float(rawComponents[2])]
         return UIColor(colorLiteralRed: components[0], green: components[1], blue: components[2], alpha: 0.85)
     }()
     
     static let oppose: UIColor = {
-        let rawComponents = CGColorGetComponents(primary.CGColor)
+        let rawComponents = CGColorGetComponents(secondary.CGColor)
         let components = [Float(rawComponents[0]), Float(rawComponents[1]), Float(rawComponents[2])]
         return UIColor(colorLiteralRed: components[0], green: components[1], blue: components[2], alpha: 0.5)
     }()
