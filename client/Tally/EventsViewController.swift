@@ -45,10 +45,8 @@ class EventsViewController : EventTableViewController {
             navigationItem.title = politician!.name
         }
         
-        if let lastAppeared = lastAppeared {
-            if abs(Int(lastAppeared.timeIntervalSinceNow)) > 120 {
-                refresh(refreshControl!)
-            }
+        if lastAppeared != nil && abs(Int(lastAppeared!.timeIntervalSinceNow)) > 120 {
+            refresh(refreshControl!)
         } else {
             refresh(self)
         }
