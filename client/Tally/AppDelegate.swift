@@ -94,10 +94,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GGLInstanceIDDelegate {
         GCMService.sharedInstance().appDidReceiveMessage(userInfo)
         
         if (UIApplication.sharedApplication().applicationState == .Inactive) {
-//            if let eventIden = userInfo["event"] as? String {
-//                p("Opening app for event \(eventIden)")
-                notificationEventIden = "kk9nlt5te59x80k9lnvxn64vkv1s8aor" // eventIden
-//            }
+            if let eventIden = userInfo["event"] as? String {
+                p("Opening app for event \(eventIden)")
+                notificationEventIden = eventIden
+            }
         }
         
         completionHandler(UIBackgroundFetchResult.NewData)

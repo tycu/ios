@@ -116,17 +116,7 @@ class EventsViewController : EventTableViewController {
             navigationItem.rightBarButtonItem = nil
         }
         
-        if let eventIden = notificationEventIden {
-            if let events = events[activeSort] {
-                for event in events {
-                    if event.iden == eventIden {
-                        notificationEventIden = nil
-                        performSegueWithIdentifier("EventSegue", sender: event)
-                        break
-                    }
-                }
-            }
-        }
+        checkNotificationEventIden()
         
         if sender is EventsViewController && events[activeSort] != nil {
             return
@@ -179,6 +169,8 @@ class EventsViewController : EventTableViewController {
                     if self.events[sort]!.count == 0 {
                         self.tableView.backgroundView = NSBundle.mainBundle().loadNibNamed("EmptyStateView", owner: self, options: nil)[0] as! EmptyStateView
                     }
+                    
+                    self.checkNotificationEventIden()
                 } else {
                     let emptyStateView = NSBundle.mainBundle().loadNibNamed("EmptyStateView", owner: self, options: nil)[0] as! EmptyStateView
                     emptyStateView.label.text = "Something bad happened"
@@ -188,6 +180,20 @@ class EventsViewController : EventTableViewController {
                 self.tableView.reloadData()
             }
         })
+    }
+    
+    func checkNotificationEventIden() {
+        if let eventIden = notificationEventIden {
+            if let events = events[activeSort] {
+                for event in events {
+                    if event.iden == eventIden {
+                        notificationEventIden = nil
+                        performSegueWithIdentifier("EventSegue", sender: event)
+                        break
+                    }
+                }
+            }
+        }
     }
     
     enum Sort : String {
