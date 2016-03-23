@@ -7,6 +7,7 @@ import Social
 class AppDelegate: UIResponder, UIApplicationDelegate, GGLInstanceIDDelegate {
     var window: UIWindow?
     private var lastActive: NSDate?
+    private var notificationEventIden: String?
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         SSKeychain.setAccessibilityType(kSecAttrAccessibleAfterFirstUnlock)
@@ -25,11 +26,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GGLInstanceIDDelegate {
     }
     
     func applicationDidBecomeActive(application: UIApplication) {
+        UIApplication.sharedApplication().applicationIconBadgeNumber = 0
+        
         FBSDKAppEvents.activateApp()
         
         if let lastActive = lastActive {
             if abs(Int(lastActive.timeIntervalSinceNow)) > 120 {
                 UserData.update(nil)
+            }
+        }
+        
+        if let eventIden = notificationEventIden {
+            if let tabBarController = window!.rootViewController as? UITabBarController {
+                tabBarController.selectedIndex = 0
+                let navigationController = tabBarController.selectedViewController! as! UINavigationController
+                
+                let selectEvent = {
+                    let eventsViewController = navigationController.viewControllers[0] as! EventsViewController
+                    eventsViewController.segmentedControl.selectedSegmentIndex = 0
+                    eventsViewController.notificationEventIden = eventIden
+                    eventsViewController.refresh(eventsViewController.refreshControl!)
+                }
+                
+                if navigationController.viewControllers.count > 1 {
+                    navigationController.popToRootViewControllerAnimated(true)
+                    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (Int64)(0.5 * Double(NSEC_PER_SEC))), dispatch_get_main_queue()) {
+                        selectEvent()
+                    }
+                } else {
+                    selectEvent()
+                }
             }
         }
         
@@ -62,6 +88,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GGLInstanceIDDelegate {
                 }
             })
         })
+    }
+    
+    func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject], fetchCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
+        GCMService.sharedInstance().appDidReceiveMessage(userInfo)
+        
+        if (UIApplication.sharedApplication().applicationState == .Inactive) {
+//            if let eventIden = userInfo["event"] as? String {
+//                p("Opening app for event \(eventIden)")
+                notificationEventIden = "kk9nlt5te59x80k9lnvxn64vkv1s8aor" // eventIden
+//            }
+        }
+        
+        completionHandler(UIBackgroundFetchResult.NewData)
     }
     
     func onTokenRefresh() {

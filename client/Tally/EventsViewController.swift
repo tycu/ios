@@ -2,12 +2,13 @@ import UIKit
 import SDWebImage
 
 class EventsViewController : EventTableViewController {
-    private let segmentedControl = UISegmentedControl(items: ["Recent", "Top"])
+    let segmentedControl = UISegmentedControl(items: ["Recent", "Top"])
     private let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .Gray)
     private var events = [Sort : [Event]]()
     var politician: Politician?
     private var lastAppeared: NSDate?
     private var showDrafts = false
+    var notificationEventIden: String?
     
     private var activeSort: Sort {
         return segmentedControl.selectedSegmentIndex == 0 ? .Recent : .Top
@@ -113,6 +114,18 @@ class EventsViewController : EventTableViewController {
             navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Live", style: .Plain, target: self, action: #selector(hideDrafts))
         } else {
             navigationItem.rightBarButtonItem = nil
+        }
+        
+        if let eventIden = notificationEventIden {
+            if let events = events[activeSort] {
+                for event in events {
+                    if event.iden == eventIden {
+                        notificationEventIden = nil
+                        performSegueWithIdentifier("EventSegue", sender: event)
+                        break
+                    }
+                }
+            }
         }
         
         if sender is EventsViewController && events[activeSort] != nil {
