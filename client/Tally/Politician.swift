@@ -33,7 +33,7 @@ class Politician {
     
     func setThumbnail(imageView: UIImageView, thumbnailIndex: Int) {
         let imgixConfig = "?dpr=\(UIScreen.mainScreen().scale)&h=100&w=100&fit=crop&crop=faces"
-        imageView.layer.cornerRadius = imageView.frame.width / 2.0
+        imageView.layer.cornerRadius = 6
         imageView.layer.masksToBounds = true
         imageView.sd_setImageWithURL(NSURL(string: thumbnails[thumbnailIndex] + imgixConfig))
     }

@@ -20,7 +20,7 @@ class SignedInViewController : EventTableViewController {
         
         refreshControl = UIRefreshControl()
         refreshControl!.tintColor = Colors.primary
-        refreshControl!.addTarget(self, action: "refresh:", forControlEvents: .ValueChanged)
+        refreshControl!.addTarget(self, action: #selector(refresh(_:)), forControlEvents: .ValueChanged)
         
         header.backgroundColor = Colors.primary
         
@@ -32,7 +32,7 @@ class SignedInViewController : EventTableViewController {
         occupationImage.tintColor = UIColor.whiteColor()
         addressImage.tintColor = occupationImage.tintColor
         
-        cardHolder.addGestureRecognizer(UITapGestureRecognizer(target: self, action: "editCard"))
+        cardHolder.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(editCard)))
         
         cardImage.tintColor = UIColor.whiteColor()
         cardImage.layer.cornerRadius = 6
@@ -85,14 +85,14 @@ class SignedInViewController : EventTableViewController {
         if segue.identifier == "AddCardSegue" {
             let navigationController = segue.destinationViewController as! UINavigationController
             let addCardViewController = navigationController.childViewControllers[0]
-            addCardViewController.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .Plain, target: addCardViewController, action: "cancel")
-            addCardViewController.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .Done, target: addCardViewController, action: "done")
+            addCardViewController.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .Plain, target: addCardViewController, action: #selector(AddCardViewController.cancel))
+            addCardViewController.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .Done, target: addCardViewController, action: #selector(AddCardViewController.done))
             addCardViewController.navigationItem.rightBarButtonItem!.enabled = false
         } else if segue.identifier == "EditProfileSegue" {
             let navigationController = segue.destinationViewController as! UINavigationController
             let editProfileViewController = navigationController.childViewControllers[0]
-            editProfileViewController.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .Done, target: editProfileViewController, action: "done")
-            editProfileViewController.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .Plain, target: editProfileViewController, action: "cancel")
+            editProfileViewController.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .Done, target: editProfileViewController, action: #selector(EditProfileViewController.done))
+            editProfileViewController.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .Plain, target: editProfileViewController, action: #selector(EditProfileViewController.cancel))
         } else if segue.identifier == "EventSegue" {
             let eventViewController = segue.destinationViewController as! EventViewController
             eventViewController.event = sender as! Event
@@ -107,7 +107,7 @@ class SignedInViewController : EventTableViewController {
     
     private func update() {
         if let userData = UserData.instance {
-            let editButton = UIBarButtonItem(title: "Edit", style: .Plain, target: self, action: "editProfile")
+            let editButton = UIBarButtonItem(title: "Edit", style: .Plain, target: self, action: #selector(editProfile))
             editButton.tintColor = UIColor.whiteColor()
             navigationController!.navigationBar.topItem!.rightBarButtonItem = editButton
             

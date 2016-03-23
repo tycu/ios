@@ -24,6 +24,13 @@ class EventTableViewController : UITableViewController {
         
         cell.time.text = event.created.humanReadableTimeSinceNow
         
+        if let imageUrl = event.imageUrl {
+            cell.picture.layer.cornerRadius = 6
+            cell.picture.sd_setImageWithURL(NSURL(string: imageUrl + "?w=1024&fit=crop"))
+        } else {
+            cell.pictureHeight.constant = 0
+        }
+    
         cell.graph.event = event
         
         if let contribution = UserData.instance?.eventIdenToContribution[event.iden] {

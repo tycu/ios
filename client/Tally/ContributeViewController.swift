@@ -46,9 +46,9 @@ class ContributeViewController : UIViewController {
         amountBorder.layer.borderColor = UIColor(hex: "#DDDDDD").CGColor
         amountBorder.layer.cornerRadius = 4
         amountBorder.clipsToBounds = true
-        amountBorder.addGestureRecognizer(UITapGestureRecognizer(target: self, action: "changeAmount:"))
+        amountBorder.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(changeAmount(_:))))
         
-        disclosure.addTarget(self, action: "showFeeDisclosure", forControlEvents: .TouchUpInside)
+        disclosure.addTarget(self, action: #selector(showFeeDisclosure), forControlEvents: .TouchUpInside)
         
         amount.text = "$\(amounts[amountIndex]).00"
         fee.text = "$0.99"
@@ -56,7 +56,7 @@ class ContributeViewController : UIViewController {
         
         contribute.layer.cornerRadius = 4
         contribute.clipsToBounds = true
-        contribute.addTarget(self, action: "contribute:", forControlEvents: .TouchUpInside)
+        contribute.addTarget(self, action: #selector(contributeTapped), forControlEvents: .TouchUpInside)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -95,7 +95,7 @@ class ContributeViewController : UIViewController {
         presentViewController(alert, animated: true, completion: nil)
     }
     
-    func contribute(sender: AnyObject) {
+    func contributeTapped() {
         let authContext = LAContext()
         var authError: NSError?
         if authContext.canEvaluatePolicy(LAPolicy.DeviceOwnerAuthenticationWithBiometrics, error: &authError) {

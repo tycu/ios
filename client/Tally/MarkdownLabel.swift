@@ -13,8 +13,8 @@ class MarkdownLabel: TTTAttributedLabel, TTTAttributedLabelDelegate {
         }
         
         delegate = self
-        linkAttributes = [NSForegroundColorAttributeName: textColor, NSUnderlineStyleAttributeName: NSNumber(bool:true)]
-        activeLinkAttributes = [NSForegroundColorAttributeName: textColor, NSUnderlineStyleAttributeName: NSNumber(bool:false)]
+        linkAttributes = [NSForegroundColorAttributeName: Colors.primary, NSUnderlineStyleAttributeName: NSNumber(bool:false)]
+        activeLinkAttributes = [NSForegroundColorAttributeName: Colors.primary, NSUnderlineStyleAttributeName: NSNumber(bool:false)]
         
         let parser = MarkdownParser(paragraphFont: paragraphFont, strongFont: strongFont, emphasisFont: emphasisFont)
         let attributedString = parser.attributedStringFromMarkdown(markdown!)

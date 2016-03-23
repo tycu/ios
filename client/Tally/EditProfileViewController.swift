@@ -30,11 +30,11 @@ class EditProfileViewController : UIViewController {
             cancel()
         }
         
-        name.addTarget(self, action: "textChanged:", forControlEvents: .EditingChanged)
-        occupation.addTarget(self, action: "textChanged:", forControlEvents: .EditingChanged)
-        employer.addTarget(self, action: "textChanged:", forControlEvents: .EditingChanged)
-        streetAddress.addTarget(self, action: "textChanged:", forControlEvents: .EditingChanged)
-        cityStateZip.addTarget(self, action: "textChanged:", forControlEvents: .EditingChanged)
+        name.addTarget(self, action: #selector(textChanged), forControlEvents: .EditingChanged)
+        occupation.addTarget(self, action: #selector(textChanged), forControlEvents: .EditingChanged)
+        employer.addTarget(self, action: #selector(textChanged), forControlEvents: .EditingChanged)
+        streetAddress.addTarget(self, action: #selector(textChanged), forControlEvents: .EditingChanged)
+        cityStateZip.addTarget(self, action: #selector(textChanged), forControlEvents: .EditingChanged)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -44,10 +44,10 @@ class EditProfileViewController : UIViewController {
             federalLaw.hidden = true
         }
         
-        textChanged(self)
+        textChanged()
     }
     
-    func textChanged(sender: AnyObject) {
+    func textChanged() {
         navigationItem.rightBarButtonItem?.enabled = inputIsValid
     }
     

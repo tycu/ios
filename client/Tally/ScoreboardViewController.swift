@@ -14,7 +14,7 @@ class ScoreboardViewController : UITableViewController {
         
         refreshControl = UIRefreshControl()
         refreshControl!.tintColor = Colors.primary
-        refreshControl!.addTarget(self, action: "refresh:", forControlEvents: .ValueChanged)
+        refreshControl!.addTarget(self, action: #selector(refresh(_:)), forControlEvents: .ValueChanged)
         
         activityIndicator.center = tableView.center
         activityIndicator.startAnimating()

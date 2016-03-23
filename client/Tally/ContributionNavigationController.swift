@@ -15,7 +15,7 @@ class ContributionNavigationController : UINavigationController {
         if Keychain.getAccessToken() == nil {
             let signInViewController = storyboard!.instantiateViewControllerWithIdentifier("SignInViewController")
             signInViewController.navigationItem.title = "Log In"
-            signInViewController.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .Plain, target: signInViewController, action: "cancel")
+            signInViewController.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .Plain, target: signInViewController, action: #selector(SignInViewController.cancel))
             setViewControllers([signInViewController], animated: true)
             return
         }
@@ -27,7 +27,7 @@ class ContributionNavigationController : UINavigationController {
                 next()
             } else {
                 let pacsViewController = storyboard!.instantiateViewControllerWithIdentifier("PacsViewController") as! PacsViewController
-                pacsViewController.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .Plain, target: pacsViewController, action: "cancel")
+                pacsViewController.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .Plain, target: pacsViewController, action: #selector(PacsViewController.cancel))
                 pacsViewController.navigationItem.title = "Contribution Options"
                 pacsViewController.pacs = pacs
                 pacsViewController.inSupport = inSupport
@@ -49,8 +49,8 @@ class ContributionNavigationController : UINavigationController {
         
         if !UserData.instance!.chargeable {
             let addCardViewController = storyboard!.instantiateViewControllerWithIdentifier("AddCardViewController")
-            addCardViewController.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .Plain, target: addCardViewController, action: "cancel")
-            addCardViewController.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next", style: .Done, target: addCardViewController, action: "done")
+            addCardViewController.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .Plain, target: addCardViewController, action: #selector(AddCardViewController.cancel))
+            addCardViewController.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next", style: .Done, target: addCardViewController, action: #selector(AddCardViewController.done))
             addCardViewController.navigationItem.rightBarButtonItem!.enabled = false
             setViewControllers([addCardViewController], animated: true)
             return
@@ -59,8 +59,8 @@ class ContributionNavigationController : UINavigationController {
         if UserData.instance!.contributions.count > 0 {
             if UserData.instance!.profile.occupation == nil || UserData.instance!.profile.employer == nil || UserData.instance!.profile.streetAddress == nil || UserData.instance!.profile.cityStateZip == nil {
                 let editProfileViewController = storyboard!.instantiateViewControllerWithIdentifier("EditProfileViewController") as! EditProfileViewController
-                editProfileViewController.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .Plain, target: editProfileViewController, action: "cancel")
-                editProfileViewController.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next", style: .Done, target: editProfileViewController, action: "done")
+                editProfileViewController.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .Plain, target: editProfileViewController, action: #selector(EditProfileViewController.cancel))
+                editProfileViewController.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next", style: .Done, target: editProfileViewController, action: #selector(EditProfileViewController.done))
                 editProfileViewController.required = true
                 setViewControllers([editProfileViewController], animated: true)
                 return
@@ -69,7 +69,7 @@ class ContributionNavigationController : UINavigationController {
     
         if amount == nil {
             let contributeViewController = storyboard!.instantiateViewControllerWithIdentifier("ContributeViewController") as! ContributeViewController
-            contributeViewController.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .Plain, target: contributeViewController, action: "cancel")
+            contributeViewController.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .Plain, target: contributeViewController, action: #selector(ContributeViewController.cancel))
             contributeViewController.event = event
             contributeViewController.pac = selectedPac
             contributeViewController.inSupport = inSupport
@@ -78,7 +78,7 @@ class ContributionNavigationController : UINavigationController {
         }
         
         let postDonateViewController = storyboard!.instantiateViewControllerWithIdentifier("PostContributeViewController") as! PostContributeViewController
-        postDonateViewController.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .Done, target: postDonateViewController, action: "done")
+        postDonateViewController.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .Done, target: postDonateViewController, action: #selector(PostContributeViewController.done))
         setViewControllers([postDonateViewController], animated: true)
     }
 }

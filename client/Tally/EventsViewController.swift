@@ -20,11 +20,11 @@ class EventsViewController : EventTableViewController {
         
         refreshControl = UIRefreshControl()
         refreshControl!.tintColor = Colors.primary
-        refreshControl!.addTarget(self, action: "refresh:", forControlEvents: .ValueChanged)
+        refreshControl!.addTarget(self, action: #selector(refresh(_:)), forControlEvents: .ValueChanged)
         
         segmentedControl.frame = CGRect(x: 0, y: 0, width: 180, height: segmentedControl.frame.height)
         segmentedControl.selectedSegmentIndex = 0
-        segmentedControl.addTarget(self, action: "segmentIndexSelected:", forControlEvents: .ValueChanged)
+        segmentedControl.addTarget(self, action: #selector(segmentIndexSelected), forControlEvents: .ValueChanged)
         
         activityIndicator.center = tableView.center
         activityIndicator.startAnimating()
@@ -94,7 +94,7 @@ class EventsViewController : EventTableViewController {
         }
     }
     
-    func segmentIndexSelected(sender: UISegmentedControl) {
+    func segmentIndexSelected() {
         tableView.backgroundView = nil
         refresh(self)
     }
@@ -110,7 +110,7 @@ class EventsViewController : EventTableViewController {
         tableView.reloadData()
         
         if showDrafts && activeSort == .Recent {
-            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Live", style: .Plain, target: self, action: "hideDrafts")
+            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Live", style: .Plain, target: self, action: #selector(hideDrafts))
         } else {
             navigationItem.rightBarButtonItem = nil
         }

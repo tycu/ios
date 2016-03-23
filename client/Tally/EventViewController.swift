@@ -34,7 +34,7 @@ class EventViewController: UIViewController {
             title = formatter.stringFromDate(event.created)
         }
         
-        politicianHolder.addGestureRecognizer(UITapGestureRecognizer(target: self, action: "goToPolitician:"))
+        politicianHolder.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(goToPolitician)))
         event.setThumbnail(politicianThumbnail)
         politicianName.text = event.politician!.name
         politicianJobTitle.text = event.politician!.jobTitle
@@ -44,11 +44,11 @@ class EventViewController: UIViewController {
         }
         
         if event.imageUrl != nil && image.sd_imageURL() == nil {
-            let imgixConfig = "?dpr=\(min(UIScreen.mainScreen().scale, 2))&h=\(Int(image.frame.height))&w=\(view.frame.width)&fit=crop"
+            let imgixConfig = "?w=1024&fit=crop"
             let imageUrl = event.imageUrl! + imgixConfig
             if let parsedUrl = NSURL(string:imageUrl) {
                 image.sd_setImageWithURL(parsedUrl)
-                image.addGestureRecognizer(UITapGestureRecognizer(target: self, action: "imageTapped:"))
+                image.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(imageTapped)))
             }
         }
         
@@ -72,8 +72,8 @@ class EventViewController: UIViewController {
         oppose.tintColor = Colors.support
         support.tintColor = Colors.support
         
-        oppose.addGestureRecognizer(UITapGestureRecognizer(target: self, action: "oppose:"))
-        support.addGestureRecognizer(UITapGestureRecognizer(target: self, action: "support:"))
+        oppose.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(oppose(_:))))
+        support.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(support(_:))))
         
         summary.presentMarkdown(event.summary)
         
@@ -105,11 +105,11 @@ class EventViewController: UIViewController {
         }
     }
     
-    func goToPolitician(sender: AnyObject) {
+    func goToPolitician() {
         performSegueWithIdentifier("PoliticianSegue", sender: nil)
     }
     
-    func imageTapped(sender: AnyObject) {
+    func imageTapped() {
         let imgixConfig = "?w=1024&fit=crop"
         let imageUrl = event.imageUrl! + imgixConfig
         if let parsedUrl = NSURL(string:imageUrl) {

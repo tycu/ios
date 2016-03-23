@@ -11,6 +11,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GGLInstanceIDDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         SSKeychain.setAccessibilityType(kSecAttrAccessibleAfterFirstUnlock)
         Stripe.setDefaultPublishableKey("pk_test_Cp9lEtzreLcuDVH4IFE6RVhD")
+        GCMService.sharedInstance().startWithConfig(GCMConfig.defaultConfig())
         
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
         window!.backgroundColor = UIColor.whiteColor()
@@ -54,10 +55,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GGLInstanceIDDelegate {
         let instanceIDConfig = GGLInstanceIDConfig.defaultConfig()
         instanceIDConfig.delegate = self
         GGLInstanceID.sharedInstance().startWithConfig(instanceIDConfig)
-        GGLInstanceID.sharedInstance().tokenWithAuthorizedEntity("GCM_SENDER_ID", scope: kGGLInstanceIDScopeGCM, options: [kGGLInstanceIDRegisterAPNSOption: deviceToken, kGGLInstanceIDAPNSServerTypeSandboxOption: sandbox], handler: { token, error in
-            GCMPubSub.sharedInstance().subscribeWithToken(token, topic: "broadcasts", options: nil, handler: { error in
+        GGLInstanceID.sharedInstance().tokenWithAuthorizedEntity("229659126485", scope: kGGLInstanceIDScopeGCM, options: [kGGLInstanceIDRegisterAPNSOption: deviceToken, kGGLInstanceIDAPNSServerTypeSandboxOption: sandbox], handler: { token, error in
+            GCMPubSub.sharedInstance().subscribeWithToken(token, topic: "/topics/broadcasts", options: nil, handler: { error in
                 if error == nil || error.code == 3001 {
-                    p("Subscribed to events topic")
+                    p("Subscribed to broadcasts")
                 }
             })
         })
@@ -81,7 +82,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GGLInstanceIDDelegate {
                 signInNavigationController.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
                 signInNavigationController.navigationBar.shadowImage = UIImage()
                 let signInViewController = signInNavigationController.childViewControllers[0]
-                let skip = UIBarButtonItem(title: "Skip", style: .Done, target: signInViewController, action: "cancel")
+                let skip = UIBarButtonItem(title: "Skip", style: .Done, target: signInViewController, action: #selector(SignInViewController.cancel))
                 skip.tintColor = UIColor.whiteColor()
                 signInViewController.navigationItem.rightBarButtonItem = skip
                 window!.rootViewController!.presentViewController(signInNavigationController, animated: true, completion: nil)
