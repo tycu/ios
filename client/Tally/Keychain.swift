@@ -23,7 +23,5 @@ class Keychain {
         UserData.instance = nil
         SSKeychain.deletePasswordForService(service, account: account)
         FBSDKLoginManager().logOut()
-        FBSDKProfile.setCurrentProfile(nil)
-        FBSDKAccessToken.setCurrentAccessToken(nil)
     }
 }

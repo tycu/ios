@@ -14,11 +14,17 @@ class ContributionNavigationController : UINavigationController {
     func next() {
         if Keychain.getAccessToken() == nil {
             let signInViewController = storyboard!.instantiateViewControllerWithIdentifier("SignInViewController")
-            signInViewController.navigationItem.title = "Log In"
-            signInViewController.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .Plain, target: signInViewController, action: #selector(SignInViewController.cancel))
+            let cancel = UIBarButtonItem(title: "Cancel", style: .Plain, target: signInViewController, action: #selector(SignInViewController.cancel))
+            cancel.tintColor = UIColor.whiteColor()
+            signInViewController.navigationItem.leftBarButtonItem = cancel
+            navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
+            navigationBar.shadowImage = UIImage()
             setViewControllers([signInViewController], animated: true)
             return
         }
+        
+        navigationBar.setBackgroundImage(nil, forBarMetrics: .Default)
+        navigationBar.shadowImage = nil
         
         if selectedPac == nil {
             let pacs = inSupport == true ? event.supportPacs : event.opposePacs
