@@ -26,7 +26,7 @@ class EventTableViewController : UITableViewController {
         
         if let imageUrl = event.imageUrl {
             cell.picture.layer.cornerRadius = 6
-            cell.picture.sd_setImageWithURL(NSURL(string: imageUrl + "?w=1024&fit=crop"))
+            cell.picture.sd_setImageWithURL(NSURL(string: imageUrl + "?w=512&fit=crop"))
         } else {
             cell.pictureHeight.constant = 0
         }
