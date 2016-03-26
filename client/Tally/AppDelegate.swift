@@ -57,6 +57,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GGLInstanceIDDelegate {
                     selectEvent()
                 }
             }
+            
+            notificationEventIden = nil
         }
         
         lastActive = NSDate()
