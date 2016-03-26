@@ -17,16 +17,16 @@ class SignInViewController : UIViewController {
         facebook.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(authenticate)))
         
         later.addTarget(self, action: #selector(cancel), forControlEvents: .TouchUpInside)
+        
+        if parentViewController is ProfileViewController || parentViewController is ContributionNavigationController {
+            later.removeFromSuperview()
+        }
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
         navigationController?.navigationBar.barStyle = .Black
-        
-        if parentViewController is ProfileViewController || parentViewController is ContributionNavigationController {
-            later.removeFromSuperview()
-        }
     }
     
     override func viewWillDisappear(animated: Bool) {
