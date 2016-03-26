@@ -3,7 +3,9 @@ import FBSDKLoginKit
 import SSKeychain
 
 class SignInViewController : UIViewController {
+    @IBOutlet weak var stack: UIStackView!
     @IBOutlet weak var facebook: UIView!
+    @IBOutlet weak var later: UIButton!
     @IBOutlet weak var indicator: UIActivityIndicatorView!
 
     override func viewDidLoad() {
@@ -13,12 +15,18 @@ class SignInViewController : UIViewController {
         
         facebook.layer.cornerRadius = 2        
         facebook.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(authenticate)))
+        
+        later.addTarget(self, action: #selector(cancel), forControlEvents: .TouchUpInside)
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
         navigationController?.navigationBar.barStyle = .Black
+        
+        if parentViewController is ProfileViewController || parentViewController is ContributionNavigationController {
+            later.removeFromSuperview()
+        }
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -34,7 +42,7 @@ class SignInViewController : UIViewController {
             } else if (result.isCancelled) {
             } else {
                 if (result.grantedPermissions.contains("email")) {
-                    self.facebook.hidden = true
+                    self.stack.hidden = true
                     self.indicator.hidden = false
                     
                     let body = ["facebookToken": FBSDKAccessToken.currentAccessToken().tokenString]
@@ -63,7 +71,7 @@ class SignInViewController : UIViewController {
     }
     
     private func loginFailed() {
-        self.facebook.hidden = false
+        self.stack.hidden = false
         self.indicator.hidden = true
         Keychain.clear()
         showErrorDialogWithMessage("Login failed, please try again.", inViewController: self)

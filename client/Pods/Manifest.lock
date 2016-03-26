@@ -52,7 +52,7 @@ DEPENDENCIES:
   - FBSDKLoginKit
   - FBSDKShareKit
   - Google/CloudMessaging
-  - JTSImageViewController (= 1.5.1)
+  - JTSImageViewController
   - SDWebImage
   - SSKeychain
   - Stripe
