@@ -124,7 +124,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GGLInstanceIDDelegate {
                 let skip = UIBarButtonItem(title: "Skip", style: .Done, target: signInViewController, action: #selector(SignInViewController.cancel))
                 skip.tintColor = UIColor.whiteColor()
                 signInViewController.navigationItem.rightBarButtonItem = skip
-                window!.rootViewController!.presentViewController(signInNavigationController, animated: true, completion: nil)
+                window!.rootViewController!.presentViewController(signInNavigationController, animated: false, completion: nil)
 //                return
 //            }
 //        }
