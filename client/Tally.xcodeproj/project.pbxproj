@@ -24,6 +24,8 @@
 		6066EDB11C87AB2000B71B86 /* PacsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6066EDB01C87AB2000B71B86 /* PacsViewController.swift */; };
 		6066EDB31C87D0B600B71B86 /* PacCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6066EDB21C87D0B600B71B86 /* PacCell.swift */; };
 		6066EDB51C87D5BC00B71B86 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6066EDB41C87D5BC00B71B86 /* EditProfileViewController.swift */; };
+		606AE18A1CA60C88003F4539 /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606AE1891CA60C88003F4539 /* UIImage+Extensions.swift */; };
+		606AE18C1CA60CE9003F4539 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606AE18B1CA60CE9003F4539 /* MainViewController.swift */; };
 		606D917F1C8A8B87005ECCC3 /* ScoreboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606D917E1C8A8B87005ECCC3 /* ScoreboardViewController.swift */; };
 		606D91811C8A8CA5005ECCC3 /* ScoreboardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606D91801C8A8CA5005ECCC3 /* ScoreboardCell.swift */; };
 		606D91831C8C1E68005ECCC3 /* PostContributeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606D91821C8C1E68005ECCC3 /* PostContributeViewController.swift */; };
@@ -73,6 +75,8 @@
 		6066EDB01C87AB2000B71B86 /* PacsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PacsViewController.swift; sourceTree = "<group>"; };
 		6066EDB21C87D0B600B71B86 /* PacCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PacCell.swift; sourceTree = "<group>"; };
 		6066EDB41C87D5BC00B71B86 /* EditProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
+		606AE1891CA60C88003F4539 /* UIImage+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
+		606AE18B1CA60CE9003F4539 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		606D917E1C8A8B87005ECCC3 /* ScoreboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreboardViewController.swift; sourceTree = "<group>"; };
 		606D91801C8A8CA5005ECCC3 /* ScoreboardCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreboardCell.swift; sourceTree = "<group>"; };
 		606D91821C8C1E68005ECCC3 /* PostContributeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostContributeViewController.swift; sourceTree = "<group>"; };
@@ -165,6 +169,7 @@
 				607A65C51C75BFA700D1B754 /* EventViewController.swift */,
 				607A65A91C7577EF00D1B754 /* LaunchScreen.storyboard */,
 				607A65A41C7577EF00D1B754 /* Main.storyboard */,
+				606AE18B1CA60CE9003F4539 /* MainViewController.swift */,
 				607A65DC1C7D88F400D1B754 /* MarkdownLabel.swift */,
 				6066EDB21C87D0B600B71B86 /* PacCell.swift */,
 				6066EDB01C87AB2000B71B86 /* PacsViewController.swift */,
@@ -192,6 +197,7 @@
 				607A65BC1C75867400D1B754 /* Requests.swift */,
 				604D52071C83868A00A117CE /* UIViewController+Extensions.swift */,
 				606D91881C8D028C005ECCC3 /* Int+Extensions.swift */,
+				606AE1891CA60C88003F4539 /* UIImage+Extensions.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -385,6 +391,7 @@
 				607A65E51C82890C00D1B754 /* SupportOpposeView.swift in Sources */,
 				606D91811C8A8CA5005ECCC3 /* ScoreboardCell.swift in Sources */,
 				604D52081C83868A00A117CE /* UIViewController+Extensions.swift in Sources */,
+				606AE18C1CA60CE9003F4539 /* MainViewController.swift in Sources */,
 				607A65BD1C75867400D1B754 /* Requests.swift in Sources */,
 				607A65B81C7580B000D1B754 /* EventsViewController.swift in Sources */,
 				607A65CE1C78403600D1B754 /* NSDate+Extensions.swift in Sources */,
@@ -393,6 +400,7 @@
 				607A65BA1C75824300D1B754 /* EventCell.swift in Sources */,
 				6066EDB31C87D0B600B71B86 /* PacCell.swift in Sources */,
 				607A65C41C75A94200D1B754 /* Event.swift in Sources */,
+				606AE18A1CA60C88003F4539 /* UIImage+Extensions.swift in Sources */,
 				604D520A1C83C9E200A117CE /* Keychain.swift in Sources */,
 				606D91831C8C1E68005ECCC3 /* PostContributeViewController.swift in Sources */,
 			);

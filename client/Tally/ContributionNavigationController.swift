@@ -64,7 +64,7 @@ class ContributionNavigationController : UINavigationController {
             return
         }
         
-        if UserData.instance!.contributions.count > 0 {
+//        if UserData.instance!.contributions.count > 0 {
             if UserData.instance!.profile.occupation == nil || UserData.instance!.profile.employer == nil || UserData.instance!.profile.streetAddress == nil || UserData.instance!.profile.cityStateZip == nil {
                 let editProfileViewController = storyboard!.instantiateViewControllerWithIdentifier("EditProfileViewController") as! EditProfileViewController
                 editProfileViewController.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .Plain, target: editProfileViewController, action: #selector(EditProfileViewController.cancel))
@@ -73,7 +73,7 @@ class ContributionNavigationController : UINavigationController {
                 setViewControllers([editProfileViewController], animated: true)
                 return
             }
-        }
+//        }
     
         if amount == nil {
             let contributeViewController = storyboard!.instantiateViewControllerWithIdentifier("ContributeViewController") as! ContributeViewController

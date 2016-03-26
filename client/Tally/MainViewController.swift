@@ -1,0 +1,2 @@
+class MainViewController : UITabBarController {
+}

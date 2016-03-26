@@ -518,7 +518,7 @@
             </objects>
             <point key="canvasLocation" x="1580" y="1365"/>
         </scene>
-        <!--Add Card-->
+        <!--Enter Card-->
         <scene sceneID="uIZ-mQ-j7u">
             <objects>
                 <viewController storyboardIdentifier="AddCardViewController" id="BuS-20-g6f" customClass="AddCardViewController" customModule="Tally" customModuleProvider="target" sceneMemberID="viewController">
@@ -562,7 +562,7 @@
                             <constraint firstItem="Cgs-3Y-Hkn" firstAttribute="leading" secondItem="QjG-u0-juM" secondAttribute="leading" id="gaa-er-u9P"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Add Card" id="3f2-rB-fe7"/>
+                    <navigationItem key="navigationItem" title="Enter Card" id="3f2-rB-fe7"/>
                     <connections>
                         <outlet property="activityIndicator" destination="Jy3-iz-wFT" id="Z92-tU-0YU"/>
                         <outlet property="cardField" destination="WNW-51-RJ1" id="Ifh-Zu-5bf"/>
@@ -1416,7 +1416,7 @@
         <!--Tally-->
         <scene sceneID="cbO-mm-cQl">
             <objects>
-                <tabBarController storyboardIdentifier="MainViewController" title="Tally" id="9Ew-f6-jCQ" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="MainViewController" title="Tally" id="9Ew-f6-jCQ" customClass="MainViewController" customModule="Tally" customModuleProvider="target" sceneMemberID="viewController">
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" translucent="NO" id="SEg-dV-jHo">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
