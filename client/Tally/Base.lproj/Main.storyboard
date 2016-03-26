@@ -65,7 +65,7 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a2u-6f-QX6">
                                                     <rect key="frame" x="107" y="30" width="106" height="106"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cOa-Vw-XWH">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cOa-Vw-XWH">
                                                             <rect key="frame" x="3" y="3" width="100" height="100"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="100" id="6YM-on-P0a"/>
@@ -88,10 +88,10 @@
                                                 <constraint firstItem="a2u-6f-QX6" firstAttribute="centerX" secondItem="fcX-eM-lzN" secondAttribute="centerX" id="spa-JQ-F0N"/>
                                             </constraints>
                                         </view>
-                                        <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rs0-Mu-OWr">
+                                        <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rs0-Mu-OWr">
                                             <rect key="frame" x="0.0" y="136" width="320" height="61"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uNw-aA-j9C">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uNw-aA-j9C">
                                                     <rect key="frame" x="132" y="15" width="57" height="46.5"/>
                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="21"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -104,7 +104,7 @@
                                                 <constraint firstItem="uNw-aA-j9C" firstAttribute="top" secondItem="rs0-Mu-OWr" secondAttribute="top" constant="15" id="aws-Jt-Nff"/>
                                             </constraints>
                                         </view>
-                                        <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="25j-mu-afN">
+                                        <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="25j-mu-afN">
                                             <rect key="frame" x="0.0" y="197" width="320" height="43"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="Occupation" translatesAutoresizingMaskIntoConstraints="NO" id="wxT-R3-a0v">
@@ -130,7 +130,7 @@
                                                 <constraint firstItem="kSl-CA-jWL" firstAttribute="left" secondItem="wxT-R3-a0v" secondAttribute="right" constant="18" id="mz7-ac-2Wo"/>
                                             </constraints>
                                         </view>
-                                        <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qwq-Db-P0w">
+                                        <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qwq-Db-P0w">
                                             <rect key="frame" x="0.0" y="240" width="320" height="31"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="Address" translatesAutoresizingMaskIntoConstraints="NO" id="Pms-KO-ajm">
