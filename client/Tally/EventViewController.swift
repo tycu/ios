@@ -13,8 +13,8 @@ class EventViewController: UIViewController {
     @IBOutlet weak var headlineHolder: UIView!
     @IBOutlet weak var headline: MarkdownLabel!
     @IBOutlet weak var graph: SupportOpposeView!
-    @IBOutlet weak var oppose: UIView!
-    @IBOutlet weak var support: UIView!
+    @IBOutlet weak var oppose: UIButton!
+    @IBOutlet weak var support: UIButton!
     @IBOutlet weak var summary: MarkdownLabel!
     var event: Event!
     var hidePolitician = false
@@ -64,14 +64,17 @@ class EventViewController: UIViewController {
         
         graph.event = event
         
-        oppose.layer.cornerRadius = 2
-        oppose.clipsToBounds = true
+        oppose.layer.borderColor = Colors.secondary.CGColor
+        oppose.layer.borderWidth = 1
+        oppose.layer.cornerRadius = 6
+        oppose.tintColor = Colors.secondary
+        oppose.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(oppose(_:))))
         
-        support.layer.cornerRadius = 2
-        support.clipsToBounds = true
-        
-        oppose.backgroundColor = Colors.oppose
-        support.backgroundColor = Colors.support
+        support.layer.borderColor = Colors.secondary.CGColor
+        support.layer.borderWidth = 1
+        support.layer.cornerRadius = 6
+        support.tintColor = Colors.secondary
+        support.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(support(_:))))
         
         summary.presentMarkdown(event.summary)
         
@@ -131,7 +134,7 @@ class EventViewController: UIViewController {
             eventsViewController.politician = event.politician!
         } else if segue.identifier == "ContributionSegue" {
             let contributionNavigationController = segue.destinationViewController as! ContributionNavigationController
-//            contributionNavigationController.prepareForEvent(event, inSupport: (sender as! UITapGestureRecognizer).view == support)
+            contributionNavigationController.prepareForEvent(event, inSupport: (sender as! UITapGestureRecognizer).view == support)
         }
     }
 }

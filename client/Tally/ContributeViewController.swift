@@ -54,8 +54,10 @@ class ContributeViewController : UIViewController {
         fee.text = "$0.99"
         total.text = "$\(Double(amounts[amountIndex]) + 0.99)"
         
-        contribute.layer.cornerRadius = 2
-        contribute.clipsToBounds = true
+        contribute.layer.borderColor = Colors.primary.CGColor
+        contribute.layer.borderWidth = 1
+        contribute.layer.cornerRadius = 6
+        contribute.tintColor = Colors.primary
         contribute.addTarget(self, action: #selector(contributeTapped), forControlEvents: .TouchUpInside)
     }
     

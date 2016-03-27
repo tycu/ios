@@ -13,7 +13,7 @@ class SignInViewController : UIViewController {
         
         Keychain.clear()
         
-        facebook.layer.cornerRadius = 2        
+        facebook.layer.cornerRadius = 6
         facebook.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(authenticate)))
         
         later.addTarget(self, action: #selector(cancel), forControlEvents: .TouchUpInside)
