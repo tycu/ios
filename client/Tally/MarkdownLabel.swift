@@ -3,7 +3,7 @@ import TTTAttributedLabel
 class MarkdownLabel: TTTAttributedLabel, TTTAttributedLabelDelegate {
     
     func presentMarkdown(markdown: String?) {
-        presentMarkdown(markdown, paragraphFont: UIFont.systemFontOfSize(font.pointSize), strongFont: UIFont.systemFontOfSize(font.pointSize, weight: UIFontWeightMedium), emphasisFont: UIFont.italicSystemFontOfSize(font.pointSize))
+        presentMarkdown(markdown, paragraphFont: UIFont.systemFontOfSize(font.pointSize), strongFont: UIFont.boldSystemFontOfSize(font.pointSize), emphasisFont: UIFont.italicSystemFontOfSize(font.pointSize))
     }
     
     func presentMarkdown(markdown: String?, paragraphFont: UIFont, strongFont: UIFont, emphasisFont: UIFont) {

@@ -13,10 +13,8 @@ class EventViewController: UIViewController {
     @IBOutlet weak var headlineHolder: UIView!
     @IBOutlet weak var headline: MarkdownLabel!
     @IBOutlet weak var graph: SupportOpposeView!
-    @IBOutlet weak var buttonsHolder: UIStackView!
-    @IBOutlet weak var oppose: UIButton!
-    @IBOutlet weak var support: UIButton!
-    @IBOutlet weak var contribution: UILabel!
+    @IBOutlet weak var oppose: UIView!
+    @IBOutlet weak var support: UIView!
     @IBOutlet weak var summary: MarkdownLabel!
     var event: Event!
     var hidePolitician = false
@@ -44,7 +42,7 @@ class EventViewController: UIViewController {
         }
         
         if event.imageUrl != nil && image.sd_imageURL() == nil {
-            let imgixConfig = "?w=1024&fit=crop"
+            let imgixConfig = "?w=512&fit=crop"
             let imageUrl = event.imageUrl! + imgixConfig
             if let parsedUrl = NSURL(string:imageUrl) {
                 image.sd_setImageWithURL(parsedUrl)
@@ -53,9 +51,6 @@ class EventViewController: UIViewController {
         }
         
         attribution.presentMarkdown(event.imageAttribution)
-    
-        headlineHolder.layer.borderWidth = 1
-        headlineHolder.layer.borderColor = UIColor(hex: "#D1D1D1").CGColor
         
         headline.presentMarkdown(event.headline)
         
@@ -69,11 +64,14 @@ class EventViewController: UIViewController {
         
         graph.event = event
         
-        oppose.tintColor = Colors.support
-        support.tintColor = Colors.support
+        oppose.layer.cornerRadius = 2
+        oppose.clipsToBounds = true
         
-        oppose.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(oppose(_:))))
-        support.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(support(_:))))
+        support.layer.cornerRadius = 2
+        support.clipsToBounds = true
+        
+        oppose.backgroundColor = Colors.oppose
+        support.backgroundColor = Colors.support
         
         summary.presentMarkdown(event.summary)
         
@@ -96,12 +94,9 @@ class EventViewController: UIViewController {
         super.viewWillAppear(animated)
         
         if event.supportPacs.count == 0 && event.opposePacs.count == 0 {
-            buttonsHolder.hidden = true
         }
         
         if let contribution = UserData.instance?.eventIdenToContribution[event.iden] {
-            buttonsHolder.hidden = true
-            contribution.setLabel(self.contribution)
         }
     }
     
@@ -136,7 +131,7 @@ class EventViewController: UIViewController {
             eventsViewController.politician = event.politician!
         } else if segue.identifier == "ContributionSegue" {
             let contributionNavigationController = segue.destinationViewController as! ContributionNavigationController
-            contributionNavigationController.prepareForEvent(event, inSupport: (sender as! UITapGestureRecognizer).view == support)
+//            contributionNavigationController.prepareForEvent(event, inSupport: (sender as! UITapGestureRecognizer).view == support)
         }
     }
 }

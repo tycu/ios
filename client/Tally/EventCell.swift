@@ -6,5 +6,7 @@ class EventCell : UITableViewCell {
     @IBOutlet weak var time: UILabel!
     @IBOutlet weak var picture: UIImageView!
     @IBOutlet weak var pictureHeight: NSLayoutConstraint!
+    @IBOutlet weak var pictureTopSpace: NSLayoutConstraint!
+    @IBOutlet weak var pictureBottomSpace: NSLayoutConstraint!
     @IBOutlet weak var graph: SupportOpposeView!
 }

@@ -7,11 +7,11 @@ class EventTableViewController : UITableViewController {
         super.viewDidLoad()
         
         tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = 110
+        tableView.estimatedRowHeight = 338
         tableView.registerNib(UINib(nibName: "EventCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: "EventCell")
     }
     
-    func prepareCell(cell: EventCell, withEvent event: Event) {
+    func prepareCell(cell: EventCell, forEvent event: Event, showingPicture: Bool) {
         cell.headline.presentMarkdown(event.headline)
         
         // Increase the line height of the headline
@@ -23,11 +23,13 @@ class EventTableViewController : UITableViewController {
         
         cell.time.text = event.created.humanReadableTimeSinceNow
         
-        if let imageUrl = event.imageUrl {
+        if event.imageUrl != nil && showingPicture {
             cell.picture.layer.cornerRadius = 6
-            cell.picture.sd_setImageWithURL(NSURL(string: imageUrl + "?w=512&fit=crop"))
+            cell.picture.sd_setImageWithURL(NSURL(string: event.imageUrl! + "?w=512&fit=crop"))
         } else {
             cell.pictureHeight.constant = 0
+            cell.pictureTopSpace.constant = 2
+            cell.pictureBottomSpace.constant = 0
         }
     
         cell.graph.event = event

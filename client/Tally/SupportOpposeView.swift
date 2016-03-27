@@ -43,7 +43,7 @@ class SupportOpposeView : UIView {
         
         let halfWidth = bounds.width / 2
         
-        let font = UIFont.boldSystemFontOfSize(max(bounds.height - 6, 11))
+        let font = UIFont.boldSystemFontOfSize(min(max(bounds.height - 6, 11), 15))
         let textAttributes = [NSFontAttributeName: font, NSForegroundColorAttributeName: UIColor.whiteColor()]
         let textPadding = CGFloat(4)
         
