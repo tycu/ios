@@ -32,7 +32,7 @@ class SignInViewController : UIViewController {
     override func viewWillDisappear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        navigationController!.navigationBar.barStyle = .Default
+        navigationController?.navigationBar.barStyle = .Default
     }
     
     func authenticate() {

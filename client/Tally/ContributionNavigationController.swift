@@ -27,6 +27,7 @@ class ContributionNavigationController : UINavigationController {
         navigationBar.translucent = false
         navigationBar.setBackgroundImage(nil, forBarMetrics: .Default)
         navigationBar.shadowImage = nil
+        navigationBar.barStyle = .Default
         
         if selectedPac == nil {
             let pacs = inSupport == true ? event.supportPacs : event.opposePacs
