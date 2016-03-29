@@ -75,7 +75,9 @@ class EventsViewController : EventTableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let event = events[activeSort]![indexPath.row]
         let cell = tableView.dequeueReusableCellWithIdentifier("EventCell", forIndexPath: indexPath) as! EventCell
-        prepareCell(cell, forEvent: event, showingPicture: true)
+        prepareCell(cell, forEvent: event, showingPicture: true, showingButtons: activeSort == .Recent && indexPath.row == 0 && politician == nil)
+        cell.oppose.tag = indexPath.row
+        cell.support.tag = indexPath.row
         return cell
     }
     
@@ -83,6 +85,20 @@ class EventsViewController : EventTableViewController {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         
         performSegueWithIdentifier("EventSegue", sender: events[activeSort]![indexPath.row])
+    }
+    
+    override func oppose(sender: UIButton) {
+        let event = events[activeSort]![sender.tag]
+        let contributionNavigationController = storyboard!.instantiateViewControllerWithIdentifier("ContributionNavigationController") as! ContributionNavigationController
+        contributionNavigationController.prepareForEvent(event, inSupport: false)
+        presentViewController(contributionNavigationController, animated: true, completion: nil)
+    }
+    
+    override func support(sender: UIButton) {
+        let event = events[activeSort]![sender.tag]
+        let contributionNavigationController = storyboard!.instantiateViewControllerWithIdentifier("ContributionNavigationController") as! ContributionNavigationController
+        contributionNavigationController.prepareForEvent(event, inSupport: true)
+        presentViewController(contributionNavigationController, animated: true, completion: nil)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

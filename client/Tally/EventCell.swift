@@ -9,4 +9,7 @@ class EventCell : UITableViewCell {
     @IBOutlet weak var pictureTopSpace: NSLayoutConstraint!
     @IBOutlet weak var pictureBottomSpace: NSLayoutConstraint!
     @IBOutlet weak var graph: SupportOpposeView!
+    @IBOutlet weak var buttonsHolder: UIStackView!
+    @IBOutlet weak var oppose: UIButton!
+    @IBOutlet weak var support: UIButton!
 }

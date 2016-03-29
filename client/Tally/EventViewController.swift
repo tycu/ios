@@ -13,9 +13,11 @@ class EventViewController: UIViewController {
     @IBOutlet weak var headlineHolder: UIView!
     @IBOutlet weak var headline: MarkdownLabel!
     @IBOutlet weak var graph: SupportOpposeView!
+    @IBOutlet weak var buttonsHolder: UIStackView!
     @IBOutlet weak var oppose: UIButton!
     @IBOutlet weak var support: UIButton!
     @IBOutlet weak var summary: MarkdownLabel!
+    @IBOutlet weak var contribution: UILabel!
     var event: Event!
     var hidePolitician = false
     
@@ -42,7 +44,7 @@ class EventViewController: UIViewController {
         }
         
         if event.imageUrl != nil && image.sd_imageURL() == nil {
-            let imgixConfig = "?w=512&fit=crop"
+            let imgixConfig = "?w=818&fit=crop"
             let imageUrl = event.imageUrl! + imgixConfig
             if let parsedUrl = NSURL(string:imageUrl) {
                 image.sd_setImageWithURL(parsedUrl)
@@ -97,9 +99,14 @@ class EventViewController: UIViewController {
         super.viewWillAppear(animated)
         
         if event.supportPacs.count == 0 && event.opposePacs.count == 0 {
+            buttonsHolder.hidden = true
         }
         
         if let contribution = UserData.instance?.eventIdenToContribution[event.iden] {
+            buttonsHolder.hidden = true
+            contribution.setLabel(self.contribution)
+        } else {
+            contribution.text = nil
         }
     }
     
@@ -108,7 +115,7 @@ class EventViewController: UIViewController {
     }
     
     func imageTapped() {
-        let imgixConfig = "?w=1024&fit=crop"
+        let imgixConfig = "?w=1242&fit=crop"
         let imageUrl = event.imageUrl! + imgixConfig
         if let parsedUrl = NSURL(string:imageUrl) {
             let info = JTSImageInfo()

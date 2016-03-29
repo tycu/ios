@@ -44,7 +44,7 @@ class ContributeViewController : UIViewController {
         
         amountBorder.layer.borderWidth = 1
         amountBorder.layer.borderColor = UIColor(hex: "#DDDDDD").CGColor
-        amountBorder.layer.cornerRadius = 2
+        amountBorder.layer.cornerRadius = 4
         amountBorder.clipsToBounds = true
         amountBorder.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(changeAmount(_:))))
         
