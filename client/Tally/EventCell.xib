@@ -15,13 +15,13 @@
                     <rect key="frame" x="8" y="8" width="584" height="584"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contribution" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qap-GU-YZ8">
-                            <rect key="frame" x="0.0" y="0.0" width="584" height="242"/>
+                            <rect key="frame" x="0.0" y="0.0" width="584" height="240"/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7nY-Bl-STI">
-                            <rect key="frame" x="0.0" y="252" width="584" height="274"/>
+                            <rect key="frame" x="0.0" y="250" width="584" height="276"/>
                             <subviews>
                                 <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="08Z-Vl-O17">
                                     <rect key="frame" x="282" y="90" width="20" height="20"/>
@@ -39,7 +39,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="diF-ka-fF7" customClass="SupportOpposeView" customModule="Tally" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="243.5" width="584" height="20"/>
+                                    <rect key="frame" x="0.0" y="245.5" width="584" height="20"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="20" id="ujy-1Y-oqV"/>
@@ -60,7 +60,7 @@
                                 <constraint firstItem="08Z-Vl-O17" firstAttribute="centerX" secondItem="c7l-gF-jJD" secondAttribute="centerX" id="11n-vU-UP0"/>
                                 <constraint firstAttribute="bottom" secondItem="diF-ka-fF7" secondAttribute="bottom" constant="10" id="2hA-yH-d9e"/>
                                 <constraint firstAttribute="right" secondItem="ZKZ-eN-xR3" secondAttribute="right" id="5Rd-r8-Sps"/>
-                                <constraint firstItem="diF-ka-fF7" firstAttribute="top" secondItem="Faj-ly-0aT" secondAttribute="bottom" constant="13" id="B99-MV-JEg"/>
+                                <constraint firstItem="diF-ka-fF7" firstAttribute="top" secondItem="Faj-ly-0aT" secondAttribute="bottom" constant="15" id="B99-MV-JEg"/>
                                 <constraint firstItem="Faj-ly-0aT" firstAttribute="top" secondItem="c7l-gF-jJD" secondAttribute="bottom" constant="10" id="LRV-Is-3PF"/>
                                 <constraint firstAttribute="right" secondItem="c7l-gF-jJD" secondAttribute="right" id="a5W-Qb-iji"/>
                                 <constraint firstItem="diF-ka-fF7" firstAttribute="leading" secondItem="7nY-Bl-STI" secondAttribute="leading" id="cak-Kw-MzU"/>
