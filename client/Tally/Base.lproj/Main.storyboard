@@ -642,6 +642,9 @@
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="oMY-Ux-sTl">
+                                                <rect key="frame" x="150" y="160" width="20" height="20"/>
+                                            </activityIndicatorView>
                                             <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DNS-5z-Xmo">
                                                 <rect key="frame" x="0.0" y="60" width="320" height="220"/>
                                                 <constraints>
@@ -785,7 +788,9 @@
                                             <constraint firstItem="DNS-5z-Xmo" firstAttribute="top" secondItem="Fwt-iz-jIj" secondAttribute="bottom" id="g9h-MU-Ner"/>
                                             <constraint firstAttribute="right" secondItem="kLb-gJ-vMQ" secondAttribute="right" id="gwu-xF-A1M"/>
                                             <constraint firstItem="9Sm-Fi-LZ2" firstAttribute="top" secondItem="DNS-5z-Xmo" secondAttribute="top" constant="5" id="h1g-tL-QMv"/>
+                                            <constraint firstItem="oMY-Ux-sTl" firstAttribute="centerY" secondItem="DNS-5z-Xmo" secondAttribute="centerY" id="hml-Bx-Exn"/>
                                             <constraint firstItem="9Sm-Fi-LZ2" firstAttribute="left" secondItem="DNS-5z-Xmo" secondAttribute="left" constant="15" id="t7j-Cw-QBk"/>
+                                            <constraint firstItem="oMY-Ux-sTl" firstAttribute="centerX" secondItem="DNS-5z-Xmo" secondAttribute="centerX" id="uNG-rD-uOe"/>
                                         </constraints>
                                     </view>
                                 </subviews>
