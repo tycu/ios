@@ -14,7 +14,10 @@ class EventTableViewController : UITableViewController {
     func prepareCell(cell: EventCell, forEvent event: Event, showingPicture: Bool, showingButtons: Bool) {
         cell.pictureIndicator.startAnimating()
         
-        cell.headline.presentMarkdown(event.headline)
+//        cell.headline.presentMarkdown(event.headline)
+        
+        cell.headline.text = event.headline
+        cell.headline.font = UIFont.systemFontOfSize(19, weight: UIFontWeightMedium) // UIFont(name: "AvenirNextCondensed-DemiBold", size: 21)
         
         // Increase the line height of the headline
         let headlineAttributedString = NSMutableAttributedString(attributedString: cell.headline.attributedText!)
