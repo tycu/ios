@@ -3,7 +3,7 @@ import LocalAuthentication
 
 class ContributeViewController : UIViewController {
     @IBOutlet weak var eventThumbnail: UIImageView!
-    @IBOutlet weak var eventHeadline: MarkdownLabel!
+    @IBOutlet weak var eventHeadline: UILabel!
     @IBOutlet weak var eventGraph: SupportOpposeView!
     @IBOutlet weak var eventTime: UILabel!
     @IBOutlet weak var pacName: UILabel!
@@ -26,7 +26,7 @@ class ContributeViewController : UIViewController {
         
         event.setThumbnail(eventThumbnail)
         
-        eventHeadline.presentMarkdown(event.headline)
+        eventHeadline.text = event.headline
         
         // Increase the line height of the headline
         let headlineAttributedString = NSMutableAttributedString(attributedString: eventHeadline.attributedText!)

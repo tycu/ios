@@ -11,7 +11,7 @@ class EventViewController: UIViewController {
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var attribution: MarkdownLabel!
     @IBOutlet weak var headlineHolder: UIView!
-    @IBOutlet weak var headline: MarkdownLabel!
+    @IBOutlet weak var headline: UILabel!
     @IBOutlet weak var graph: SupportOpposeView!
     @IBOutlet weak var buttonsHolder: UIStackView!
     @IBOutlet weak var oppose: UIButton!
@@ -54,7 +54,7 @@ class EventViewController: UIViewController {
         
         attribution.presentMarkdown(event.imageAttribution)
         
-        headline.presentMarkdown(event.headline)
+        headline.text = event.headline
         
         // Increase the line height of the headline
         let headlineAttributedString = NSMutableAttributedString(attributedString: headline.attributedText!)
@@ -66,16 +66,16 @@ class EventViewController: UIViewController {
         
         graph.event = event
         
-        oppose.layer.borderColor = Colors.secondary.CGColor
+        oppose.layer.borderColor = Colors.support.CGColor
         oppose.layer.borderWidth = 1
         oppose.layer.cornerRadius = 6
-        oppose.tintColor = Colors.secondary
+        oppose.tintColor = Colors.support
         oppose.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(oppose(_:))))
         
-        support.layer.borderColor = Colors.secondary.CGColor
+        support.layer.borderColor = Colors.support.CGColor
         support.layer.borderWidth = 1
         support.layer.cornerRadius = 6
-        support.tintColor = Colors.secondary
+        support.tintColor = Colors.support
         support.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(support(_:))))
         
         summary.presentMarkdown(event.summary)

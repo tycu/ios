@@ -7,7 +7,7 @@ class Colors {
     static let support: UIColor = {
         let rawComponents = CGColorGetComponents(secondary.CGColor)
         let components = [Float(rawComponents[0]), Float(rawComponents[1]), Float(rawComponents[2])]
-        return UIColor(colorLiteralRed: components[0], green: components[1], blue: components[2], alpha: 0.85)
+        return UIColor(colorLiteralRed: components[0], green: components[1], blue: components[2], alpha: 0.80)
     }()
     
     static let oppose: UIColor = {

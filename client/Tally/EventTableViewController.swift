@@ -14,10 +14,7 @@ class EventTableViewController : UITableViewController {
     func prepareCell(cell: EventCell, forEvent event: Event, showingPicture: Bool, showingButtons: Bool) {
         cell.pictureIndicator.startAnimating()
         
-//        cell.headline.presentMarkdown(event.headline)
-        
         cell.headline.text = event.headline
-        cell.headline.font = UIFont.systemFontOfSize(19, weight: UIFontWeightMedium) // UIFont(name: "AvenirNextCondensed-DemiBold", size: 21)
         
         // Increase the line height of the headline
         let headlineAttributedString = NSMutableAttributedString(attributedString: cell.headline.attributedText!)
@@ -32,6 +29,7 @@ class EventTableViewController : UITableViewController {
             cell.picture.layer.cornerRadius = 6
             cell.picture.sd_setImageWithURL(NSURL(string: event.imageUrl! + "?w=818&fit=crop"))
         } else {
+            cell.pictureIndicator.hidden = true
             cell.pictureHeight.constant = 0
             cell.pictureTopSpace.constant = 2
             cell.pictureBottomSpace.constant = 0
@@ -41,16 +39,16 @@ class EventTableViewController : UITableViewController {
 
         cell.graph.event = event
         
-        cell.oppose.layer.borderColor = Colors.secondary.CGColor
+        cell.oppose.layer.borderColor = Colors.support.CGColor
         cell.oppose.layer.borderWidth = 1
         cell.oppose.layer.cornerRadius = 6
-        cell.oppose.tintColor = Colors.secondary
+        cell.oppose.tintColor = Colors.support
         cell.oppose.addTarget(self, action: #selector(oppose(_:)), forControlEvents: .TouchUpInside)
         
-        cell.support.layer.borderColor = Colors.secondary.CGColor
+        cell.support.layer.borderColor = Colors.support.CGColor
         cell.support.layer.borderWidth = 1
         cell.support.layer.cornerRadius = 6
-        cell.support.tintColor = Colors.secondary
+        cell.support.tintColor = Colors.support
         cell.support.addTarget(self, action: #selector(support(_:)), forControlEvents: .TouchUpInside)
         
         if showingButtons {
