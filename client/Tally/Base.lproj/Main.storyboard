@@ -821,6 +821,7 @@
                         <outlet property="headline" destination="d3f-Jt-42g" id="ek5-u5-kCa"/>
                         <outlet property="headlineHolder" destination="kLb-gJ-vMQ" id="rMF-h8-KDD"/>
                         <outlet property="image" destination="DNS-5z-Xmo" id="8zT-A5-0OC"/>
+                        <outlet property="imageIndicator" destination="oMY-Ux-sTl" id="5qk-l9-mYH"/>
                         <outlet property="oppose" destination="Ogh-7f-6Ya" id="CFm-n4-pcX"/>
                         <outlet property="politicianHolder" destination="Fwt-iz-jIj" id="k11-kM-VfX"/>
                         <outlet property="politicianHolderHeight" destination="N1m-hB-nTl" id="Csj-1i-CsM"/>

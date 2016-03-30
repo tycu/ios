@@ -9,6 +9,7 @@ class EventViewController: UIViewController {
     @IBOutlet weak var politicianName: UILabel!
     @IBOutlet weak var politicianJobTitle: UILabel!
     @IBOutlet weak var image: UIImageView!
+    @IBOutlet weak var imageIndicator: UIActivityIndicatorView!
     @IBOutlet weak var attribution: MarkdownLabel!
     @IBOutlet weak var headlineHolder: UIView!
     @IBOutlet weak var headline: UILabel!
@@ -50,6 +51,8 @@ class EventViewController: UIViewController {
                 image.sd_setImageWithURL(parsedUrl)
                 image.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(imageTapped)))
             }
+        } else {
+            imageIndicator.hidden = true
         }
         
         attribution.presentMarkdown(event.imageAttribution)
