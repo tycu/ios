@@ -636,12 +636,6 @@
                                                     <constraint firstAttribute="right" secondItem="shu-gi-Kwm" secondAttribute="right" constant="20" id="xXc-aJ-BSH"/>
                                                 </constraints>
                                             </view>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Attribution" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Sm-Fi-LZ2" customClass="MarkdownLabel" customModule="Tally" customModuleProvider="target">
-                                                <rect key="frame" x="15" y="65.5" width="290" height="14.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="oMY-Ux-sTl">
                                                 <rect key="frame" x="150" y="160" width="20" height="20"/>
                                             </activityIndicatorView>
@@ -651,6 +645,12 @@
                                                     <constraint firstAttribute="height" constant="220" id="4MP-hN-tag"/>
                                                 </constraints>
                                             </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Attribution" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Sm-Fi-LZ2" customClass="MarkdownLabel" customModule="Tally" customModuleProvider="target">
+                                                <rect key="frame" x="15" y="65.5" width="290" height="14.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kLb-gJ-vMQ" userLabel="Headline Holder">
                                                 <rect key="frame" x="0.0" y="280" width="320" height="130"/>
                                                 <subviews>
