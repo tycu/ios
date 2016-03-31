@@ -646,8 +646,8 @@
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Attribution" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Sm-Fi-LZ2" customClass="MarkdownLabel" customModule="Tally" customModuleProvider="target">
-                                                <rect key="frame" x="15" y="65.5" width="290" height="14.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <rect key="frame" x="15" y="259" width="290" height="16"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -787,7 +787,7 @@
                                             <constraint firstItem="Fwt-iz-jIj" firstAttribute="top" secondItem="Yee-my-JD1" secondAttribute="top" id="fcd-x3-DKv"/>
                                             <constraint firstItem="DNS-5z-Xmo" firstAttribute="top" secondItem="Fwt-iz-jIj" secondAttribute="bottom" id="g9h-MU-Ner"/>
                                             <constraint firstAttribute="right" secondItem="kLb-gJ-vMQ" secondAttribute="right" id="gwu-xF-A1M"/>
-                                            <constraint firstItem="9Sm-Fi-LZ2" firstAttribute="top" secondItem="DNS-5z-Xmo" secondAttribute="top" constant="5" id="h1g-tL-QMv"/>
+                                            <constraint firstItem="9Sm-Fi-LZ2" firstAttribute="bottom" secondItem="DNS-5z-Xmo" secondAttribute="bottom" constant="-5" id="h1g-tL-QMv"/>
                                             <constraint firstItem="oMY-Ux-sTl" firstAttribute="centerY" secondItem="DNS-5z-Xmo" secondAttribute="centerY" id="hml-Bx-Exn"/>
                                             <constraint firstItem="9Sm-Fi-LZ2" firstAttribute="left" secondItem="DNS-5z-Xmo" secondAttribute="left" constant="15" id="t7j-Cw-QBk"/>
                                             <constraint firstItem="oMY-Ux-sTl" firstAttribute="centerX" secondItem="DNS-5z-Xmo" secondAttribute="centerX" id="uNG-rD-uOe"/>

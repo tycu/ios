@@ -55,6 +55,7 @@ class EventViewController: UIViewController {
             imageIndicator.hidden = true
         }
         
+        attribution.textColor = UIColor.whiteColor()
         attribution.presentMarkdown(event.imageAttribution)
         
         headline.text = event.headline
