@@ -112,6 +112,10 @@ class EventsViewController : EventTableViewController {
     func segmentIndexSelected() {
         tableView.backgroundView = nil
         refresh(self)
+        
+        if events[activeSort]?.count > 0 {
+            tableView.scrollToRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0), atScrollPosition: UITableViewScrollPosition.Top, animated: false)
+        }
     }
     
     func hideDrafts() {
