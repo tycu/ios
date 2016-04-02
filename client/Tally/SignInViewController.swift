@@ -26,12 +26,14 @@ class SignInViewController : UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
+        navigationController?.navigationBar.translucent = true
         navigationController?.navigationBar.barStyle = .Black
     }
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillAppear(animated)
         
+        navigationController?.navigationBar.translucent = false
         navigationController?.navigationBar.barStyle = .Default
     }
     

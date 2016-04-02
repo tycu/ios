@@ -47,8 +47,8 @@ class SupportOpposeView : UIView {
         let textAttributes = [NSFontAttributeName: font, NSForegroundColorAttributeName: UIColor.whiteColor()]
         let textPadding = CGFloat(4)
         
-        let opposeText = (opposeTotal == 0 ? "" : "▼$\(opposeTotal.localizedString)") as NSString
-        let supportText = (supportTotal == 0 ? "" : "▲$\(supportTotal.localizedString)") as NSString
+        let opposeText = "▼$\(opposeTotal.localizedString)" as NSString
+        let supportText = "▲$\(supportTotal.localizedString)" as NSString
         
         let opposeTextSize = opposeText.sizeWithAttributes(textAttributes)
         let supportTextSize = supportText.sizeWithAttributes(textAttributes)

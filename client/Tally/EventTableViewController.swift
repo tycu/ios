@@ -51,11 +51,11 @@ class EventTableViewController : UITableViewController {
         cell.support.tintColor = Colors.support
         cell.support.addTarget(self, action: #selector(support(_:)), forControlEvents: .TouchUpInside)
         
-        if showingButtons {
+//        if showingButtons {
             cell.buttonsHolder.hidden = false
-        } else {
-            cell.buttonsHolder.hidden = true
-        }
+//        } else {
+//            cell.buttonsHolder.hidden = true
+//        }
         
         if let contribution = UserData.instance?.eventIdenToContribution[event.iden] {
             contribution.setLabel(cell.contribution)

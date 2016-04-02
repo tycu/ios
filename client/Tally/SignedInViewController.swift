@@ -42,6 +42,7 @@ class SignedInViewController : EventTableViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
+        navigationController?.navigationBar.translucent = true
         navigationController?.navigationBar.barStyle = .Black
         
         EventBus.register(self, forEvent: "user_data_changed", withHandler: { data in
@@ -55,6 +56,7 @@ class SignedInViewController : EventTableViewController {
     override func viewWillDisappear(animated: Bool) {
         super.viewWillAppear(animated)
         
+        navigationController?.navigationBar.translucent = false
         navigationController!.navigationBar.barStyle = .Default
         
         EventBus.unregister(self)
