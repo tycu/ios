@@ -11,12 +11,6 @@ class PacsViewController : UITableViewController {
         tableView.estimatedRowHeight = 86
     }
     
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        title = inSupport == true ? "Support Options" : "Opposition Options"
-    }
-    
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }

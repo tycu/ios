@@ -14,6 +14,8 @@ class EventTableViewController : UITableViewController {
     func prepareCell(cell: EventCell, forEvent event: Event) {
         cell.pictureIndicator.startAnimating()
         
+        cell.note.text = nil
+        
         cell.headline.text = event.headline
         
         // Increase the line height of the headline

@@ -37,9 +37,9 @@ class ContributionNavigationController : UINavigationController {
             } else {
                 let pacsViewController = storyboard!.instantiateViewControllerWithIdentifier("PacsViewController") as! PacsViewController
                 pacsViewController.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .Plain, target: pacsViewController, action: #selector(PacsViewController.cancel))
-                pacsViewController.navigationItem.title = "Contribution Options"
                 pacsViewController.pacs = pacs
                 pacsViewController.inSupport = inSupport
+                pacsViewController.title = inSupport == true ? "Support Options" : "Opposition Options"
                 setViewControllers([pacsViewController], animated: true)
             }
             return
@@ -65,16 +65,14 @@ class ContributionNavigationController : UINavigationController {
             return
         }
         
-//        if UserData.instance!.contributions.count > 0 {
-            if UserData.instance!.profile.occupation == nil || UserData.instance!.profile.employer == nil || UserData.instance!.profile.streetAddress == nil || UserData.instance!.profile.cityStateZip == nil {
-                let editProfileViewController = storyboard!.instantiateViewControllerWithIdentifier("EditProfileViewController") as! EditProfileViewController
-                editProfileViewController.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .Plain, target: editProfileViewController, action: #selector(EditProfileViewController.cancel))
-                editProfileViewController.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next", style: .Done, target: editProfileViewController, action: #selector(EditProfileViewController.done))
-                editProfileViewController.required = true
-                setViewControllers([editProfileViewController], animated: true)
-                return
-            }
-//        }
+        if UserData.instance!.profile.occupation == nil || UserData.instance!.profile.employer == nil || UserData.instance!.profile.streetAddress == nil || UserData.instance!.profile.cityStateZip == nil {
+            let editProfileViewController = storyboard!.instantiateViewControllerWithIdentifier("EditProfileViewController") as! EditProfileViewController
+            editProfileViewController.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .Plain, target: editProfileViewController, action: #selector(EditProfileViewController.cancel))
+            editProfileViewController.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next", style: .Done, target: editProfileViewController, action: #selector(EditProfileViewController.done))
+            editProfileViewController.required = true
+            setViewControllers([editProfileViewController], animated: true)
+            return
+        }
     
         if amount == nil {
             let contributeViewController = storyboard!.instantiateViewControllerWithIdentifier("ContributeViewController") as! ContributeViewController
