@@ -75,7 +75,7 @@ class EventsViewController : EventTableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let event = events[activeSort]![indexPath.row]
         let cell = tableView.dequeueReusableCellWithIdentifier("EventCell", forIndexPath: indexPath) as! EventCell
-        prepareCell(cell, forEvent: event, showingPicture: true, showingButtons: activeSort == .Recent && indexPath.row == 0 && politician == nil)
+        prepareCell(cell, forEvent: event)
         cell.oppose.tag = indexPath.row
         cell.support.tag = indexPath.row
         return cell

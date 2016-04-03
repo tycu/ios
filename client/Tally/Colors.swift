@@ -16,6 +16,8 @@ class Colors {
         return UIColor(colorLiteralRed: components[0], green: components[1], blue: components[2], alpha: 0.5)
     }()
     
+    static let divider = UIColor(hex: "#DDDDDD")
+    
     static let democrat = UIColor(hex: "#0049A3")
     static let republican = UIColor(hex: "#BE2600")
     

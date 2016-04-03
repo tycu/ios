@@ -18,7 +18,6 @@ class EventViewController: UIViewController {
     @IBOutlet weak var oppose: UIButton!
     @IBOutlet weak var support: UIButton!
     @IBOutlet weak var summary: MarkdownLabel!
-    @IBOutlet weak var contribution: UILabel!
     var event: Event!
     var hidePolitician = false
     
@@ -70,18 +69,6 @@ class EventViewController: UIViewController {
         
         graph.event = event
         
-        oppose.layer.borderColor = Colors.support.CGColor
-        oppose.layer.borderWidth = 1
-        oppose.layer.cornerRadius = 6
-        oppose.tintColor = Colors.support
-        oppose.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(oppose(_:))))
-        
-        support.layer.borderColor = Colors.support.CGColor
-        support.layer.borderWidth = 1
-        support.layer.cornerRadius = 6
-        support.tintColor = Colors.support
-        support.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(support(_:))))
-        
         summary.presentMarkdown(event.summary)
         
         // Increase the line height of each paragraph (this doensn't apply to the blank lines between paragraphs)
@@ -102,15 +89,57 @@ class EventViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        if event.supportPacs.count == 0 && event.opposePacs.count == 0 {
-            buttonsHolder.hidden = true
-        }
+        oppose.hidden = false
+        oppose.setTitle("Oppose", forState: .Normal)
+        oppose.layer.borderColor = Colors.support.CGColor
+        oppose.backgroundColor = nil
+        oppose.layer.borderWidth = 1
+        oppose.layer.cornerRadius = 6
+        oppose.tintColor = Colors.support
+        oppose.removeTarget(self, action: nil, forControlEvents: .AllEvents)
+        
+        support.hidden = false
+        support.setTitle("Support", forState: .Normal)
+        support.layer.borderColor = Colors.support.CGColor
+        support.backgroundColor = nil
+        support.layer.borderWidth = 1
+        support.layer.cornerRadius = 6
+        support.tintColor = Colors.support
+        support.removeTarget(self, action: nil, forControlEvents: .AllEvents)
         
         if let contribution = UserData.instance?.eventIdenToContribution[event.iden] {
-            buttonsHolder.hidden = true
-            contribution.setLabel(self.contribution)
+            let filled: UIButton, disabled: UIButton
+            if contribution.support {
+                filled = support
+                disabled = oppose
+                
+                filled.backgroundColor = Colors.support
+                filled.setTitle("Support ($\(contribution.amount))", forState: .Normal)
+            } else {
+                filled = oppose
+                disabled = support
+                
+                filled.backgroundColor = Colors.oppose
+                filled.setTitle("Oppose ($\(contribution.amount))", forState: .Normal)
+            }
+            
+            filled.layer.borderWidth = 0
+            filled.tintColor = UIColor.whiteColor()
+            
+            disabled.layer.borderColor = Colors.divider.CGColor
+            disabled.tintColor = Colors.divider
         } else {
-            contribution.text = nil
+            if event.opposePacs.count > 0 {
+                oppose.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(oppose(_:))))
+            } else {
+                oppose.hidden = true
+            }
+            
+            if event.supportPacs.count > 0 {
+                support.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(support(_:))))
+            } else {
+                support.hidden = true
+            }
         }
     }
     

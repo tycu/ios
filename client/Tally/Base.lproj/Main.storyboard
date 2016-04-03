@@ -558,12 +558,11 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="WNW-51-RJ1" secondAttribute="bottom" constant="20" id="7Ca-vb-tqw"/>
                                     <constraint firstItem="WNW-51-RJ1" firstAttribute="centerX" secondItem="Cgs-3Y-Hkn" secondAttribute="centerX" id="9Ph-Rr-TqO"/>
                                     <constraint firstItem="Jy3-iz-wFT" firstAttribute="centerY" secondItem="Cgs-3Y-Hkn" secondAttribute="centerY" id="d6O-2W-mha"/>
-                                    <constraint firstAttribute="bottom" secondItem="WNW-51-RJ1" secondAttribute="bottom" constant="20" id="oS9-sL-rML"/>
-                                    <constraint firstItem="WNW-51-RJ1" firstAttribute="top" secondItem="Cgs-3Y-Hkn" secondAttribute="top" constant="20" id="pIA-X3-0hg"/>
+                                    <constraint firstItem="WNW-51-RJ1" firstAttribute="top" secondItem="Cgs-3Y-Hkn" secondAttribute="top" constant="20" id="poX-v6-xyb"/>
                                     <constraint firstItem="Jy3-iz-wFT" firstAttribute="centerX" secondItem="Cgs-3Y-Hkn" secondAttribute="centerX" id="wrq-gh-4Wx"/>
-                                    <constraint firstItem="WNW-51-RJ1" firstAttribute="centerY" secondItem="Cgs-3Y-Hkn" secondAttribute="centerY" id="xJb-CE-Eo6"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -732,18 +731,11 @@
                                                             <constraint firstItem="5Cl-bk-hXC" firstAttribute="height" secondItem="jkq-Og-PyJ" secondAttribute="height" id="sZp-Us-sEl"/>
                                                         </constraints>
                                                     </stackView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contribution" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1cP-jO-jQu">
-                                                        <rect key="frame" x="30" y="90" width="260" height="40"/>
-                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
-                                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="bottom" secondItem="LN9-2e-oOY" secondAttribute="bottom" id="2OE-rb-1LG"/>
                                                     <constraint firstItem="kEg-Tf-V4L" firstAttribute="leading" secondItem="kLb-gJ-vMQ" secondAttribute="leading" constant="15" id="858-eF-lUb"/>
-                                                    <constraint firstItem="1cP-jO-jQu" firstAttribute="top" secondItem="LN9-2e-oOY" secondAttribute="top" id="8Yi-f7-ps7"/>
                                                     <constraint firstItem="kEg-Tf-V4L" firstAttribute="top" secondItem="d3f-Jt-42g" secondAttribute="bottom" constant="15" id="Bj1-LN-4ga"/>
                                                     <constraint firstItem="LN9-2e-oOY" firstAttribute="leading" secondItem="kLb-gJ-vMQ" secondAttribute="leading" constant="30" id="EMU-dh-qer"/>
                                                     <constraint firstItem="d3f-Jt-42g" firstAttribute="left" secondItem="kLb-gJ-vMQ" secondAttribute="left" constant="15" id="LeQ-8s-Ac3"/>
@@ -752,9 +744,6 @@
                                                     <constraint firstAttribute="trailing" secondItem="kEg-Tf-V4L" secondAttribute="trailing" constant="15" id="azx-tX-8Ji"/>
                                                     <constraint firstItem="d3f-Jt-42g" firstAttribute="top" secondItem="kLb-gJ-vMQ" secondAttribute="top" constant="10" id="b8B-3n-acF"/>
                                                     <constraint firstItem="LN9-2e-oOY" firstAttribute="top" secondItem="kEg-Tf-V4L" secondAttribute="bottom" constant="18" id="crQ-5M-vUD"/>
-                                                    <constraint firstItem="1cP-jO-jQu" firstAttribute="leading" secondItem="LN9-2e-oOY" secondAttribute="leading" id="d0T-bI-2fz"/>
-                                                    <constraint firstItem="1cP-jO-jQu" firstAttribute="trailing" secondItem="LN9-2e-oOY" secondAttribute="trailing" id="iYB-bQ-n1g"/>
-                                                    <constraint firstItem="1cP-jO-jQu" firstAttribute="bottom" secondItem="LN9-2e-oOY" secondAttribute="bottom" id="rr1-Pu-tVD"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gYS-w9-u5v" userLabel="Summary Holder">
@@ -828,7 +817,6 @@
                     <connections>
                         <outlet property="attribution" destination="9Sm-Fi-LZ2" id="Rwn-Gw-VM1"/>
                         <outlet property="buttonsHolder" destination="LN9-2e-oOY" id="tT9-Jg-YX3"/>
-                        <outlet property="contribution" destination="1cP-jO-jQu" id="Jww-Qu-cww"/>
                         <outlet property="graph" destination="kEg-Tf-V4L" id="sWZ-WS-H36"/>
                         <outlet property="headline" destination="d3f-Jt-42g" id="ek5-u5-kCa"/>
                         <outlet property="headlineHolder" destination="kLb-gJ-vMQ" id="rMF-h8-KDD"/>
@@ -1390,7 +1378,7 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We've received your contribution. Thank you!" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Rh-Nj-AbC">
                                                 <rect key="frame" x="15" y="15" width="290" height="41"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
-                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YR9-Xd-taO" userLabel="Twitter">
@@ -1402,7 +1390,7 @@
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tweet" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vsd-Ot-5H5">
                                                                 <rect key="frame" x="13" y="10" width="234" height="20.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                         </subviews>

@@ -14,14 +14,14 @@
                 <stackView opaque="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="KSb-3k-i7c">
                     <rect key="frame" x="8" y="8" width="584" height="584"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contribution" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qap-GU-YZ8">
-                            <rect key="frame" x="0.0" y="0.0" width="584" height="242"/>
+                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tag" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qap-GU-YZ8">
+                            <rect key="frame" x="0.0" y="0.0" width="584" height="0.0"/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7nY-Bl-STI">
-                            <rect key="frame" x="0.0" y="252" width="584" height="274"/>
+                            <rect key="frame" x="0.0" y="0.0" width="584" height="526"/>
                             <subviews>
                                 <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="08Z-Vl-O17">
                                     <rect key="frame" x="282" y="90" width="20" height="20"/>
@@ -33,13 +33,13 @@
                                     </constraints>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Headline" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Faj-ly-0aT">
-                                    <rect key="frame" x="0.0" y="210" width="552" height="23"/>
+                                    <rect key="frame" x="0.0" y="210" width="552" height="275"/>
                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="19"/>
                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="diF-ka-fF7" customClass="SupportOpposeView" customModule="Tally" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="246" width="584" height="20"/>
+                                    <rect key="frame" x="0.0" y="498" width="584" height="20"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="20" id="ujy-1Y-oqV"/>
@@ -158,9 +158,9 @@
             </constraints>
             <connections>
                 <outlet property="buttonsHolder" destination="olN-GX-fbz" id="65M-7X-XtB"/>
-                <outlet property="contribution" destination="Qap-GU-YZ8" id="hES-ki-08b"/>
                 <outlet property="graph" destination="diF-ka-fF7" id="kPx-xE-hlB"/>
                 <outlet property="headline" destination="Faj-ly-0aT" id="pjl-IY-zyp"/>
+                <outlet property="note" destination="Qap-GU-YZ8" id="XUH-Pc-Z69"/>
                 <outlet property="oppose" destination="I9C-br-gZA" id="lhQ-y0-o7J"/>
                 <outlet property="picture" destination="c7l-gF-jJD" id="vKj-I3-k3t"/>
                 <outlet property="pictureBottomSpace" destination="LRV-Is-3PF" id="yes-3q-dfa"/>

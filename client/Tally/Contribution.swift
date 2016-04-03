@@ -32,14 +32,4 @@ class Contribution {
             throw Error.QuietError("Invalid donation data")
         }
     }
-    
-    func setLabel(label: UILabel) {
-        if support {
-            label.textColor = Colors.support
-            label.text = "Support ($\(amount))"
-        } else {
-            label.textColor = Colors.oppose
-            label.text = "Oppose ($\(amount))"
-        }
-    }
 }
