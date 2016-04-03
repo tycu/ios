@@ -37,6 +37,7 @@ class ContributionNavigationController : UINavigationController {
             } else {
                 let pacsViewController = storyboard!.instantiateViewControllerWithIdentifier("PacsViewController") as! PacsViewController
                 pacsViewController.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .Plain, target: pacsViewController, action: #selector(PacsViewController.cancel))
+                pacsViewController.event = event
                 pacsViewController.pacs = pacs
                 pacsViewController.inSupport = inSupport
                 pacsViewController.title = inSupport == true ? "Support Options" : "Opposition Options"

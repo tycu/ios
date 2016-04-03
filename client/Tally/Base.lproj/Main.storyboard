@@ -859,14 +859,33 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="0Fi-lj-XyY">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="75"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Where do you want to contribute in opposition to ?" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qEJ-Zf-4WI">
+                                    <rect key="frame" x="15" y="15" width="290" height="45"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803915" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="qEJ-Zf-4WI" secondAttribute="trailing" constant="15" id="20f-WF-L6B"/>
+                                <constraint firstItem="qEJ-Zf-4WI" firstAttribute="leading" secondItem="0Fi-lj-XyY" secondAttribute="leading" constant="15" id="O5U-uw-s2S"/>
+                                <constraint firstAttribute="bottom" secondItem="qEJ-Zf-4WI" secondAttribute="bottom" constant="15" id="Vmx-KQ-gPF"/>
+                                <constraint firstItem="qEJ-Zf-4WI" firstAttribute="top" secondItem="0Fi-lj-XyY" secondAttribute="top" constant="15" id="zBh-Zl-JAS"/>
+                            </constraints>
+                        </view>
                         <view key="tableFooterView" contentMode="scaleToFill" id="tRy-p9-1av">
-                            <rect key="frame" x="0.0" y="116" width="320" height="0.0"/>
+                            <rect key="frame" x="0.0" y="191" width="320" height="0.0"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PacCell" id="yhu-lR-Yzp" customClass="PacCell" customModule="Tally">
-                                <rect key="frame" x="0.0" y="28" width="320" height="88"/>
+                                <rect key="frame" x="0.0" y="103" width="320" height="88"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" tableViewCell="yhu-lR-Yzp" id="Gms-pO-pHM">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="87.5"/>
@@ -946,6 +965,9 @@
                         </connections>
                     </tableView>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="heading" destination="qEJ-Zf-4WI" id="UBG-Zi-4ww"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="di1-8C-huc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

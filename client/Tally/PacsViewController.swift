@@ -1,4 +1,6 @@
 class PacsViewController : UITableViewController {
+    @IBOutlet weak var heading: UILabel!
+    var event: Event!
     var pacs: [Pac]!
     var inSupport: Bool!
     
@@ -9,6 +11,12 @@ class PacsViewController : UITableViewController {
         
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 86
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        heading.text = "Where would you like to contribute in" + (inSupport == true ? " support of " : " opposition to ") + event.politician.name + "?"
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
