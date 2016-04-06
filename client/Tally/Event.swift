@@ -3,6 +3,7 @@ import Foundation
 class Event {
     let iden: String, headline:String
     let summary: String?, imageUrl: String?, imageAttribution: String?
+    let supportTweet: String?, opposeTweet: String?
     let created: NSDate, modified: NSDate
     let politician: Politician!
     var supportPacs = [Pac]()
@@ -17,6 +18,8 @@ class Event {
             imageAttribution = data["imageAttribution"] as? String
             summary = data["summary"] as? String
             imageUrl = data["imageUrl"] as? String
+            supportTweet = data["supportTweet"] as? String
+            opposeTweet = data["opposeTweet"] as? String
             self.created = NSDate(timeIntervalSince1970: created)
             self.modified = NSDate(timeIntervalSince1970: modified)
             self.supportTotal = supportTotal
@@ -44,6 +47,8 @@ class Event {
             summary = ""
             imageAttribution = nil
             imageUrl = nil
+            supportTweet = nil
+            opposeTweet = nil
             created = NSDate()
             modified = NSDate()
             politician = nil

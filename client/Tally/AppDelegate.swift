@@ -33,6 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GGLInstanceIDDelegate {
         if let lastActive = lastActive {
             if abs(Int(lastActive.timeIntervalSinceNow)) > 120 {
                 UserData.update(nil)
+                EventBus.post("refresh_data")
             }
         }
         

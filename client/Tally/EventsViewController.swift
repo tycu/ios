@@ -56,6 +56,10 @@ class EventsViewController : EventTableViewController {
         EventBus.register(self, forEvent: "user_data_changed", withHandler: { data in
             self.tableView.reloadData()
         })
+        
+        EventBus.register(self, forEvent: "refresh_data", withHandler: { data in
+            self.refresh(self.refreshControl!)
+        })
     }
     
     override func viewWillDisappear(animated: Bool) {
