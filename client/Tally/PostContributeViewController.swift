@@ -18,7 +18,7 @@ class PostContributeViewController : UIViewController {
         super.viewDidLoad()
         
         if let suggestedTweet = contributionNavigationController.inSupport == true ? contributionNavigationController.event.supportTweet : contributionNavigationController.event.opposeTweet, let twitterUsername = contributionNavigationController.event.politician.twitterUsername {
-            let attributedString = NSMutableAttributedString(string: ".\(twitterUsername) \(suggestedTweet)")
+            let attributedString = NSMutableAttributedString(string: ".@\(twitterUsername) \(suggestedTweet)")
             attributedString.addAttribute(NSForegroundColorAttributeName, value: Colors.twitter, range: NSMakeRange(1, twitterUsername.characters.count))
             
             let range = (attributedString.string as NSString).rangeOfString("@tallyus")
