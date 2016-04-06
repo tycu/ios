@@ -44,7 +44,7 @@ class EventViewController: UIViewController {
         }
         
         if event.imageUrl != nil && image.sd_imageURL() == nil {
-            let imgixConfig = "?w=818&fit=crop"
+            let imgixConfig = "?w=828&fit=crop"
             let imageUrl = event.imageUrl! + imgixConfig
             if let parsedUrl = NSURL(string:imageUrl) {
                 image.sd_setImageWithURL(parsedUrl)
