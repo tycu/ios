@@ -77,7 +77,7 @@ class PostContributeViewController : UIViewController {
     func shareOnFacebook() {
         let shareContent = FBSDKShareLinkContent()
         shareContent.contentTitle = contributionNavigationController.event.headline
-        shareContent.contentURL = NSURL(string: "https://www.tally.us")
+        shareContent.contentURL = NSURL(string: "https://itunes.apple.com/us/app/tally-politics-in-your-pocket/id1100538994?ls=1&mt=8")
         
         if let imageUrl = contributionNavigationController.event.imageUrl {
             shareContent.imageURL = NSURL(string: imageUrl)
