@@ -90,10 +90,10 @@ class MarkdownLabel: TTTAttributedLabel, TTTAttributedLabelDelegate {
                 var location = 0
                 while !done {
                     if let match = pair.regex.firstMatchInString(attributedString.string, options: [.WithoutAnchoringBounds], range: NSRange(location: location, length: attributedString.length - location)) {
-                        let oldLength = attributedString.length;
-                        pair.mutator(match, attributedString);
-                        let newLength = attributedString.length;
-                        location = match.range.location + match.range.length + newLength - oldLength;
+                        let oldLength = attributedString.length
+                        pair.mutator(match, attributedString)
+                        let newLength = attributedString.length
+                        location = match.range.location + match.range.length + newLength - oldLength
                     } else {
                         done = true
                     }

@@ -17,12 +17,24 @@ class PostContributeViewController : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let suggestedTweet = contributionNavigationController.inSupport == true ? contributionNavigationController.event.supportTweet : contributionNavigationController.event.opposeTweet, let twitterUsername = contributionNavigationController.event.politician.twitterUsername {
-            let attributedString = NSMutableAttributedString(string: ".@\(twitterUsername) \(suggestedTweet)")
-            attributedString.addAttribute(NSForegroundColorAttributeName, value: Colors.twitter, range: NSMakeRange(1, twitterUsername.characters.count))
+        if let suggestedTweet = contributionNavigationController.event.tweets?[contributionNavigationController.selectedPac!.iden] {
+            let attributedString = NSMutableAttributedString(string: suggestedTweet)
             
-            let range = (attributedString.string as NSString).rangeOfString("@tallyus")
-            attributedString.addAttribute(NSForegroundColorAttributeName, value: Colors.twitter, range: range)
+            let usernameRegex = try! NSRegularExpression(pattern: "@(\\w{1,15})\\b", options: [])
+            
+            var done = false
+            var location = 0
+            while !done {
+                if let match = usernameRegex.firstMatchInString(attributedString.string, options: [.WithoutAnchoringBounds], range: NSRange(location: location, length: attributedString.length - location)) {
+                    let oldLength = attributedString.length
+                    print(match.range)
+                    attributedString.addAttribute(NSForegroundColorAttributeName, value: Colors.twitter, range: match.range)
+                    let newLength = attributedString.length
+                    location = match.range.location + match.range.length + newLength - oldLength;
+                } else {
+                    done = true
+                }
+            }
             
             tweet.attributedText = attributedString
             
