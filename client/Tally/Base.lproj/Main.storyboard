@@ -517,6 +517,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Profile" id="36W-v8-Kss"/>
                     <connections>
+                        <outlet property="bottomConstraint" destination="gTI-mz-mfA" id="Oi0-ou-zSA"/>
                         <outlet property="cityStateZip" destination="TPh-lN-XuA" id="euO-tC-yqs"/>
                         <outlet property="employer" destination="B9V-hz-2eP" id="7wd-Fv-cOM"/>
                         <outlet property="federalLaw" destination="FED-XQ-XpQ" id="X6y-7S-oBe"/>

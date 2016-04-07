@@ -6,6 +6,7 @@ class EditProfileViewController : UIViewController {
     @IBOutlet weak var streetAddress: UITextField!
     @IBOutlet weak var cityStateZip: UITextField!
     @IBOutlet weak var federalLaw: UIView!
+    @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
     var required = false
     
     var inputIsValid: Bool {
@@ -45,6 +46,16 @@ class EditProfileViewController : UIViewController {
         }
         
         textChanged()
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIKeyboardWillHideNotification, object: nil)
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillHideNotification, object: nil)
     }
     
     func textChanged() {
@@ -103,5 +114,33 @@ class EditProfileViewController : UIViewController {
     
     func dismiss() {
         navigationController!.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func keyboardWillShow(notification: NSNotification) {
+        let userInfo = notification.userInfo!
+        let animationDuration = (userInfo[UIKeyboardAnimationDurationUserInfoKey] as! NSNumber).doubleValue
+        let keyboardEndFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue()
+        let convertedKeyboardEndFrame = view.convertRect(keyboardEndFrame, fromView: view.window)
+        let rawAnimationCurve = (notification.userInfo![UIKeyboardAnimationCurveUserInfoKey]as! NSNumber).unsignedIntValue << 16
+        let animationCurve = UIViewAnimationOptions(rawValue: UInt(rawAnimationCurve))
+        
+        bottomConstraint.constant = CGRectGetMaxY(view.bounds) - CGRectGetMinY(convertedKeyboardEndFrame) + 10
+        
+        UIView.animateWithDuration(animationDuration, delay: 0.0, options: [.BeginFromCurrentState, animationCurve], animations: {
+            self.view.layoutIfNeeded()
+            }, completion: nil)
+    }
+    
+    func keyboardWillHide(notification: NSNotification) {
+        let userInfo = notification.userInfo!
+        let animationDuration = (userInfo[UIKeyboardAnimationDurationUserInfoKey] as! NSNumber).doubleValue
+        let rawAnimationCurve = (notification.userInfo![UIKeyboardAnimationCurveUserInfoKey]as! NSNumber).unsignedIntValue << 16
+        let animationCurve = UIViewAnimationOptions(rawValue: UInt(rawAnimationCurve))
+        
+        bottomConstraint.constant = 10
+        
+        UIView.animateWithDuration(animationDuration, delay: 0.0, options: [.BeginFromCurrentState, animationCurve], animations: {
+            self.view.layoutIfNeeded()
+            }, completion: nil)
     }
 }
