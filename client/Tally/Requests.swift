@@ -48,11 +48,14 @@ class Requests {
             let httpResponse = response as! NSHTTPURLResponse
             var body: [String: AnyObject]?
             
+            do {
+                body = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions(rawValue: 0)) as? [String: AnyObject]
+            } catch let e {
+                p(e)
+            }
+            
             if httpResponse.statusCode == 200 {
-                do {
-                    body = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions(rawValue: 0)) as? [String: AnyObject]
-                } catch let e {
-                    p(e)
+                if body == nil {
                     dispatch_async(dispatch_get_main_queue(), {
                         completionHandler(nil, NSError(domain:NSBundle.mainBundle().bundleIdentifier!, code:0, userInfo:[NSLocalizedDescriptionKey: "Error parsing json"]))
                     })

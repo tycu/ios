@@ -55,8 +55,16 @@ class AddCardViewController : UIViewController, STPPaymentCardTextFieldDelegate 
                             self.next()
                         })
                     } else {
-                        showErrorDialogWithMessage("Unable to add card, please try again.", inViewController: self)
                         self.unlockUI()
+                        
+                        if let error = response?.body?["error"] as? [String : String] {
+                            if let message = error["message"] {
+                                showErrorDialogWithMessage(message, inViewController: self)
+                                return
+                            }
+                        }
+                        
+                        showErrorDialogWithMessage("Unable to add card, please try again.", inViewController: self)
                     }
                 })
             }
