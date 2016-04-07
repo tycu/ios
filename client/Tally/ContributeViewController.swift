@@ -61,12 +61,6 @@ class ContributeViewController : UIViewController {
         contribute.addTarget(self, action: #selector(contributeTapped), forControlEvents: .TouchUpInside)
     }
     
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        title = inSupport == true ? "Support" : "Oppose"
-    }
-    
     func changeAmount(sender: UITapGestureRecognizer) {
         var amountStrings = [String]()
         for amount in amounts {

@@ -1,4 +1,5 @@
 class EditProfileViewController : UIViewController {
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var profileHolder: UIView!
     @IBOutlet weak var name: UITextField!
     @IBOutlet weak var occupation: UITextField!
@@ -6,7 +7,6 @@ class EditProfileViewController : UIViewController {
     @IBOutlet weak var streetAddress: UITextField!
     @IBOutlet weak var cityStateZip: UITextField!
     @IBOutlet weak var federalLaw: UIView!
-    @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
     var required = false
     
     var inputIsValid: Bool {
@@ -40,10 +40,6 @@ class EditProfileViewController : UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        
-        if !required {
-            federalLaw.hidden = true
-        }
         
         textChanged()
         
@@ -117,30 +113,17 @@ class EditProfileViewController : UIViewController {
     }
     
     func keyboardWillShow(notification: NSNotification) {
-        let userInfo = notification.userInfo!
-        let animationDuration = (userInfo[UIKeyboardAnimationDurationUserInfoKey] as! NSNumber).doubleValue
-        let keyboardEndFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue()
-        let convertedKeyboardEndFrame = view.convertRect(keyboardEndFrame, fromView: view.window)
-        let rawAnimationCurve = (notification.userInfo![UIKeyboardAnimationCurveUserInfoKey]as! NSNumber).unsignedIntValue << 16
-        let animationCurve = UIViewAnimationOptions(rawValue: UInt(rawAnimationCurve))
+        print(scrollView.contentSize)
         
-        bottomConstraint.constant = CGRectGetMaxY(view.bounds) - CGRectGetMinY(convertedKeyboardEndFrame) + 10
+        let contentInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: (notification.userInfo![UIKeyboardFrameBeginUserInfoKey] as! NSValue).CGRectValue().height, right: 0.0)
+        print(contentInsets)
         
-        UIView.animateWithDuration(animationDuration, delay: 0.0, options: [.BeginFromCurrentState, animationCurve], animations: {
-            self.view.layoutIfNeeded()
-            }, completion: nil)
+        scrollView.contentInset = contentInsets
+        scrollView.scrollIndicatorInsets = contentInsets
     }
     
     func keyboardWillHide(notification: NSNotification) {
-        let userInfo = notification.userInfo!
-        let animationDuration = (userInfo[UIKeyboardAnimationDurationUserInfoKey] as! NSNumber).doubleValue
-        let rawAnimationCurve = (notification.userInfo![UIKeyboardAnimationCurveUserInfoKey]as! NSNumber).unsignedIntValue << 16
-        let animationCurve = UIViewAnimationOptions(rawValue: UInt(rawAnimationCurve))
-        
-        bottomConstraint.constant = 10
-        
-        UIView.animateWithDuration(animationDuration, delay: 0.0, options: [.BeginFromCurrentState, animationCurve], animations: {
-            self.view.layoutIfNeeded()
-            }, completion: nil)
+        scrollView.contentInset = UIEdgeInsetsZero
+        scrollView.scrollIndicatorInsets = UIEdgeInsetsZero
     }
 }
