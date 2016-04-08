@@ -3,7 +3,7 @@ class ContributionNavigationController : UINavigationController {
     var inSupport: Bool!
     var selectedPac: Pac?
     var amount: Int?
-    var steps = 1
+    var steps = 0
     var currentStep = 0
     
     func prepareForEvent(event: Event, inSupport: Bool) {
@@ -13,20 +13,6 @@ class ContributionNavigationController : UINavigationController {
         let pacs = inSupport == true ? event.supportPacs : event.opposePacs
         if pacs.count == 1 {
             selectedPac = pacs[0]
-        }
-        
-        let needsPac = selectedPac == nil
-        let needsCard = !UserData.instance!.chargeable
-        let needsProfile = UserData.instance!.profile.occupation == nil || UserData.instance!.profile.employer == nil || UserData.instance!.profile.streetAddress == nil || UserData.instance!.profile.cityStateZip == nil
-        
-        if needsPac {
-            steps += 1
-        }
-        if needsCard {
-            steps += 1
-        }
-        if needsProfile {
-            steps += 1
         }
         
         next()
@@ -64,6 +50,19 @@ class ContributionNavigationController : UINavigationController {
         let needsPac = selectedPac == nil
         let needsCard = !UserData.instance!.chargeable
         let needsProfile = UserData.instance!.profile.occupation == nil || UserData.instance!.profile.employer == nil || UserData.instance!.profile.streetAddress == nil || UserData.instance!.profile.cityStateZip == nil
+        
+        if steps == 0 {
+            steps = 1
+            if needsPac {
+                steps += 1
+            }
+            if needsCard {
+                steps += 1
+            }
+            if needsProfile {
+                steps += 1
+            }
+        }
         
         currentStep += 1
         
