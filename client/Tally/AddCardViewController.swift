@@ -51,7 +51,11 @@ class AddCardViewController : UIViewController, STPPaymentCardTextFieldDelegate 
             }
             
             if let token = token {
-                Requests.post(Endpoints.setCard, withBody: ["cardToken": token.tokenId], completionHandler: { response, error in
+                var body = [String : AnyObject]()
+                body["stripeKey"] = Stripe.defaultPublishableKey()!
+                body["cardToken"] = token.tokenId
+                
+                Requests.post(Endpoints.setCard, withBody: body, completionHandler: { response, error in
                     if response?.statusCode == 200 {
                         Analytics.track("updated_card")
                         UserData.update({ succeeded in

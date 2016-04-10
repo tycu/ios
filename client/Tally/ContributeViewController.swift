@@ -1,5 +1,6 @@
 import ActionSheetPicker_3_0
 import LocalAuthentication
+import Stripe
 
 class ContributeViewController : UIViewController {
     @IBOutlet weak var eventThumbnail: UIImageView!
@@ -142,6 +143,7 @@ class ContributeViewController : UIViewController {
         body["eventIden"] = event.iden
         body["pacIden"] = pac.iden
         body["amount"] = amounts[amountIndex]
+        body["stripeKey"] = Stripe.defaultPublishableKey()!
         
         Requests.post(Endpoints.createContribution, withBody: body, completionHandler: { response, error in
             if response?.statusCode == 200 {
