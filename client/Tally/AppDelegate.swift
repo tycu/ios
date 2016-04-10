@@ -2,6 +2,7 @@ import UIKit
 import SSKeychain
 import Stripe
 import Social
+import Mixpanel
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, GGLInstanceIDDelegate {
@@ -13,6 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GGLInstanceIDDelegate {
         SSKeychain.setAccessibilityType(kSecAttrAccessibleAfterFirstUnlock)
         Stripe.setDefaultPublishableKey("pk_test_Cp9lEtzreLcuDVH4IFE6RVhD")
         GCMService.sharedInstance().startWithConfig(GCMConfig.defaultConfig())
+        Mixpanel.sharedInstanceWithToken("efa550b01666a789576f79f4b59fb12c")
         
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
         window!.backgroundColor = UIColor.whiteColor()
@@ -35,6 +37,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GGLInstanceIDDelegate {
                 UserData.update(nil)
                 EventBus.post("refresh_data")
             }
+        } else {
+            UserData.update({ succeeded in
+                Analytics.track("active")
+            })
         }
         
         if let eventIden = notificationEventIden {

@@ -52,6 +52,7 @@ class SignInViewController : UIViewController {
                         if response?.statusCode == 200 {
                             if let token = response!.body?["accessToken"] as? String {
                                 Keychain.setAccessToken(token)
+                                Analytics.track("signed_in")
                                 UserData.update({ succeeded in
                                     if succeeded {
                                         self.next()
@@ -85,11 +86,17 @@ class SignInViewController : UIViewController {
         } else if let parentViewController = parentViewController as? ContributionNavigationController {
             parentViewController.next()
         } else {
+            Analytics.track("first_screen", properties: ["signed_in": true])
             dismiss()
         }
     }
     
     func cancel() {
+        if parentViewController is ProfileViewController || parentViewController is ContributionNavigationController {
+        } else {
+            Analytics.track("first_screen", properties: ["signed_in": false])
+        }
+        
         dismiss()
     }
     

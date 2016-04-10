@@ -14,6 +14,8 @@ class AddCardViewController : UIViewController, STPPaymentCardTextFieldDelegate 
         super.viewDidAppear(animated)
         
         cardField.becomeFirstResponder()
+        
+        Analytics.track("enter_card")
     }
     
     func paymentCardTextFieldDidChange(textField: STPPaymentCardTextField) {
@@ -51,6 +53,7 @@ class AddCardViewController : UIViewController, STPPaymentCardTextFieldDelegate 
             if let token = token {
                 Requests.post(Endpoints.setCard, withBody: ["cardToken": token.tokenId], completionHandler: { response, error in
                     if response?.statusCode == 200 {
+                        Analytics.track("updated_card")
                         UserData.update({ succeeded in
                             self.next()
                         })

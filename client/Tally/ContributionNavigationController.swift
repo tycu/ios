@@ -6,7 +6,7 @@ class ContributionNavigationController : UINavigationController {
     var steps = 0
     var currentStep = 0
     
-    func prepareForEvent(event: Event, inSupport: Bool) {
+    func prepareForEvent(event: Event, inSupport: Bool, fromList: Bool) {
         self.event = event
         self.inSupport = inSupport
         
@@ -16,10 +16,14 @@ class ContributionNavigationController : UINavigationController {
         }
         
         next()
+        
+        Analytics.track("start_contribution_flow", properties: ["event_iden": event.iden, "choice": inSupport ? "support" : "oppose", "from_list": fromList])
     }
     
     func next() {
         if Keychain.getAccessToken() == nil {
+            Analytics.track("signin_required")
+            
             let signInViewController = storyboard!.instantiateViewControllerWithIdentifier("SignInViewController")
             let cancel = UIBarButtonItem(title: "Cancel", style: .Plain, target: signInViewController, action: #selector(SignInViewController.cancel))
             cancel.tintColor = UIColor.whiteColor()

@@ -12,4 +12,5 @@ target 'Tally' do
     pod 'Stripe'
     pod 'ActionSheetPicker-3.0'
     pod 'JTSImageViewController'
+    pod 'Mixpanel'
 end

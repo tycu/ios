@@ -59,6 +59,8 @@ class ContributeViewController : UIViewController {
         contribute.layer.cornerRadius = 6
         contribute.tintColor = Colors.primary
         contribute.addTarget(self, action: #selector(contributeTapped), forControlEvents: .TouchUpInside)
+        
+        Analytics.track("make_contribution")
     }
     
     func changeAmount(sender: UITapGestureRecognizer) {
@@ -89,6 +91,8 @@ class ContributeViewController : UIViewController {
         let alert = UIAlertController(title: "Fee Details", message: "Tally charges a fee to cover transaction and operating costs.", preferredStyle: .Alert)
         alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
         presentViewController(alert, animated: true, completion: nil)
+        
+        Analytics.track("fee_info")
     }
     
     func contributeTapped() {
@@ -126,41 +130,43 @@ class ContributeViewController : UIViewController {
         
         lockUI()
         
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (Int64)(1 * Double(NSEC_PER_SEC))), dispatch_get_main_queue()) {
-            self.indicator.hidden = true
-            
-            let contributionNavigationController = self.parentViewController as! ContributionNavigationController
-            contributionNavigationController.amount = amount
-            contributionNavigationController.next()
-        }
+//        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (Int64)(1 * Double(NSEC_PER_SEC))), dispatch_get_main_queue()) {
+//            self.indicator.hidden = true
+//            
+//            let contributionNavigationController = self.parentViewController as! ContributionNavigationController
+//            contributionNavigationController.amount = amount
+//            contributionNavigationController.next()
+//        }
         
-//        var body = [String : AnyObject]()
-//        body["eventIden"] = event.iden
-//        body["pacIden"] = pac.iden
-//        body["amount"] = amounts[amountIndex]
-//        
-//        Requests.post(Endpoints.createContribution, withBody: body, completionHandler: { response, error in
-//            if response?.statusCode == 200 {
-//                UserData.update({ succeeded in
-//                    self.indicator.hidden = true
-//                    
-//                    let contributionNavigationController = self.parentViewController as! ContributionNavigationController
-//                    contributionNavigationController.amount = amount
-//                    contributionNavigationController.next()
-//                })
-//            } else {
-//                self.unlockUI()
-//                
-//                if let error = response?.body?["error"] as? [String : String] {
-//                    if let message = error["message"] {
-//                        showErrorDialogWithMessage(message, inViewController: self)
-//                        return
-//                    }
-//                }
-//                
-//                showErrorDialogWithMessage("Contribution failed, please try again.", inViewController: self)
-//            }
-//        })
+        var body = [String : AnyObject]()
+        body["eventIden"] = event.iden
+        body["pacIden"] = pac.iden
+        body["amount"] = amounts[amountIndex]
+        
+        Requests.post(Endpoints.createContribution, withBody: body, completionHandler: { response, error in
+            if response?.statusCode == 200 {
+                UserData.update({ succeeded in
+                    self.indicator.hidden = true
+                    
+                    let contributionNavigationController = self.parentViewController as! ContributionNavigationController
+                    contributionNavigationController.amount = amount
+                    contributionNavigationController.next()
+                    
+                    Analytics.track("contributed", properties: ["event_iden": self.event.iden, "pac_iden": self.pac.iden, "amount": amount])
+                })
+            } else {
+                self.unlockUI()
+                
+                if let error = response?.body?["error"] as? [String : String] {
+                    if let message = error["message"] {
+                        showErrorDialogWithMessage(message, inViewController: self)
+                        return
+                    }
+                }
+                
+                showErrorDialogWithMessage("Contribution failed, please try again.", inViewController: self)
+            }
+        })
     }
     
     private func lockUI() {

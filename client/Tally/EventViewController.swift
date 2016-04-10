@@ -84,6 +84,8 @@ class EventViewController: UIViewController {
             }
         }
         summary.attributedText = summaryAttributedString
+        
+        Analytics.track("event_selected")
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -174,7 +176,7 @@ class EventViewController: UIViewController {
             eventsViewController.politician = event.politician!
         } else if segue.identifier == "ContributionSegue" {
             let contributionNavigationController = segue.destinationViewController as! ContributionNavigationController
-            contributionNavigationController.prepareForEvent(event, inSupport: (sender as! UITapGestureRecognizer).view == support)
+            contributionNavigationController.prepareForEvent(event, inSupport: (sender as! UITapGestureRecognizer).view == support, fromList: false)
         }
     }
 }

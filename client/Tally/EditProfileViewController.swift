@@ -43,6 +43,8 @@ class EditProfileViewController : UIViewController {
         
         textChanged()
         
+        Analytics.track("enter_profile")
+        
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIKeyboardWillShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIKeyboardWillHideNotification, object: nil)
     }
@@ -86,6 +88,7 @@ class EditProfileViewController : UIViewController {
         
         Requests.post(Endpoints.updateProfile, withBody: body, completionHandler: { response, error in
             if response?.statusCode == 200 {
+                Analytics.track("updated_profile")
                 UserData.update({ succeeded in
                     self.next()
                 })

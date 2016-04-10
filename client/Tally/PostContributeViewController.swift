@@ -69,6 +69,8 @@ class PostContributeViewController : UIViewController {
             tweetShare.setInitialText(tweet.attributedText!.string)
             
             presentViewController(tweetShare, animated: true, completion: nil)
+            
+            Analytics.track("compose_tweet")
         } else {
             showErrorDialogWithMessage("Twitter app not found.", inViewController: self)
         }
@@ -84,6 +86,8 @@ class PostContributeViewController : UIViewController {
         }
         
         FBSDKShareDialog.showFromViewController(self, withContent: shareContent, delegate: nil)
+        
+        Analytics.track("share_on_facebook")
     }
     
     func done() {

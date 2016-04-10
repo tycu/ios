@@ -94,14 +94,14 @@ class EventsViewController : EventTableViewController {
     override func oppose(sender: UIButton) {
         let event = events[activeSort]![sender.tag]
         let contributionNavigationController = storyboard!.instantiateViewControllerWithIdentifier("ContributionNavigationController") as! ContributionNavigationController
-        contributionNavigationController.prepareForEvent(event, inSupport: false)
+        contributionNavigationController.prepareForEvent(event, inSupport: false, fromList: true)
         presentViewController(contributionNavigationController, animated: true, completion: nil)
     }
     
     override func support(sender: UIButton) {
         let event = events[activeSort]![sender.tag]
         let contributionNavigationController = storyboard!.instantiateViewControllerWithIdentifier("ContributionNavigationController") as! ContributionNavigationController
-        contributionNavigationController.prepareForEvent(event, inSupport: true)
+        contributionNavigationController.prepareForEvent(event, inSupport: true, fromList: true)
         presentViewController(contributionNavigationController, animated: true, completion: nil)
     }
     
@@ -144,7 +144,7 @@ class EventsViewController : EventTableViewController {
             return
         }
         
-        if UserData.instance == nil {
+        if UserData.instance == nil && sender as? NSObject == refreshControl! {
             UserData.update(nil)
         }
         

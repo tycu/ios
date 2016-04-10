@@ -17,6 +17,8 @@ class PacsViewController : UITableViewController {
         super.viewWillAppear(animated)
         
         heading.text = "Where would you like to contribute to" + (inSupport == true ? " support " : " oppose ") + event.politician.name + "?"
+        
+        Analytics.track("select_pac")
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -49,6 +51,8 @@ class PacsViewController : UITableViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        
+        Analytics.track("pac_selected")
         
         let contributionNavigationController = parentViewController as! ContributionNavigationController
         contributionNavigationController.selectedPac = pacs[indexPath.row]
