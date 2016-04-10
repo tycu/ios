@@ -12,9 +12,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GGLInstanceIDDelegate {
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         SSKeychain.setAccessibilityType(kSecAttrAccessibleAfterFirstUnlock)
-        Stripe.setDefaultPublishableKey("pk_test_Cp9lEtzreLcuDVH4IFE6RVhD")
         GCMService.sharedInstance().startWithConfig(GCMConfig.defaultConfig())
         Mixpanel.sharedInstanceWithToken("efa550b01666a789576f79f4b59fb12c")
+        
+        #if DEBUG
+            Stripe.setDefaultPublishableKey("pk_test_Cp9lEtzreLcuDVH4IFE6RVhD")
+        #else
+            Stripe.setDefaultPublishableKey("pk_live_EvHoe9L6R3fKkOyA6WNe3r1S")
+        #endif
         
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
         window!.backgroundColor = UIColor.whiteColor()
