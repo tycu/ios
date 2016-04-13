@@ -16,6 +16,7 @@ class ContributeViewController : UIViewController {
     @IBOutlet weak var total: UILabel!
     @IBOutlet weak var contribute: UIButton!
     @IBOutlet weak var indicator: UIActivityIndicatorView!
+    @IBOutlet weak var legal: MarkdownLabel!
     var event: Event!
     var pac: Pac!
     var inSupport: Bool!
@@ -60,6 +61,8 @@ class ContributeViewController : UIViewController {
         contribute.layer.cornerRadius = 6
         contribute.tintColor = Colors.primary
         contribute.addTarget(self, action: #selector(contributeTapped), forControlEvents: .TouchUpInside)
+        
+        legal.presentMarkdown("By contributing, you agree to Tally's [Terms of Service](http://www.tally.us/terms) and certify that you are obeying [campaign finance law](http://www.fec.gov/pages/brochures/citizens.shtml).")
         
         Analytics.track("make_contribution")
     }
