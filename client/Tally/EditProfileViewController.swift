@@ -116,11 +116,7 @@ class EditProfileViewController : UIViewController {
     }
     
     func keyboardWillShow(notification: NSNotification) {
-        print(scrollView.contentSize)
-        
         let contentInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: (notification.userInfo![UIKeyboardFrameBeginUserInfoKey] as! NSValue).CGRectValue().height, right: 0.0)
-        print(contentInsets)
-        
         scrollView.contentInset = contentInsets
         scrollView.scrollIndicatorInsets = contentInsets
     }

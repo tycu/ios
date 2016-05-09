@@ -1,4 +1,6 @@
-class SignedInViewController : EventTableViewController {
+import FBSDKShareKit
+
+class SignedInViewController : EventTableViewController, FBSDKAppInviteDialogDelegate {
     @IBOutlet weak var header: UIView!
     @IBOutlet weak var indicator: UIActivityIndicatorView!
     @IBOutlet weak var profileHolder: UIStackView!
@@ -13,6 +15,8 @@ class SignedInViewController : EventTableViewController {
     @IBOutlet weak var cardHolder: TouchStateView!
     @IBOutlet weak var cardImage: UIImageView!
     @IBOutlet weak var cardLabel: UILabel!
+    @IBOutlet weak var inviteHolder: TouchStateView!
+    @IBOutlet weak var inviteImage: UIImageView!
     @IBOutlet weak var contributions: UILabel!
     
     override func viewDidLoad() {
@@ -37,6 +41,12 @@ class SignedInViewController : EventTableViewController {
         cardImage.tintColor = UIColor.whiteColor()
         cardImage.layer.cornerRadius = 6
         cardImage.layer.masksToBounds = true
+        
+        inviteHolder.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(inviteFriends)))
+        
+        inviteImage.tintColor = UIColor.whiteColor()
+        inviteImage.layer.cornerRadius = 6
+        inviteImage.layer.masksToBounds = true
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -158,5 +168,19 @@ class SignedInViewController : EventTableViewController {
     
     func editCard() {
         performSegueWithIdentifier("AddCardSegue", sender: nil)
+    }
+    
+    func inviteFriends() {
+        let content = FBSDKAppInviteContent()
+        content.appLinkURL = NSURL(string: "https://fb.me/1030420230374246")!
+        content.appInvitePreviewImageURL = NSURL(string: "https://static.tally.us/images/kot9xqqdeq6ez5mis1621t1zhqwipb9.png")!
+        
+        FBSDKAppInviteDialog.showFromViewController(self, withContent: content, delegate: self)
+    }
+    
+    func appInviteDialog(appInviteDialog: FBSDKAppInviteDialog!, didCompleteWithResults results: [NSObject : AnyObject]!) {
+    }
+    
+    func appInviteDialog(appInviteDialog: FBSDKAppInviteDialog!, didFailWithError error: NSError!) {
     }
 }

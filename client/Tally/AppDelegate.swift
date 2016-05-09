@@ -77,6 +77,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GGLInstanceIDDelegate {
     }
     
     func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
+        let parsedUrl = BFURL.init(inboundURL: url, sourceApplication: sourceApplication)
+        if parsedUrl.appLinkData != nil {
+            return true
+        }
         return FBSDKApplicationDelegate.sharedInstance().application(application, openURL: url, sourceApplication: sourceApplication, annotation: annotation)
     }
     

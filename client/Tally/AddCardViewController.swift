@@ -1,6 +1,7 @@
 import Stripe
 
 class AddCardViewController : UIViewController, STPPaymentCardTextFieldDelegate {
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var cardField: STPPaymentCardTextField!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
@@ -10,12 +11,26 @@ class AddCardViewController : UIViewController, STPPaymentCardTextFieldDelegate 
         cardField.delegate = self
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIKeyboardWillHideNotification, object: nil)
+    }
+    
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
         cardField.becomeFirstResponder()
         
         Analytics.track("enter_card")
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillHideNotification, object: nil)
     }
     
     func paymentCardTextFieldDidChange(textField: STPPaymentCardTextField) {
@@ -92,5 +107,16 @@ class AddCardViewController : UIViewController, STPPaymentCardTextFieldDelegate 
     
     private func dismiss() {
         navigationController!.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func keyboardWillShow(notification: NSNotification) {
+        let contentInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: (notification.userInfo![UIKeyboardFrameBeginUserInfoKey] as! NSValue).CGRectValue().height, right: 0.0)
+        scrollView.contentInset = contentInsets
+        scrollView.scrollIndicatorInsets = contentInsets
+    }
+    
+    func keyboardWillHide(notification: NSNotification) {
+        scrollView.contentInset = UIEdgeInsetsZero
+        scrollView.scrollIndicatorInsets = UIEdgeInsetsZero
     }
 }
